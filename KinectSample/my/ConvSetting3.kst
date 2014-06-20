@@ -1,0 +1,19 @@
+Rps2Qua:ConvSettingFile:ver1001:type01
+
+00TOP_OF_JOINT, "原点_X", "twist"
+01SKEL_TORSO, "恥骨（全身の原点）_X", "twist"
+02SKEL_LEFT_HIP, "もも付け根_X+", "twist"
+03SKEL_LEFT_KNEE, "ひざ_X+", "nottwist"
+04SKEL_LEFT_FOOT, "かかと_X+", "twist"
+05SKEL_RIGHT_HIP, "もも付け根_X-", "twist"
+06SKEL_RIGHT_KNEE, "ひざ_X-", "nottwist"
+07SKEL_RIGHT_FOOT, "かかと_X-", "twist"
+08SKEL_NECK, "のど_X", "twist"
+09SKEL_HEAD, "アタマ_X", "twist"
+10SKEL_LEFT_SHOULDER, "肩_X+", "twist"
+11SKEL_LEFT_ELBOW, "ひじ_X+", "nottwist"
+12SKEL_LEFT_HAND, "手首_X+", "nottwist"
+13SKEL_RIGHT_SHOULDER, "肩_X-", "twist"
+14SKEL_RIGHT_ELBOW, "ひじ_X-", "nottwist"
+15SKEL_RIGHT_HAND, "手首_X-", "nottwist"
+

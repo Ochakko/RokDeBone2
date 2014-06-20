@@ -1,0 +1,2562 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+<LINK rel="stylesheet" href="cssfiles/sdktable.css" type="text/css" id="_HPB_TABLE_CSS_ID_">
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>RokDeBone2 Plugin SDK から呼び出せる関数</B></FONT><BR>
+<BR>
+<BR>
+</P>
+<TABLE border="1" cellspacing="0" cellpadding="2" id="_HPB_TABLE_1_A_051023065705" class="hpb-cnt-tb1" width="1219" height="637">
+  <TBODY>
+    <TR>
+      <TH class="hpb-cnt-tb-th1" width="160" height="11">関数名</TH>
+      <TH class="hpb-cnt-tb-th1" width="144" height="11">種類</TH>
+      <TH class="hpb-cnt-tb-th1" height="11" width="770">説明、引数</TH>
+      <TH class="hpb-cnt-tb-th1" height="11" width="124">バージョン</TH>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetVersion</TD>
+      <TD class="hpb-cnt-tb-cell2">version</TD>
+      <TD class="hpb-cnt-tb-cell2">RokDeBone2のバージョンを取得します。<BR>
+      <BR>
+      引数：<BR>
+      　int* verptr<BR>
+      　　　　[OUT]　バージョン番号がセットされます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetCurrentHSID</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ID</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">RokDeBone2で、現在操作対象になっている、モデルデータを識別するためのＩＤを取得します。<BR>
+      モデルデータを読み込んでいない場合は、-1が取得されます。<BR>
+      <BR>
+      プラグインの関数の最初で、必ず、チェックするようにしてください。<BR>
+      <BR>
+      引数：<BR>
+      　int* hsidptr<BR>
+      　　　[OUT]　モデルデータを識別するためのＩＤがセットされます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetCurrentMotID</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ID</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">RokDeBone2で、現在、操作対象になっているモーションを識別するためのＩＤを取得します。<BR>
+      モーションが存在しない場合は、-1が取得されます。<BR>
+      <BR>
+      引数：<BR>
+      　int hsid<BR>
+      　　　[IN]　モデルデータを識別するためのＩＤ<BR>
+      　int* motidptr<BR>
+      　　　[OUT]　モーションデータを識別するためのＩＤがセットされます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetSelectedJoint</TD>
+      <TD class="hpb-cnt-tb-cell2">ID</TD>
+      <TD class="hpb-cnt-tb-cell2">RokDeBone2で現在操作対象になっているジョイントを識別するためのIDを取得します。<BR>
+      マニピュレータの表示されているジョイントのIDです。<BR>
+      存在しない場合は０以下の値が取得されます。<BR>
+      <BR>
+      引数：<BR>
+      　int* hsidptr<BR>
+      　　　　[OUT]　カレントのモデルデータを識別するID。<BR>
+      　int* jointnoptr<BR>
+      　　　　[OUT]　操作対象のジョイントを識別するためのIDがセットされます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.4</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1"><IMG src="jpegfiles/button_new.gif" width="30" height="10" border="0">RDBSelectJoint</TD>
+      <TD class="hpb-cnt-tb-cell2">ID</TD>
+      <TD class="hpb-cnt-tb-cell2">ジョイントを選択状態にします。<BR>
+      選択状態のジョイントは３Dウインドウにマニピュレータが表示され<BR>
+      階層エディタで対応する名前が選択された状態になります。<BR>
+      <BR>
+      引数：<BR>
+      　int hsid<BR>
+      　　　[IN]　モデルデータを識別するためのＩＤ<BR>
+      　int jointno<BR>
+      　　　[IN]　選択したいジョイントを識別するID。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.5.0.5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetParent</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">階層</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">親のシリアル番号を取得します。<BR>
+      親は1個しかありません。<BR>
+      <BR>
+      引数：<BR>
+      　int hsid<BR>
+      　　　[IN]　モデルデータを識別するためのＩＤ<BR>
+      　int partno<BR>
+      　　　[IN]　パーツを識別するＩＤ、シリアル番号<BR>
+      　int* parentnoptr<BR>
+      　　　[OUT]　親のシリアル番号、親がないときは、-1がセットされる。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetChild</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">階層</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">子供のシリアル番号を取得します。<BR>
+      子供は、複数ある場合もあります。<BR>
+      <BR>
+      childarray配列に、<BR>
+      子供の数分の、シリアル番号が<BR>
+      代入されます。<BR>
+      <BR>
+      子供の数より、配列の長さが、大きいように<BR>
+      してください。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　parentno<BR>
+      　　親のジョイントの番号を指定してください。<BR>
+      <BR>
+      3. [OUT] int*　：　childarray<BR>
+      　　子供ジョイントの、シリアル番号が、代入されます。<BR>
+      　　arraylengがchildnumより、小さい場合は、<BR>
+      　　arrayleng個の、シリアル番号しか、代入されません。<BR>
+      <BR>
+      4. [IN] int　：　arrayleng<BR>
+      　　childarray引数に格納できる要素数を指定してください。<BR>
+      　　int childarray[100]; とした場合は、<BR>
+      　　１００を指定してください。<BR>
+      <BR>
+      　　childnum引数に代入される数が、arraylengより大きい場合は、<BR>
+      　　配列の長さが足りないことになります。<BR>
+      <BR>
+      5. [OUT] int*　：　childnum<BR>
+      　　子供ジョイントの数が、代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetName</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">名前</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">シリアル番号から、名前を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　parentno<BR>
+      　　シリアル番号を指定してください。<BR>
+      <BR>
+      3. [OUT] char*　：　nameptr<BR>
+      　　名前が代入されます。<BR>
+      <BR>
+      4. [IN] int　：　strleng<BR>
+      　　nameptrに渡した配列の長さを指定します。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetPartNoByName</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">名前</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">パーツ、ジョイントの名前から、<BR>
+      シリアル番号を取得します。<BR>
+      <BR>
+      同じ名前のパーツが、複数ある場合、<BR>
+      常に、一番最初に、見つかったパーツの番号が、取得されることに、注意してください。<BR>
+      ただし、表示オブジェクトと、ジョイントは、区別して、検索します。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するid<BR>
+      <BR>
+      2. [IN] char*　：　partname<BR>
+      　　RokDeBone2で表示される、パーツの名前。<BR>
+      <BR>
+      3. [IN] int　：　isjoint<BR>
+      　　表示オブジェクトを探すときは０，ジョイントを探すときは１を指定してください。<BR>
+      <BR>
+      3. [OUT] int*　：　partno<BR>
+      　　名前がpartnameである、パーツの番号が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetDispObjNum</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">表示オブジェクト情報</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">表示用オブジェクトの総数を取得します。<BR>
+      RDBGetDispObjInfoで詳細情報を取得する際の、<BR>
+      配列データの大きさの決定などに、<BR>
+      使用してください。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [OUT] int*　：　dispobjnumptr<BR>
+      　　表示オブジェクトの総数が、代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetDispObjInfo</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">表示オブジェクト情報</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">表示オブジェクトの詳細情報を、一括取得します。<BR>
+      <BR>
+      この関数を使用するには、<BR>
+      データ取得用の配列を、malloc命令を使って、<BR>
+      作成する必要があります。<BR>
+      （データによって、表示オブジェクトの総数が変化するので、ユーザーさん側で、データ長を調整する必要があります。）<BR>
+      <BR>
+      <BR>
+      まず、dispobjmaxnum変数に、<BR>
+      RDBGetDispObjInfo関数で、<BR>
+      表示オブジェクトの総数を取得してください。<BR>
+      <BR>
+      <BR>
+      dispobjname引数は、<BR>
+      <B>dispobjname = (char*)malloc( sizeof(char) * 256 * dispobjmaxnum );</B><BR>
+      で作成してください。<BR>
+      <BR>
+      dnoを０からdispobjmaxnum - 1とすると、<BR>
+      任意の表示オブジェクトの名前のポインターは、<BR>
+      dispobjname + 256 * jno<BR>
+      でアクセスできます。<BR>
+      <BR>
+      <BR>
+      dispobjinfo引数は、<BR>
+      <B>dispobjinfo = (int*)malloc( sizeof(int) * DOI_MAX * dispobjmaxnum );</B><BR>
+      で作成してください。<BR>
+      <BR>
+      <B>DOI_* は</B>、coef_r.h<BR>
+      で定義されている定数です。<BR>
+      <BR>#define global DOI_SERIAL	0<BR>
+#define global DOI_NOTUSE	1<BR>
+#define global DOI_DISPSWITCH	2<BR>
+      #define global DOI_INVISIBLE 3<BR>
+#define global DOI_MAX		4<BR>
+<BR>
+      のように、定義されています。<BR>
+      <B>配列のインデックスとして、使用してください。</B><BR>
+      <BR>
+      <B>DOI_SERIAL</B>インデックスは、<BR>
+      表示オブジェクトのシリアル番号にアクセスするときに、<BR>
+      使用します。<BR>
+      表示オブジェクトのシリアル番号とは、<BR>
+      RDBGetPartNoByName　<BR>
+      で取得できる番号と同じものです。<BR>
+      <BR>
+      <B>DOI_NOTUSE</B>インデックスは、<BR>
+      表示オブジェクトが無効になっているかどうかの<BR>
+      フラグにアクセスするときに、使用します。<BR>
+      無効なときに１が、有効なときに０が代入されています。<BR>
+      <BR>
+      <B>DOI_DISPSWITCH</B>インデックスは、<BR>
+      表示オブジェクトのディスプレイスイッチの番号<BR>
+      にアクセスするときに使用します。<BR>
+      ディスプレイスイッチは、<BR>
+      RokDeBone2で、パーツごとに設定可能です。<BR>
+      詳しくは、RokDeBone2のマニュアルをご覧ください。<A href="rdb2_dispswitch.htm"><BR>
+      <BR>
+      </A><BR>
+      <B>DOI_INVISIBLE</B>インデックスは、<BR>
+      表示オブジェクトが表示されているかどうかのフラグにアクセスするときに使用します。<BR>
+      <BR>
+      <BR>
+      <B>DOI_MAX</B>は、<BR>
+      DOI_　で始まる定数の個数を定義しています。<BR>
+      dispobjinfoをmallocするときに使用します。<BR>
+      <BR>
+      <BR>
+      dnoを０からdispobjmaxnum - 1とすると、<BR>
+      任意の表示オブジェクト情報のシリアル番号には、<BR>
+      *( dispobjinfo + DOI_MAX * dno + DOI_SERIAL )<BR>
+      でアクセスできます。<BR>
+      <BR>
+      同様に、ディスプレイスイッチは、<BR>
+      *( dispobjinfo + DOI_MAX * dno + DOI_DISPSWITCH )<BR>
+      でアクセスできます。<BR>
+      <BR>
+      <B>mallocしたポインタは、用事が済んだら、<BR>
+      freeすることをお忘れなく。<BR>
+      </B><BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　dispobjmaxnum<BR>
+      　　データ取得用配列の大きさ（表示オブジェクトの数）を指定します。<BR>
+      <BR>
+      3. [OUT] char*　：　dispobjname<BR>
+      　　名前情報を取得するための配列を渡してください。<BR>
+      　　上に書いた方法で、<B>mallocしたポインタ</B>を渡してください。<BR>
+      <BR>
+      4. [OUT] int*　：　dispobjinfo<BR>
+      　　シリアル番号などを取得するための配列変数を渡してください。<BR>
+      　　上に書いた方法で、<B>mallocしたポインタ</B>を渡してください。<BR>
+      <BR>
+      5. [OUT] int*　：　dispobjgetnum<BR>
+      　　何個ｌの表示オブジェクトの情報を出力したかが、代入されます。<BR>
+      　　通常は、dispobjmaxnumと同じ値が取得されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetClockwise</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">表示オブジェクト情報</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">表面、裏面、両面のどの表示モードになっているかを取得します。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するid<BR>
+      <BR>      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号<BR>
+      <BR>
+      3. [OUT] int*　：　clockwiseptr<BR>
+      　　表面の時は２<BR>
+      　　裏面の時は１<BR>
+      　　両面の時は３が代入されます。<BR>
+      　　<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetJointNum</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ジョイント情報</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">ジョイントの総数を取得します。<BR>
+      <BR>
+      RDBGetJointInfoで詳細情報を取得する際の、<BR>
+      配列データの大きさの決定などに、<BR>
+      使用してください。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [OUT] int*　：　jointnumptr<BR>
+      　　ジョイントの総数が、代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetJointInfo</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ジョイント情報</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">ジョイントの詳細情報を、一括取得します。<BR>
+      <BR>
+      この関数を使用するには、<BR>
+      データ取得用の配列を、malloc命令などを使って、<BR>
+      作成する必要があります。<BR>
+      （データによって、ジョイントの総数が変化するので、ユーザーさん側で、データ長を調整する必要があります。）<BR>
+      <BR>
+      <BR>
+      まず、jointmaxnum変数に、<BR>
+      RDBGetJointInfo関数で、<BR>
+      ジョイントの総数を取得してください。<BR>
+      <BR>
+      jointname引数は、<BR>
+      <B>jointname = (char*)malloc( sizeof(char) * 256 * jointmaxnum );</B><BR>
+      で作成してください。<BR>
+      mallocが嫌な方は、<BR>
+      char jointname[maxnum][256];<BR>
+      のように、jointmaxnumより大きい値maxnumで配列を確保してください。<BR>
+      <BR>
+      jno を０からjointmaxnum - 1としたとき、<BR>
+      任意のジョイントの名前へのポインタは、<BR>
+      jointname + 256 * jno<BR>
+      でアクセスできます。<BR>
+      <BR>
+      <BR>
+      jointinfo引数は、<BR>
+      <B>jointinfo = (int*)malloc( sizeof(int) * JI_MAX * jointmaxnum );</B><BR>
+      で作成してください。<BR>
+      mallocが嫌な方は、<BR>
+      int jointinfo[maxnum][JI_MAX];<BR>
+      のように、jointmaxnumより大きい値maxnumで配列を確保してください。<BR>
+      <BR>
+      <BR>
+      <B>JI_* は</B>、coef_v.hの<BR>
+      最初の方で定義されている定数です。<BR>
+      <BR>#define global JI_SERIAL 	0 <BR>
+#define global JI_NOTUSE	1<BR>
+#define global JI_PARENT	2<BR>
+#define global JI_CHILD		3<BR>
+#define global JI_BROTHER	4<BR>
+#define global JI_SISTER	5<BR>
+#define global JI_MAX		6<BR>
+<BR>
+      のように、定義されています。<BR>
+      <B>配列のインデックスとして、使用してください。</B><BR>
+      <BR>
+      <B>JI_SERIAL</B>インデックスは、<BR>
+      ジョイントのシリアル番号にアクセスするときに、<BR>
+      使用します。<BR>
+      <BR>
+      <B>JI_NOTUSE</B>インデックスは、<BR>
+      ジョイントが無効になっているかどうかの<BR>
+      フラグにアクセスするときに、使用します。<BR>
+      無効なときに１が、有効なときに０が代入されています。<BR>
+      <BR>
+      <B>JI_PARENT, JI_CHILD,<BR>
+      JI_BROTHER, JI_SISTER</B>インデックスは、<BR>
+      ジョイントの階層構造にアクセスするときに<BR>
+      使用します。<BR>
+      詳しくは、<BR>
+      <A href="e3dhsp_jointtree.htm">ジョイントの階層構造のページ</A><BR>
+      をご覧ください。<BR>
+      <BR>
+      <B>JI_MAX</B>は、<BR>
+      JI_　で始まる定数の個数を定義しています。<BR>
+      jointinfoをmallocするときに使用します。<BR>
+      <BR>
+      <BR>
+      jnoを０からjointmaxnum - 1 としたとき、<BR>
+      任意のジョイントのシリアル番号は、<BR>
+      *( jointinfo + JI_MAX * jno + JI_SERIAL )<BR>
+      でアクセスできます。<BR>
+      <BR>
+      同様に、親の番号は、<BR>
+      *( jointinfo + JI_MAX * jno + JI_PARENT )<BR>
+      でアクセスできます。<BR>
+      <BR>
+      <B>mallocしたポインターは、用が済んだら<BR>
+      freeすることをお忘れなく。<BR>
+      </B><BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　jointmaxnum<BR>
+      　　データ取得用配列の大きさ（ジョイントの数）を指定します。<BR>
+      <BR>
+      3. [OUT] char*　：　jointname<BR>
+      　　名前情報を取得するための配列を渡してください。<BR>
+      　　上に書いた方法で、<B>mallocしたポインタ</B>を渡してください。<BR>
+      <BR>
+      4. [OUT] int*　：　jointinfo<BR>
+      　　シリアル番号や、階層構造などを取得するための配列変数を渡してください。<BR>
+      　　上に書いた方法で、<B>mallocしたポインタ</B>を渡してください。<BR>
+      <BR>
+      5. [OUT] int*　：　jointgetnum<BR>
+      　　何個ｌのジョイントの情報を出力したかが、代入されます。<BR>
+      　　通常は、jointmaxnumと同じ値が取得されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBIsJoint</TD>
+      <TD class="hpb-cnt-tb-cell2">ジョイント情報</TD>
+      <TD class="hpb-cnt-tb-cell2">指定したパーツが、ジョイントかどうかを判定します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するid<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号<BR>
+      <BR>
+      3. [OUT] int*　：　isjoint<BR>
+      　　ジョイントだった場合は　１　が、<BR>
+      　　ジョイントではない場合は　０　が、セットされます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBCreateBone</TD>
+      <TD class="hpb-cnt-tb-cell2">ジョイント情報</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーンを新規に作成します。<BR>
+      読み込み済みのモーションは全て破棄されます。<BR>
+      影響度の再計算はしません。<BR>
+      ボーンの位置はRDBSetJointInitialPosで設定してください。<BR>
+      <BR>
+      仕様上ボーンを破棄するとゴミデータが残ります。<BR>
+      ゴミデータはあまり多くなると描画速度に影響します。<BR>
+      RDBCreateBoneにはゴミデータが存在すればそれを再利用するような仕組みがあります。<BR>
+      ですのでまず不要なボーンをRDBDestroyBoneした後にRDBCreateBoneするとゴミが少なくて済みます。<BR>
+      ゴミの掃除の仕方はRokDeBone2ver5.2.1.3の新機能のページの説明をご覧ください。<BR>
+      <BR>
+      引数：<BR>1. [IN] int　：　hsid<BR>
+      　　モデルデータを識別するID。<BR>
+      <BR>
+      2. [IN] const char*　：　nameptr<BR>
+      　　ボーンの名前を格納した文字列。<BR>
+      　　２５５バイトまでです。<BR>
+      　　終端はNULL（０）にしてください。<BR>
+      <BR>
+      3. [IN] int　：　parentid<BR>
+      　　親になるジョイントを識別するパーツのID。<BR>
+      　　一番親のボーンを作成する場合以外は必ずジョイントのIDを指定してください。<BR>
+      　　一番親のボーンを作成するときは-1を指定してください。-1を指定するとパーツをまとめる役割をするパーツのうちで一番最後に作られたパーツが親になります。<BR>
+      ( 通常は「Joint Part」という名前のパーツになります。)<BR>
+      <BR>
+      4. [OUT] int*　：　serialidptr<BR>
+      　　新たに作成されたボーンを識別するID(パーツのID)が代入されます。<BR>
+      　　エラーが生じた場合は-1が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.4</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBDestroyBone</TD>
+      <TD class="hpb-cnt-tb-cell2">ジョイント情報</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーンを破棄します。<BR>
+      読み込み済みのモーションは全て破棄されます。<BR>
+      影響度の再計算は強制的に行われます。<BR>
+      <BR>
+      RDBCreateBoneの説明もお読みください。<BR>
+      <BR>
+      引数：<BR>1. [IN] int　：　hsid<BR>
+      　　モデルデータを識別するID。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　削除したいボーンを識別するID。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.4</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetJointInitialPos</TD>
+      <TD class="hpb-cnt-tb-cell2">ジョイント情報</TD>
+      <TD class="hpb-cnt-tb-cell2">ジョイント（ボーン）の初期位置をローカル座標系で設定します。<BR>
+      <BR>
+      引数：<BR>1. [IN] int　：　hsid<BR>
+      　　形状データを識別するid<BR>
+      <BR>
+      2. [IN] int　：　jointno<BR>
+      　　ジョイントを識別するパーツのid<BR>
+      <BR>
+      3. [IN] RDBPoint　：　pos<BR>
+      　　ジョイントの位置をローカル座標系で指定します。<BR>
+      <BR>
+      4. [IN] int　：　calcflag<BR>
+      　　頂点の影響度の再計算をするときは１を、しないときは０を指定します。<BR>
+      <BR>
+      5. [IN] int　：　excludeflag<BR>
+      　　calcflagに１を指定したときのみ意味を持ちます。<BR>
+      　　１を指定すると無効にしているパーツの影響度は再計算しません。<BR>
+      　　０を指定すると無効にしているパーツも全て再計算の対象になります。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.4</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetVertNumOfPart</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">頂点位置</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">partnoで識別されるパーツに、<BR>
+      いくつの頂点が含まれるかを取得します。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するid<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号<BR>
+      <BR>
+      3. [OUT] int*　：　vertnum<BR>
+      　　パーツに含まれる頂点数が代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetVertPos</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">頂点位置</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">partnoで識別されるパーツ内の、頂点番号vertnoの、頂点の座標を取得します。<BR>
+      <BR>
+      ボーン変形や、カメラ移動などの影響を受けていない<BR>
+      <U>ローカルな座標値</U>が、返されます。<BR>
+      <BR>
+      ボーン変形を考慮した座標を取得したい場合は、<BR>
+      RDBGetVertPos2を使用してください。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するid<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　頂点の番号<BR>
+      <BR>
+      4. [OUT] RDBPoint*　：　vertpos<BR>
+      　　頂点の座標が代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetVertPos2</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">頂点位置</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">partnoで識別されるパーツ内の、頂点番号vertnoの、頂点の座標を取得します。<BR>
+      ボーン変形後の座標を取得できます。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するid<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　頂点の番号<BR>
+      <BR>
+      4. [IN] int　：　motid<BR>
+      　　モーションを識別するＩＤ<BR>
+      <BR>
+      5. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号<BR>
+      <BR>
+      6. [OUT] RDBPoint*　：　vertpos<BR>
+      　　頂点の座標が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetVertNoOfFace</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">頂点位置</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">facenoで指定した面に含まれる頂点の番号を<BR>
+      ３つ取得します。（３角形の頂点です）<BR>
+      <BR>
+      RDBGetSamePosVertの説明も<BR>
+      お読みください。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　faceno<BR>
+      　　面を識別する番号を指定してください。<BR>
+      <BR>
+      4. [OUT] int*　：　vertnoptr1<BR>
+      5. [OUT] int*　：　vertnoptr2<BR>
+      6. [OUT] int*　：　vertnoptr3<BR>
+      　　３角形の面を構成する３つの頂点の番号が<BR>
+      　　代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetSamePosVert</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">頂点位置</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">モデルデータ中には、同じ頂点座標で、<BR>
+      ＵＶ座標だけ違う頂点が存在します。<BR>
+      <BR>
+      同じ位置の頂点の番号を取得する関数です。<BR>
+      RDBGetVertNoOfFaceと組み合わせて<BR>
+      使うことを想定しています。<BR>
+      <BR>
+      samevertno には、見つかった頂点数分の<BR>
+      頂点番号が代入されます。<BR>
+      <BR>
+      <BR>
+      int samevertno[5];<BR>
+      などで、長さ５くらいの配列を用意してください。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　頂点を識別する番号を指定してください。<BR>
+      <BR>
+      4. [OUT] int*　：　samevertno<BR>
+      　　dim samevertno, arraylengで作成した配列を指定してください。<BR>
+      　　見つかった頂点の番号が代入されます。<BR>
+      <BR>
+      5. [IN] int　：　arrayleng<BR>
+      　　samevertno配列を作成したときの大きさを指定してください。<BR>
+      <BR>
+      6. [OUT] int*　：　samenum<BR>
+      　　見つかった頂点の数が代入されます。<BR>
+      　　つまり、maxindex = samenum - 1とすると<BR>
+      　　samevertno[0] から　samevertno[maxindex]<BR>
+      　　まで、見つかった頂点の番号が、代入されていることになります。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetNormal</TD>
+      <TD class="hpb-cnt-tb-cell2">頂点位置</TD>
+      <TD class="hpb-cnt-tb-cell2">表示用オブジェクトの、法線を取得します。<BR>
+      <BR>
+      オブジェクトの頂点の数分の法線を、一括で、取得します。<BR>
+      <BR>
+      モーションを適用した法線を取得したい場合は、motidにRDBGetCurrentMotIDで取得したＩＤを渡し、<BR>
+      モーションを適用していない、初期状態の法線を取得したい場合は、motid に　-1 を渡します。<BR>
+      <BR>
+      法線取得用のメモリは、プラグイン作成者が、作成、破棄してください。<BR>
+      <BR>
+      具体的な使用例は、<B>ShapeExporter.cpp</B>にありますので、ご覧ください。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別するＩＤを指定してください。<BR>
+      　　初期状態の法線を取得したい場合は、-1を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号を指定してください。<BR>
+      　　motidに-1以外を指定したときに、参照されます。<BR>
+      <BR>
+      5. [OUT] RDBPoint*　：　normalptr<BR>
+      　　頂点の数分の法線が、代入されます。<BR>
+      　　RDBGetVertNumOfPart( hsid, partno, &amp;vertnum );<BR>
+      　　normalptr = (RDBPoint*)malloc( sizeof( RDBPoint ) * vertnum );<BR>
+      　　などで、取得用のメモリを作成してください。<BR>
+      <BR>
+      6. [IN] int　：　arrayleng<BR>
+      　　normalptrに渡した、メモリの要素数を指定してください。<BR>
+      　　normalptr = (RDBPoint*)malloc( sizeof( RDBPoint ) * vertnum );<BR>
+      　　で作成した場合は、vertnumを指定してください。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.0.7.7で追加</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetOrgVertNo</TD>
+      <TD class="hpb-cnt-tb-cell2">頂点情報</TD>
+      <TD class="hpb-cnt-tb-cell2">mqoファイル内での頂点番号を取得する。<BR>
+      <BR>
+      パーツ内の頂点の数は、RDBGetVertNumOfPartのvertnumで取得されます。<BR>
+      <BR>
+      プラグインの関数では、頂点の番号に、０から(vertnum - 1)の頂点の番号を使用できます。<BR>
+      <BR>
+	この頂点の番号は、表示用の最適化をした後の、頂点の番号で、<BR>
+      rok, mqoファイル内での頂点の番号と異なる場合があります。<BR>
+      <BR>
+      この関数は、最適化後の頂点番号に対応する、rok,mqoファイル内での頂点の番号を取得します。<BR>
+      <BR>
+      mqoの場合は、<BR>
+      mqoファイル中の、パーツごとの頂点の出現順番を返します。（０から始まる数字）<BR>
+      <BR>
+      rokの場合は、<BR>
+      rokファイル中の、１から始まる頂点のインデックスを返します。<BR>
+      rokの場合は、パーツごとの番号ではなくて、<BR>
+      頂点全体を通しての番号ですので<BR>
+      注意してください。<BR>
+      <BR>
+      <BR>
+      指定した頂点と同じ座標を持つ頂点の番号が代入されるので、場合によっては、複数取得されます。<BR>
+      <BR>
+      <BR>
+      この関数を使う前に、<BR>
+      <B>RDBChkIM2Status関数で、引数に<BR>
+      １が返されることを確認してください。</B><BR>
+      ０が返された場合は、sigファイルを新しい形式にコンバートする必要があります。<BR>
+      <BR>
+      orgarraylengに、取得できる情報の数をセットして、<BR>
+      int* orgnoarray = (int*)malloc( sizeof( int ) * orgarrayleng );<BR>
+      で、メモリを確保してください。<BR>
+      または、単に、int orgnoarray[ orgarrayleng ]; でもいいです。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　取得したいパーツの番号を指定します。<BR>
+      　　RDBGetPartNoByNameで取得した番号を渡してください。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　調べたい頂点の番号を指定してください。<BR>
+      <BR>
+      4. [OUT] int*　：　orgnoarray<BR>
+      　　この配列に、元データの頂点の番号が代入されます。<BR>
+      　　maxindex = getnum - 1とすると<BR>
+      　　*orgnoarray から、*(orgnoarray + maxindex)までに<BR>
+      　　頂点の番号が代入されます。<BR>
+      <BR>
+      5. [IN] int　：　arrayleng<BR>
+      　　orgnoarrayをmallocしたときの、配列の大きさ(要素数)を指定してください。<BR>
+      <BR>
+      <BR>
+      6. [OUT] int*　：　getnum<BR>
+      　　この関数が、orgnoarrayに代入した情報の数を取得できます。<BR>
+      <BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.1.1.5で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetInfElemNum</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">影響度</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">頂点毎のボーンの影響数を取得します。<BR>
+      <BR>
+      ２と取得された場合、<BR>
+      その頂点は、2個のボーンの影響を受けることを意味します。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　頂点を識別する番号を指定してください。<BR>
+      <BR>
+      4. [OUT] int*　：　numptr<BR>
+      　　ボーンの影響数がセットされます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetInfElem</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">影響度</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">頂点毎のボーンの影響度を取得します。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　頂点を識別する番号を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　infno<BR>
+      　　要素の番号<BR>
+      　　RDBGetInfElemNum で取得した数をnumとすると、<BR>
+      　　この引数には、０から（num - 1）までの値を指定してください。<BR>
+      <BR>
+      5. [OUT] int*　：　bonenoptr<BR>
+      　　影響を受けるボーンのシリアル番号<BR>
+      　　<B>-1がセットされたときは、無効なデータを意味します。</B><BR>
+      <BR>
+      6. [OUT] float*　：　rateptr<BR>
+      　　*bonenoptrにセットされたボーンからの影響度が、代入されます。<BR>
+      <BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetInfElem</TD>
+      <TD class="hpb-cnt-tb-cell2">影響度</TD>
+      <TD class="hpb-cnt-tb-cell2">頂点にボーン影響度を設定します。<BR>
+      <BR>
+      paintmodeの意味<BR>
+      paintmodeは、影響度の設定方法を表します。<BR>
+      coef_r.h内で、PAINT_で始まる定数で、<BR>
+      enum {<BR>
+      PAINT_NOR,<BR>
+      PAINT_EXC,<BR>
+      PAINT_ADD,<BR>
+      PAINT_SUB,<BR>
+      PAINT_ERA,<BR>
+      PAINT_MAX<BR>
+      };<BR>
+      <BR>
+      NORは、<BR>
+      すでに設定してある影響度情報に、影響度データを追加します。<BR>
+      同じボーンの情報が既にある場合は、上書きします。<BR>
+      EXCは、すでに設定してある影響度情報を、破棄してから、影響度データを設定します。<BR>
+      ADDは、すでに設定してある影響度の比重に、指定した比重を足し算します。<BR>
+      SUBは、すでに設定してある影響度の比重から、指定した比重を引き算します。<BR>
+      ERAは、指定したボーンの影響度データを削除します。<BR>
+      <BR>
+      <BR>
+      calcmodeの意味<BR>
+      calcmodeは、影響度の計算方法を表します。<BR>
+      coef_r.h中で定義されているCALCMODE_で始まる定数を使用します。<BR>
+      以下のように定義されています。<BR>
+      enum{<BR>
+      CALCMODE_NOSKIN0,<BR>
+      CALCMODE_ONESKIN0,<BR>
+      CALCMODE_ONESKIN1,<BR>
+      CALCMODE_DIRECT0,<BR>
+      CALCMODE_SYM,<BR>
+      CALCMODE_MAX<BR>
+      };<BR>
+      <BR>
+      NOSKIN0は、スキニング無し。<BR>
+      ONESKIN0は、距離と角度によりスキニング。<BR>
+      ONESKIN1は、距離のみによりスキニング。<BR>
+      DIRECT0は、直接数値指定。<BR>
+      SYMは、対称コピーによる指定。<BR>
+      を表します。<BR>
+      <BR>
+      <BR>
+      calcmodeとpaintmodeの依存関係<BR>
+      CALCMODE_NOSKIN0のときは、PAINT_EXCを設定してください。<BR>
+      CALCMODE_DIRECT0のときは、PAINT_NORまたは、PAINT_EXCを設定してください。<BR>
+      <BR>
+      <BR>
+      Easy3D内部での影響度の計算方法<BR>
+      影響度を算出する際には、<BR>
+      orginf, dispinf, userrate, normalizeflagを使います。<BR>
+orginfは、calcmodeで指定した方法で、算出した影響度。<BR>
+userrateは、比重。<BR>
+normalizeflagは、正規化（一つの頂点の影響度の合計が１になるようにする）をするかどうかのフラグ。<BR>
+      <B>dispinfが、最終的な、影響度。</B><BR>
+      まず、InfElemごとに、以下の計算をします。<BR>
+      orginf * userrate / 100<BR>
+normalizeflagが０のときは、この値がそのまま、dispinfになります。<BR>
+      normalizeflagが１のときは、<BR>
+      全部のInfElemの影響度（dispinf）の合計が１になるように、正規化します。<BR>
+      <BR>
+      <BR>
+      directvalは、CALCMODE_DIRECT0のときのみ意味を持ちます。この値をorginfとして設定します。<BR>
+      正の小数を指定してください。<BR>
+      <BR>
+      <BR>
+      <U>スムージング角度の関係などで、同じ位置に複数の頂点が存在する場合があります。<BR>
+      これらの頂点を同時に同じように設定しないと、ボーン変形が、乱れることがあるので、注意してください。<BR>
+      </U><BR>
+      <BR>
+      childjointnoは、ボーンの線分の内の子供のジョイントの番号です。<BR>
+      childjointnoには、必ず親が存在するジョイントの番号を指定してください。<BR>
+      <U>一番親のジョイントは、childjointには、指定できません。</U><BR>
+      <BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツの番号を指定します。<BR>
+      　　RDBGetPartNoByNameで取得した番号を渡してください。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　頂点の番号<BR>
+      <BR>
+      4. [IN] int　：　childjointno<BR>
+      　　影響を受けるボーンの指定。<BR>
+      　　ボーンの線分の内、子供の方のジョイントの番号を<BR>
+      　　指定します。<BR>
+      <BR>
+      5. [IN] int　：　calcmode<BR>
+      　　影響度の計算方法を指定します。<BR>
+      <BR>
+      6. [IN] int　：　paintmode<BR>
+      　　影響度の設定方法を指定します。<BR>
+      <BR>
+      7. [IN] int　：　normalizeflag<BR>
+      　　正規化をするときは１、<BR>
+      　　しないときは０を指定します。<BR>
+      <BR>
+      8. [IN] float　：　userrate<BR>
+      　　比重％の値を指定します。<BR>
+      　　１００％の時は、100.0を指定します。<BR>
+      <BR>
+      9. [IN] float　：　directval<BR>
+      　　直接数値指定の数値を指定します。<BR>
+      <BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.1.1.5で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBChkIM2Status</TD>
+      <TD class="hpb-cnt-tb-cell2">影響度</TD>
+      <TD class="hpb-cnt-tb-cell2">影響マップ情報（im2）が、利用可能かどうかを調べます。<BR>
+      <BR>
+      status引数に１が返された場合は、<BR>
+      利用可能。<BR>
+      ０が返された場合は、<BR>
+      利用不可能です。<BR>
+      <BR>
+      ０が返された場合は、sigファイルを新しい形式にコンバートする必要があります。<BR>
+      <BR>
+      <BR>
+      RDBGetOrgVertNoを使用する前に、<BR>
+      このRDBChkIM2Status関数で、<BR>
+      影響マップファイルの機能が使えるかどうかを<BR>
+      調べてください。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [OUT] int*　：　status<BR>
+      　　影響マップ情報が、利用可能かどうかが代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.1.1.5で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetFaceNum</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">面</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">表示オブジェクトの面の数を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [OUT] int*　：　numptr<BR>
+      　　面の数が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetTriIndices</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">面</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">表示用パーツの、TRIANGLELISTを取得します。<BR>
+      一つの3角形に付き、3つの頂点番号が取得されます。<BR>
+      <BR>
+      取得に必要なバッファの長さを取得するためには、<BR>
+      wordnum引数に０をセットします。<BR>
+      <BR>
+      バッファ長を取得した後、バッファをアロケートし、<BR>
+      そのバッファに情報を代入するために、もう一度、この関数を呼んでください。<BR>
+      <BR>
+      <BR>
+      具体的には、以下のようになります。<BR>
+      WORD* buf = 0;<BR>
+		int wordnum, setwordnum, revflag;<BR>
+      RDBGetTriIndices( hsid, partno, buf, <B>0</B>, &amp;setwordnum, &amp;revflag );<BR>
+      <BR>
+      buf = (WORD*)malloc( sizeof( WORD ) * setwordnum );<BR>
+      <BR>
+		wordnum = setwordnum;<BR>
+      RDBGetTriIndices( hsid, partno, buf, wordnum, &amp;setwordnum, &amp;revflag
+      );<BR>
+      <BR>
+      <BR>
+		free( buf );<BR>
+<BR>
+      <U><B>bufはint*ではなくて、WORD*なので、注意してください。</B></U><BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [OUT] WORD*　：　buf<BR>
+      　　インデックスが代入されるバッファを指定してください。<BR>
+      <BR>
+      4. [IN] int　：　wordnum<BR>
+      　　bufの要素数を指定してください。<BR>
+      　　バッファ長が、sizeof( WORD ) * wordnumとRDBが解釈します。<BR>
+      　　必要なバッファ長を調べたいだけのときは、０を指定してください。<BR>
+      <BR>
+      5. [OUT] int*　：　setwordnumptr<BR>
+      　　wordnumに０を指定したときには、必要なバッファの要素数を、<BR>
+      　　それ以外の時は、bufに代入したWORDの要素数を代入します。<BR>
+      <BR>
+      6. [OUT] int*　：　revflagptr<BR>
+      　　表示パーツが両面表示の時に１がセットされます。<BR>
+      　　bufには、片面の情報のみしか代入されません。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetTriIndicesInt</TD>
+      <TD class="hpb-cnt-tb-cell2">面</TD>
+      <TD class="hpb-cnt-tb-cell2">表示用パーツの、TRIANGLELISTを取得します。RDBGetTriIndicesの３２ビット版です。<BR>
+      一つの3角形に付き、3つの頂点番号が取得されます。<BR>
+      <BR>
+      取得に必要なバッファの長さを取得するためには、<BR>
+      intnum引数に０をセットします。<BR>
+      <BR>
+      バッファ長を取得した後、バッファをアロケートし、<BR>
+      そのバッファに情報を代入するために、もう一度、この関数を呼んでください。<BR>
+      <BR>
+      <BR>
+      具体的には、以下のようになります。<BR>
+      int* buf = 0;<BR>
+      int intnum, setintnum, revflag;<BR>
+      RDBGetTriIndicesInt( hsid, partno, buf, <B>0</B>, &amp;setintnum, &amp;revflag );<BR>
+      <BR>
+      buf = (int*)malloc( sizeof( int ) * setintnum );<BR>
+      <BR>
+      intnum = setintnum;<BR>
+      RDBGetTriIndicesInt( hsid, partno, buf, intnum, &amp;setintnum, &amp;revflag
+      );<BR>
+      <BR>
+      <BR>
+		free( buf );<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [OUT] int*　：　buf<BR>
+      　　インデックスが代入されるバッファを指定してください。<BR>
+      <BR>
+      4. [IN] int　：　intnum<BR>
+      　　bufの要素数を指定してください。<BR>
+      　　バッファ長が、sizeof( int ) * intnumとRDBが解釈します。<BR>
+      　　必要なバッファ長を調べたいだけのときは、０を指定してください。<BR>
+      <BR>
+      5. [OUT] int*　：　setintnumptr<BR>
+      　　intnumに０を指定したときには、必要なバッファの要素数を、<BR>
+      　　それ以外の時は、bufに代入したintの要素数を代入します。<BR>
+      <BR>
+      6. [OUT] int*　：　revflagptr<BR>
+      　　表示パーツが両面表示の時に１がセットされます。<BR>
+      　　bufには、片面の情報のみしか代入されません。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetAlpha</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">色</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">パーツの透明度を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　取得したいパーツの番号を指定します。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　この引数は、現在、使用されません。<BR>
+      　　適当な数字を入れてください。<BR>
+      <BR>
+      4. [OUT] int*　：　alpha<BR>
+      　　指定したパーツの透明度が、０～２５５の値で代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetDiffuse</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">色</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">パーツの任意の頂点のdiffuse色を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　取得したいパーツの番号を指定します。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　色を取得したい頂点の番号を指定します。<BR>
+      <BR>
+      4. [OUT] int*　：　r<BR>
+      5. [OUT] int*　：　g<BR>
+      6. [OUT] int*　：　b<BR>
+      　　　指定した頂点のdiffuse色が、<BR>
+      　　　RGB = ( r, g, b )に代入されます。<BR>
+      　　　r, g, bそれぞれ、０から２５５の値が代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetAmbient</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">色</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">パーツの任意の頂点のambient色を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　取得したいパーツの番号を指定します。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　色を取得したい頂点の番号を指定します。<BR>
+      <BR>
+      4. [OUT] int*　：　r<BR>
+      5. [OUT] int*　：　g<BR>
+      6. [OUT] int*　：　b<BR>
+      　　　指定した頂点のambient色が、<BR>
+      　　　RGB = ( r, g, b )に代入されます。<BR>
+      　　　r, g, bそれぞれ、０から２５５の値が代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetSpecular</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">色</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">パーツの任意の頂点のspecular色を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　取得したいパーツの番号を指定します。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　色を取得したい頂点の番号を指定します。<BR>
+      <BR>
+      4. [OUT] int*　：　r<BR>
+      5. [OUT] int*　：　g<BR>
+      6. [OUT] int*　：　b<BR>
+      　　　指定した頂点のspecular色が、<BR>
+      　　　RGB = ( r, g, b )に代入されます。<BR>
+      　　　r, g, bそれぞれ、０から２５５の値が代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetEmissive</TD>
+      <TD class="hpb-cnt-tb-cell2">色</TD>
+      <TD class="hpb-cnt-tb-cell2">パーツの任意の頂点のemissive色を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　取得したいパーツの番号を指定します。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　色を取得したい頂点の番号を指定します。<BR>
+      <BR>
+      4. [OUT] int*　：　r<BR>
+      5. [OUT] int*　：　g<BR>
+      6. [OUT] int*　：　b<BR>
+      　　　指定した頂点のspecular色が、<BR>
+      　　　RGB = ( r, g, b )に代入されます。<BR>
+      　　　r, g, bそれぞれ、０から２５５の値が代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.0.7.9で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetSpecularPower</TD>
+      <TD class="hpb-cnt-tb-cell2">色</TD>
+      <TD class="hpb-cnt-tb-cell2">パーツの任意の頂点のスペキュラーPowerの値を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　取得したいパーツの番号を指定します。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　色を取得したい頂点の番号を指定します。<BR>
+      <BR>
+      4. [OUT] float*　：　powerptr<BR>
+      　　指定した頂点のpowerが代入されます。<BR>
+      <BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.0.7.9で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetShaderType</TD>
+      <TD class="hpb-cnt-tb-cell2">色</TD>
+      <TD class="hpb-cnt-tb-cell2">モデルデータのシェーダーのタイプを取得します。<BR>
+      <BR>
+      シェーダーのタイプと、色のオーバーフロー処理の２つを取得できます。<BR>
+      シェーダーのタイプは、SDKのCoef_r.hの<BR>
+      COL_ で始まるenumで定義されています。<BR>
+      <BR>
+      COL_OLD<BR>
+      　　従来のRokDeBone2の計算法<BR>
+      　　emissiveは、無効。スペキュラーは、形だけの実装。<BR>
+      COL_PHONG<BR>
+      　　Lambertのディフーズ<BR>
+      　　Phongのスペキュラー<BR>
+      　　emissive有り<BR>
+      COL_BLINN<BR>
+      　　Lambertのディフーズ<BR>
+      　　Blinnのスペキュラー<BR>
+      　　emissive有り<BR>
+      COL_SCHLICK<BR>
+      　　Lambertのディフーズ<BR>
+      　　Schlickのスペキュラー<BR>
+      　　emissive有り<BR>
+      COL_MQCLASSIC<BR>
+      　　メタセコイアのマテリアルでClassicを指定したときのモード<BR>
+      　　emissive有り<BR>
+      <BR>
+      色のオーバーフロー処理は、SDKのCoef_r.hの<BR>
+      OVERFLOW_ で始まるenumで定義されています。<BR>
+      <BR>
+      OVERFLOW_CLAMP<BR>
+      　　クランプ。自己照明がきついと、色が破綻する。<BR>
+      　　一番高速。<BR>
+      OVERFLOW_SCALE<BR>
+      　　スケール。色は破綻しないが、暗くなる。<BR>
+      OVERFLOW_ORG<BR>
+      　　オリジナル。明るさを保つ。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [OUT] int*　：　shaderptr<BR>
+      3. [OUT] int*　：　overflowptr<BR>
+      　　シェーダータイプと、オーバーフロー処理が代入されます。<BR>
+      　　値の意味は、上記を参照。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.0.7.9で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetTextureInfo</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">テクスチャ</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">表示用のパーツに設定されている、テクスチャーの情報を取得します。<BR>
+      nameptr引数には、２５６長のバッファのポインタを指定してください。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [OUT] char*　：　nameptr<BR>
+      　　テクスチャーファイル名を代入します。<BR>
+      　　char texname[256]などで、確保した配列のポインタなどを渡してください。<BR>
+      　　テクスチャーが設定されていない場合には、<BR>
+      　　*nameptr = 0 とします。<BR>
+      <BR>
+      4. [OUT] int*　：　repuptr<BR>
+      5. [OUT] int*　：　repvptr<BR>
+      　　テクスチャーの繰り返し数が代入されます。<BR>
+      　　Ｕ方向、Ｖ方向の繰り返しがそれぞれ、<BR>
+      　　*revuptrと*repvptrに代入されます。<BR>
+      <BR>
+      6. [OUT] float*　：　animuptr<BR>
+      7. [OUT] float*　：　animvptr<BR>
+      　　テクスチャーのUVの移動値がセットされます。<BR>
+      　　1フレームごとに、テクスチャーのＵＶ値に足される値です。<BR>
+      <BR>
+      <BR>
+      8. [OUT] int*　：　transparentptr<BR>
+      　　テクスチャーの透過モードがセットされます。<BR>
+      　　不透明の時０<BR>
+      　　黒を透過色とするとき１<BR>
+      　　テクスチャデータのアルファで透過するとき２<BR>
+      　　がセットされます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetExtTextureInfo</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">テクスチャ</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">テクスチャーの拡張情報を取得します。<BR>
+      テクスチャーのパラパラアニメや、<BR>
+      マルチテクスチャ（現在非対応）のための情報です。<BR>
+      <BR>
+      最大１００枚までのテクスチャ情報が取得されます。<BR>
+      extnameptrには、１００×２５６長のバッファのポインタを渡してください。<BR>
+      <BR>
+      <BR>
+      合計２５枚のテクスチャーパラパラアニメをRokDeBone2で<BR>
+      指定した場合、<BR>
+      1枚目のテクスチャファイル名は、RDBGetTextureInfoで、<BR>
+      2枚目から２５枚目までのファイル名は、RDBGetExtTextureInfoで<BR>
+      取得されます。<BR>
+      <BR>
+      4番目の引数に代入されるテクスチャーの数は、<BR>
+      RDBGetExtTextureInfoで取得されるテクスチャーの数です。<BR>
+      （RDBGetTextureInfoで取得される枚数（1枚分）は、カウントしません。）<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [OUT] char*　：　extnameptr<BR>
+      　　拡張テクスチャーファイル名を代入します。<BR>
+      　　char extname[100][256] などで確保したバッファを<BR>
+      　　(char*)extname などとキャストして渡してください。<BR>
+      <BR>
+      　　256長ごとに、ファイル名がコピーされます。<BR>
+      　　テクスチャーが存在しない場合には０が代入されます。<BR>
+      <BR>
+      4. [OUT] int*　：　texnumptr<BR>
+      　　拡張テクスチャーの数が代入されます。<BR>
+      　　この数分、extnameptrにファイル名がコピーされます。<BR>
+      　　<BR>
+      5. [OUT] int*　：　texmodeptr<BR>
+      　　拡張モードがセットされます。<BR>
+      　　通常モード（拡張テクスチャー無し）のとき０<BR>
+      　　パラパラアニメモードのとき１<BR>
+      　　マルチテクスチャモード（現在非対応）のとき２<BR>
+      　　がセットされます。<BR>
+      <BR>
+      6. [OUT] int*　：　repflagptr<BR>
+      　　パラパラアニメの繰り返しモードがセットされます。<BR>
+      　　パラパラアニメしないとき０<BR>
+      　　最大フレーム数に達したときに、そこで停止する場合１<BR>
+      　　最大フレームの後、先頭フレームに戻る場合２<BR>
+      　　がセットされます。<BR>
+      <BR>
+      7. [OUT] int*　：　stepptr<BR>
+      　　パラパラアニメにおいて、<BR>
+      　　何フレームごとにテクスチャーが変化するかが代入されます。<BR>
+      　　例えば、３がセットされていた場合、<BR>
+      　　3フレームに1枚の速さで、パラパラアニメします。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetUV</TD>
+      <TD class="hpb-cnt-tb-cell2">テクスチャ</TD>
+      <TD class="hpb-cnt-tb-cell2">テクスチャの、ＵＶ情報を、取得します。<BR>
+      <BR>
+      テクスチャを貼っていないオブジェクトでも、<BR>
+      デフォルト状態で、Ｘ軸投影でテクスチャを貼り付けるときのＵＶ座標が、セットされています。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　vertno<BR>
+      　　頂点を識別する番号を指定してください。<BR>
+      <BR>
+      4. [OUT] float*　：　uptr<BR>
+      5. [OUT] float*　：　vptr<BR>
+      　　テクスチャのＵＶ座標が、セットされます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.0.7.7で追加</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMotionNum</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">hsidで識別される形状データがいくつのモーションを読み込んでいるかを取得します。<BR>
+      <BR>
+      この関数で取得したモーションの数をmotnumとすると、<BR>
+      モーション関数のmotidに渡すことの出来る有効な値は、０から(motnum - 1)までの数です。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [OUT] int*　：　motnumptr<BR>
+      　　何個のモーションを読み込んでいるかがセットされます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver3.0.4.0で追加</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMotionName</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">モーションのIDからモーションの名前を取得します。<BR>
+      <BR>      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      3. [OUT] char*　：　motnameptr<BR>
+      　　モーションの名前がセットされます。<BR>
+      　　motnameptrには長さが２５６以上の配列のポインタを渡してください。<BR>
+      　　例えば、char motname[256];で宣言し、motnameを引数に渡してください。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver3.0.4.0で追加</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetBonePos</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">ボーンの位置情報を取得します。<BR>
+      <BR>
+      poskind == 0のときは、ローカル座標<BR>
+      poskind == 1のときは、グローバル座標<BR>
+      が取得できます。<BR>
+      <BR>
+      bonenoには、RDBGetPartNoByName<BR>
+      で取得した番号を指定してください。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンを識別するＩＤ<BR>
+      　　RDBGetPartNoByNameで取得した<BR>
+      　　パーツの番号を渡してください。<BR>
+      <BR>
+      3. [IN] int　：　poskind<BR>
+      　　ローカル座標と、グローバル座標の<BR>
+      　　どちらを取得するかを指定します。<BR>
+      <BR>
+      4. [IN] int　：　motid<BR>
+      　　モーションを識別するＩＤ<BR>
+      　　<BR>
+      　　-1を指定すると、初期状態の位置を取得します。<BR>
+      　　（-1を指定した場合は、ローカル座標のみ）<BR>
+      <BR>
+      5. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号を指定してください。<BR>
+      <BR>
+      6. [OUT] RDBPoint*　：　posptr<BR>
+      　　(posptr-&gt;x, posptr-&gt;y, posptr-&gt;z)に、<BR>
+      　　ボーンの座標が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetBoneMatrix</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">ボーンの姿勢情報を表すマトリクスを取得します。<BR>
+      マトリックスには、スケール、回転、移動の操作が反映されています<BR>
+      <BR>
+      modeに０を指定すると、親の姿勢が掛かっていないマトリックスを、<BR>
+      modeに１を指定すると、親の姿勢が掛かっているマトリックスを取得できます。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号を指定してください。<BR>
+      <BR>
+      5. [IN] int　：　mode<BR>
+      　　親の姿勢が掛かっていない情報を取得したい場合は０を、<BR>
+      　　親の姿勢が掛かっている情報を取得したい場合は１を指定してください。<BR>
+      <BR>
+      6. [OUT] RDBMatrix*　：　bonematptr<BR>
+      　　マトリクスが代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetBoneQuaternion</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">ボーンの回転情報のクォータニオンを取得します。<BR>
+      <BR>
+      modeに０を指定すると、親の姿勢が掛かっていないクォータニオンを、<BR>
+      modeに１を指定すると、親の姿勢が掛かっているクォータニオンを取得できます。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号を指定してください。<BR>
+      <BR>
+      5. [IN] int　：　mode<BR>
+      　　親の姿勢が掛かっていない情報を取得したい場合は０を、<BR>
+      　　親の姿勢が掛かっている情報を取得したい場合は１を指定してください。<BR>
+      <BR>
+      6. [OUT] RDBQuaternion*　：　qptr<BR>
+      　　クォータニオンが代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetFrameLeng</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">モーションのフレーム長を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      3. [OUT] int*　：　lengptr<BR>
+      　　モーションの長さが代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetKeyFrameNo</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">指定したジョイントのキーフレームの番号（フレーム番号）を取得します。<BR>
+      <BR>
+      framearrayに、キーフレームの番号が代入されます。<BR>
+      RDBGetFrameLengで取得した値をlengとすると。<BR>
+      <BR>
+      framearrayは、<BR>
+      framearray = (int*)malloc( sizeof( int ) * leng );<BR>
+      でアロケートしてください。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンパーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      4. [OUT] int*　：　framearray<BR>
+      　　この配列に、フレーム番号が、代入されます。<BR>
+      　　アロケートの仕方は、上記をご覧ください。<BR>
+      <BR>
+      5. [IN] int　：　arrayleng<BR>
+      　　framearrayをアロケートしたときの要素数を指定してください。<BR>
+      　　上記の例ですと、 (framemax + 1)を指定することになります。<BR>
+      <BR>
+      6. [OUT] int*　：　framenumptr<BR>
+      　　framearrayに格納した要素の数が代入されます。<BR>
+      　　キーフレームの数です。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetKeyFrameSRT</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">指定したキーフレームの姿勢情報を、ＳＲＴに分けて取得します。<BR>
+      RDBGetOffsetMatrixとセットで使うことを想定しています。<BR>
+      DX9SDKのSkinnedMeshサンプルと同じ形式のSRTを取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンパーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　RDBGetKeyFrameNoで取得したフレーム番号の1つを指定してください。<BR>
+      <BR>
+      6. [OUT] RDBPoint*　：　pscale<BR>
+      　　姿勢情報の拡大を表すベクトルが代入されます。<BR>
+      <BR>
+      7. [OUT] RDBQuaternion*　：　prot<BR>
+      　　姿勢情報の回転を表すクォータニオンが代入されます。<BR>
+      <BR>
+      8. [OUT] RDBPoint*　：　ptra<BR>
+      　　姿勢情報の移動を表すベクトルが代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetKeyFrameSRT2</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">指定したキーフレームの姿勢情報を、ＳＲＴに分けて取得します。<BR>
+      RokDeBone2が内部で保持している形式のままのSRTを取得します。<BR>
+      内部ではOffsetMatrixを使用しないので、RDBGetKeyFrameSRTの結果とはTが異なります。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンパーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　RDBGetKeyFrameNoで取得したフレーム番号の1つを指定してください。<BR>
+      <BR>
+      6. [OUT] RDBPoint*　：　pscale<BR>
+      　　姿勢情報の拡大を表すベクトルが代入されます。<BR>
+      <BR>
+      7. [OUT] RDBQuaternion*　：　prot<BR>
+      　　姿勢情報の回転を表すクォータニオンが代入されます。<BR>
+      <BR>
+      8. [OUT] RDBPoint*　：　ptra<BR>
+      　　姿勢情報の移動を表すベクトルが代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver3.0.4.0で追加</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetOffsetMatrix</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">DX9のSetBoneOffsetMatrixに渡すマトリックスを取得します。<BR>
+      <BR>
+      モーション番号、フレーム番号にかかわらず、同じ値が取得されます。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンパーツを識別する番号を指定してください。<BR>
+      <BR>
+      3. [OUT] RDBMatrix*　：　offsetmatptr<BR>
+      　　マトリクスが代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1" width="160">RDBGetCurrentFrameNo</TD>
+      <TD class="hpb-cnt-tb-cell2" width="144">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2" width="770">RokDeBone2のモーションダイアログの、現在のフレーム番号を取得します。<BR>
+      <BR>引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [OUT] int*　：　framenoptr<BR>
+      　　現在のフレーム番号が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2" width="124">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetMotionFrameNo</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">モーションのIDとフレーム番号をセットします。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号。<BR>
+      　　RDBGetFrameLengで取得したフレーム長をframelengとすると<BR>
+      　　この引数に指定する数字は０から（frameleng - 1）までの数字でないといけません。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBDbgOut</TD>
+      <TD class="hpb-cnt-tb-cell2">デバッグ出力</TD>
+      <TD class="hpb-cnt-tb-cell2">RokDeBone2で作成する、dbg.txtに、文字列を出力します。<BR>
+      <BR>
+      printfの要領で、使ってください。<BR>
+      一度の命令で出力できる文字は、4097バイトまでです。<BR>
+      <BR>
+      <BR>
+      RDBDbgOut( char* lpFormat, ... );<BR>
+      <BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.0.7.6で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSaveSigFile</TD>
+      <TD class="hpb-cnt-tb-cell2">ファイル出力</TD>
+      <TD class="hpb-cnt-tb-cell2">形状データ、影響度の入った、sigファイルを、出力します。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] char*　：　filename<BR>
+      　　保存ファイル名（パス）を指定してください。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.1.1.5で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBCreateProgressBar</TD>
+      <TD class="hpb-cnt-tb-cell2">プログレスバー</TD>
+      <TD class="hpb-cnt-tb-cell2">RokDeBone2のメインウインドウの下部に、プログレスバーを作成します。<BR>
+      <BR>
+      引数：<BR>
+      なし<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.1.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetProgressBar</TD>
+      <TD class="hpb-cnt-tb-cell2">プログレスバー</TD>
+      <TD class="hpb-cnt-tb-cell2">作業の達成率などを、<BR>
+      プログレスバーに表示させます。<BR>
+      <BR>
+      pos は、０から１００の間の数を、<BR>
+      セットしてください。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　pos<BR>
+      　　達成率（０から１００）<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.1.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBDestroyProgressBar</TD>
+      <TD class="hpb-cnt-tb-cell2">プログレスバー</TD>
+      <TD class="hpb-cnt-tb-cell2">RDBCreateProgressBarで作成したプログレスバーを、削除します。<BR>
+      <BR>
+      引数：<BR>
+      なし<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver1.1.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMaterialNum</TD>
+      <TD class="hpb-cnt-tb-cell2">マテリアル</TD>
+      <TD class="hpb-cnt-tb-cell2">マテリアルの総数を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [OUT] int*　：　matnumptr<BR>
+      　　マテリアルの総数が代入されます。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMaterial</TD>
+      <TD class="hpb-cnt-tb-cell2">マテリアル</TD>
+      <TD class="hpb-cnt-tb-cell2">マテリアルを取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　matno<BR>
+      　　マテリアル番号<BR>
+      　　RDBGetMaterialNumで取得した数をmatnumとすると、０から（matnum - 1）の値を指定してください。<BR>
+      <BR>
+      3. [OUT] RDBMaterialt*　：　matptr<BR>
+      　　マテリアルが代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMaterialNo</TD>
+      <TD class="hpb-cnt-tb-cell2">マテリアル</TD>
+      <TD class="hpb-cnt-tb-cell2">表示オブジェクトの指定した面にどのマテリアルが貼られているかを取得します。<BR>
+      <BR>      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　形状データを識別するＩＤ<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　表示オブジェクトのシリアル番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　faceno<BR>
+      　　面の番号を指定してください。０から(面の総数-1)までの値。<BR>
+      <BR>
+      4. [OUT] intt*　：　matnoptr<BR>
+      　　マテリアル番号が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2"></TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMorphBaseNum</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフのベースの数を取得します。<BR>
+      それぞれのモーフにはベースは１個だけしか含まれないので<BR>
+      この数はモーフの数と一致します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [OUT] int*　：　basenumptr<BR>
+      　　ベースの数が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMorphBaseInfo</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフのベースの情報を一括で取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [OUT] RDBMORPHBASE*　：　baseinfoptr<BR>
+      　　ベースの情報が代入されます。<BR>
+      　　RDBMORPHBASEはRDBPlugin.hで定義されています。<BR>
+      　　<BR>
+      　　RDBGetMorphBaseNum( hsid, &amp;basenum );<BR>
+      　　baseinfo = (RDBMORPHBASE*)malloc( sizeof( RDBMORPHBASE ) * basenum );<BR>
+      　　のようにして作成したメモリを指定してください。<BR>
+      <BR>
+      3. [IN] int　：　arrayleng<BR>
+      　　baseinfoの要素数を指定してください。<BR>
+      　　RDBGetMorphBaseNumで取得したbasenum個じゃないとエラーになります。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMorphTargetInfo</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフのターゲットの情報をモーフごと（ベースごと）に取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　baseid<BR>
+      　　モーフのベースを識別する番号を指定してください。<BR>
+      　　E3DGetMorphBaseInfoで取得したbaseinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      3. [OUT] RDBMORPHTARGET*　：　targetinfoptr<BR>
+      　　ターゲットの情報が代入されます。<BR>
+      　　RDBMORPHTARGETはRDBPlugin.hで定義されています。<BR>
+      　<BR>
+      　　ベースに含まれるターゲット数分の要素数のメモリを渡してください。<BR>
+      　　targetinfo = (RDBTARGETINFO*)malloc( sizeof( RDBTARGETINFO ) * (baseinfo
+      + baseno)-&gt;targetnum );<BR>
+      　　のようにして作成してください。<BR>
+      <BR>
+      4. [IN] int　：　arrayleng<BR>
+      　　targetinfoの要素数を指定してください。<BR>
+      　　ベースに含まれるターゲット数と異なる場合にはエラーになります。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMorphKeyNum</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフモーションのキーの数を取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　boneid<BR>
+      　　モーフモーション情報の格納先のボーンを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;bonenoを指定してください。<BR>
+      <BR>
+      4. [IN] int　：　baseid<BR>
+      　　モーフのベースを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      5. [IN] int　：　targetid<BR>
+      　　モーフのターゲットを識別する番号を指定してください。<BR>
+      　　RDBGetMorphTargetInfoで取得したtargetinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      6. [OUT] int*　：　keynumptr<BR>
+      　　キーの数が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetMorphKey</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフモーションの情報をキーの数分取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　boneid<BR>
+      　　モーフモーション情報の格納先のボーンを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;bonenoを指定してください。<BR>
+      <BR>
+      4. [IN] int　：　baseid<BR>
+      　　モーフのベースを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      5. [IN] int　：　targetid<BR>
+      　　モーフのターゲットを識別する番号を指定してください。<BR>
+      　　RDBGetMorphTargetInfoで取得したtargetinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      6. [OUT] RDBMORPHMOTION*　：　motioninfoptr<BR>
+      　　モーション情報が代入されます。<BR>
+      　　RDBMORPHMOTIONはRDBPlugin.hで定義されています。<BR>
+      <BR>
+      　　RDBGetMorphKeyNum( hsid, motid, baseid, targetid, &amp;keynum );<BR>
+      　　motioninfo = (RDBMORPHMOTION*)malloc( sizeof( RDBMORPHMOTION ) * keynum
+      );<BR>
+      　　のようにしてメモリを作成してください。<BR>
+      <BR>
+      7. [IN] int　：　arrayleng<BR>
+      　　motioninfoptrの要素数を指定してください。<BR>
+      　　RDBGetMorphKeyNumで取得したkeynum個じゃないとエラーになります。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetCurMorphInfo</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">任意のフレーム番号の補間済みのモーフモーション情報を取得します。<BR>
+      この命令では現在編集中のモーションID、フレーム番号についての情報を取得します。<BR>
+      任意のモーション、フレーム番号の情報を取得したい場合は<BR>
+      RDBSetMotionFrameNoと組み合わせて使ってください。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneid<BR>
+      　　モーフモーション情報の格納先のボーンを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;bonenoを指定してください。<BR>
+      <BR>
+      3. [IN] int　：　baseid<BR>
+      　　モーフのベースを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      4. [IN] int　：　targetid<BR>
+      　　モーフのターゲットを識別する番号を指定してください。<BR>
+      　　RDBGetMorphTargetInfoで取得したtargetinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      5. [OUT] RDBMORPHMOTION*　：　motioninfoptr<BR>
+      　　モーション情報が代入されます。<BR>
+      　　RDBMORPHMOTIONはRDBPlugin.hで定義されています。<BR>
+      <BR>
+      　　要素数は１。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBCreateMorph</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフを作成します。<BR>
+      ベースのIDとボーンのIDを指定します。<BR>
+      ここで指定したボーンに作成したモーフのモーション情報が格納されます。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　baseid<BR>
+      　　ベースを識別する番号を指定してください。<BR>
+      　　RDBGetPartNoByNameなどでIDを取得して指定してください。<BR>
+      <BR>
+      3. [IN] int　：　boneid<BR>
+      　　ボーンを識別する番号を指定してください。<BR>
+      　　RDBGetPartNoByNameなどでIDを取得して指定してください。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBAddMorphTarget</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">RDBCreateMorphで作成したモーフにターゲットを追加します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　baseid<BR>
+      　　ベースを識別する番号を指定してください。<BR>
+      　　RDBGetPartNoByNameなどでIDを取得して指定してください。<BR>
+      <BR>
+      3. [IN] int　：　targetid<BR>
+      　　ターゲットを識別する番号を指定してください。<BR>
+      　　RDBGetPartNoByNameなどでIDを取得して指定してください。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetMorphKey</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフモーションのキーを作成します。<BR>
+      キーがすでにある場合は既存のキーに上書きします。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　boneid<BR>
+      　　モーフモーション情報の格納先のボーンを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;bonenoを指定してください。<BR>
+      <BR>
+      4. [IN] int　：　baseid<BR>
+      　　モーフのベースを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      5. [IN] int　：　targetid<BR>
+      　　モーフのターゲットを識別する番号を指定してください。<BR>
+      　　RDBGetMorphTargetInfoで取得したtargetinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      6. [IN] RDBMORPHMOTION*　：　motioninfoptr<BR>
+      　　モーフモーション情報を指定します。要素数１。<BR>
+      　　RDBMORPHMOTIONはRDBPlugin.hで定義されています。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBDestroyMorphKey</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフ</TD>
+      <TD class="hpb-cnt-tb-cell2">モーフモーションのキーを削除します。<BR>
+      モーフに含まれる全てのターゲットのキーが削除されます。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　boneid<BR>
+      　　モーフモーション情報の格納先のボーンを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;bonenoを指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　削除したいキーが存在するフレーム番号を指定してください。<BR>
+      <BR>
+      5. [IN] int　：　baseid<BR>
+      　　モーフのベースを識別する番号を指定してください。<BR>
+      　　RDBGetMorphBaseInfoで取得したbaseinfoptr-&gt;dispnoを指定してください。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.1.7で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetToon1MaterialNum</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーンマテリアルの数を取得します。<BR>
+      トゥーンマテリアルとは通常のマテリアルとは異なります。<BR>
+      RokDeBone2の「トゥ」ボタンを押したときに出てくるダイアログに表示されているマテリアルのことです。<BR>
+      一回もトゥーン表示したことが無い状態でこの命令を呼ぶと、マテリアル数には０が返ってきます。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      　　RDBGetDispObjInfoで取得した表示オブジェクトのIDを指定してください。<BR>
+      <BR>
+      3. [OUT] int*　：　matnumptr<BR>
+      　　トゥーンマテリアルの数が代入されます。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.2.0で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBGetToon1Material</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーンマテリアルの情報をパーツごとに一括取得します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      　　RDBGetDispObjInfoで取得した表示オブジェクトのIDを指定してください。<BR>
+      <BR>
+      3. [OUT] E3DTOON1MATERIAL*　：　toon1ptr<BR>
+      　　トゥーンマテリアルの情報が代入されます。<BR>
+      　　E3DTOON1MATERIALはRDBPlugin.hで定義されています。<BR>
+      　　E3DGetToon1MaterialNumで取得した数をmatnumとすると<BR>
+      　　toon1ptr = (E3DTOON1MATERIAL*)malloc( sizeof( E3DTOON1MATERIAL ) * matnum
+      );<BR>
+      　　のように作成したメモリを渡してください。<BR>
+      <BR>
+      4. [IN] int　：　arrayleng<BR>
+      　　toon1ptrを作成したときの要素数を指定します。<BR>
+      　　E3DGetToon1MaterialNumで取得できるmatnumと異なるとエラーになります。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.2.0で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetToon1Name</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーンマテリアルの名前を変更します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      　　RDBGetDispObjInfoで取得した表示オブジェクトのIDを指定してください。<BR>
+      <BR>
+      3. [IN] char*　：　oldname<BR>
+      　　名前を変えたいトゥーンマテリアルの元の名前<BR>
+      <BR>
+      4. [IN] char*　：　newname<BR>
+      　　トゥーンマテリアルの新しい名前。<BR>
+      　　名前の長さは３１バイトまでです。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.2.0で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetToon1Diffuse</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーンマテリアルのDiffuse色を設定します。<BR>
+      ライトが当たった明るい部分の色です。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      　　RDBGetDispObjInfoで取得した表示オブジェクトのIDを指定してください。<BR>
+      <BR>
+      3. [IN] char*　：　matname<BR>
+      　　トゥーンマテリアルの名前<BR>
+      <BR>
+      4. [IN] RDBColor3f　：　diffuse<BR>
+      　　diffuse色。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.2.0で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetToon1Specular</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーンマテリアルのSpecular色を設定します。<BR>
+      ハイライトの部分の色です。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      　　RDBGetDispObjInfoで取得した表示オブジェクトのIDを指定してください。<BR>
+      <BR>
+      3. [IN] char*　：　matname<BR>
+      　　トゥーンマテリアルの名前<BR>
+      <BR>
+      4. [IN] RDBColor3f　：　specular<BR>
+      　　specular色。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.2.0で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetToon1Ambient</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーンマテリアルのAmbient色を設定します。<BR>
+      ライトが当たらない暗い部分の色です。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      　　RDBGetDispObjInfoで取得した表示オブジェクトのIDを指定してください。<BR>
+      <BR>
+      3. [IN] char*　：　matname<BR>
+      　　トゥーンマテリアルの名前<BR>
+      <BR>
+      4. [IN] RDBColor3f　：　ambient<BR>
+      　　ambient色。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.2.0で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetToon1NL</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン表示のdiffuse, specular, ambientの割合を決めるための係数を設定します。<BR>
+      <BR>
+      色の割合は面の法線とライトの反転ベクトルとのなす角度（deg）で決定します。<BR>
+      暗い色の角度の閾値をdarkdeg, ハイライトの角度の閾値をbrightdegとします。<BR>
+      degがdarkdegより大きい角度の部分は暗い色(ambient)で塗ります。<BR>
+      degがbrightdegより小さい角度の場合はハイライト（specular）で塗ります。<BR>
+      それ以外の部分は明るい色(diffuse)で塗ります。<BR>
+      darkdeg &gt;= brightdegでないといけません。<BR>
+      ピンとこない方はRokDeBone2で「トゥ」ボタンを押してdarkdegとbrightdegを設定するスライダーを動かしてみて理解してください。<BR>
+      <BR>
+      RokDeBone2内部ではこれらの閾値は角度ではなくてcosの値で保持しています。<BR>
+      そのためこの命令に渡す値もcos( darkdeg * DEG2PAI )とcos( brightdeg * DEG2PAI )を渡してください。<BR>
+      DEG2PAIはcoef_r.hで定義されています。「度」を「ラジアン」に変換するための定数です。<BR>
+      <BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      　　RDBGetDispObjInfoで取得した表示オブジェクトのIDを指定してください。<BR>
+      <BR>
+      3. [IN] char*　：　matname<BR>
+      　　トゥーンマテリアルの名前<BR>
+      <BR>
+      4. [IN] float　：　darknl<BR>
+      　　cos( darkdeg * DEG2PAI )を指定してください。<BR>
+      　　詳しくは前記をご覧ください。<BR>
+      <BR>
+      5. [IN] float　：　brightnl<BR>
+      　　cos( brightdeg * DEG2PAI )を指定してください。<BR>
+      　　詳しくは前記をご覧ください。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.2.0で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1">RDBSetToon1Edge0</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーン</TD>
+      <TD class="hpb-cnt-tb-cell2">トゥーンマテリアルのエッジ（輪郭線）のパラメータを設定します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　partno<BR>
+      　　パーツを識別する番号を指定してください。<BR>
+      　　RDBGetDispObjInfoで取得した表示オブジェクトのIDを指定してください。<BR>
+      <BR>
+      3. [IN] char*　：　matname<BR>
+      　　トゥーンマテリアルの名前<BR>
+      <BR>
+      4. [IN] RDBColor3f　：　col<BR>
+      　　輪郭線の色。<BR>
+      <BR>
+      5. [IN] int　：　validflag<BR>
+      　　輪郭線を表示するときは１。しないときは０。<BR>
+      <BR>
+      6. [IN] int　：　invflag<BR>
+      　　輪郭線用の面の向きを反転するときは１。しないときは０。通常は０。<BR>
+      　　両面オブジェクトの調整用。<BR>
+      <BR>
+      7. [IN] float　：　width<BR>
+      　　輪郭線の幅。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.2.2.0で新規</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1"><IMG src="jpegfiles/button_new.gif" width="30" height="10" border="0">RDBSetKeyFrameSRT2</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">キーフレームのSRTを設定します。<BR>
+      OffsetMatrixを使用しないRokDeBone2形式のSRTです。<BR>
+      <BR>
+      この命令を呼んだだけではモーションに姿勢は反映されません。<BR>
+      モーションに反映させるにはRDBFillUpMotionを呼んでください。<BR>
+      RDBFillUpMotionは重い処理なので、全ての姿勢の操作が終わってから１回だけ呼ぶようにしてください。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号。<BR>
+      　　RDBGetFrameLengで取得したフレーム長をframelengとすると<BR>
+      　　この引数に指定する数字は０から（frameleng - 1）までの数字でないといけません。<BR>
+      <BR>
+      5. [IN] RDBPoint*　：　scaleptr<BR>
+      　　拡大率を指定します。<BR>
+      　　<BR>
+      6. [IN] RDBQuaternion*　：　rotptr<BR>
+      　　回転姿勢を指定します。<BR>
+      <BR>
+      7. [IN] RDBPoint*　：　traptr<BR>
+      　　移動量を指定します。<BR>　　<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.5.0.5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1"><IMG src="jpegfiles/button_new.gif" width="30" height="10" border="0">RDBFillUpMotion</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">キーフレームの情報から指定フレームの姿勢情報を計算します。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　topboneno<BR>
+      　　ボーンを識別する番号を指定してください。<BR>
+      　　ここで指定したボーンとその子供全部の姿勢を再帰的に計算します。<BR>
+      　　-1を指定すると全てのボーンの姿勢を計算します。<BR>
+      <BR>
+      4. [IN] int　：　startframe<BR>
+      　　計算を開始するフレーム番号。<BR>
+      　　RDBGetFrameLengで取得したフレーム長をframelengとすると<BR>
+      　　この引数に指定する数字は０から（frameleng - 1）までの数字でないといけません。<BR>
+      <BR>
+      5. [IN] int　：　endframe<BR>
+      　　計算を終了するフレーム番号。<BR>
+      　　RDBGetFrameLengで取得したフレーム長をframelengとすると<BR>
+      　　この引数に指定する数字は０から（frameleng - 1）までの数字でないといけません。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.5.0.5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1"><IMG src="jpegfiles/button_new.gif" width="30" height="10" border="0">RDBGetSplineParams</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">キーフレームのスプライン補間のパラメータを取得します。<BR>
+      <BR>
+      データタイプを以下に示します。<BR>typedef struct tag_rdbspctrl<BR>
+{<BR>
+      float spt;//制御点の横方向の係数<BR>
+      float spdist;//制御点の縦方向の係数<BR>
+      float distmax;//縦方向の係数の最大値（編集用のスライダーの最大値）<BR>
+      float sppoint[2];//制御点の画面上の座標<BR>
+      float tmin;//横方向係数の最小値<BR>
+      float tmax;//横方向係数の最大値<BR>
+      int reserved[2];//未使用<BR>
+}RDBSPCTRL;<BR>
+<BR>
+typedef struct tag_spparam<BR>
+{<BR>
+      RDBSPCTRL ctrlS[INDMAX];//前半制御点。X,Y,Zそれぞれに。<BR>
+      RDBSPCTRL ctrlE[INDMAX];//後半制御点<BR>
+      int syncflag;<BR>
+	int lockflag;<BR>
+	int reserved[3];<BR>
+}RDBSPPARAM;<BR>
+<BR>
+typedef struct tag_rdbspparamset<BR>
+{<BR>
+      RDBSPPARAM m_rotparam;//回転のパラメータ<BR>
+      RDBSPPARAM m_mvparam;//移動のパラメータ<BR>
+      RDBSPPARAM m_scparam;//スケールのパラメータ<BR>
+	int reserved[4];<BR>
+} RDBSPPARAMSET;<BR>
+<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号。<BR>
+      　　RDBGetFrameLengで取得したフレーム長をframelengとすると<BR>
+      　　この引数に指定する数字は０から（frameleng - 1）までの数字でないといけません。<BR>
+      <BR>
+      5. [OUT] RDBSPPARAMSET*　：　sppptr<BR>
+      　　パラメータを取得するデータのポインタを指定します。<BR>
+      　　<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.5.0.5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1"><IMG src="jpegfiles/button_new.gif" width="30" height="10" border="0">RDBSetSplineParams</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">キーフレームのスプライン補間のパラメータを設定します。<BR>
+      <BR>
+      RDBSPCTRLのsppointメンバはRDBCalcSplineParamsで計算されるので特に指定しなくていいです。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンを識別する番号を指定してください。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      4. [IN] int　：　frameno<BR>
+      　　モーションのフレーム番号。<BR>
+      　　RDBGetFrameLengで取得したフレーム長をframelengとすると<BR>
+      　　この引数に指定する数字は０から（frameleng - 1）までの数字でないといけません。<BR>
+      <BR>
+      5. [IN] int　：　setflag<BR>
+      　　setflagに１を足すとrotparamを設定します。<BR>
+      　　setflagに２を足すとmvparamを設定します。<BR>
+      　　setflagに４を足すとscparamを設定します。<BR>
+      <BR>
+      6. [IN] RDBSPPARAMSET*　：　sppptr<BR>
+      　　パラメータを指定します。<BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.5.0.5</TD>
+    </TR>
+    <TR>
+      <TD class="hpb-cnt-tb-cell1"><IMG src="jpegfiles/button_new.gif" width="30" height="10" border="0">RDBCalcSplineParams</TD>
+      <TD class="hpb-cnt-tb-cell2">ボーン、モーション</TD>
+      <TD class="hpb-cnt-tb-cell2">スプラインパラメータを計算し、表示できるようにします。<BR>
+      <BR>
+      引数：<BR>
+      1. [IN] int　：　hsid<BR>
+      　　モデルを識別する番号を指定してください。<BR>
+      <BR>
+      2. [IN] int　：　boneno<BR>
+      　　ボーンを識別する番号を指定してください。<BR>
+      　　-1を指定すると全てのボーンの計算をします。<BR>
+      <BR>
+      3. [IN] int　：　motid<BR>
+      　　モーションを識別する番号を指定してください。<BR>
+      <BR>
+      </TD>
+      <TD class="hpb-cnt-tb-cell2">ver5.5.0.5</TD>
+    </TR>
+  </TBODY>
+</TABLE>
+<P><BR>
+</P>
+<P><A href="index.htm">トップページに戻る</A></P>
+<P><BR>
+</P>
+</BODY>
+</HTML>
