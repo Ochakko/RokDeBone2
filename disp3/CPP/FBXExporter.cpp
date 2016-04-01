@@ -414,44 +414,47 @@ bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
 	int seri;
 	for( seri = 0; seri < s_lpsh->s2shd_leng; seri++ ){
 		CShdElem* curse = (*s_lpsh)( seri );
-		if( curse->type == SHDPOLYMESH ){
-			CPolyMesh* pm = curse->polymesh;
-			_ASSERT( pm );
-			if( curse->m_mtype != M_TARGET ){
-				CMeshInfo* mi = curse->GetMeshInfo();
-				_ASSERT( mi );
-				KFbxNode* lMesh = CreateFbxMeshPM( pSdkManager, pScene, curse, pm, mi );
-				lRootNode->AddChild(lMesh);
-
-				KFbxGeometry* lMeshAttribute = (KFbxGeometry*)lMesh->GetNodeAttribute();
-			    KFbxSkin* lSkin = KFbxSkin::Create(pScene, "");
-				LinkMeshToSkeletonPMReq( s_fbxbone, lSkin, pScene, lMesh, curse, pm, mi);
-				lMeshAttribute->AddDeformer(lSkin);
-
-			}
-		}else if( curse->type == SHDPOLYMESH2 ){
-			CPolyMesh2* pm2 = curse->polymesh2;
-			_ASSERT( pm2 );
-			if( curse->m_mtype != M_TARGET ){
-				int matcnt;
-				for( matcnt = 0; matcnt < pm2->m_materialnum; matcnt++ ){
-					MATERIALBLOCK* pmb = pm2->m_materialblock + matcnt;
-					KFbxNode* lMesh = CreateFbxMeshPM2( pSdkManager, pScene, curse, pm2, pmb, matcnt );
-
-					if( curse->m_mtype == M_BASE ){
-						CMorph* morph = 0;
-						s_lpsh->GetMorphObj( curse, &morph );
-						if( morph ){
-							MapShapesOnMeshPM2( pScene, lMesh, morph, pmb, matcnt, &blsindex );
-						}
-					}
-
+		if (curse->notuse != 1){
+			if (curse->type == SHDPOLYMESH){
+				CPolyMesh* pm = curse->polymesh;
+				_ASSERT(pm);
+				if (curse->m_mtype != M_TARGET){
+					CMeshInfo* mi = curse->GetMeshInfo();
+					_ASSERT(mi);
+					KFbxNode* lMesh = CreateFbxMeshPM(pSdkManager, pScene, curse, pm, mi);
 					lRootNode->AddChild(lMesh);
 
 					KFbxGeometry* lMeshAttribute = (KFbxGeometry*)lMesh->GetNodeAttribute();
 					KFbxSkin* lSkin = KFbxSkin::Create(pScene, "");
-					LinkMeshToSkeletonPM2Req( s_fbxbone, lSkin, pScene, lMesh, curse, pm2, pmb);
+					LinkMeshToSkeletonPMReq(s_fbxbone, lSkin, pScene, lMesh, curse, pm, mi);
 					lMeshAttribute->AddDeformer(lSkin);
+
+				}
+			}
+			else if (curse->type == SHDPOLYMESH2){
+				CPolyMesh2* pm2 = curse->polymesh2;
+				_ASSERT(pm2);
+				if (curse->m_mtype != M_TARGET){
+					int matcnt;
+					for (matcnt = 0; matcnt < pm2->m_materialnum; matcnt++){
+						MATERIALBLOCK* pmb = pm2->m_materialblock + matcnt;
+						KFbxNode* lMesh = CreateFbxMeshPM2(pSdkManager, pScene, curse, pm2, pmb, matcnt);
+
+						if (curse->m_mtype == M_BASE){
+							CMorph* morph = 0;
+							s_lpsh->GetMorphObj(curse, &morph);
+							if (morph){
+								MapShapesOnMeshPM2(pScene, lMesh, morph, pmb, matcnt, &blsindex);
+							}
+						}
+
+						lRootNode->AddChild(lMesh);
+
+						KFbxGeometry* lMeshAttribute = (KFbxGeometry*)lMesh->GetNodeAttribute();
+						KFbxSkin* lSkin = KFbxSkin::Create(pScene, "");
+						LinkMeshToSkeletonPM2Req(s_fbxbone, lSkin, pScene, lMesh, curse, pm2, pmb);
+						lMeshAttribute->AddDeformer(lSkin);
+					}
 				}
 			}
 		}
@@ -1171,7 +1174,8 @@ animData {
 			_ASSERT( !ret );
 			lTime.SetSecondDouble( (double)frameno / s_timescale );
 			lKeyIndex = lCurveTZ->KeyAdd( lTime );
-			float settra = orgtra.z + calcmp.m_mvz * s_fbxmult;
+			//float settra = orgtra.z + calcmp.m_mvz * s_fbxmult;
+			float settra = orgtra.z - calcmp.m_mvz * s_fbxmult;
 			lCurveTZ->KeySetValue(lKeyIndex, settra);
 			lCurveTZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
 
