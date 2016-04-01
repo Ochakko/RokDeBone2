@@ -10,9 +10,7 @@
 #include <windows.h>
 
 #include "RokFile.h"
-//#include "C:\program files\microsoft platform sdk\samples\multimedia\direct3d\rokdebone\LoadParamDlg.h"
-//#include "C:\pgfile8\rokdebone\LoadParamDlg.h"
-#include "c:\pgfile9\RokDeBone2DX\LoadParamDlg.h"
+#include "..\..\RokDeBone2DX\LoadParamDlg.h"
 
 
 #include <treehandler2.h>

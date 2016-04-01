@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>moaイベントアニメ(MOE)について</B></FONT><BR>
+<BR>
+moaイベントアニメ（以下MOE）とはモーションアクセラレータ（以下moa）のイベント番号を<BR>
+キーフレーム方式で発行できるようにしたアニメーションのことです。<BR>
+マルチレイヤーモーション（ボーンごとに異なるモーションを再生すること）やアイドリングモーションの変更にも対応しています。<BR>
+<BR>
+MOEを使う利点はアニメの作成が簡単になることです。<BR>
+他のソフトで良くみられる形式は動きを全て姿勢のキーで作成しないといけませんが<BR>
+MOEの場合はあらかじめパターンとなる短いモーションを複数作っておき<BR>
+それをイベント番号で変化させることによってアニメを作ります。<BR>
+モーションとモーションの間は自動的に補完されてなめらかに表示されます。<BR>
+<BR>
+イベント番号とモーションの関係はmoaで定義します。<BR>
+moaのことをご存じでない方はまず<A href="rdb2_MA.htm">rdb2_MA.htm</A>をご覧ください。<BR>
+<BR>
+<BR>
+<BR>
+MOEはモーションウインドウの「MOE」タブを選択して設定を行います。<BR>
+図１はMOEタブを表示したところです。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_moe_tab.png" width="710" height="529" border="0"><BR>
+図１：MOEタブ<BR>
+<BR>
+<BR>
+MOEタブはmoaを読み込んだ状態か、あるいはモーションを読み込んでいてmoaのアイドリングモーションの設定を完了した状態でないと<BR>
+表示できません。<BR>
+<BR>
+図１に示すようにMOEタブにはlist, notlist, MoeElemの３つのリストボックスがあります。<BR>
+listリストボックスにはlistコンボボックスでボーンを選択し、「加」ボタンを押すと追加できます。<BR>
+同様にnotlistリストボックスにはnotlistコンボボックスでボーンを選択し「加」ボタンを押すと追加できます。<BR>
+listから削除したい場合はリストの項目をマウスで選択した後に「消」ボタンを押します。<BR>
+<BR>
+listにはeventnoを設定したいボーンを指定します。<BR>
+指定したボーンとその子供のボーンにeventnoが発行されます。<BR>
+<BR>
+notlistにはlistに含まれているボーンの内、eventnoを発行したくないボーンを指定します。<BR>
+指定したボーンとその子供のボーンがeventnoの影響を受けなくなります。<BR>
+notlistの設定はlistの設定より優先されます。<BR>
+<BR>
+eventno, IdlingMotion, list, notlistのデータのまとまりをMoeElemと呼びます。<BR>
+これらの項目を設定したらMoeElemのリストの横の「加」ボタンを押します。<BR>
+そうするとキーが作られキーの中にMoeElemが作られます。<BR>
+<BR>
+list, notlistに項目を指定しただけではキーは作成されません。<BR>
+必ずMoeElemの横の「加」ボタンを押してください。<BR>
+<BR>
+１つのキーの中には複数のMoeElemを格納できます。<BR>
+つまり上半身にイベント１を発行するMoeElemと下半身にイベント２を発行するMoeElemを１つのキーに含ませることなどが出来ます。<BR>
+<BR>
+ただしIdlingMotionは１つのキーについて１種類しか指定できません。<BR>
+<BR>
+<BR>
+アニメを作成する際にはまず「設定」ボタンを押してアニメの名前とフレーム長を決めます。<BR>
+図２は「設定」ボタンを押したときに出てくるダイアログです。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_moe_setting.png" width="346" height="478" border="0"><BR>
+図２：設定ダイアログ<BR>
+<BR>
+補間法は無視してください。<BR>
+<BR>
+<BR>
+MOEアニメの読み書きは「File」メニューで行います。moeという拡張子のファイルになります。<BR>
+MOEの保存時にはmoaは保存されないので別途moaも保存するようにしてください。<BR>
+<BR>
+MOEアニメは複数同時に読み込み、切り替えることが出来ます。<BR>
+アニメの切り替えはメインウインドウの「MOE」メニューで行います。<BR>
+図３に「MOE」メニューを示します。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_moe_menu.png" width="764" height="248" border="0"><BR>
+図３：MOEメニュー<BR>
+<BR>
+<BR>
+MOEタブのスライダーを動かした時のシーンは<BR>
+カメラ、GPAのそれぞれのタブでのスライダーの位置でのカメラとGPAの状態固定でMOEのアニメが行われます。<BR>
+<BR>
+プレビュー中はそれぞれのタブの表示開始フレーム、表示終了フレームに基づいて全てが変化する状態を見ることが出来ます。<BR>
+表示開始フレーム、表示終了フレームはそれぞれのタブの「設定」ボタンを押して設定します。<BR>
+<BR>
+MOEアニメのキーを１つでも作ると<BR>
+基本操作タブ、カメラタブ、GPAタブでのプレビューはMOEを反映したものになります。<BR>
+基本操作タブでのモーション単体のプレビューをしたいときは、キーが一つもないMOEアニメをMOEメニューで選択しておきます。<BR>
+キーがひとつもないMOEはMOEメニューの「新規空アニメ」で簡単に作成できます。<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<A href="rokdebone.htm">RokDeBone2のトップページに戻る</A><BR>
+<BR>
+<A href="index.htm">トップページに戻る</A><BR>
+<BR>
+</P>
+</BODY>
+</HTML>

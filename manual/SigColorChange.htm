@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=SHIFT_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 9.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>SigColorChange</B></FONT><BR>
+<BR>
+<BR>
+ボーンの設定などをした後に、色を変えたくなって、<BR>
+また、mqo読み込みをし直し、設定したデータが、失われてしまった、<BR>
+という経験は、ありませんでしょうか？？<BR>
+<BR>
+SigColorChangeを使えば、<BR>
+<B>sigファイルのボーン設定などは、そのままで、色情報だけを、更新することが出来ます。</B><BR>
+<BR>
+SigColorChangeは、<BR>
+<B>色を変えたいsigファイルと、有効にしたい色の設定してあるmqoファイルを入力し、<BR>
+新しい色のsigファイルを出力</B>するツールです。<BR>
+<BR>
+RokDeBone2 ver1.0.7.9より以前のバージョンで作成したsigを、<BR>
+自己照明などが有効になった、新しいsigファイルに変換するのにも、使えます。<BR>
+<BR>
+<BR>
+色を変換する際には、<BR>
+パーツの名前と、頂点数を基準にします。<BR>
+つまり、<B>sigとmqoで、名前が違ったり、頂点数が違ったりする場合には、色の変換は出来ません。</B><BR>
+（異なる場合は、そのパーツは処理がスキップされます。）<BR>
+<BR>
+<BR>
+もうひとつ、注意して欲しい点は、<BR>
+メタセコイアでは、ひとつのオブジェクトに、テクスチャーを貼った面と、貼ってない面を混在させることが出来ますが、<BR>
+RokDeBone2では、こういうオブジェクトがあると、<BR>
+テクスチャを貼っていない面が、暗くなってしまいます。<BR>
+<B>テクスチャを貼る面と、貼らない面は、オブジェクトを分けて、モデリングしてください。</B><BR>
+<BR>
+<BR>
+<BR>
+変換は、プログラムを起動し、<BR>
+Fileメニューから、「色の変換を実行」を選択すれば、ＯＫです。<BR>
+<BR>
+<BR>
+#########<BR>
+sigファイル、gndファイルのまま、色を設定する支援ツールもあります。<BR>
+瀬戸さん作の、E3D Material Paintは、gndファイル（地面のファイル）も頂点毎に、色設定できます。<BR>
+#########<BR>
+<BR>
+<BR>
+<BR>
+<FONT size="+1"><B>ダウンロード</B></FONT><BR>
+<BR>
+現在、ダウンロードできるバージョンはありません。<BR>
+（C言語用のEasy3Dの開発停止により。）<BR>
+<BR>
+</P>
+<P><BR>
+</P>
+<P><BR>
+<B>ログ</B><BR>
+<BR>
+ver1.0.0.1<BR>
+　　　　最初のバージョン、リリース<BR>
+<BR>
+ver1.0.0.2<BR>
+　　　　スムージング角度に対応した、sigファイルへの対応。<BR>
+<BR>
+ver1.0.0.3<BR>
+<BR>
+　　　　ボーンの削除機能に対応したsigファイルに対応。<BR>
+　　　　<BR>
+　　　　新しいRokDeBone2で、ボーンの削除をしたファイルを、古いプログラムで読むと、エラーになります。<BR>
+　　　　関連コンテンツも、全て、新しいものを使ってください。<BR>
+<BR>
+　　　　古いファイルは、新しいプログラムで、問題なく読めます。<BR>
+<BR>
+ver1.0.0.4<BR>
+<BR>
+　　　　新しいsigファイルに対応しました。<BR>
+　　　　新しいsigファイルを、古いプログラムで読もうとすると、エラーになります。<BR>
+　　　　古いファイルは、新しいプログラムで、問題なく読めます。<BR>
+<BR>
+2006/05/04<BR>
+　　　　easy3d.dllを差し替えました。<BR>
+<BR>
+2006/05/11<BR>
+　　　　easy3d.dllを差し替えました。<BR>
+<BR>
+2006/05/12<BR>
+　　　　easy3d.dllを差し替えました。<BR>
+<BR>
+</P>
+<P><A href="index.htm">トップページに戻る</A></P>
+<P>
+<BR>
+</P>
+</BODY>
+</HTML>

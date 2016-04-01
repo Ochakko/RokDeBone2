@@ -16,9 +16,9 @@
 
 
 
-#include "c:\\pgfile9\\RokDeBone2DX\\SoundBank.h"
-#include "c:\\pgfile9\\RokDeBone2DX\\SoundSet.h"
-#include "c:\\pgfile9\\RokDeBone2DX\\SoundElem.h"
+#include "..\..\RokDeBone2DX\SoundBank.h"
+#include "..\..\RokDeBone2DX\SoundSet.h"
+#include "..\..\RokDeBone2DX\SoundElem.h"
 
 #include <SndPath.h>
 

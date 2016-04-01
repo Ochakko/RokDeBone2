@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>各種ファイルをいっぺんに読み込むには</B></FONT><BR>
+<BR>
+各種ファイルを一括で読み込めるように、バッチ読み込みファイル(*.bld)を作りました。<BR>
+<BR>
+bldはfileメニューから読み込めます。<BR>
+<BR>
+bldの書き出しはサポートしません。メモ帳などのテキストエディタで手で書いてください。<BR>
+<BR>
+<BR>
+以下フォーマットの説明。<BR>
+<BR>
+全項目説明するよりもサンプルを見たほうが一目瞭然だと思うので<BR>
+サンプルを貼り付けます。<BR>
+<BR>
+<pre><BR>
+&lt;?xml version=&quot;1.0&quot;?&gt;<BR>
+&lt;BLD&gt;  <BR>
+  &lt;FileInfo&gt;<BR>
+    &lt;kind&gt;RokDeBone2BatchLoad&lt;/kind&gt;<BR>
+    &lt;version&gt;1001&lt;/version&gt;<BR>
+    &lt;type&gt;0&lt;/type&gt;<BR>
+  &lt;/FileInfo&gt;<BR>
+  &lt;Sound&gt;<BR>
+    &lt;SoundSet&gt;default.ssf&lt;/SoundSet&gt;<BR>
+    &lt;SoundAnim&gt;default.saf&lt;/SoundAnim&gt;<BR>
+  &lt;/Sound&gt;<BR>
+  &lt;Ground&gt;<BR>
+    &lt;file&gt;ground05mv.sig&lt;/file&gt;<BR>
+    &lt;mult&gt;1.0&lt;/mult&gt;<BR>
+  &lt;/Ground&gt;<BR>
+  &lt;Camera&gt;<BR>
+    &lt;mode&gt;KAE&lt;/mode&gt;<BR>
+    &lt;file&gt;my\my3.cam&lt;/file&gt;<BR>
+  &lt;/Camera&gt;<BR>
+  &lt;Character&gt;<BR>
+    &lt;shape&gt;my\my.sig&lt;/shape&gt;<BR>
+    &lt;shapemult&gt;2.0&lt;/shapemult&gt;<BR>
+    &lt;moa&gt;my\my3.moa&lt;/moa&gt;<BR>
+    &lt;gpa&gt;my\my3.gpa&lt;/gpa&gt;<BR>
+    &lt;moe&gt;my\my3.moe&lt;/moe&gt;<BR>
+  &lt;/Character&gt;<BR>
+&lt;/BLD&gt;<BR>
+<BR>
+</pre><BR>
+
+
+ファイルはXML形式です。
+ファイル名以外は半角で記述します。
+<BR>ファイルのパスは<B>bldファイルの場所からの相対パス</B>で記述します。
+ただしssfファイルに記述してある音データはRokDeBone2.exeからの相対パスになっているので
+wav, oggはRokDeBone2からの相対パスにおいておく必要があります。
+（ssfはbldからの相対パスです。）
+<P>地面のファイル名はsigまたはmqo。キャラクターファイル名（&lt;Character&gt;の&lt;shape&gt;）はsigのみです。<BR>
+パスのディレクトリの区切りには半角の\を使ってください。<BR>
+.\や..\は使えません。<BR>
+<BR>
+bldを読み込むと読み込み済みのデータは削除されます。保存してから実行してください。<BR>
+<BR>
+Cameraのmodeはカメラファイルを読み込んだ後でカメラモードを「替」に切り替えたいときはKAEと記述します。<BR>
+切り替えたくないときはDEFAULTと記述します。<BR>
+</P>
+<BR>
+<A href="index.htm">トップページに戻る</A><BR>
+</BODY>
+</HTML>

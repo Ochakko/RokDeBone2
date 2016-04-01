@@ -19,12 +19,8 @@
 
 #include <bgdisp2.h>
 #include <texbank.h>
-//#include "dxutil.h"
-//#include "c:\program files\microsoft platform sdk\samples\multimedia\Direct3D\RokDeBone\dxutil.h"
-//#include "c:\program files\microsoft platform sdk\samples\multimedia\common\include\DXUtil.h"
-//#include "c:\program files\microsoft sdk\samples\multimedia\common\include\DXUtil.h"
 
-#include "c:\pgfile9\e3dhsp3\DXUtil.h"
+#include "..\..\RokDeBone2DX\DXUtil.h"
 
 
 extern D3DCOLOR g_fogcolor;

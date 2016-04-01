@@ -31,13 +31,13 @@
 #include <polymesh2.h>
 #include <mqomaterial.h>
 
-#include "c:\pgfile9\rokdebone2DX\motdlg.h"
-#include "c:\pgfile9\rokdebone2DX\motparamdlg.h"
+#include "..\..\RokDeBone2DX\motdlg.h"
+#include "..\..\RokDeBone2DX\motparamdlg.h"
 
-#include "c:\pgfile9\rokdebone2DX\AllocateHierarchy.h"
-#include "c:\pgfile9\rokdebone2DX\dxutil.h"
+#include "..\..\RokDeBone2DX\AllocateHierarchy.h"
+#include "..\..\RokDeBone2DX\dxutil.h"
 
-#include "c:\pgfile9\rokdebone2DX\SigEditWnd.h"
+#include "..\..\RokDeBone2DX\SigEditWnd.h"
 
 
 #define XFILELINELEN 4098

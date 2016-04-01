@@ -12,8 +12,8 @@
 
 #include <SndAnim.h>
 
-#include "c:/pgfile9/RokDeBone2DX/SoundSet.h"
-#include "c:/pgfile9/RokDeBone2DX/SoundElem.h"
+#include "..\..\RokDeBone2DX\SoundSet.h"
+#include "..\..\RokDeBone2DX\SoundElem.h"
 #include <SndKey.h>
 #include <SndFullFrame.h>
 #include <SndFrame.h>

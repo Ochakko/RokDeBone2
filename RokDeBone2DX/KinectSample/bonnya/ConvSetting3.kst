@@ -1,0 +1,19 @@
+Rps2Qua:ConvSettingFile:ver1001:type01
+
+00TOP_OF_JOINT, "TopOfmat1", "twist"
+01SKEL_TORSO, "mat1", "twist"
+02SKEL_LEFT_HIP, "FLOAT_ƒ‚ƒ‚[L]_X+", "twist"
+03SKEL_LEFT_KNEE, "ƒ‚ƒ‚[L]_X+", "nottwist"
+04SKEL_LEFT_FOOT, "ƒXƒl[L]_X+", "twist"
+05SKEL_RIGHT_HIP, "FLOAT_ƒ‚ƒ‚[R]_X-", "twist"
+06SKEL_RIGHT_KNEE, "ƒ‚ƒ‚[R]_X-", "nottwist"
+07SKEL_RIGHT_FOOT, "ƒXƒl[R]_X-", "twist"
+08SKEL_NECK, "‹¹", "twist"
+09SKEL_HEAD, "“ª", "twist"
+10SKEL_LEFT_SHOULDER, "FLOAT_Œ¨[L]_X+", "twist"
+11SKEL_LEFT_ELBOW, "Œ¨[L]_X+", "nottwist"
+12SKEL_LEFT_HAND, "˜r[L]_X+", "nottwist"
+13SKEL_RIGHT_SHOULDER, "FLOAT_Œ¨[R]_X-", "twist"
+14SKEL_RIGHT_ELBOW, "Œ¨[R]_X-", "nottwist"
+15SKEL_RIGHT_HAND, "˜r[R]_X-", "nottwist"
+

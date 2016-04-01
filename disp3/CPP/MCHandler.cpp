@@ -707,7 +707,7 @@ int CMCHandler::SetIdlingMotion( CShdHandler* srclpsh, int exceptfirst )
 				idlingid = (m_mcarray + 1)->id;
 			}else{
 				DbgOut( "mchandler : SetIdlingMotion : idling motion not exist error !!!\n" );
-				_ASSERT( 0 );
+				//_ASSERT( 0 );
 				return 1;//!!!!!!!!!
 			}
 		}else{
@@ -788,7 +788,7 @@ int CMCHandler::ChangeIdlingMotion( CShdHandler* srclpsh, int srcmotid )
 	ret = SetIdlingMotion( srclpsh, 1 );
 	if( ret ){
 		DbgOut( "mch : ChangeIdlingMotion : SetIdlingMotion error !!!\n" );
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 

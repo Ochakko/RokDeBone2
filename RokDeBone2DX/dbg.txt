@@ -1,0 +1,3804 @@
+InitFunc: dbgfile created
+CMyD3DApplication : SetModuleDir : C:\Users\ñŒ\RokDeBone2_git\RokDeBone2\RokDeBone2DX\Release\
+SetMediaDir : C:\Users\ñŒ\RokDeBone2_git\RokDeBone2\RokDeBone2DX\Media\
+autosavedir : C:\Users\ñŒ\RokDeBone2_git\RokDeBone2\RokDeBone2DX\AutoSave\
+inidata : index32bit 0 1
+inidata : main_posx 366 1
+inidata : main_posy 26 1
+inidata : main_width 977 1
+inidata : main_height 723 1
+inidata : motdlg_disp 1 1
+inidata : motdlg_posx 624 1
+inidata : motdlg_posy 451 1
+inidata : motdlg_calcsp 0 1
+inidata : motdlg_height 265 1
+inidata : sigdlg_disp 1 1
+inidata : sigdlg_posx 374 1
+inidata : sigdlg_posy 103 1
+inidata : camdlg_disp 0 1
+inidata : camdlg_posx 8 1
+inidata : camdlg_posy 50 1
+inidata : camdlg_move 20.000000 1
+inidata : gpa_move 1.000000 1
+inidata : graph_disp 1 1
+inidata : usekinect 0 1
+inidata : bg_color ( 30, 65, 90 )  1
+inidata : bg_tex1  1
+inidata : bg_tex2  1
+inidata : bg_mvu 0.000000 1
+inidata : bg_mvv 0.000000 1
+inidata : bg_fixsize 0 1
+inidata : dirlight_col ( 99, 99, 99 )  1
+inidata : opt_jointdisp : 1 1
+inidata : opt_polydisp : 0 1
+inidata : opt_gdisp : 0 1
+inidata : opt_namequa : 1 1
+inidata : opt_jointsize : 100 1
+inidata : opt_jointalpha : 255 1
+inidata : opt_undodlg : 0 1
+inidata : opt_Rdlg : 0 1
+inidata : opt_infdlg : 0 1
+inidata : opt_modlg : 0 1
+inidata : opt_bmdisp : 1 1
+inidata : opt_previewfps : 60 1
+inidata : opt_motstep : 1 1
+inidata : opt_ikfk : 0 1
+inidata : opt_iktdisp : 1 1
+inidata : optMouseL : 1 1
+inidata : optMouseR : 2 1
+inidata : optMouseW : 4 1
+inidata : opt_unselline : (229 127 178) 1
+inidata : opt_seline : (29 229 215) 1
+inidata : opt_unsepoint : (229 127 178) 1
+inidata : opt_selpoint : (29 229 215) 1
+inidata : opt_pointsize : 5 1
+inidata : cc0 ( 99, 99, 99 ) 1
+inidata : cc1 ( 255, 255, 255 ) 1
+inidata : cc2 ( 255, 255, 255 ) 1
+inidata : cc3 ( 255, 255, 255 ) 1
+inidata : cc4 ( 255, 255, 255 ) 1
+inidata : cc5 ( 255, 255, 255 ) 1
+inidata : cc6 ( 255, 255, 255 ) 1
+inidata : cc7 ( 255, 255, 255 ) 1
+inidata : cc8 ( 255, 255, 255 ) 1
+inidata : cc9 ( 255, 255, 255 ) 1
+inidata : cc10 ( 255, 255, 255 ) 1
+inidata : cc11 ( 255, 255, 255 ) 1
+inidata : cc12 ( 255, 255, 255 ) 1
+inidata : cc13 ( 255, 255, 255 ) 1
+inidata : cc14 ( 255, 255, 255 ) 1
+inidata : cc15 ( 255, 255, 255 ) 1
+inidata : selectcol ( 255, 0, 0 ) 1
+inidata : unselectcol ( 64, 128, 128 ) 1
+inidata : viewparamF5 ( 0.000000, 0.000000, 750.000000, 2900.000000, 0.000000, 750.000000, 0.000000 ) 1
+inidata : viewparamF6 ( 0.000000, 0.000000, 750.000000, 2900.000000, 0.000000, 750.000000, 0.000000 ) 1
+inidata : viewparamF7 ( 0.000000, 0.000000, 750.000000, 2900.000000, 0.000000, 750.000000, 0.000000 ) 1
+inidata : viewparamF8 ( 0.000000, 0.000000, 750.000000, 2900.000000, 0.000000, 750.000000, 0.000000 ) 1
+inidata : iklevelope : 1 1
+inidata : forbidDD : 0 1
+inidata : mqo_bonetype : 0 1
+inidata : mqo_mult : 0 1072693248
+inidata : toonedgecol : 0.600000 1
+inidata : toonedgew : 8.000000 1
+Create : freq : Hight 0, Low 3312789, 3312789.000000
+checksize : viewer : OnSize : uMsg 5, wParam 0, lParam 44827585, MAXHIDE 4, MINIMIZED 1
+checksize : OnActivateApp : uMsg 28, wParam 1, lParam 2496, m_miniflag 0
+viewer : WM_ACTIVATEAPP 1 0
+checksize : viewer : OnSize : uMsg 5, wParam 0, lParam 43516865, MAXHIDE 4, MINIMIZED 1
+viewer : ComputeRect : 3dwnd : w 461, h 348
+viewer : ComputeRect : rc3dwnd left 250, right 711, kaku top 5, left 419
+CPU Vender: "GenuineIntel"
+Family: 6  Model: 10  Stepping ID: 0
+Supported CPUID: 1
+Supported MMX: 1
+Supported SSE: 1
+Supported SSE2: 1
+Supported 3DNow!: 0
+Supported Enhanced 3DNow!: 0
+texbank : miplevels 0
+HuSound : Init : start
+HuSound : Init : Success : end
+InfScopeDlg : m_timerid 11004
+Toon0Dlg : m_timerid 11005
+InitPluginMenu : FindFirst : MorphExporter.dll
+InitPluginMenu : FindNext : MotionExporter.dll
+InitPluginMenu : FindNext : ShapeExporter.dll
+InitPluginMenu : FindNext : ToonExporter.dll
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+mqofile : CheckFileVersion : filekind : Metasequoia Document
+
+mqofile : CheckFileVersion : fileversion : Format Text Ver 1.0
+
+mqofile : Scene : ambient 0.250000 0.250000 0.250000
+MQOObject : SetVertex : vertex 84
+MQOObject : SetFace : face 42
+MQOObject : SetVertex : vertex 2
+MQOObject : SetFace : face 1
+MQOObject : SetVertex : vertex 2
+MQOObject : SetFace : face 1
+MQOObject : SetVertex : vertex 2
+MQOObject : SetFace : face 1
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 2, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 3, brono 2, srcdepth 1
+mqoobject : MakeExtLine : Color 0.357000 0.412000 0.357000
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 84, n 104, total 8736
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 3, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 4, brono 3, srcdepth 1
+mqoobject : MakeExtLine : Color 1.000000 0.000000 0.000000
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 2, n 22, total 44
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 5
+CShdHandler : AddShdElem : srcseri 5, brono 4, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 5, brono 4, srcdepth 1
+mqoobject : MakeExtLine : Color 0.000000 0.749000 0.169000
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 2, n 22, total 44
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 6
+CShdHandler : AddShdElem : srcseri 6, brono 5, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 6, brono 5, srcdepth 1
+mqoobject : MakeExtLine : Color 0.000000 0.000000 1.000000
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 2, n 22, total 44
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 7
+CShdHandler : AddShdElem : srcseri 7, brono 6, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 7, brono 6, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+mqofile : CheckFileVersion : filekind : Metasequoia Document
+
+mqofile : CheckFileVersion : fileversion : Format Text Ver 1.0
+
+mqofile : Scene : ambient 0.250000 0.250000 0.250000
+MQOObject : SetVertex : vertex 3
+MQOObject : SetFace : face 1
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 2, brono 0, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 3, n 1, total 3
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, obj1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 3, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+sh  : SetMikoAnchorApply : disp obj obj1, no fixed apply
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 4, brono 2, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+mqofile : CheckFileVersion : filekind : Metasequoia Document
+
+mqofile : CheckFileVersion : fileversion : Format Text Ver 1.0
+
+mqofile : Scene : ambient 0.250000 0.250000 0.250000
+MQOObject : SetVertex : vertex 58
+MQOObject : SetFace : face 64
+MQOObject : SetVertex : vertex 58
+MQOObject : SetFace : face 64
+MQOObject : SetVertex : vertex 58
+MQOObject : SetFace : face 64
+MQOObject : SetVertex : vertex 228
+MQOObject : SetFace : face 232
+MQOObject : SetVertex : vertex 228
+MQOObject : SetFace : face 232
+MQOObject : SetVertex : vertex 228
+MQOObject : SetFace : face 232
+MQOObject : SetVertex : vertex 8
+MQOObject : SetFace : face 6
+MQOObject : SetVertex : vertex 2
+MQOObject : SetFace : face 1
+MQOObject : SetVertex : vertex 2
+MQOObject : SetFace : face 1
+MQOObject : SetVertex : vertex 2
+MQOObject : SetFace : face 1
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 2, brono 0, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 336, n 112, total 37632
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, obj_X
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 1, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 3, brono 1, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 336, n 112, total 37632
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, obj_Y
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 2, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 4, brono 2, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 336, n 112, total 37632
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, obj_Z
+CTreeHandler : Add2ElemIndex : serino 5
+CShdHandler : AddShdElem : srcseri 5, brono 3, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 5, brono 3, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 672, n 224, total 150528
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, ring_Z
+CTreeHandler : Add2ElemIndex : serino 6
+CShdHandler : AddShdElem : srcseri 6, brono 4, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 6, brono 4, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 672, n 224, total 150528
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, ring_X
+CTreeHandler : Add2ElemIndex : serino 7
+CShdHandler : AddShdElem : srcseri 7, brono 5, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 7, brono 5, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 672, n 224, total 150528
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, ring_Y
+CTreeHandler : Add2ElemIndex : serino 8
+CShdHandler : AddShdElem : srcseri 8, brono 6, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 8, brono 6, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, obj_CENTER
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 9
+CShdHandler : AddShdElem : srcseri 9, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 9, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 10
+CShdHandler : AddShdElem : srcseri 10, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 10, brono 2, srcdepth 1
+mqoobject : MakeExtLine : Color 1.000000 0.000000 0.000000
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 2, n 22, total 44
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 11
+CShdHandler : AddShdElem : srcseri 11, brono 3, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 11, brono 3, srcdepth 1
+mqoobject : MakeExtLine : Color 0.000000 1.000000 0.000000
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 2, n 22, total 44
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 12
+CShdHandler : AddShdElem : srcseri 12, brono 4, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 12, brono 4, srcdepth 1
+mqoobject : MakeExtLine : Color 0.000000 0.000000 1.000000
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 2, n 22, total 44
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+sh  : SetMikoAnchorApply : disp obj obj_X, no fixed apply
+sh  : SetMikoAnchorApply : disp obj obj_Y, no fixed apply
+sh  : SetMikoAnchorApply : disp obj obj_Z, no fixed apply
+sh  : SetMikoAnchorApply : disp obj ring_Z, no fixed apply
+sh  : SetMikoAnchorApply : disp obj ring_X, no fixed apply
+sh  : SetMikoAnchorApply : disp obj ring_Y, no fixed apply
+sh  : SetMikoAnchorApply : disp obj obj_CENTER, no fixed apply
+CTreeHandler : Add2ElemIndex : serino 13
+CShdHandler : AddShdElem : srcseri 13, brono 5, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 13, brono 5, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+mqofile : CheckFileVersion : filekind : Metasequoia Document
+
+mqofile : CheckFileVersion : fileversion : Format Text Ver 1.0
+
+mqofile : Scene : ambient 0.250000 0.250000 0.250000
+MQOObject : SetVertex : vertex 58
+MQOObject : SetFace : face 64
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 2, brono 0, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 336, n 112, total 37632
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, obj1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 3, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+sh  : SetMikoAnchorApply : disp obj obj1, no fixed apply
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 4, brono 2, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+mqofile : CheckFileVersion : filekind : Metasequoia Document
+
+mqofile : CheckFileVersion : fileversion : Format Text Ver 1.0
+
+mqofile : Scene : ambient 0.250000 0.250000 0.250000
+MQOObject : SetVertex : vertex 242
+MQOObject : SetFace : face 256
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 2, brono 0, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1440, n 480, total 691200
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, obj1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 3, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+sh  : SetMikoAnchorApply : disp obj obj1, no fixed apply
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 4, brono 2, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+mqofile : CheckFileVersion : filekind : Metasequoia Document
+
+mqofile : CheckFileVersion : fileversion : Format Text Ver 1.0
+
+mqofile : Scene : ambient 0.250000 0.250000 0.250000
+MQOObject : SetVertex : vertex 58
+MQOObject : SetFace : face 64
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 2, brono 0, srcdepth 2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 336, n 112, total 37632
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+PolyMesh2 : SetSamePoint
+mqofile : make_polymesh2 : facet 59.500000, obj1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 3, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+sh  : SetMikoAnchorApply : disp obj obj1, no fixed apply
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 4, brono 2, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+mqofile : CheckFileVersion : filekind : Metasequoia Document
+
+mqofile : CheckFileVersion : fileversion : Format Text Ver 1.0
+
+mqofile : Scene : ambient 0.250000 0.250000 0.250000
+MQOObject : SetVertex : vertex 6
+MQOObject : SetFace : face 12
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 2, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 3, brono 2, srcdepth 1
+mqoobject : MakeExtLine : Color 1.000000 1.000000 1.000000
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 24, n 44, total 1056
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 3, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 4, brono 3, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+sigfile : LoadSigFile : im2enableflag 1 !!!
+sigfile : LoadSigFile : start Load Loop 0
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 2, brono 0, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 6, n 2, total 12
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 6, optpleng 4
+sigfile : end LoadPolyMesh2
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 3, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 4, brono 2, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 5
+CShdHandler : AddShdElem : srcseri 5, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 5, brono 0, srcdepth 2
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 7
+CShdHandler : AddShdElem : srcseri 7, brono 0, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 7, brono 0, srcdepth 3
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 6
+CShdHandler : AddShdElem : srcseri 6, brono 1, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 6, brono 1, srcdepth 3
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CShdColor : SetColors 
+sh  : SetMikoAnchorApply : disp obj "obj1", no fixed apply
+CTreeHandler : Add2ElemIndex : serino 8
+CShdHandler : AddShdElem : srcseri 8, brono 3, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 8, brono 3, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+sigfile : LoadSigFile : im2enableflag 1 !!!
+sigfile : LoadSigFile : start Load Loop 0
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 2, brono 0, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 96, n 32, total 3072
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 96, optpleng 34
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 1, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 3, brono 1, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 48, n 16, total 768
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 48, optpleng 26
+sigfile : end LoadPolyMesh2
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 4, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CShdColor : SetColors 
+sh  : SetMikoAnchorApply : disp obj "barZ", no fixed apply
+sh  : SetMikoAnchorApply : disp obj "arrowZ", no fixed apply
+CTreeHandler : Add2ElemIndex : serino 5
+CShdHandler : AddShdElem : srcseri 5, brono 2, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 5, brono 2, srcdepth 1
+CTreeHandler : End : GetParent reached to vacume warning !!!
+viewer : OneTimeSceneInit : m_timerid 1
+Performance Frequency 3312789
+d3dapp : Initialize3DEnvironment : MaxVertexShaderConst 256
+d3dapp : check Bump Enable 1 : VS -130304, PS -64768, streams 16
+d3dapp : HW Vertex Pixel Processing enableInitialize3DEnvironment : MaxStreamStride 255
+d3dapp : check texture caps : MaxTextureBlendStages 8, MaxSimultaneousTextures 8
+MotParamDlg : InitRotAndMv
+MotParamDlg : ThreadFunc : Start
+axisdlg :CreateSwapChain : m_timerid 10000
+lightdlg :CreateSwapChain : m_timerid 11000
+SetColDlg :CreateSwapChain : m_timerid 11001
+MaterialDlg :CreateSwapChain : m_timerid 11003
+GlowViewDlg :CreateSwapChain : m_timerid 11010
+Restore : Caps : GuardBand : left -100000000.000000, top -100000000.000000, right 100000000.000000, bottom 100000000.000000
+Restore : Caps : !! Small !! GuardBand  : left -553.200012, top -417.600006, right 553.200012, bottom 417.600006
+Restore : Caps : CLIPTLVERTS : 512, MaxVertexW 10000000000.000000
+Restore : Caps : MaxPrimitiveCount 16777215
+Restore : Caps : MaxVertexIndex 16777215
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+d3ddisp : CreateDispData extline : linekind 2
+CD3DDisp : CreateDispData : totalPrim 42, invalidPrim 0, pracPrim 42
+d3ddisp : CreateDispData extline : linekind 2
+CD3DDisp : CreateDispData : totalPrim 43, invalidPrim 0, pracPrim 43
+d3ddisp : CreateDispData extline : linekind 2
+CD3DDisp : CreateDispData : totalPrim 44, invalidPrim 0, pracPrim 44
+d3ddisp : CreateDispData extline : linekind 2
+CD3DDisp : CreateDispData : totalPrim 45, invalidPrim 0, pracPrim 45
+CShdHandler : SetTexTransParent
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 77, invalidPrim 0, pracPrim 77
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 93, invalidPrim 0, pracPrim 93
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CShdHandler : SetTexTransParent
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+Polymesh2 : CreateOptData : oldpleng 336, optpleng 79
+CD3DDisp : CreateDispData : totalPrim 205, invalidPrim 0, pracPrim 205
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+Polymesh2 : CreateOptData : oldpleng 336, optpleng 79
+CD3DDisp : CreateDispData : totalPrim 317, invalidPrim 0, pracPrim 317
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+Polymesh2 : CreateOptData : oldpleng 336, optpleng 79
+CD3DDisp : CreateDispData : totalPrim 429, invalidPrim 0, pracPrim 429
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+Polymesh2 : CreateOptData : oldpleng 672, optpleng 229
+CD3DDisp : CreateDispData : totalPrim 877, invalidPrim 0, pracPrim 877
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+Polymesh2 : CreateOptData : oldpleng 672, optpleng 229
+CD3DDisp : CreateDispData : totalPrim 1325, invalidPrim 0, pracPrim 1325
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+Polymesh2 : CreateOptData : oldpleng 672, optpleng 229
+CD3DDisp : CreateDispData : totalPrim 1773, invalidPrim 0, pracPrim 1773
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 24
+CD3DDisp : CreateDispData : totalPrim 1785, invalidPrim 0, pracPrim 1785
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateDispData extline : linekind 2
+CD3DDisp : CreateDispData : totalPrim 1786, invalidPrim 0, pracPrim 1786
+d3ddisp : CreateDispData extline : linekind 2
+CD3DDisp : CreateDispData : totalPrim 1787, invalidPrim 0, pracPrim 1787
+d3ddisp : CreateDispData extline : linekind 2
+CD3DDisp : CreateDispData : totalPrim 1788, invalidPrim 0, pracPrim 1788
+CShdHandler : SetTexTransParent
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+Polymesh2 : CreateOptData : oldpleng 336, optpleng 79
+CD3DDisp : CreateDispData : totalPrim 1900, invalidPrim 0, pracPrim 1900
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CShdHandler : SetTexTransParent
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+Polymesh2 : CreateOptData : oldpleng 1440, optpleng 287
+CD3DDisp : CreateDispData : totalPrim 2380, invalidPrim 0, pracPrim 2380
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CShdHandler : SetTexTransParent
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+Polymesh2 : CreateOptData : oldpleng 336, optpleng 79
+CD3DDisp : CreateDispData : totalPrim 2492, invalidPrim 0, pracPrim 2492
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CShdHandler : SetTexTransParent
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+d3ddisp : CreateDispData extline : linekind 2
+CD3DDisp : CreateDispData : totalPrim 2504, invalidPrim 0, pracPrim 2504
+CShdHandler : SetTexTransParent
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 2506, invalidPrim 0, pracPrim 2506
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+CShdHandler : SetTexTransParent
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+Polymesh2 : CreateOptData : oldpleng 3, optpleng 3
+CD3DDisp : CreateDispData : totalPrim 2507, invalidPrim 0, pracPrim 2507
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CShdHandler : SetTexTransParent
+bgdisp2 : CheckMultiTexOk : caps : maxtexcoord 8, maxstages 8, maxsimu 8, moduleop 8
+bgdisp2 : multitexok 1
+BgDisp : CreateTexture : fixx 256, fixy 256
+texbank : CreateTexData : data allready set, skip !!!
+texbank : CreateTexData : data allready set, skip !!!
+texbank : CreateTexData : data allready set, skip !!!
+texbank : CreateTexData : data allready set, skip !!!
+texbank : CreateTexData : data allready set, skip !!!
+texbank : CreateTexData : data allready set, skip !!!
+checksize : OnSysCommand : uMsg 274, wParam 61589, lParam 4522372
+CTreeHandler : Add2ElemIndex : serino 0
+CShdHandler : AddShdElem : srcseri 0, brono 0, srcdepth 0
+CShdHandler : constructor : check : s2shd_leng 1
+CMotHandler : AddMotionCtrl : srcseri 0, brono 0, srcdepth 0
+CMotHandler : constructor : check : s2mot_leng 1
+CMyD3DApplication : SetRESDIR : C:\Users\ñŒ\RokDeBone2_git\RokDeBone2\RokDeBone2DX\KinectSample\bonnya\
+sh : SetDirName : m_dirname C:\Users\ñŒ\RokDeBone2_git\RokDeBone2\RokDeBone2DX\KinectSample\bonnya\
+sigfile : LoadSigFile : im2enableflag 1 !!!
+sigfile : LoadSigFile : start Load Loop 0
+CTreeHandler : Add2ElemIndex : serino 1
+CShdHandler : AddShdElem : srcseri 1, brono 0, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 1, brono 0, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 93
+CShdHandler : AddShdElem : srcseri 93, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 93, brono 0, srcdepth 2
+shddata.cpp : Destroy3DObj
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 21
+CShdHandler : AddShdElem : srcseri 21, brono 0, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 21, brono 0, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 16
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 20
+CShdHandler : AddShdElem : srcseri 20, brono 1, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 20, brono 1, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 16
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 19
+CShdHandler : AddShdElem : srcseri 19, brono 2, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 19, brono 2, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 16
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 18
+CShdHandler : AddShdElem : srcseri 18, brono 3, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 18, brono 3, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 16
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 92
+CShdHandler : AddShdElem : srcseri 92, brono 1, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 92, brono 1, srcdepth 2
+shddata.cpp : Destroy3DObj
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 17
+CShdHandler : AddShdElem : srcseri 17, brono 0, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 17, brono 0, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 252, n 84, total 21168
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 252, optpleng 58
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 16
+CShdHandler : AddShdElem : srcseri 16, brono 1, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 16, brono 1, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 252, n 84, total 21168
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 252, optpleng 58
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 91
+CShdHandler : AddShdElem : srcseri 91, brono 2, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 91, brono 2, srcdepth 2
+shddata.cpp : Destroy3DObj
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 14
+CShdHandler : AddShdElem : srcseri 14, brono 0, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 14, brono 0, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 13
+CShdHandler : AddShdElem : srcseri 13, brono 1, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 13, brono 1, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 12
+CShdHandler : AddShdElem : srcseri 12, brono 2, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 12, brono 2, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 11
+CShdHandler : AddShdElem : srcseri 11, brono 3, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 11, brono 3, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 10
+CShdHandler : AddShdElem : srcseri 10, brono 4, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 10, brono 4, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 9
+CShdHandler : AddShdElem : srcseri 9, brono 5, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 9, brono 5, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 8
+CShdHandler : AddShdElem : srcseri 8, brono 6, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 8, brono 6, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 7
+CShdHandler : AddShdElem : srcseri 7, brono 7, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 7, brono 7, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 6
+CShdHandler : AddShdElem : srcseri 6, brono 8, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 6, brono 8, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 5
+CShdHandler : AddShdElem : srcseri 5, brono 9, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 5, brono 9, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 4
+CShdHandler : AddShdElem : srcseri 4, brono 10, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 4, brono 10, srcdepth 3
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1896, n 632, total 1198272
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1896, optpleng 390
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 2
+CShdHandler : AddShdElem : srcseri 2, brono 3, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 2, brono 3, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 7032, n 2344, total 16483008
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 7032, optpleng 1433
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 3
+CShdHandler : AddShdElem : srcseri 3, brono 4, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 3, brono 4, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 540, n 180, total 97200
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 540, optpleng 106
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 15
+CShdHandler : AddShdElem : srcseri 15, brono 5, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 15, brono 5, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 252, n 84, total 21168
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 252, optpleng 58
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 22
+CShdHandler : AddShdElem : srcseri 22, brono 6, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 22, brono 6, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 360, n 120, total 43200
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 360, optpleng 62
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 23
+CShdHandler : AddShdElem : srcseri 23, brono 7, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 23, brono 7, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 1596, n 532, total 849072
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 1596, optpleng 411
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 24
+CShdHandler : AddShdElem : srcseri 24, brono 8, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 24, brono 8, srcdepth 2
+sigfile : start LoadPolyMesh2
+shddata.cpp : Destroy3DObj
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 588, n 196, total 115248
+polymesh2 : CreateBuffers : end
+shddata.cpp : Create3DObj
+Polymesh2 : CreateOptData : oldpleng 588, optpleng 169
+sigfile : end LoadPolyMesh2
+CTreeHandler : Add2ElemIndex : serino 90
+CShdHandler : AddShdElem : srcseri 90, brono 9, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 90, brono 9, srcdepth 2
+sigfile : LoadInfScope : not found infscope before : IS90
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 216, n 72, total 15552
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 216, optpleng 144
+sigfile : LoadInfScope : pm2 : AddInfScope 42 2 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 288, n 96, total 27648
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 288, optpleng 154
+sigfile : LoadInfScope : pm2 : AddInfScope 75 2 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 264, n 88, total 23232
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 264, optpleng 156
+sigfile : LoadInfScope : pm2 : AddInfScope 79 2 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 108, n 36, total 3888
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 108, optpleng 62
+sigfile : LoadInfScope : pm2 : AddInfScope 89 22 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 180, n 60, total 10800
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 180, optpleng 120
+sigfile : LoadInfScope : pm2 : AddInfScope 39 3 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 120, n 40, total 4800
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 120, optpleng 64
+sigfile : LoadInfScope : pm2 : AddInfScope 49 4 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 72, n 24, total 1728
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 72, optpleng 48
+sigfile : LoadInfScope : pm2 : AddInfScope 51 16 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 60, n 20, total 1200
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 60, optpleng 32
+sigfile : LoadInfScope : pm2 : AddInfScope 49 15 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 60, n 20, total 1200
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 60, optpleng 32
+sigfile : LoadInfScope : pm2 : AddInfScope 49 18 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 408, n 136, total 55488
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 408, optpleng 155
+sigfile : LoadInfScope : pm2 : AddInfScope 49 23 0
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 360, n 120, total 43200
+polymesh2 : CreateBuffers : end
+Polymesh2 : CreateOptData : oldpleng 360, optpleng 195
+sigfile : LoadInfScope : pm2 : AddInfScope 52 24 0
+CTreeHandler : Add2ElemIndex : serino 25
+CShdHandler : AddShdElem : srcseri 25, brono 10, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 25, brono 10, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 26
+CShdHandler : AddShdElem : srcseri 26, brono 11, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 26, brono 11, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 27
+CShdHandler : AddShdElem : srcseri 27, brono 12, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 27, brono 12, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 28
+CShdHandler : AddShdElem : srcseri 28, brono 13, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 28, brono 13, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 29
+CShdHandler : AddShdElem : srcseri 29, brono 14, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 29, brono 14, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 30
+CShdHandler : AddShdElem : srcseri 30, brono 15, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 30, brono 15, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 31
+CShdHandler : AddShdElem : srcseri 31, brono 16, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 31, brono 16, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 32
+CShdHandler : AddShdElem : srcseri 32, brono 17, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 32, brono 17, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 33
+CShdHandler : AddShdElem : srcseri 33, brono 18, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 33, brono 18, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 34
+CShdHandler : AddShdElem : srcseri 34, brono 19, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 34, brono 19, srcdepth 2
+CTreeHandler : Add2ElemIndex : serino 35
+CShdHandler : AddShdElem : srcseri 35, brono 20, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 35, brono 20, srcdepth 2
+CTreeHandler : End : GetParent reached to vacume warning !!!
+CTreeHandler : Add2ElemIndex : serino 36
+CShdHandler : AddShdElem : srcseri 36, brono 1, srcdepth 1
+CMotHandler : AddMotionCtrl : srcseri 36, brono 1, srcdepth 1
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 37
+CShdHandler : AddShdElem : srcseri 37, brono 0, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 37, brono 0, srcdepth 2
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 38
+CShdHandler : AddShdElem : srcseri 38, brono 0, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 38, brono 0, srcdepth 3
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 39
+CShdHandler : AddShdElem : srcseri 39, brono 0, srcdepth 4
+CMotHandler : AddMotionCtrl : srcseri 39, brono 0, srcdepth 4
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 40
+CShdHandler : AddShdElem : srcseri 40, brono 0, srcdepth 5
+CMotHandler : AddMotionCtrl : srcseri 40, brono 0, srcdepth 5
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 41
+CShdHandler : AddShdElem : srcseri 41, brono 0, srcdepth 6
+CMotHandler : AddMotionCtrl : srcseri 41, brono 0, srcdepth 6
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 42
+CShdHandler : AddShdElem : srcseri 42, brono 0, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 42, brono 0, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 43
+CShdHandler : AddShdElem : srcseri 43, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 43, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 44
+CShdHandler : AddShdElem : srcseri 44, brono 1, srcdepth 5
+CMotHandler : AddMotionCtrl : srcseri 44, brono 1, srcdepth 5
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 45
+CShdHandler : AddShdElem : srcseri 45, brono 0, srcdepth 6
+CMotHandler : AddMotionCtrl : srcseri 45, brono 0, srcdepth 6
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 46
+CShdHandler : AddShdElem : srcseri 46, brono 0, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 46, brono 0, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 47
+CShdHandler : AddShdElem : srcseri 47, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 47, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 48
+CShdHandler : AddShdElem : srcseri 48, brono 2, srcdepth 5
+CMotHandler : AddMotionCtrl : srcseri 48, brono 2, srcdepth 5
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 49
+CShdHandler : AddShdElem : srcseri 49, brono 0, srcdepth 6
+CMotHandler : AddMotionCtrl : srcseri 49, brono 0, srcdepth 6
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 50
+CShdHandler : AddShdElem : srcseri 50, brono 0, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 50, brono 0, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 51
+CShdHandler : AddShdElem : srcseri 51, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 51, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 52
+CShdHandler : AddShdElem : srcseri 52, brono 1, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 52, brono 1, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 53
+CShdHandler : AddShdElem : srcseri 53, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 53, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 54
+CShdHandler : AddShdElem : srcseri 54, brono 2, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 54, brono 2, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 55
+CShdHandler : AddShdElem : srcseri 55, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 55, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 56
+CShdHandler : AddShdElem : srcseri 56, brono 0, srcdepth 9
+CMotHandler : AddMotionCtrl : srcseri 56, brono 0, srcdepth 9
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 57
+CShdHandler : AddShdElem : srcseri 57, brono 3, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 57, brono 3, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 58
+CShdHandler : AddShdElem : srcseri 58, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 58, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 59
+CShdHandler : AddShdElem : srcseri 59, brono 0, srcdepth 9
+CMotHandler : AddMotionCtrl : srcseri 59, brono 0, srcdepth 9
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 60
+CShdHandler : AddShdElem : srcseri 60, brono 4, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 60, brono 4, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 61
+CShdHandler : AddShdElem : srcseri 61, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 61, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 62
+CShdHandler : AddShdElem : srcseri 62, brono 0, srcdepth 9
+CMotHandler : AddMotionCtrl : srcseri 62, brono 0, srcdepth 9
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 63
+CShdHandler : AddShdElem : srcseri 63, brono 5, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 63, brono 5, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 64
+CShdHandler : AddShdElem : srcseri 64, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 64, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 65
+CShdHandler : AddShdElem : srcseri 65, brono 6, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 65, brono 6, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 66
+CShdHandler : AddShdElem : srcseri 66, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 66, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 67
+CShdHandler : AddShdElem : srcseri 67, brono 7, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 67, brono 7, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 68
+CShdHandler : AddShdElem : srcseri 68, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 68, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 69
+CShdHandler : AddShdElem : srcseri 69, brono 3, srcdepth 5
+CMotHandler : AddMotionCtrl : srcseri 69, brono 3, srcdepth 5
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 70
+CShdHandler : AddShdElem : srcseri 70, brono 0, srcdepth 6
+CMotHandler : AddMotionCtrl : srcseri 70, brono 0, srcdepth 6
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 71
+CShdHandler : AddShdElem : srcseri 71, brono 0, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 71, brono 0, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 72
+CShdHandler : AddShdElem : srcseri 72, brono 4, srcdepth 5
+CMotHandler : AddMotionCtrl : srcseri 72, brono 4, srcdepth 5
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 73
+CShdHandler : AddShdElem : srcseri 73, brono 0, srcdepth 6
+CMotHandler : AddMotionCtrl : srcseri 73, brono 0, srcdepth 6
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 74
+CShdHandler : AddShdElem : srcseri 74, brono 0, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 74, brono 0, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 75
+CShdHandler : AddShdElem : srcseri 75, brono 1, srcdepth 4
+CMotHandler : AddMotionCtrl : srcseri 75, brono 1, srcdepth 4
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 76
+CShdHandler : AddShdElem : srcseri 76, brono 0, srcdepth 5
+CMotHandler : AddMotionCtrl : srcseri 76, brono 0, srcdepth 5
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 77
+CShdHandler : AddShdElem : srcseri 77, brono 0, srcdepth 6
+CMotHandler : AddMotionCtrl : srcseri 77, brono 0, srcdepth 6
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 78
+CShdHandler : AddShdElem : srcseri 78, brono 0, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 78, brono 0, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 79
+CShdHandler : AddShdElem : srcseri 79, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 79, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 80
+CShdHandler : AddShdElem : srcseri 80, brono 1, srcdepth 5
+CMotHandler : AddMotionCtrl : srcseri 80, brono 1, srcdepth 5
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 81
+CShdHandler : AddShdElem : srcseri 81, brono 0, srcdepth 6
+CMotHandler : AddMotionCtrl : srcseri 81, brono 0, srcdepth 6
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 82
+CShdHandler : AddShdElem : srcseri 82, brono 0, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 82, brono 0, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 83
+CShdHandler : AddShdElem : srcseri 83, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 83, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 84
+CShdHandler : AddShdElem : srcseri 84, brono 2, srcdepth 5
+CMotHandler : AddMotionCtrl : srcseri 84, brono 2, srcdepth 5
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 85
+CShdHandler : AddShdElem : srcseri 85, brono 0, srcdepth 6
+CMotHandler : AddMotionCtrl : srcseri 85, brono 0, srcdepth 6
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 86
+CShdHandler : AddShdElem : srcseri 86, brono 0, srcdepth 7
+CMotHandler : AddMotionCtrl : srcseri 86, brono 0, srcdepth 7
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 87
+CShdHandler : AddShdElem : srcseri 87, brono 0, srcdepth 8
+CMotHandler : AddMotionCtrl : srcseri 87, brono 0, srcdepth 8
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 88
+CShdHandler : AddShdElem : srcseri 88, brono 1, srcdepth 2
+CMotHandler : AddMotionCtrl : srcseri 88, brono 1, srcdepth 2
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CTreeHandler : Add2ElemIndex : serino 89
+CShdHandler : AddShdElem : srcseri 89, brono 0, srcdepth 3
+CMotHandler : AddMotionCtrl : srcseri 89, brono 0, srcdepth 3
+shddata.cpp : Destroy3DObj
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 0, n 0, total 0
+CPart : CreatePart : srcmeshinfo->hascolor 0, meshinfo->hascolor 0
+shddata.cpp : Create3DObj
+CShdColor : SetColors 
+sh  : SetMikoAnchorApply : disp obj ëÃ, no fixed apply
+sh  : SetMikoAnchorApply : disp obj Ç‹Ç”ÇÁ, no fixed apply
+sh  : SetMikoAnchorApply : disp obj äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:å˚èŒ-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:å˚Ç†-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:óºñ⁄ï¬Ç∂-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:ñ⁄êQÇÈ-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:ñ⁄ï¬Ç∂ã≠Ç≠-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:å˚Ç§-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:å˚Ç÷-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:ç∂ñ⁄ï¬Ç∂-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:âEñ⁄ï¬Ç∂-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:è∆ÇË-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj ä·ãÖ, no fixed apply
+sh  : SetMikoAnchorApply : disp obj ìµ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:ìµì_-ìµ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj î˚*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:î˚óÕã≠Ç≠-î˚*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:î˚óÕã≠Ç≠ÇQ-î˚*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:î˚ÇµÇÂÇ⁄ÇÒ-î˚*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj çú, no fixed apply
+sh  : SetMikoAnchorApply : disp obj îØ, no fixed apply
+sh  : SetMikoAnchorApply : disp obj Ç›Ç›, no fixed apply
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_1
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_2
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_3
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_4
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_5
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : RenderTarget_6
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : cam_kaku.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : cam_i.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : cam_kai.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 0.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 1.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 2.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 3.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 4.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 5.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 6.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 7.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 8.png
+texbank : CreateTexData : data allready set, skip !!!
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : 9.png
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : bonemark1.dds
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : bonemark2.tga
+texbank : CreateTexData : SetTextureAlpha call selvert2b1.bmp
+texbank : SetTextureAlpha : start
+texbank : SetTextureAlpha : end
+shandler : SetTextureAlpha : width 32, height 32
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : selvert2b1.bmp
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : selv.bmp
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : hoho.png
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : body.png
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : hair.png
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : face.png
+CShdHandler : CreateTexture : D3DTextr_CreateTextureFromFile : eye.png
+sh  : SetMikoAnchorApply : disp obj ëÃ, no fixed apply
+sh  : SetMikoAnchorApply : disp obj Ç‹Ç”ÇÁ, no fixed apply
+sh  : SetMikoAnchorApply : disp obj äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:å˚èŒ-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:å˚Ç†-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:óºñ⁄ï¬Ç∂-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:ñ⁄êQÇÈ-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:ñ⁄ï¬Ç∂ã≠Ç≠-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:å˚Ç§-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:å˚Ç÷-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:ç∂ñ⁄ï¬Ç∂-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:âEñ⁄ï¬Ç∂-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:è∆ÇË-äÁ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj ä·ãÖ, no fixed apply
+sh  : SetMikoAnchorApply : disp obj ìµ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:ìµì_-ìµ*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj î˚*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:î˚óÕã≠Ç≠-î˚*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:î˚óÕã≠Ç≠ÇQ-î˚*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj elem:î˚ÇµÇÂÇ⁄ÇÒ-î˚*ì™, no fixed apply
+sh  : SetMikoAnchorApply : disp obj çú, no fixed apply
+sh  : SetMikoAnchorApply : disp obj îØ, no fixed apply
+sh  : SetMikoAnchorApply : disp obj Ç›Ç›, no fixed apply
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 4851, invalidPrim 0, pracPrim 4851
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 5031, invalidPrim 0, pracPrim 5031
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 5663, invalidPrim 0, pracPrim 5663
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 6295, invalidPrim 0, pracPrim 6295
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 6927, invalidPrim 0, pracPrim 6927
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 7559, invalidPrim 0, pracPrim 7559
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 8191, invalidPrim 0, pracPrim 8191
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 8823, invalidPrim 0, pracPrim 8823
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 9455, invalidPrim 0, pracPrim 9455
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 10087, invalidPrim 0, pracPrim 10087
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 10719, invalidPrim 0, pracPrim 10719
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 11351, invalidPrim 0, pracPrim 11351
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 11983, invalidPrim 0, pracPrim 11983
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12067, invalidPrim 0, pracPrim 12067
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12151, invalidPrim 0, pracPrim 12151
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12235, invalidPrim 0, pracPrim 12235
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12247, invalidPrim 0, pracPrim 12247
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12259, invalidPrim 0, pracPrim 12259
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12271, invalidPrim 0, pracPrim 12271
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12283, invalidPrim 0, pracPrim 12283
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12403, invalidPrim 0, pracPrim 12403
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 12935, invalidPrim 0, pracPrim 12935
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13131, invalidPrim 0, pracPrim 13131
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+d3ddisp : Copy2IndexBuffer : m_IB not exist skip !!!
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13203, invalidPrim 0, pracPrim 13203
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13299, invalidPrim 0, pracPrim 13299
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13387, invalidPrim 0, pracPrim 13387
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13423, invalidPrim 0, pracPrim 13423
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13483, invalidPrim 0, pracPrim 13483
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13523, invalidPrim 0, pracPrim 13523
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13547, invalidPrim 0, pracPrim 13547
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13567, invalidPrim 0, pracPrim 13567
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13587, invalidPrim 0, pracPrim 13587
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13723, invalidPrim 0, pracPrim 13723
+polymesh2 : CreateOptData : optdata already exist exit !!!
+CD3DDisp : CreateDispData : totalPrim 13843, invalidPrim 0, pracPrim 13843
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+polymesh2 : CreateBuffers : start
+charpos2.cpp : CMeshInfo : NewMeshInfo : m 36, n 12, total 432
+polymesh2 : CreateBuffers : end
+PolyMesh2 : SetSamePoint
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 13855, invalidPrim 0, pracPrim 13855
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 13867, invalidPrim 0, pracPrim 13867
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 13879, invalidPrim 0, pracPrim 13879
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 13891, invalidPrim 0, pracPrim 13891
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 13903, invalidPrim 0, pracPrim 13903
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 13915, invalidPrim 0, pracPrim 13915
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 13927, invalidPrim 0, pracPrim 13927
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 13939, invalidPrim 0, pracPrim 13939
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 13951, invalidPrim 0, pracPrim 13951
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 13963, invalidPrim 0, pracPrim 13963
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 13975, invalidPrim 0, pracPrim 13975
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 13987, invalidPrim 0, pracPrim 13987
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 13999, invalidPrim 0, pracPrim 13999
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14011, invalidPrim 0, pracPrim 14011
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14023, invalidPrim 0, pracPrim 14023
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14035, invalidPrim 0, pracPrim 14035
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14047, invalidPrim 0, pracPrim 14047
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14059, invalidPrim 0, pracPrim 14059
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14071, invalidPrim 0, pracPrim 14071
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14083, invalidPrim 0, pracPrim 14083
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14095, invalidPrim 0, pracPrim 14095
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14107, invalidPrim 0, pracPrim 14107
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14119, invalidPrim 0, pracPrim 14119
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14131, invalidPrim 0, pracPrim 14131
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14143, invalidPrim 0, pracPrim 14143
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14155, invalidPrim 0, pracPrim 14155
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14167, invalidPrim 0, pracPrim 14167
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 14179, invalidPrim 0, pracPrim 14179
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14191, invalidPrim 0, pracPrim 14191
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14203, invalidPrim 0, pracPrim 14203
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14215, invalidPrim 0, pracPrim 14215
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14227, invalidPrim 0, pracPrim 14227
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14239, invalidPrim 0, pracPrim 14239
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14251, invalidPrim 0, pracPrim 14251
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14263, invalidPrim 0, pracPrim 14263
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14275, invalidPrim 0, pracPrim 14275
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14287, invalidPrim 0, pracPrim 14287
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14299, invalidPrim 0, pracPrim 14299
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14311, invalidPrim 0, pracPrim 14311
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14323, invalidPrim 0, pracPrim 14323
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14335, invalidPrim 0, pracPrim 14335
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14347, invalidPrim 0, pracPrim 14347
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14359, invalidPrim 0, pracPrim 14359
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14371, invalidPrim 0, pracPrim 14371
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14383, invalidPrim 0, pracPrim 14383
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 14395, invalidPrim 0, pracPrim 14395
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14407, invalidPrim 0, pracPrim 14407
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14419, invalidPrim 0, pracPrim 14419
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14431, invalidPrim 0, pracPrim 14431
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14443, invalidPrim 0, pracPrim 14443
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14455, invalidPrim 0, pracPrim 14455
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14467, invalidPrim 0, pracPrim 14467
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14479, invalidPrim 0, pracPrim 14479
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14491, invalidPrim 0, pracPrim 14491
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14503, invalidPrim 0, pracPrim 14503
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14515, invalidPrim 0, pracPrim 14515
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14527, invalidPrim 0, pracPrim 14527
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14539, invalidPrim 0, pracPrim 14539
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14551, invalidPrim 0, pracPrim 14551
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14563, invalidPrim 0, pracPrim 14563
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14575, invalidPrim 0, pracPrim 14575
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14587, invalidPrim 0, pracPrim 14587
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14599, invalidPrim 0, pracPrim 14599
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 14611, invalidPrim 0, pracPrim 14611
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 14623, invalidPrim 0, pracPrim 14623
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14635, invalidPrim 0, pracPrim 14635
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14647, invalidPrim 0, pracPrim 14647
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14659, invalidPrim 0, pracPrim 14659
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14671, invalidPrim 0, pracPrim 14671
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14683, invalidPrim 0, pracPrim 14683
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14695, invalidPrim 0, pracPrim 14695
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14707, invalidPrim 0, pracPrim 14707
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14719, invalidPrim 0, pracPrim 14719
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14731, invalidPrim 0, pracPrim 14731
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14743, invalidPrim 0, pracPrim 14743
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14755, invalidPrim 0, pracPrim 14755
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14767, invalidPrim 0, pracPrim 14767
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14779, invalidPrim 0, pracPrim 14779
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14791, invalidPrim 0, pracPrim 14791
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14803, invalidPrim 0, pracPrim 14803
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14815, invalidPrim 0, pracPrim 14815
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 14827, invalidPrim 0, pracPrim 14827
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 14839, invalidPrim 0, pracPrim 14839
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14851, invalidPrim 0, pracPrim 14851
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14863, invalidPrim 0, pracPrim 14863
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14875, invalidPrim 0, pracPrim 14875
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14887, invalidPrim 0, pracPrim 14887
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14899, invalidPrim 0, pracPrim 14899
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14911, invalidPrim 0, pracPrim 14911
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14923, invalidPrim 0, pracPrim 14923
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14935, invalidPrim 0, pracPrim 14935
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 14947, invalidPrim 0, pracPrim 14947
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14959, invalidPrim 0, pracPrim 14959
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 14971, invalidPrim 0, pracPrim 14971
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 14983, invalidPrim 0, pracPrim 14983
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 14995, invalidPrim 0, pracPrim 14995
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15007, invalidPrim 0, pracPrim 15007
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15019, invalidPrim 0, pracPrim 15019
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15031, invalidPrim 0, pracPrim 15031
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15043, invalidPrim 0, pracPrim 15043
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15055, invalidPrim 0, pracPrim 15055
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15067, invalidPrim 0, pracPrim 15067
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15079, invalidPrim 0, pracPrim 15079
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15091, invalidPrim 0, pracPrim 15091
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15103, invalidPrim 0, pracPrim 15103
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15115, invalidPrim 0, pracPrim 15115
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15127, invalidPrim 0, pracPrim 15127
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15139, invalidPrim 0, pracPrim 15139
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15151, invalidPrim 0, pracPrim 15151
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15163, invalidPrim 0, pracPrim 15163
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15175, invalidPrim 0, pracPrim 15175
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15187, invalidPrim 0, pracPrim 15187
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15199, invalidPrim 0, pracPrim 15199
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15211, invalidPrim 0, pracPrim 15211
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15223, invalidPrim 0, pracPrim 15223
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15235, invalidPrim 0, pracPrim 15235
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15247, invalidPrim 0, pracPrim 15247
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15259, invalidPrim 0, pracPrim 15259
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15271, invalidPrim 0, pracPrim 15271
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15283, invalidPrim 0, pracPrim 15283
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15295, invalidPrim 0, pracPrim 15295
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15307, invalidPrim 0, pracPrim 15307
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15319, invalidPrim 0, pracPrim 15319
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15331, invalidPrim 0, pracPrim 15331
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15343, invalidPrim 0, pracPrim 15343
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15355, invalidPrim 0, pracPrim 15355
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15367, invalidPrim 0, pracPrim 15367
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15379, invalidPrim 0, pracPrim 15379
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15391, invalidPrim 0, pracPrim 15391
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15403, invalidPrim 0, pracPrim 15403
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15415, invalidPrim 0, pracPrim 15415
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15427, invalidPrim 0, pracPrim 15427
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15439, invalidPrim 0, pracPrim 15439
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15451, invalidPrim 0, pracPrim 15451
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15463, invalidPrim 0, pracPrim 15463
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15475, invalidPrim 0, pracPrim 15475
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15487, invalidPrim 0, pracPrim 15487
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15499, invalidPrim 0, pracPrim 15499
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15511, invalidPrim 0, pracPrim 15511
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15523, invalidPrim 0, pracPrim 15523
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15535, invalidPrim 0, pracPrim 15535
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15547, invalidPrim 0, pracPrim 15547
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15559, invalidPrim 0, pracPrim 15559
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15571, invalidPrim 0, pracPrim 15571
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15583, invalidPrim 0, pracPrim 15583
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15595, invalidPrim 0, pracPrim 15595
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15607, invalidPrim 0, pracPrim 15607
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15619, invalidPrim 0, pracPrim 15619
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15631, invalidPrim 0, pracPrim 15631
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15643, invalidPrim 0, pracPrim 15643
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15655, invalidPrim 0, pracPrim 15655
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15667, invalidPrim 0, pracPrim 15667
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15679, invalidPrim 0, pracPrim 15679
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15691, invalidPrim 0, pracPrim 15691
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15703, invalidPrim 0, pracPrim 15703
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15715, invalidPrim 0, pracPrim 15715
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15727, invalidPrim 0, pracPrim 15727
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15739, invalidPrim 0, pracPrim 15739
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15751, invalidPrim 0, pracPrim 15751
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15763, invalidPrim 0, pracPrim 15763
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15775, invalidPrim 0, pracPrim 15775
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15787, invalidPrim 0, pracPrim 15787
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15799, invalidPrim 0, pracPrim 15799
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15811, invalidPrim 0, pracPrim 15811
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15823, invalidPrim 0, pracPrim 15823
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 15835, invalidPrim 0, pracPrim 15835
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15847, invalidPrim 0, pracPrim 15847
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15859, invalidPrim 0, pracPrim 15859
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15871, invalidPrim 0, pracPrim 15871
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15883, invalidPrim 0, pracPrim 15883
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15895, invalidPrim 0, pracPrim 15895
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15907, invalidPrim 0, pracPrim 15907
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 15919, invalidPrim 0, pracPrim 15919
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15931, invalidPrim 0, pracPrim 15931
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15943, invalidPrim 0, pracPrim 15943
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15955, invalidPrim 0, pracPrim 15955
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 15967, invalidPrim 0, pracPrim 15967
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 15979, invalidPrim 0, pracPrim 15979
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 15991, invalidPrim 0, pracPrim 15991
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16003, invalidPrim 0, pracPrim 16003
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16015, invalidPrim 0, pracPrim 16015
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16027, invalidPrim 0, pracPrim 16027
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16039, invalidPrim 0, pracPrim 16039
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16051, invalidPrim 0, pracPrim 16051
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16063, invalidPrim 0, pracPrim 16063
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16075, invalidPrim 0, pracPrim 16075
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16087, invalidPrim 0, pracPrim 16087
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16099, invalidPrim 0, pracPrim 16099
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16111, invalidPrim 0, pracPrim 16111
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 16123, invalidPrim 0, pracPrim 16123
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 28
+CD3DDisp : CreateDispData : totalPrim 16135, invalidPrim 0, pracPrim 16135
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16147, invalidPrim 0, pracPrim 16147
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16159, invalidPrim 0, pracPrim 16159
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 16171, invalidPrim 0, pracPrim 16171
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 30
+CD3DDisp : CreateDispData : totalPrim 16183, invalidPrim 0, pracPrim 16183
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16195, invalidPrim 0, pracPrim 16195
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16207, invalidPrim 0, pracPrim 16207
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16219, invalidPrim 0, pracPrim 16219
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16231, invalidPrim 0, pracPrim 16231
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16243, invalidPrim 0, pracPrim 16243
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16255, invalidPrim 0, pracPrim 16255
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16267, invalidPrim 0, pracPrim 16267
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16279, invalidPrim 0, pracPrim 16279
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16291, invalidPrim 0, pracPrim 16291
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16303, invalidPrim 0, pracPrim 16303
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16315, invalidPrim 0, pracPrim 16315
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16327, invalidPrim 0, pracPrim 16327
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16339, invalidPrim 0, pracPrim 16339
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16351, invalidPrim 0, pracPrim 16351
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16363, invalidPrim 0, pracPrim 16363
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16375, invalidPrim 0, pracPrim 16375
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16387, invalidPrim 0, pracPrim 16387
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16399, invalidPrim 0, pracPrim 16399
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16411, invalidPrim 0, pracPrim 16411
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16423, invalidPrim 0, pracPrim 16423
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16435, invalidPrim 0, pracPrim 16435
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16447, invalidPrim 0, pracPrim 16447
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16459, invalidPrim 0, pracPrim 16459
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16471, invalidPrim 0, pracPrim 16471
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16483, invalidPrim 0, pracPrim 16483
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16495, invalidPrim 0, pracPrim 16495
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16507, invalidPrim 0, pracPrim 16507
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16519, invalidPrim 0, pracPrim 16519
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16531, invalidPrim 0, pracPrim 16531
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16543, invalidPrim 0, pracPrim 16543
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16555, invalidPrim 0, pracPrim 16555
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16567, invalidPrim 0, pracPrim 16567
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16579, invalidPrim 0, pracPrim 16579
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16591, invalidPrim 0, pracPrim 16591
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16603, invalidPrim 0, pracPrim 16603
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 36
+CD3DDisp : CreateDispData : totalPrim 16615, invalidPrim 0, pracPrim 16615
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16627, invalidPrim 0, pracPrim 16627
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 32
+CD3DDisp : CreateDispData : totalPrim 16639, invalidPrim 0, pracPrim 16639
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16651, invalidPrim 0, pracPrim 16651
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16663, invalidPrim 0, pracPrim 16663
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16675, invalidPrim 0, pracPrim 16675
+Polymesh2 : CreateOptData : oldpleng 36, optpleng 34
+CD3DDisp : CreateDispData : totalPrim 16687, invalidPrim 0, pracPrim 16687
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CD3DDisp : CreateDispData : totalPrim 17319, invalidPrim 0, pracPrim 17319
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CD3DDisp : CreateDispData : totalPrim 17403, invalidPrim 0, pracPrim 17403
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CD3DDisp : CreateDispData : totalPrim 17415, invalidPrim 0, pracPrim 17415
+d3ddisp : CreateSkinMat : 1
+d3ddisp : CreateSkinMat : 1
+CShdHandler : SetTexTransParent
+CMyD3DApplication : LoadSigFile : motdlg->SetParams
+MotParamDlg : InitDlg
+MotHandler : AddMotion motion_2016_4_2_2_7_1_786, framenum 60
+MotHandler : AddMotion for_fill_up, framenum 10
+CamKeyDlg : InitDlg
+GPKeyDlg : InitDlg
+MOEKeyDlg : InitDlg
+CMyD3DApplication : LoadSigFile : sigeditwnd->SetParams 4c577f0, 4d80d10, 4d83e18, leng 94
+SigEditWnd : TVAdd : srcname ÉpÅ[Ég, srcno 1, imageno 0, selectno 1, addtolast 1
+CSigEditWnd : selected ÉpÅ[Ég : 1
+SigEditWnd : TVAdd : srcname MFolder:î˚*ì™, srcno 93, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname elem:î˚ÇµÇÂÇ⁄ÇÒ-î˚*ì™, srcno 21, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:î˚óÕã≠Ç≠ÇQ-î˚*ì™, srcno 20, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:î˚óÕã≠Ç≠-î˚*ì™, srcno 19, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname î˚*ì™, srcno 18, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname MFolder:ìµ*ì™, srcno 92, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname elem:ìµì_-ìµ*ì™, srcno 17, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname ìµ*ì™, srcno 16, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname MFolder:äÁ*ì™, srcno 91, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname elem:è∆ÇË-äÁ*ì™, srcno 14, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:âEñ⁄ï¬Ç∂-äÁ*ì™, srcno 13, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:ç∂ñ⁄ï¬Ç∂-äÁ*ì™, srcno 12, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:å˚Ç÷-äÁ*ì™, srcno 11, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:å˚Ç§-äÁ*ì™, srcno 10, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:ñ⁄ï¬Ç∂ã≠Ç≠-äÁ*ì™, srcno 9, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:ñ⁄êQÇÈ-äÁ*ì™, srcno 8, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:óºñ⁄ï¬Ç∂-äÁ*ì™, srcno 7, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:å˚Ç†-äÁ*ì™, srcno 6, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname elem:å˚èŒ-äÁ*ì™, srcno 5, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname äÁ*ì™, srcno 4, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname ëÃ, srcno 2, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname Ç‹Ç”ÇÁ, srcno 3, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname ä·ãÖ, srcno 15, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname çú, srcno 22, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname îØ, srcno 23, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname Ç›Ç›, srcno 24, imageno 2, selectno 3, addtolast 1
+SigEditWnd : TVAdd : srcname Joint Part-1, srcno 36, imageno 0, selectno 1, addtolast 1
+SigEditWnd : TVAdd : srcname TopOfmat1, srcno 37, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname mat1, srcno 38, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ãπ, srcno 39, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_å®[L]_X+, srcno 40, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname å®[L]_X+, srcno 41, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname òr[L]_X+, srcno 42, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname éË[L]_X+, srcno 43, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_å®[R]_X-, srcno 44, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname å®[R]_X-, srcno 45, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname òr[R]_X-, srcno 46, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname éË[R]_X-, srcno 47, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_ì™, srcno 48, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ì™, srcno 49, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_ñ⁄[L]_X+, srcno 50, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ñ⁄[L]_X+, srcno 51, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_ñ⁄[R]_X-, srcno 52, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ñ⁄[R]_X-, srcno 53, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_ÉAÉzÉQÇQ[], srcno 54, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ÉAÉzÉQÇQ[], srcno 55, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ÉAÉzÉQÇP[], srcno 56, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_é®ÇQ[L]_X+, srcno 57, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname é®ÇQ[L]_X+, srcno 58, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname é®ÇP[L]_X+, srcno 59, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_é®ÇQ[R]_X-, srcno 60, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname é®ÇQ[R]_X-, srcno 61, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname é®ÇP[R]_X-, srcno 62, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_îØÇP, srcno 63, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname îØÇP, srcno 64, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_îØÇQ, srcno 65, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname îØÇQ, srcno 66, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_îØÇR, srcno 67, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname îØÇR, srcno 68, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_É}ÉtÉâÇP[L]_X+, srcno 69, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname É}ÉtÉâÇP[L]_X+, srcno 70, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname É}ÉtÉâÇQ[L]_X+, srcno 71, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_É}ÉtÉâÇP[R]_X-, srcno 72, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname É}ÉtÉâÇP[R]_X-, srcno 73, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname É}ÉtÉâÇQ[R]_X-, srcno 74, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname çò, srcno 75, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_ÉÇÉÇ[L]_X+, srcno 76, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ÉÇÉÇ[L]_X+, srcno 77, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ÉXÉl[L]_X+, srcno 78, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ë´[L]_X+, srcno 79, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_ÉÇÉÇ[R]_X-, srcno 80, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ÉÇÉÇ[R]_X-, srcno 81, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ÉXÉl[R]_X-, srcno 82, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname ë´[R]_X-, srcno 83, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname FLOAT_îˆÇP, srcno 84, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname îˆÇP, srcno 85, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname îˆÇQ, srcno 86, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname îˆÇR, srcno 87, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname TopOfçú, srcno 88, imageno 4, selectno 5, addtolast 1
+SigEditWnd : TVAdd : srcname çú, srcno 89, imageno 4, selectno 5, addtolast 1
+CSigEditWnd : selected òr[L]_X+ : 42
+checksize : OnSysCommand : uMsg 274, wParam 61536, lParam 2426134
+checkend : viewer : OnClose 0 
+viewer Cleanup3DEnv 0
+viewer Cleanup3DEnv 1
+viewer Cleanup3DEnv 2
+viewer Cleanup3DEnv 3
+viewer Cleanup3DEnv 4
+viewer Cleanup3DEnv 5
+sigfile : WriteSigFile : CreateFile
+sigfile : WriteSigFile : CreateFile
+checkend : viewer : FinalCleanUp 0 
+checkend : motdlg : DestroyTabWindow 0 
+checkend : motdlg : DestroyTabWindow 1 
+checkend : motdlg : DestroyTabWindow 2 
+checkend : motdlg : DestroyTabWindow 3 
+checkend : motdlg : DestroyTabWindow 4 
+checkend : motdlg : DestroyTabWindow 5 
+checkend : motdlg : DestroyTabWindow 6 
+checkend : motdlg : DestroyTabWindow 7 
+checkend : motdlg : DestroyTabWindow 8 
+checkend : motdlg : DestroyTabWindow 9 
+checkend : motdlg : DestroyTabWindow 10 
+MotParamDlg : ThreadFunc : End
+motparamdlg : thread handle close
+checkend : motdlg : DestroyTabWindow end 
+checkend : viewer : FinalCleanUp 1 
+checkend : viewer : FinalCleanUp 2 
+checkend : viewer : FinalCleanUp 3 
+checkend : viewer : FinalCleanUp 4 
+CMyD3DApplication : DestroyHandler
+texbank : DestroyNotDirty : DestroyTexture cam_kaku.png
+texbank : DestroyNotDirty : DestroyTexture 6
+texbank : DestroyNotDirty : DestroyTexture cam_i.png
+texbank : DestroyNotDirty : DestroyTexture 7
+texbank : DestroyNotDirty : DestroyTexture cam_kai.png
+texbank : DestroyNotDirty : DestroyTexture 8
+texbank : DestroyNotDirty : DestroyTexture 0.png
+texbank : DestroyNotDirty : DestroyTexture 9
+texbank : DestroyNotDirty : DestroyTexture 1.png
+texbank : DestroyNotDirty : DestroyTexture 10
+texbank : DestroyNotDirty : DestroyTexture 2.png
+texbank : DestroyNotDirty : DestroyTexture 11
+texbank : DestroyNotDirty : DestroyTexture 3.png
+texbank : DestroyNotDirty : DestroyTexture 12
+texbank : DestroyNotDirty : DestroyTexture 4.png
+texbank : DestroyNotDirty : DestroyTexture 13
+texbank : DestroyNotDirty : DestroyTexture 5.png
+texbank : DestroyNotDirty : DestroyTexture 14
+texbank : DestroyNotDirty : DestroyTexture 6.png
+texbank : DestroyNotDirty : DestroyTexture 15
+texbank : DestroyNotDirty : DestroyTexture 7.png
+texbank : DestroyNotDirty : DestroyTexture 16
+texbank : DestroyNotDirty : DestroyTexture 8.png
+texbank : DestroyNotDirty : DestroyTexture 17
+texbank : DestroyNotDirty : DestroyTexture 9.png
+texbank : DestroyNotDirty : DestroyTexture 18
+texbank : DestroyNotDirty : DestroyTexture bonemark1.dds
+texbank : DestroyNotDirty : DestroyTexture 19
+texbank : DestroyNotDirty : DestroyTexture bonemark2.tga
+texbank : DestroyNotDirty : DestroyTexture 20
+texbank : DestroyNotDirty : DestroyTexture selvert2b1.bmp
+texbank : DestroyNotDirty : DestroyTexture 21
+texbank : DestroyNotDirty : DestroyTexture selv.bmp
+texbank : DestroyNotDirty : DestroyTexture 22
+texbank : DestroyNotDirty : DestroyTexture hoho.png
+texbank : DestroyNotDirty : DestroyTexture 23
+texbank : DestroyNotDirty : DestroyTexture body.png
+texbank : DestroyNotDirty : DestroyTexture 24
+texbank : DestroyNotDirty : DestroyTexture hair.png
+texbank : DestroyNotDirty : DestroyTexture 25
+texbank : DestroyNotDirty : DestroyTexture face.png
+texbank : DestroyNotDirty : DestroyTexture 26
+texbank : DestroyNotDirty : DestroyTexture eye.png
+texbank : DestroyNotDirty : DestroyTexture 27
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+CTreeHandler : destructor : free s2e
+CShdHandler : destructor : delete elem
+CMotHandler : destructor : delete elem
+checkend : viewer : FinalCleanUp 5 
+CNameBank : DestroyObjs : free hname
+checkend : viewer : FinalCleanUp 6 
+checkend : viewer : FinalCleanUp 7 
+checkend : viewer : FinalCleanUp 8 
+checkend : viewer : FinalCleanUp end 
+viewer Cleanup3DEnv 6
+checkend : viewer : OnClose 1 
+checkend : viewer : OnClose 2 
+checkend : viewer : OnClose 3 
+checksize : OnActivateApp : uMsg 28, wParam 0, lParam 2496, m_miniflag 0
+viewer : WM_ACTIVATEAPP 0 0
+checkend : viewer : OnClose 4 
+checkend : viewer : OnClose end 
+checkend : rdb2 : aft run 
+checkend : rdb2 : inidata delete 
+checkend : rdb2 : RevokeClassObjects 
+checkend : rdb2 : Sleep 
+checkend : rdb2 : Unini Com 
+CloseDbgFile

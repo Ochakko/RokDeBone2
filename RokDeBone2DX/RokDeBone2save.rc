@@ -1,0 +1,2696 @@
+// Microsoft Visual C++ generated resource script.
+//
+#include "resource.h"
+
+#define APSTUDIO_READONLY_SYMBOLS
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 2 resource.
+//
+#include "winres.h"
+#include "resid.h"
+
+/////////////////////////////////////////////////////////////////////////////
+#undef APSTUDIO_READONLY_SYMBOLS
+
+/////////////////////////////////////////////////////////////////////////////
+// 日本語 resources
+
+#if !defined(AFX_RESOURCE_DLL) || defined(AFX_TARG_JPN)
+#ifdef _WIN32
+LANGUAGE LANG_JAPANESE, SUBLANG_DEFAULT
+#pragma code_page(932)
+#endif //_WIN32
+
+#ifdef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// TEXTINCLUDE
+//
+
+1 TEXTINCLUDE 
+BEGIN
+    "resource.h\0"
+END
+
+2 TEXTINCLUDE 
+BEGIN
+    "#include ""winres.h""\r\n"
+    "\0"
+END
+
+3 TEXTINCLUDE 
+BEGIN
+    "1 TYPELIB ""RokDeBone2.tlb""\r\n"
+    "\0"
+END
+
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 5,2,0,8
+ PRODUCTVERSION 5,2,0,8
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS 0x4L
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "041104b0"
+        BEGIN
+            VALUE "CompanyName", "おちゃっこLAB http://www5d.biglobe.ne.jp/~ochikko/"
+            VALUE "FileDescription", "rok,mqoデータにIKでモーションを付けるツール"
+            VALUE "FileVersion", "5, 2, 0, 8"
+            VALUE "InternalName", "RokDeBone2.EXE"
+            VALUE "LegalCopyright", "copyright (C)おちゃっこLAB  All rights reserved."
+            VALUE "OriginalFilename", "RokDeBone2.EXE"
+            VALUE "ProductName", "RokDeBone2"
+            VALUE "ProductVersion", "5, 2, 0, 8"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x411, 1200
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// REGISTRY
+//
+
+IDR_ROKDEBONE2          REGISTRY                "RokDeBone2.rgs"
+IDR_SIGTREEVIEW2        REGISTRY                "SigTreeView2.rgs"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_PART_IMAGE          BITMAP                  "bitmap1.bmp"
+IDB_PART_SELECT         BITMAP                  "bmp00001.bmp"
+IDB_DISP_IMAGE          BITMAP                  "bmp00002.bmp"
+IDB_DISP_SELECT         BITMAP                  "bmp00003.bmp"
+IDB_BONE_IMAGE          BITMAP                  "bmp00004.bmp"
+IDB_BONE_SELECT         BITMAP                  "bmp00005.bmp"
+IDB_SIGTREEVIEW2        BITMAP                  "SigTreeView2.bmp"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Menu
+//
+
+141 MENU 
+BEGIN
+    POPUP "File"
+    BEGIN
+        POPUP "ファイル読み込み"
+        BEGIN
+            MENUITEM "sig,rok,mqo,x,bvh,bon,im2,moa,lim,to1,pos", 5090
+            MENUITEM "モーション(標準)[複数選択可]qua",         5091
+            MENUITEM "モーション(mikoto04f形式)mkm",       5092
+        END
+        POPUP "sig抽出読み込み"
+        BEGIN
+            MENUITEM "ボーン・影響度情報",                   5022
+        END
+        MENUITEM "地面データ（大オブジェ）の読み込み",           6100
+        MENUITEM SEPARATOR
+        MENUITEM "形状ファイルインポート",                 5093
+        MENUITEM "モーション(qua)の追加読み込み",           5050
+        MENUITEM SEPARATOR
+        POPUP "ファイル書き出し"
+        BEGIN
+            MENUITEM "sig(形状標準),x,mqo,qua(モーション標準),bvh,bon,im2,lim,to1,pos", 5094
+            MENUITEM "モーションアクセラレータmoa",             5095
+        END
+        MENUITEM "sig, moa 上書き保存（Ctrl + S）",    5030
+        MENUITEM SEPARATOR
+        MENUITEM "連番BMP出力",                     5096
+        MENUITEM "AVI出力",                       5097
+    END
+    POPUP "表示"
+    BEGIN
+        MENUITEM "カメラ",                         IDMENU_CAMERA
+        MENUITEM "階層構造エディタ",                    IDMENU_TREEEDIT
+        MENUITEM "モーションエディタ",                   IDMENU_MOTEDIT
+        MENUITEM "読み込みファイル名確認",                 7000
+        MENUITEM "グラフウインドウ",                    7001
+    END
+    POPUP "編集"
+    BEGIN
+        MENUITEM "IK操作のUNDO( Ctrl+Z)",          IDMENU_IKUNDO
+        MENUITEM "IK操作のリバースUNDO（Ctrl + X）",     IDMENU_REVIKUNDO
+        MENUITEM SEPARATOR
+        MENUITEM "形状、モーションデータの全削除",             6001
+        MENUITEM "現在のポーズを初期状態とする",              6002
+        MENUITEM "形状データを後ろ向きにする",               6004
+        MENUITEM "ボーン影響度の再計算",                  6003
+        MENUITEM "mikotoの関節変形方法の設定",            6010
+        MENUITEM SEPARATOR
+        MENUITEM "形状データ左右対称変換",                 5040
+        MENUITEM "モーションデータ左右対称変換",              5041
+        MENUITEM SEPARATOR
+        MENUITEM "モーションの長さを２倍に拡大",              5060
+        MENUITEM "モーションの長さを1/2に縮小",             5061
+        MENUITEM SEPARATOR
+        MENUITEM "初期姿勢モーションキーを削除",              5062
+        MENUITEM "連続する同じモーションキーを削除",            5063
+    END
+    POPUP "モーション"
+    BEGIN
+        MENUITEM "新規空モーション作成",                  59000
+        MENUITEM "全モーション削除",                    59001
+        MENUITEM "編集中のモーションを削除",                59002
+        MENUITEM SEPARATOR
+        POPUP "モーションの選択"
+        BEGIN
+            MENUITEM "プレースホルダ",                     59900
+        END
+    END
+    POPUP "ツリービュー"
+    BEGIN
+        MENUITEM "表示パラメータ設定",                   5300
+        MENUITEM "選択ジョイントを削除",                  5301
+        MENUITEM "影響範囲に変換",                     5302
+        MENUITEM "モーフフォルダの作成",                  6020
+    END
+    POPUP "材質"
+    BEGIN
+        MENUITEM "面マテリアル",                      51001
+        MENUITEM "法線マップ",                       51002
+    END
+    POPUP "環境設定"
+    BEGIN
+        MENUITEM "背景",                          IDMENU_BG
+        MENUITEM "平行光源",                        IDMENU_LIGHT
+        MENUITEM "パースペクティブ",                    51000
+        MENUITEM "影パラメータ",                      51010
+        MENUITEM SEPARATOR
+        MENUITEM "オプション",                       IDMENU_OPTION
+        MENUITEM SEPARATOR
+        MENUITEM "バージョン情報",                     32790
+    END
+    POPUP "プラグイン"
+    BEGIN
+        MENUITEM "プレースホルダ",                     54999
+    END
+END
+
+IDR_DUMMYMENU MENU 
+BEGIN
+    MENUITEM "メニュー選択禁止中。！！！ モーダルダイアログを閉じないと、アプリケーションは終了できません。！！！", 65535
+END
+
+IDR_DLGMENU MENU 
+BEGIN
+    MENUITEM "表示パラメータ設定",                   IDMENU_SHDPARAM
+    MENUITEM "選択ジョイントを削除",                  IDMENU_JOINTDEL
+    MENUITEM "影響範囲に変換",                     IDMENU_CONV2SCOPE
+END
+
+IDR_R_MENU MENU 
+BEGIN
+    POPUP "RMENU"
+    BEGIN
+        MENUITEM "ボーンプロパティ",                    ID_RMENU_BONEPROP
+        POPUP "ＩＫ階層数の設定"
+        BEGIN
+            POPUP "モード"
+            BEGIN
+                MENUITEM "ジョイントごとに設定",                  ID_RMENU_MODE_JOINT
+                MENUITEM "操作ごとに設定",                     ID_RMENU_MODE_OPE
+            END
+            POPUP "階層数"
+            BEGIN
+                MENUITEM "1",                           ID_RMENU_LEVEL1
+                MENUITEM "2",                           ID_RMENU_LEVEL2
+                MENUITEM "3",                           ID_RMENU_LEVEL3
+                MENUITEM "4",                           ID_RMENU_LEVEL4
+                MENUITEM "5",                           ID_RMENU_LEVEL5
+                MENUITEM "6",                           ID_RMENU_LEVEL6
+                MENUITEM "7",                           ID_RMENU_LEVEL7
+                MENUITEM "8",                           ID_RMENU_LEVEL8
+                MENUITEM "9",                           ID_RMENU_LEVEL9
+                MENUITEM "10",                          ID_RMENU_LEVEL10
+                MENUITEM "11",                          ID_RMENU_LEVEL11
+                MENUITEM "12",                          ID_RMENU_LEVEL12
+                MENUITEM "13",                          ID_RMENU_LEVEL13
+                MENUITEM "14",                          ID_RMENU_LEVEL14
+                MENUITEM "15",                          ID_RMENU_LEVEL15
+                MENUITEM "255",                         ID_RMENU_LEVELINF
+            END
+        END
+        MENUITEM "IK伝達禁止フラグ",                   ID_RMENU_IKTRANS
+        MENUITEM "IKスキップ(角度コンスト)",              ID_RMENU_IKSKIP
+        MENUITEM "下階層の姿勢情報　コピー",                ID_RMENU_COPY
+        MENUITEM "Sig Params ダイアログ表示",          ID_RMENU_SIGPARAMS
+        MENUITEM "ボーンマーク（線）表示の　設定",             ID_RMENU_BONEMARK
+        POPUP "球ドラッグ時の処理"
+        BEGIN
+            MENUITEM "ＩＫ",                          ID_RMENU_IKDRAG
+            MENUITEM "FK",                          ID_RMENU_FKDRAG
+        END
+        MENUITEM "IKターゲットの設定",                  927
+    END
+END
+
+IDR_MCR_MENU MENU 
+BEGIN
+    POPUP "MCRMENU"
+    BEGIN
+        MENUITEM "分岐を追加",                       ID_MCRMENU_ADD
+        MENUITEM "分岐を削除",                       ID_MCRMENU_DEL
+        MENUITEM "プロパティ",                       ID_MCRMENU_PROP
+    END
+END
+
+IDR_TEXMENU MENU 
+BEGIN
+    POPUP "TEXMENU"
+    BEGIN
+        MENUITEM "プレースホルダ",                     65000
+    END
+END
+
+IDR_DSMENU MENU 
+BEGIN
+    POPUP "DSMENU"
+    BEGIN
+        MENUITEM "設定なし",                        65500
+        MENUITEM "オン",                          65501
+        MENUITEM "オフ",                          65502
+    END
+END
+
+IDR_FUMENU MENU 
+BEGIN
+    POPUP "FUMENU"
+    BEGIN
+        MENUITEM "MP単位：線形補間",                   65200
+        MENUITEM "MP単位：スプライン補間",                65201
+        MENUITEM "ボーン単位：線形補間",                  65202
+        MENUITEM "ボーン単位：スプライン補間",               65203
+        MENUITEM "モーション単位：線形補間",                65204
+        MENUITEM "モーション単位：スプライン補間",             65205
+    END
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_CAMERADLG DIALOGEX 0, 0, 239, 191
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "カメラの移動"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    CONTROL         "Spin1",IDC_SP_UD,"msctls_updown32",UDS_ARROWKEYS,104,7,9,14
+    LTEXT           "カメラ上下移動",IDC_STATIC,12,11,45,8
+    LTEXT           "カメラ左右回転",IDC_STATIC,10,27,45,8
+    CONTROL         "Spin2",IDC_SP_ROT,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,103,24,10,14
+    LTEXT           "カメラとの距離",IDC_STATIC,13,43,43,8
+    PUSHBUTTON      "リセット",IDC_UD_RESET,122,7,25,13
+    CONTROL         "Spin3",IDC_SP_ZOOM,"msctls_updown32",UDS_ARROWKEYS,104,40,9,14
+    PUSHBUTTON      "リセット",IDC_ROT_RESET,122,23,25,14
+    PUSHBUTTON      "リセット",IDC_ZOOM_RESET,122,39,25,14
+    LTEXT           "EYE_Y",IDC_TEXT_EYEY,65,11,36,8
+    LTEXT           "RAD",IDC_TEXT_RAD,65,27,37,8
+    LTEXT           "DIST",IDC_TEXT_DIST,65,42,35,8
+    LTEXT           "注視点",IDC_STATIC,13,57,22,8
+    LTEXT           "(****.*, ****.*,****.*)",IDC_TEXT_TARGET,17,68,81,8
+    CONTROL         "Spin1",IDC_SP_TARGET,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,102,57,10,14
+    PUSHBUTTON      "リセット",IDC_TARGET_RESET,122,57,25,14
+    LTEXT           "カメラ仰ぎ角度",IDC_STATIC,10,78,44,8
+    CONTROL         "Spin2",IDC_SP_RAD2,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,103,74,10,14
+    PUSHBUTTON      "リセット",IDC_RAD2_RESET,122,74,25,14
+    LTEXT           "RAD2",IDC_TEXT_RAD2,65,78,37,8
+    LTEXT           "F1, F2キーで９０度単位のＹ軸回転、\nF3, F4キーで９０度単位の仰ぎ角回転",IDC_STATIC,52,164,157,19
+    GROUPBOX        "カメラ位置のＦ５からＦ８キーへの保存",IDC_STATIC,10,134,219,27
+    PUSHBUTTON      "Ｆ５キーへ保存",IDC_SAVE_F5,14,143,50,14
+    PUSHBUTTON      "Ｆ６キーへ保存",IDC_SAVE_F6,68,143,50,14
+    PUSHBUTTON      "Ｆ７キーへ保存",IDC_SAVE_F7,121,143,50,14
+    PUSHBUTTON      "Ｆ８キーへ保存",IDC_SAVE_F8,175,143,50,14
+    GROUPBOX        "マウス右ドラッグのカメラ操作",IDC_STATIC,13,94,212,32
+    PUSHBUTTON      "回転",IDC_CAMROT,21,106,50,14
+    PUSHBUTTON      "移動",IDC_CAMMOVE,71,105,50,14
+    PUSHBUTTON      "拡大縮小",IDC_CAMZOOM,121,105,50,14
+END
+
+IDD_SIGEDITDLG DIALOG  0, 0, 159, 327
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "階層構造エディタ"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+END
+
+IDD_OPTDLG DIALOGEX 0, 0, 283, 387
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+CAPTION "オプションダイアログ (モーダル)"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",1,231,12,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,231,32,50,14
+    GROUPBOX        "ジョイント(丸印スプライト)の表示/非表示",IDC_STATIC,7,7,219,37
+    CONTROL         "ジョイントを表示する。エディタで選択したツリーは赤色で表示。",IDC_RADIO_BONE1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,15,205,18
+    CONTROL         "ジョイントは表示しない。",IDC_RADIO_BONE2,"Button",BS_AUTORADIOBUTTON,14,32,86,10
+    GROUPBOX        "ポリゴンの表示",IDC_STATIC,7,105,219,36
+    CONTROL         "常に全てのポリゴンを表示する。",IDC_RADIO_POLY1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,15,115,109,10
+    CONTROL         "階層構造エディタで選択したツリーのみ表示する。",IDC_RADIO_POLY2,"Button",BS_AUTORADIOBUTTON,15,127,160,10
+    GROUPBOX        "地面の表示",IDC_STATIC,7,142,219,26
+    CONTROL         "格子状の地面を表示する。",IDC_RADIO_GROUND1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,153,107,10
+    CONTROL         "地面を表示しない。",IDC_RADIO_GROUND2,"Button",BS_AUTORADIOBUTTON,141,153,71,10
+    GROUPBOX        "ジョイントマークの設定",IDC_STATIC,7,171,258,41
+    LTEXT           "ジョイントマークの大きさ（5%から100%）",IDC_STATIC,12,182,144,8
+    CONTROL         "",IDC_SL_SIZE,"msctls_trackbar32",TBS_BOTH | WS_TABSTOP,17,190,75,15
+    LTEXT           "***%",IDC_TEXT_SIZE,98,196,26,8
+    LTEXT           "ジョイントマークの透明度（0から255）",IDC_STATIC,140,181,111,8
+    CONTROL         "",IDC_SL_ALPHA,"msctls_trackbar32",TBS_BOTH | WS_TABSTOP,136,190,75,15
+    LTEXT           "***",IDC_TEXT_ALPHA,222,198,15,8
+    GROUPBOX        "Ｕｎｄｏ確認ダイアログの設定",IDC_STATIC,7,215,218,24
+    CONTROL         "Undo時に確認ダイアログを出す。",IDC_RADIO_UNDO1,"Button",BS_AUTORADIOBUTTON,11,225,112,10
+    CONTROL         "確認ダイアログを出さない。",IDC_RADIO_UNDO0,"Button",BS_AUTORADIOBUTTON,127,226,92,10
+    GROUPBOX        "ボーンマーク（線）の表示/非表示",IDC_STATIC,7,47,219,26
+    CONTROL         "ボーンマークを表示する。",IDC_R_BM_ON,"Button",BS_AUTORADIOBUTTON | WS_GROUP,15,56,99,10
+    CONTROL         "ボーンマークを表示しない。",IDC_R_BM_OFF,"Button",BS_AUTORADIOBUTTON,124,56,95,10
+    GROUPBOX        "プレビュー時のFPS",IDC_STATIC,7,240,100,28
+    LTEXT           "FPSの指定",IDC_STATIC,12,252,34,8
+    GROUPBOX        "モーションを何フレームごとに、再生するかを指定",IDC_STATIC,111,241,150,28
+    LTEXT           "モーションステップ",IDC_STATIC,120,254,55,8
+    COMBOBOX        IDC_COMBO_MOTSTEP,180,252,48,100,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "マニピュレータの球ドラッグ時の処理",IDC_STATIC,7,270,255,26
+    CONTROL         "球ドラッグ時は、ＦＫ。（古いバージョンの処理と同じ）",IDC_RADIO_FK,"Button",BS_AUTORADIOBUTTON,92,281,165,10
+    CONTROL         "球ドラッグ時は、ＩＫ。",IDC_RADIO_IK,"Button",BS_AUTORADIOBUTTON,13,281,74,10
+    GROUPBOX        "ＩＫターゲットの表示",IDC_STATIC,7,76,218,28
+    CONTROL         "ＩＫターゲットを表示する。",IDC_RADIO_IKT_ON,"Button",BS_AUTORADIOBUTTON | WS_GROUP,17,85,88,10
+    CONTROL         "ＩＫターゲットを表示しない。",IDC_RADIO_IKT_OFF,"Button",BS_AUTORADIOBUTTON,128,87,93,10
+    GROUPBOX        "線表示の色",IDC_STATIC,7,303,118,33
+    GROUPBOX        "点表示の色と大きさ",IDC_STATIC,128,297,146,40
+    LTEXT           "大きさ",IDC_STATIC,247,305,20,8
+    EDITTEXT        IDC_POINTSIZE,246,314,25,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_UNSELCOL_LINE,"Static",SS_BLACKFRAME,47,312,20,20
+    COMBOBOX        IDC_COMBO_FPS,53,250,48,107,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_SELCOL_LINE,"Static",SS_BLACKFRAME,101,312,20,20
+    CONTROL         "",IDC_UNSELCOL_POINT,"Static",SS_BLACKFRAME,167,308,20,20
+    CONTROL         "",IDC_SELCOL_POINT,"Static",SS_BLACKFRAME,223,308,20,20
+    PUSHBUTTON      "非選択時",IDC_UNSELLINE,10,315,35,14
+    PUSHBUTTON      "選択時",IDC_SELLINE,70,315,29,14
+    PUSHBUTTON      "非選択時",IDC_UNSELPOINT,131,311,33,14
+    PUSHBUTTON      "選択時",IDC_SELPOINT,190,311,29,14
+    GROUPBOX        "マウスの動作",IDC_STATIC,7,351,76,26
+    PUSHBUTTON      "マウス動作の設定",IDC_MOUSEDLG,11,360,68,14
+    GROUPBOX        "Quaフォーマット",IDC_STATIC,90,338,146,38
+    CONTROL         "階層構造から計算した番号を基準にする。",IDC_RADIO_NUMQUA,"Button",BS_AUTORADIOBUTTON | WS_GROUP,96,349,138,10
+    CONTROL         "ボーンの名前を基準にする。",IDC_RADIO_NAMEQUA,"Button",BS_AUTORADIOBUTTON,96,362,98,10
+END
+
+IDD_MOTPARAMDLG DIALOGEX 0, 0, 392, 111
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    LTEXT           "frameno  start: xxxx  end:xxxx  current:xxxx  total:xxxx",IDC_TEX_CURRENT,7,62,186,8
+    CONTROL         "Slider1",IDC_SL_MP,"msctls_trackbar32",TBS_TOP | WS_TABSTOP,1,87,270,15
+    PUSHBUTTON      "ペースト",IDC_FRAMEPASTE,210,48,29,14
+    PUSHBUTTON      "コピ選",IDC_FRAMECOPY,240,18,25,14
+    PUSHBUTTON      "プレビュー開始",IDC_PREVIEW,336,5,48,14
+    CONTROL         "",IDC_MP,"Static",SS_BLACKFRAME,6,75,260,11
+    PUSHBUTTON      "削除",IDC_FRAMEDEL,273,38,26,14
+    PUSHBUTTON      "設定",IDC_PARAMSET,211,4,50,14
+    CONTROL         "Spin1",IDC_SP_MP,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,279,74,18,14
+    PUSHBUTTON      "ストップ",IDC_STOP,336,21,48,14
+    PUSHBUTTON      "全削除",IDC_ALLDELETE,302,38,25,14
+    CONTROL         "",IDC_SP_TWIST,"msctls_updown32",UDS_ARROWKEYS,183,45,10,14
+    GROUPBOX        "IK階層数",IDC_STATIC,5,3,93,50
+    GROUPBOX        "指定ジョイントのリセット",IDC_STATIC,111,1,82,28
+    PUSHBUTTON      "回転",IDC_RESET_ROT,114,12,22,14
+    PUSHBUTTON      "移動",IDC_RESET_MV,139,12,24,14
+    CONTROL         "",IDC_SP_ROTX,"msctls_updown32",UDS_ARROWKEYS,139,31,10,14
+    CONTROL         "",IDC_SP_ROTY,"msctls_updown32",UDS_ARROWKEYS,161,31,10,14
+    CONTROL         "",IDC_SP_ROTZ,"msctls_updown32",UDS_ARROWKEYS,182,30,10,14
+    CONTROL         "",IDC_SP_ROTRAD,"msctls_updown32",UDS_ARROWKEYS,142,46,10,14
+    LTEXT           "０度",IDC_TEX_RAD,118,51,25,8
+    PUSHBUTTON      "joint表示トグル",IDC_BONEDISP,336,37,50,14
+    PUSHBUTTON      "拡大",IDC_RESET_SC,166,12,24,14
+    CONTROL         "ジョイントごとに設定",IDC_RADIO_MODEJOINT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,10,12,83,10
+    CONTROL         "操作ごとに設定",IDC_RADIO_MODEOPE,"Button",BS_AUTORADIOBUTTON,10,24,84,10
+    COMBOBOX        IDC_COMBO_LEVEL,18,35,67,78,CBS_DROPDOWNLIST | WS_VSCROLL | WS_GROUP | WS_TABSTOP
+    PUSHBUTTON      "前",IDC_BEFORE_MP,276,90,12,14
+    PUSHBUTTON      "後",IDC_NEXT_MP,290,90,12,14
+    LTEXT           "Ｘ",IDC_STATIC,132,34,8,8
+    LTEXT           "Ｙ",IDC_STATIC,153,33,8,8
+    LTEXT           "Ｚ",IDC_STATIC,175,32,8,8
+    PUSHBUTTON      "フレーム番号シフト",IDC_FRAMESHIFT,269,6,63,14
+    PUSHBUTTON      "キー作単",IDC_CREATEKEY,269,22,30,14
+    PUSHBUTTON      "コピ単",IDC_FRAMECOPYONE,210,18,27,14
+    PUSHBUTTON      "キー作全",IDC_CREATEKEYALL,302,22,30,14
+    PUSHBUTTON      "コピ全",IDC_FRAMECOPYALL,240,33,26,13
+    PUSHBUTTON      "コピ有",IDC_FRAMECOPYARI,210,33,27,14
+    LTEXT           "ねじる",IDC_STATIC,158,49,20,8
+    PUSHBUTTON      "新",IDC_NEWROT,107,31,11,14
+    PUSHBUTTON      "旧",IDC_OLDROT,118,31,11,14
+END
+
+IDD_SHDPARAMDLG DIALOGEX 0, 0, 227, 323
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Sig Params ダイアログ　(モーダル)"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",1,94,278,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,152,278,50,14
+    LTEXT           "名前 : ",IDC_STATIC,4,9,20,8
+    EDITTEXT        IDC_SHDNAME,27,7,133,14,ES_AUTOHSCROLL
+    LTEXT           "シリアルNo. : ",IDC_SERIALNO,4,26,58,8
+    LTEXT           "タイプ : ",IDC_SHDTYPE,72,26,92,8
+    LTEXT           "Depth : ",IDC_DEPTH,170,26,44,8
+    LTEXT           "表示面 :",IDC_STATIC,5,58,25,8
+    COMBOBOX        IDC_CLOCKWISE,43,55,77,80,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "このオブジェクトを無効にする。",IDC_NOTUSE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,79,106,10
+    LTEXT           "注意書きスペース",IDC_TEXT_STATUS,6,295,212,8
+    LTEXT           "ポリゴン数　：　*****　ポリゴン",IDC_NUMPRIM,5,40,162,8
+    GROUPBOX        "スキニングの有効化、無効化",IDC_STATIC,3,132,208,60
+    CONTROL         "このパーツのスキニングをしない",IDC_CHECK_SKINNING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,145,126,10
+    LTEXT           "「表示オブジェクト名-ボーン名」の形式で\n名前を付けるとスキニングなしになります。",IDC_STATIC,9,161,196,24
+    GROUPBOX        "ディスプレイ　スイッチ番号の設定",IDC_STATIC,3,232,209,44
+    COMBOBOX        IDC_DISPSWITCHNO,116,257,80,95,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "スイッチ番号　：",IDC_STATIC,51,259,58,8
+    LTEXT           "三角アイコンのパーツにのみ設定できます。",IDC_STATIC,9,244,194,8
+    CONTROL         "IKの伝達を禁止する。",IDC_NOTRANSIK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,94,91,10
+    CONTROL         "IKスキップ（ＦＫ１００％）",IDC_IKSKIP,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,110,115,10
+    PUSHBUTTON      "前",IDC_BEFORE,168,7,26,14
+    PUSHBUTTON      "後",IDC_AFTER,196,7,25,14
+    LTEXT           "色とテクスチャ設定画面は移転しました。\nメインメニューの面マテリアルをご覧ください。",IDC_STATIC,40,205,147,23
+END
+
+IDD_LOADPARAMDLG DIALOG  0, 0, 139, 279
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Load Param ダイアログ (モーダル)"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,80,255,50,14
+    LTEXT           "倍率 : ",IDC_STATIC,8,11,20,8
+    EDITTEXT        IDC_MULTIPLE,34,8,40,14,ES_AUTOHSCROLL
+    CONTROL         "XとZを交換する。",IDC_SWAPXZ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,81,66,10
+    CONTROL         "Ｘ座標の平均値を中心にする。",IDC_CENTERX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,124,105,10
+    CONTROL         "Ｚ座標の平均値を中心にする。",IDC_CENTERZ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,10,141,105,10
+    GROUPBOX        "データの分割法",IDC_STATIC,6,164,124,47
+    CONTROL         "Color番号で分割する。",IDC_DIV_COLOR,"Button",BS_AUTORADIOBUTTON | WS_GROUP,12,177,82,10
+    CONTROL         "Group番号とColor番号で分割する。",IDC_DIV_GROUP,"Button",BS_AUTORADIOBUTTON,12,192,118,10
+    CONTROL         "Z座標の符号を反転する。",IDC_INVZ,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,96,91,10
+    GROUPBOX        "センタリング",IDC_STATIC,6,111,123,48
+    CONTROL         "表面と裏面が混ざらないようにする。",IDC_CHKINV,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,8,220,121,10
+    LTEXT           "( この裏面チェックオプションは\nfree版のrokにのみ使用してください。)",IDC_STATIC,17,231,114,18
+    GROUPBOX        "データの範囲",IDC_STATIC,8,24,120,54
+    LTEXT           "Xの範囲 : ******* ～ *******",IDC_RANGEX,12,36,91,8
+    LTEXT           "Ｙの範囲 : ******* ～ *******",IDC_RANGEY,12,49,91,8
+    LTEXT           "Ｚの範囲 : ******* ～ *******",IDC_RANGEZ,12,64,91,8
+END
+
+IDD_FRAMEOPEDLG DIALOG  0, 0, 123, 149
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "フレーム操作確認　ダイアログ　(モーダル)"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,6,125,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,61,125,50,14
+    LTEXT           "フレーム番号***の\n以下のボーンのモーションポイントを\n削除します。\nよろしいですか？",IDC_TEXT,5,10,110,37
+    LISTBOX         IDC_LIST1,7,55,105,64,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+END
+
+IDD_MOTSETTINGDLG DIALOGEX 0, 0, 187, 294
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "設定ダイアログ (モーダル)"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",1,73,271,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,129,271,50,14
+    LTEXT           "モーション名 : ",IDC_STATIC,4,9,43,8
+    LTEXT           "総フレーム数 : (１～６０００)",IDC_STATIC,6,28,89,8
+    EDITTEXT        IDC_TOTALFRAME,101,25,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "フレーム番号が最大値に達した後の振る舞い",IDC_STATIC,6,47,175,118
+    LTEXT           "（このオプションはViewerプログラムで再生する時に\n使用されます。）",IDC_STATIC,13,60,158,20
+    GROUPBOX        "デフォルト（MP作成時）のモーションの補間法",IDC_STATIC,7,170,174,49
+    EDITTEXT        IDC_EDIT_MOTJUMP,121,143,40,14,ES_AUTOHSCROLL
+    LTEXT           "ジャンプ先のフレーム番号",IDC_STATIC,29,145,86,8
+    CONTROL         "フレーム番号の最大値のポーズで固定。",IDC_R_MOTSTOP,"Button",BS_AUTORADIOBUTTON | WS_GROUP,13,83,134,10
+    CONTROL         "最初のフレーム番号のポーズに戻る（繰り返す）",IDC_R_MOTREP,"Button",BS_AUTORADIOBUTTON,13,98,154,10
+    CONTROL         "フレーム番号が減る方向へ逆進する（繰り返す）",IDC_R_MOTINV,"Button",BS_AUTORADIOBUTTON,13,115,154,10
+    CONTROL         "指定フレームにジャンプする（部分的に繰り返す）",IDC_R_MOTJUMP,"Button",BS_AUTORADIOBUTTON,13,131,157,10
+    CONTROL         "スプライン補間（曲線で補間）",IDC_R_SQUAD2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,12,185,100,10
+    CONTROL         "球面線形補間（直線で補間）",IDC_R_SLERP2,"Button",BS_AUTORADIOBUTTON,12,202,98,10
+    EDITTEXT        IDC_NAME,51,7,126,14,ES_AUTOHSCROLL
+    GROUPBOX        "モーションポイント表示範囲",IDC_STATIC,8,225,170,43
+    LTEXT           "表示開始フレーム番号",IDC_STATIC,16,236,67,8
+    LTEXT           "表示終了フレーム番号",IDC_STATIC,16,251,67,8
+    EDITTEXT        IDC_STARTFRAME,89,233,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_ENDFRAME,89,249,40,14,ES_AUTOHSCROLL
+END
+
+IDD_JOINTLOCDLG DIALOG  0, 0, 146, 129
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ジョイント位置調整ダイアログ(モーダル)"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,28,97,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,82,97,50,14
+    LTEXT           "X座標",IDC_STATIC,7,33,19,8
+    EDITTEXT        IDC_EDITX,36,31,40,14,ES_AUTOHSCROLL
+    LTEXT           "Y座標",IDC_STATIC,7,54,19,8
+    EDITTEXT        IDC_EDITY,36,52,40,14,ES_AUTOHSCROLL
+    LTEXT           "Z座標",IDC_STATIC,7,74,19,8
+    EDITTEXT        IDC_EDITZ,36,72,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "適用",IDC_APPLY,82,72,50,14
+    LTEXT           "ジョイント名",IDC_STATIC,7,4,35,8
+    LTEXT           "Static",IDC_TEXT_NAME,15,17,127,8
+END
+
+IDD_NEWJOINTDLG DIALOG  0, 0, 167, 81
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ジョイント追加ダイアログ(モーダル)"
+FONT 9, "ＭＳ Ｐゴシック"
+BEGIN
+    DEFPUSHBUTTON   "OK",1,52,56,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,107,56,50,14
+    LTEXT           "追加するジョイントの数を入力してください。（１～１０）\n指定数のジョイントを原点に作成します。",IDC_STATIC,4,15,153,20
+    EDITTEXT        IDC_EDIT_NUM,7,38,40,14,ES_AUTOHSCROLL
+END
+
+IDD_WRITEBMPDLG DIALOGEX 0, 0, 161, 133
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "連番BMP出力ダイアログ(モーダル)"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",1,43,109,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,100,109,50,14
+    LTEXT           "出力ファイル名のプレフィックス",IDC_STATIC,5,8,91,8
+    EDITTEXT        IDC_PREFIX,13,21,134,14,ES_AUTOHSCROLL
+    LTEXT           "出力開始フレーム番号",IDC_STATIC,6,43,67,8
+    EDITTEXT        IDC_STARTFRAME,14,55,40,14,ES_AUTOHSCROLL
+    LTEXT           "出力終了フレーム番号",IDC_STATIC,6,77,67,8
+    EDITTEXT        IDC_ENDFRAME,15,90,40,14,ES_AUTOHSCROLL
+END
+
+IDD_INFLUENCEDLG DIALOGEX 0, 0, 331, 355
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "パーツ単位の影響ボーンの指定ダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    LISTBOX         IDC_LIST1,191,142,129,63,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "追加 >>",IDC_ADD,133,146,50,14
+    PUSHBUTTON      "削除",IDC_DELETE,133,165,50,14
+    PUSHBUTTON      "全削除",IDC_ALLDELETE,133,185,50,14
+    CONTROL         "Tree1",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,8,107,118,234
+    LISTBOX         IDC_LIST2,192,256,129,63,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "追加 >>",IDC_ADD2,134,257,50,14
+    PUSHBUTTON      "削除",IDC_DELETE2,134,277,50,14
+    PUSHBUTTON      "全削除",IDC_ALLDELETE2,134,298,50,14
+    LTEXT           "影響を受けるボーンの指定。\n指定したボーンとその全ての子のボーンの中から、\n最短距離のものが選ばれて、変換に適用されます。",IDC_STATIC,165,111,152,28
+    LTEXT           "影響を受けないボーンの指定。\n指定したボーンとその全ての子のボーンが、\n変換に適用されないようにします。\n影響を受けるボーン指定よりも優先されます。",IDC_STATIC,170,213,141,37
+    PUSHBUTTON      "閉じる",2,270,327,50,14
+    LTEXT           "影響ボーンを指定したい表示オブジェクトを\n左から選んでください。",IDC_STATIC,161,44,158,27
+    LISTBOX         IDC_LIST3,8,10,117,85,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_BGDLG DIALOGEX 0, 0, 211, 242
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "背景指定ダイアログ (モーダル)"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",1,95,216,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,149,216,50,14
+    GROUPBOX        "背景　１枚目",IDC_STATIC,5,57,196,44
+    GROUPBOX        "背景　２枚目",IDC_STATIC,6,103,195,76
+    LTEXT           "ファイル名",IDC_STATIC,13,66,31,8
+    EDITTEXT        IDC_NAME1,12,78,141,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF1,165,78,27,14
+    LTEXT           "背景１枚目と２枚目はAddモードでブレンドされます。\n２枚目は、動かせるので、雲などに使ってください。\n頂点色はmodulateされます。",IDC_STATIC,8,10,192,26
+    LTEXT           "ファイル名",IDC_STATIC,13,113,31,8
+    EDITTEXT        IDC_NAME2,12,125,141,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF2,165,125,27,14
+    LTEXT           "U方向アニメ移動量",IDC_STATIC,15,146,58,8
+    EDITTEXT        IDC_MVU,83,142,40,14,ES_AUTOHSCROLL
+    LTEXT           "V方向アニメ移動量",IDC_STATIC,15,162,58,8
+    EDITTEXT        IDC_MVV,83,159,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_COLOR,"Static",SS_BLACKFRAME,53,37,20,20
+    LTEXT           "背景頂点色",IDC_STATIC,10,43,35,8
+    PUSHBUTTON      "色指定",IDC_COLORREF,81,41,50,14
+    LTEXT           "( float -1.0f ～ 1.0f)",IDC_STATIC,127,145,59,8
+    LTEXT           "( float -1.0f ～ 1.0f)",IDC_STATIC,127,162,59,8
+    CONTROL         "画像の縦横比を元画像の比率に固定する。",IDC_FIXSIZE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,16,193,141,10
+    GROUPBOX        "画像縦横比",IDC_STATIC,7,181,194,30
+END
+
+IDD_LIGHTDLG DIALOGEX 0, 0, 198, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "平行光源のパラメータの設定ダイアログ　(モーダル)"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",1,66,178,50,14
+    CONTROL         "",IDC_COLOR,"Static",SS_BLACKFRAME,65,147,20,18
+    PUSHBUTTON      "ライト色の設定",IDC_COLORREF,8,150,50,14
+    LTEXT           "R: 255, G: 255, B: 255",IDC_TEXT_COL,95,153,89,8
+    CONTROL         "Button1",IDC_VIEW,"Button",BS_OWNERDRAW | WS_TABSTOP,27,5,131,124
+    LTEXT           "（マウスドラッグで、向きを設定できます）",IDC_STATIC,39,135,141,8
+    CONTROL         "逆光",IDC_INVERSE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,115,30,10
+END
+
+IDD_VERSIONDLG DIALOGEX 0, 0, 126, 63
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "バージョン情報ダイアログ　（モーダル）"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",1,38,43,50,14
+    LTEXT           "RokDeBone2  Ver5.2.0.8\nCopyright (c) 2004-2009 おちゃっこ\nhttp://www5d.biglobe.ne.jp/~ochikko",IDC_STATIC,6,10,112,27
+END
+
+IDD_MQODLG DIALOGEX 0, 0, 215, 162
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "MQO ダイアログ　（モーダル）"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,87,135,50,14
+    EDITTEXT        IDC_EDIT_MULT,57,18,93,14,ES_AUTOHSCROLL
+    LTEXT           "倍率　：　",IDC_STATIC,17,21,32,8
+    LTEXT           "現バージョンでは、曲面分割には、対応していません。",IDC_STATIC,38,112,132,24
+    GROUPBOX        "ボーンデータ形式",IDC_STATIC,15,59,186,47
+    CONTROL         "RokDeBone2形式の、線形上のボーンデータを含む。",IDC_RADIO_RDB2,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,71,168,10
+    CONTROL         "mikoto形式の、ポリゴンのボーンデータを含む。",IDC_RADIO_MIKO,"Button",BS_AUTORADIOBUTTON,20,88,153,10
+    LTEXT           "！！！　倍率は、８倍位を推奨します。！！！",IDC_STATIC,31,36,148,8
+END
+
+IDD_DISPSWITCHDLG DIALOGEX 0, 0, 220, 378
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ディスプレイスイッチの設定ダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,152,350,50,14
+    GROUPBOX        "各スイッチの状態",IDC_STATIC,15,30,187,169
+    LTEXT           "スイッチ1 : オフ",IDC_SWITCH1,20,48,89,8
+    LTEXT           "フレーム番号 : 0",IDC_FRAMENO,21,16,109,8
+    LTEXT           "スイッチ2 : オフ",IDC_SWITCH2,20,60,89,8
+    LTEXT           "スイッチ3 : オフ",IDC_SWITCH3,20,73,89,8
+    LTEXT           "スイッチ4 : オフ",IDC_SWITCH4,20,86,90,8
+    LTEXT           "スイッチ5 : オフ",IDC_SWITCH5,20,99,91,8
+    LTEXT           "スイッチ6 : オフ",IDC_SWITCH6,20,125,84,8
+    LTEXT           "スイッチ7 : オフ",IDC_SWITCH7,20,137,90,8
+    LTEXT           "スイッチ8 : オフ",IDC_SWITCH8,20,150,92,8
+    LTEXT           "スイッチ9 : オフ",IDC_SWITCH9,20,163,88,8
+    LTEXT           "スイッチ10 : オフ",IDC_SWITCH10,19,176,91,8
+    LTEXT           "スイッチ11 : オフ",IDC_SWITCH11,118,48,79,8
+    LTEXT           "スイッチ12 : オフ",IDC_SWITCH12,118,60,81,8
+    LTEXT           "スイッチ13 : オフ",IDC_SWITCH13,118,72,80,8
+    LTEXT           "スイッチ14 : オフ",IDC_SWITCH14,118,85,80,8
+    LTEXT           "スイッチ15 : オフ",IDC_SWITCH15,118,98,79,8
+    GROUPBOX        "スイッチ状態の変更",IDC_STATIC,15,206,187,134
+    COMBOBOX        IDC_COMBO_NO,113,224,77,109,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "変更するスイッチ番号",IDC_STATIC,25,226,73,8
+    LTEXT           "現在のフレームより後のフレームにおいて、\nスイッチをオンにする。",IDC_STATIC,26,245,163,21
+    PUSHBUTTON      "オンにする",IDC_SWITCHON,114,268,76,14
+    LTEXT           "現在のフレームよりも後のフレームにおいて、\nスイッチをオフにする。",IDC_STATIC,26,290,163,22
+    PUSHBUTTON      "オフにする",IDC_SWITCHOFF,114,316,76,14
+END
+
+IDD_TEXSETTINGDLG DIALOGEX 0, 0, 303, 380
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "テクスチャ設定ダイアログ　（モーダル）"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,181,354,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,237,354,50,14
+    LISTBOX         IDC_LIST_TEXNAME,24,133,142,36,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP,WS_EX_LEFTSCROLLBAR
+    PUSHBUTTON      "追加（参照）",IDC_NAME_ADD,171,133,50,14
+    PUSHBUTTON      "削除",IDC_NAME_DEL,171,147,50,14
+    PUSHBUTTON      "上へ",IDC_NAME_UP,225,133,50,14
+    PUSHBUTTON      "下へ",IDC_NAME_DOWN,225,147,50,14
+    GROUPBOX        "テクスチャファイル名",IDC_STATIC,15,85,273,89
+    GROUPBOX        "テクスチャモード",IDC_STATIC,15,9,272,71
+    CONTROL         "通常モード（1枚のみ）",IDC_RADIO_TEXONE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,17,256,10
+    CONTROL         "パラパラアニメモード(100枚まで)",IDC_RADIO_TEXPALA,"Button",BS_AUTORADIOBUTTON,21,29,259,10
+    CONTROL         "グロー（アルファは発光部分指定のみに使用）",IDC_RADIO_TEXGLOW,"Button",BS_AUTORADIOBUTTON,21,41,147,10
+    CONTROL         "グロー＋半透明（アルファは発光部指定と透過の両方に使用）",IDC_RADIO_TEXGLOWALPHA,
+                    "Button",BS_AUTORADIOBUTTON,21,53,259,10
+    CONTROL         "重ねモード（8枚まで）　[ 重ねモードは現在未対応です。 ]",IDC_RADIO_TEXMULTI,
+                    "Button",BS_AUTORADIOBUTTON,21,65,259,10
+    GROUPBOX        "貼り方指定",IDC_STATIC,16,226,273,45
+    COMBOBOX        IDC_COMBO_TEXRULE,128,235,145,86,CBS_DROPDOWN | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "貼り付け方",IDC_STATIC,21,238,61,8
+    EDITTEXT        IDC_TEXREPU,88,251,46,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_TEXREPV,205,251,43,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_UANIM,108,296,40,14,ES_AUTOHSCROLL
+    LTEXT           "フレームごとのV方向移動量",IDC_STATIC,153,298,86,8
+    EDITTEXT        IDC_VANIM,241,296,39,14,ES_AUTOHSCROLL
+    GROUPBOX        "ファイルの場所",IDC_STATIC,20,95,263,33
+    CONTROL         "フルパスで指定する。",IDC_RADIO_FULLPATH,"Button",BS_AUTORADIOBUTTON | WS_GROUP,32,105,184,10
+    CONTROL         "ファイル名のみで指定する。（実行時に、sig fileと同じ場所から検索されます）",IDC_RADIO_ONLYNAME,
+                    "Button",BS_AUTORADIOBUTTON,32,116,245,10
+    LTEXT           "U方向繰り返し回数",IDC_STATIC,19,254,65,8
+    LTEXT           "V方向繰り返し回数",IDC_STATIC,140,254,64,8
+    LTEXT           "フレームごとのU方向移動量",IDC_STATIC,17,298,88,8
+    GROUPBOX        "透過設定",IDC_STATIC,15,178,274,43
+    CONTROL         "通常モード（透過、半透明にしない）",IDC_RADIO_NOALPHA,"Button",BS_AUTORADIOBUTTON | WS_GROUP,22,187,198,10
+    CONTROL         "テクスチャーのアルファ値を元に、半透明にする。",IDC_RADIO_WITHALPHA,"Button",BS_AUTORADIOBUTTON,22,198,210,10
+    CONTROL         "テクスチャーの黒色部分を透過する。",IDC_RADIO_WITHTRANS,"Button",BS_AUTORADIOBUTTON,22,209,212,10
+    GROUPBOX        "バンプマップ",IDC_STATIC,15,318,272,31
+    EDITTEXT        IDC_BUMPMAP,20,329,155,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REFBUMPMAP,180,329,50,14
+    GROUPBOX        "UVアニメ",IDC_STATIC,14,273,274,41
+    CONTROL         "円筒、球貼り付け用にWRAPする。",IDC_RADIO_WRAP,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,284,115,10
+    CONTROL         "UVの値に制限を設けない。",IDC_RADIO_NOLIMIT,"Button",BS_AUTORADIOBUTTON,139,283,95,10
+END
+
+IDD_LDSIG DIALOGEX 0, 0, 284, 118
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "sig ファイル読み込みダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,155,87,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,212,87,50,14
+    LTEXT           "sig ファイル名",IDC_STATIC,11,13,72,8
+    EDITTEXT        IDC_SIGNAME,34,26,165,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF,212,26,50,14
+    LTEXT           "倍率",IDC_STATIC,13,53,40,8
+    EDITTEXT        IDC_MULT,34,65,89,14,ES_AUTOHSCROLL
+END
+
+IDD_WRITEBFDLG DIALOGEX 0, 0, 268, 142
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ボーンファイルのタイプ設定ダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,123,112,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,187,112,50,14
+    GROUPBOX        "ファイル形式の選択",IDC_STATIC,18,20,225,56
+    CONTROL         "名前と階層構造の混合形式で出力する。",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,25,36,210,10
+    CONTROL         "名前の部分と階層構造を分けた形式で出力する。",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,52,212,10
+    CONTROL         "シリアル番号を相対値で記録する。（RELATIVE_BONENO_MODE）",IDC_CHECK1,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,19,86,234,10
+END
+
+IDD_FRAMECOPYDLG DIALOGEX 0, 0, 405, 293
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "コピーするボーンツリーの選択ダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,271,264,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,335,263,50,14
+    LISTBOX         IDC_LIST1,232,57,151,71,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "追加 >>",IDC_ADD,164,60,59,13
+    PUSHBUTTON      "削除",IDC_DELETE,164,78,59,13
+    PUSHBUTTON      "全削除",IDC_ALLDELETE,164,97,59,13
+    LTEXT           "左側のツリービューから選択して、追加ボタンを押してください。",IDC_STATIC,85,16,217,9
+    CONTROL         "",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,18,59,138,181
+    LISTBOX         IDC_LIST2,233,179,151,71,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    PUSHBUTTON      "追加 >>",IDC_ADD2,166,180,59,13
+    PUSHBUTTON      "削除",IDC_DELETE2,166,198,59,13
+    PUSHBUTTON      "全削除",IDC_ALLDELETE2,166,217,59,13
+    LTEXT           "コピーするボーンの指定。\n指定したボーンとその全ての子のボーンの\n姿勢情報(モーションポイントがあれば)をコピーします。",IDC_STATIC,204,28,177,24
+    LTEXT           "コピーしないボーンツリーの指定。\n指定したボーンとその全ての子のボーンが、\nコピーされないようにします。\nコピーするボーン指定よりも優先されます。",IDC_STATIC,208,137,165,35
+END
+
+IDD_PASTETYPEDLG DIALOGEX 0, 0, 263, 122
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ペースト形式の選択ダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,90,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,191,89,50,14
+    GROUPBOX        "ペースト形式の選択",IDC_STATIC,18,20,225,56
+    CONTROL         "名前の規則に従って、軸対称ペーストをする。",IDC_RADIO1,"Button",BS_AUTORADIOBUTTON,25,36,203,10
+    CONTROL         "そのまま、ペーストする。（軸対称ペーストをしない）",IDC_RADIO2,"Button",BS_AUTORADIOBUTTON,25,52,205,10
+END
+
+IDD_PARSDLG DIALOGEX 0, 0, 194, 278
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "パースペクティブ設定ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,37,247,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,102,247,50,14
+    GROUPBOX        "透視モード",IDC_STATIC,19,23,131,57
+    CONTROL         "",IDC_SLIDER1,"msctls_trackbar32",TBS_BOTH | WS_TABSTOP,19,121,131,15
+    LTEXT           "パースペクティブ射影の視野角（30～80度）",IDC_STATIC,20,106,153,8
+    LTEXT           "現在の視野角　**度",IDC_FOVTEXT,22,145,124,8
+    CONTROL         "パースペクティブ射影",IDC_RADIO_PARS1,"Button",BS_AUTORADIOBUTTON | WS_GROUP,29,39,83,10
+    CONTROL         "正射影",IDC_RADIO_ORTHO1,"Button",BS_AUTORADIOBUTTON,30,59,38,10
+    GROUPBOX        "パースペクティブの視野角",IDC_STATIC,19,86,159,83
+    GROUPBOX        "正射影の設定",IDC_STATIC,19,178,159,60
+    LTEXT           "ビューの大きさ（５００以上の整数(uint)）",IDC_STATIC,26,193,150,8
+    EDITTEXT        IDC_EDIT_ORTHOSIZE,29,209,115,14,ES_AUTOHSCROLL
+END
+
+IDD_AXISDLG DIALOGEX 0, 0, 391, 109
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "Button1",IDC_VIEW,"Button",BS_OWNERDRAW | WS_TABSTOP,14,9,88,91
+    CONTROL         "",IDC_SL_XZ,"msctls_trackbar32",TBS_BOTH | WS_TABSTOP,238,25,100,15
+    CONTROL         "",IDC_SL_Y,"msctls_trackbar32",TBS_BOTH | WS_TABSTOP,238,56,100,15
+    LTEXT           "XZ平面上の角度(ヨー) 000度",IDC_TEXT_SL_XZ,245,45,104,8
+    LTEXT           "Y軸方向の角度（ピッチ） 000度",IDC_TEXT_SL_Y,245,77,130,8
+    GROUPBOX        "ＩＫ軸の設定方法",IDC_STATIC,105,13,132,66
+    CONTROL         "視線に平行なベクトルを軸とする。",IDC_RADIO_VERT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,111,24,111,10
+    CONTROL         "スライダーを自分で動かして設定する。",IDC_RADIO_CUSTOM,"Button",BS_AUTORADIOBUTTON,111,41,122,10
+    CONTROL         "自動選定、オートモード。",IDC_RADIO_CROSS,"Button",BS_AUTORADIOBUTTON,111,58,94,10
+    LTEXT           "自分で設定するモードの時のみ操作可能です。\nオートモードの時は、意味がありません。",IDC_STATIC,240,8,139,18
+END
+
+IDD_MOTDLG DIALOGEX 0, 0, 564, 159
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "モーション設定ダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "",IDC_TAB1,"SysTabControl32",0x0,7,7,550,145
+END
+
+IDD_VIKDLG DIALOGEX 0, 0, 390, 109
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    GROUPBOX        "選択ジョイントの現在値",IDC_STATIC,12,8,93,82
+    LTEXT           "選択中のジョイント名",IDC_TEXT_SELNAME,22,31,78,8
+    LTEXT           "選択ジョイント名",IDC_STATIC,16,19,48,8
+    LTEXT           "ジョイントの現在の座標値",IDC_STATIC,17,41,76,8
+    LTEXT           "X座標：　000000.000",IDC_TEXT_CURX,35,53,65,8
+    LTEXT           "Y座標：　00000.0000",IDC_TEXT_CURY,35,65,65,8
+    LTEXT           "Z座標：　00000.0000",IDC_TEXT_CURZ,35,77,67,8
+    GROUPBOX        "移動目標座標値",IDC_STATIC,107,8,108,82
+    LTEXT           "移動の細かさ（大きいほど細かい）",IDC_STATIC,113,21,148,8
+    EDITTEXT        IDC_EDIT_DIV,166,31,43,14,ES_AUTOHSCROLL
+    LTEXT           "目標座標値　（Ｘ　Ｙ　Ｚ）",IDC_STATIC,115,48,94,8
+    EDITTEXT        IDC_EDIT_TX,113,57,31,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TY,147,57,30,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_TZ,180,57,30,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "IK（回転）開始",IDC_START_IK,219,56,50,14
+    PUSHBUTTON      "IK停止",IDC_STOP_IK,219,76,50,14
+    LTEXT           "ＩＫの結果は、ＩＫ軸や、ＩＫ階層数や、移動の細かさなどの\nパラメータによって、大きく変わります。\n失敗した場合は、IK停止後、Undoして、設定を変えて、\n再トライしてください。",IDC_STATIC,216,13,166,40
+    LTEXT           "現在位置との距離： 0000.0000",IDC_TEXT_DIST,113,75,98,8
+    PUSHBUTTON      "IK(移動)開始",IDC_START_SHIFTIK,274,56,50,14
+    PUSHBUTTON      "ツリー移動（Ｔ２）",IDC_TREESHIFT,329,56,50,14
+END
+
+IDD_BONELINEDLG DIALOGEX 0, 0, 252, 237
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ボーンマーク（線）の表示設定"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,123,205,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,180,204,50,14
+    GROUPBOX        "ボーンマークの色",IDC_STATIC,14,16,217,99
+    LTEXT           "選択しているボーンマークの色",IDC_STATIC,22,32,118,8
+    CONTROL         "",IDC_SELCOL,"Static",SS_BLACKFRAME,77,43,20,20
+    PUSHBUTTON      "色の選択",IDC_REF_SELCOL,115,46,50,14
+    LTEXT           "選択していないボーンマークの色",IDC_STATIC,23,70,116,8
+    CONTROL         "",IDC_UNSELCOL,"Static",SS_BLACKFRAME,78,81,20,20
+    PUSHBUTTON      "色の選択",IDC_REF_UNSELCOL,116,85,50,14
+    GROUPBOX        "ボーンマークの表示、非表示",IDC_STATIC,14,122,217,73
+    CONTROL         "現在選択しているボーンのマークを、非表示にする。",IDC_RADIO_NOTDISP,"Button",BS_AUTORADIOBUTTON | WS_GROUP,22,138,200,10
+    CONTROL         "現在選択しているボーンのマークを、表示する。",IDC_RADIO_DODISP,"Button",BS_AUTORADIOBUTTON,22,154,200,10
+    CONTROL         "選択している子供のボーンにも、設定を、反映させる。",IDC_CHECK_CHILD,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,22,170,205,10
+END
+
+IDD_WRITEMQODLG DIALOGEX 0, 0, 242, 255
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "連番ＭＱＯ出力ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,118,224,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,173,224,50,14
+    EDITTEXT        IDC_EDIT_HEAD,19,45,146,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF_HEAD,174,46,50,14
+    LTEXT           "連番ファイルの先頭ファイル名。\n    この名前の後ろに、フレーム番号を付けたものが、\n    出力ファイル名になります",IDC_STATIC,12,16,207,24
+    GROUPBOX        "モーションの選択",IDC_STATIC,12,69,215,52
+    CONTROL         "全てのフレームを出力する。",IDC_RADIO_ALL,"Button",BS_AUTORADIOBUTTON | WS_GROUP,18,83,136,10
+    CONTROL         "キーフレームのみを出力する。",IDC_RADIO_KEY,"Button",BS_AUTORADIOBUTTON,18,100,157,10
+    LTEXT           "形状データの出力倍率（正の少数（float）",IDC_STATIC,16,131,148,8
+    EDITTEXT        IDC_EDIT_MULT,23,143,84,14,ES_AUTOHSCROLL
+    CONTROL         "ボーンの線データも出力する。",IDC_CHECK_OUTBONE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,25,176,140,10
+    GROUPBOX        "ボーン情報",IDC_STATIC,17,163,210,54
+    CONTROL         "bonファイルを出力する。",IDC_CHECK_OUTBF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,26,196,109,10
+END
+
+IDD_LDBVH DIALOGEX 0, 0, 269, 275
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "BVH読み込みダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,137,242,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,197,242,50,14
+    LTEXT           "ＢＶＨファイル名",IDC_STATIC,12,17,79,8
+    EDITTEXT        IDC_EDIT_BVH,23,30,169,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF_BVH,201,30,50,14
+    CONTROL         "モーション情報のみを読み込む（同名の既存のボーンにアタッチする）",IDC_CHECK_MOTONLY,
+                    "Button",BS_AUTOCHECKBOX | WS_TABSTOP,13,83,244,10
+    LTEXT           "ＢＶＨには、ボーン影響度情報がないため、im2ファイルを作成し読み込んでください。",IDC_STATIC,46,50,162,30
+    GROUPBOX        "変換作業時のファイルの名前",IDC_STATIC,13,144,241,89
+    LTEXT           "ボーンの線データを記録したmqoファイルの名前",IDC_STATIC,19,157,148,8
+    EDITTEXT        IDC_EDIT_MQONAME,27,168,162,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF_MQONAME,196,168,50,14
+    LTEXT           "ボーンの名前と階層を記録したbonファイルの名前",IDC_STATIC,21,193,154,8
+    EDITTEXT        IDC_EDIT_BONNAME,28,206,161,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF_BONNAME,196,206,50,14
+    LTEXT           "位置情報の読み込み倍率（正の少数）",IDC_STATIC,16,105,119,8
+    EDITTEXT        IDC_EDIT_MULT,25,118,109,14,ES_AUTOHSCROLL
+END
+
+IDD_WRITEIM2Dlg DIALOGEX 0, 0, 234, 146
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IM2出力ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,110,116,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,164,116,50,14
+    GROUPBOX        "書き出しタイプ",IDC_STATIC,13,15,205,52
+    CONTROL         "sigファイル用の影響情報を書き出す。",IDC_RADIO_FORSIG,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,30,158,10
+    CONTROL         "mqo出力用の影響情報を書き出す。",IDC_RADIO_FORMQO,"Button",BS_AUTORADIOBUTTON,19,49,126,10
+    LTEXT           "出力ファイル名",IDC_STATIC,18,79,48,8
+    EDITTEXT        IDC_EDIT_IM2NAME,27,92,134,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF_IM2,169,92,50,14
+END
+
+IDD_MIKOBLENDDLG DIALOGEX 0, 0, 287, 114
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "mikoto用データの、関節の曲げ方の設定"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,162,89,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,220,89,50,14
+    GROUPBOX        "関節の曲げ方",IDC_STATIC,14,15,258,65
+    CONTROL         "sdef, bdefは、全て「スキニング有り」モードで変形する。",IDC_RADIO_SKINNING,
+                    "Button",BS_AUTORADIOBUTTON | WS_GROUP,20,29,185,10
+    CONTROL         "sdef, bdefは、スキニング有り、無しを、自動的にブレンドして、変形する。",IDC_RADIO_MIX,
+                    "Button",BS_AUTORADIOBUTTON,20,51,235,10
+    LTEXT           "（アンカーが重なっていない部分は、変形しなくなります。）",IDC_STATIC,30,63,178,8
+END
+
+IDD_LOADNAMEDLG DIALOGEX 0, 0, 516, 168
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "読み込みファイル名確認ダイアログ(モーダル)"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,247,140,50,14
+    LTEXT           "形状データファイル",IDC_STATIC,12,13,60,8
+    LTEXT           "スタティック",IDC_SIGNAME,29,26,473,8
+    LTEXT           "モーションファイル",IDC_STATIC,14,40,58,8
+    LTEXT           "スタティック",IDC_QUANAME,29,51,472,8
+    LTEXT           "影響マップファイル",IDC_STATIC,15,65,59,8
+    LTEXT           "スタティック",IDC_IM2NAME,30,76,471,8
+    LTEXT           "ボーンファイル",IDC_STATIC,15,90,46,8
+    LTEXT           "スタティック",IDC_BONNAME,31,100,470,8
+    LTEXT           "モーションアクセラレータファイル",IDC_STATIC,15,113,102,8
+    LTEXT           "スタティック",IDC_MOANAME,31,124,471,8
+END
+
+IDD_LDGROUNDDLG DIALOGEX 0, 0, 284, 118
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "地面mqo ファイル読み込みダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,155,87,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,212,87,50,14
+    LTEXT           "地面mqoのファイル名",IDC_STATIC,11,13,72,8
+    EDITTEXT        IDC_SIGNAME,34,26,165,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF,212,26,50,14
+    LTEXT           "倍率",IDC_STATIC,13,53,40,8
+    EDITTEXT        IDC_MULT,34,65,89,14,ES_AUTOHSCROLL
+END
+
+IDD_IKTARGETDLG DIALOGEX 0, 0, 276, 254
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IKターゲットの設定"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,156,226,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,212,226,50,14
+    CONTROL         "IKターゲットを作成する。",IDC_CHECK_IKT,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,15,92,10
+    LTEXT           "IK計算の最大階層数",IDC_STATIC,19,49,66,8
+    COMBOBOX        IDC_COMBO_IKLEVEL,104,45,48,194,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "IK計算回数",IDC_STATIC,19,69,37,8
+    EDITTEXT        IDC_EDIT_IKCNT,104,66,48,14,ES_AUTOHSCROLL
+    LTEXT           "現在のジョイント位置　：　ジョイント名　",IDC_TEXT_JOINTNAME,18,90,230,8
+    LTEXT           "X : 0.0000000, Y : 0.0000000, Z : 0.0000000",IDC_TEXT_JOINTLOC,33,103,216,8
+    LTEXT           "ターゲット位置",IDC_STATIC,18,118,46,8
+    LTEXT           "Ｘ座標",IDC_STATIC,31,130,26,8
+    LTEXT           "Ｙ座標",IDC_STATIC,31,146,20,8
+    LTEXT           "Ｚ座標",IDC_STATIC,31,164,20,8
+    EDITTEXT        IDC_EDIT_X,63,126,89,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_Y,63,143,89,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_Z,63,161,89,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "現在のジョイント位置をターゲット位置にする",IDC_BUTTON1,32,181,161,14
+    LTEXT           "ＩＫターゲットを有効にした後、ＩＫＴボタン（ツールバー）を押せば、\nマウスドラッグで、位置を調整できます。",IDC_STATIC,22,203,235,25
+    CONTROL         "IKターゲットを無効にする（球の表示のみにする）",IDC_CHECK_INVALID,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,29,240,10
+END
+
+IDD_FRAMESHIFTDLG DIALOGEX 0, 0, 273, 92
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "フレームシフト　ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,91,62,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,147,62,50,14
+    LTEXT           "フレーム番号",IDC_STATIC,15,18,42,8
+    EDITTEXT        IDC_EDIT_SELSTART,62,15,40,14,ES_AUTOHSCROLL
+    LTEXT           "から",IDC_STATIC,109,18,14,8
+    EDITTEXT        IDC_EDIT_SELEND,129,16,40,14,ES_AUTOHSCROLL
+    LTEXT           "までの、キーフレームを、",IDC_STATIC,176,19,83,8
+    EDITTEXT        IDC_EDIT_SHIFT,17,36,40,14,ES_AUTOHSCROLL
+    LTEXT           "だけ、移動する。",IDC_STATIC,65,40,52,8
+END
+
+IDD_FRAMEPASTEDLG DIALOGEX 0, 0, 187, 197
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "フレーム操作確認　ダイアログ　(モーダル)"
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    DEFPUSHBUTTON   "OK",1,39,174,50,14
+    PUSHBUTTON      "ｷｬﾝｾﾙ",2,94,174,50,14
+    LTEXT           "以下のボーンのモーションポイントを\nペーストします。",IDC_TEXT,32,6,110,20
+    LISTBOX         IDC_LIST1,7,32,170,64,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    GROUPBOX        "操作対象フレームの設定",IDC_STATIC,7,102,172,65
+    CONTROL         "現在のフレームにペーストする。",IDC_RADIO_CURFRAME,"Button",BS_AUTORADIOBUTTON | WS_GROUP,12,114,109,10
+    CONTROL         "指定した範囲内のキーフレームにペーストする。",IDC_RADIO_SELECT,"Button",BS_AUTORADIOBUTTON,12,130,155,10
+    EDITTEXT        IDC_EDIT_START,22,143,25,14,ES_AUTOHSCROLL
+    LTEXT           "から",IDC_STATIC,52,146,14,8
+    EDITTEXT        IDC_EDIT_END,68,143,24,14,ES_AUTOHSCROLL
+    LTEXT           "までのキーフレーム",IDC_STATIC,97,146,59,8
+END
+
+IDD_WRITEQUADLG DIALOGEX 0, 0, 261, 159
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "QUA保存ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,129,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,190,128,50,14
+    LTEXT           "出力ファイル名",IDC_STATIC,12,14,48,8
+    EDITTEXT        IDC_EDIT_NAME,21,25,166,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF,195,25,50,14
+    LTEXT           "書き出しフレーム範囲",IDC_STATIC,12,53,68,8
+    EDITTEXT        IDC_EDIT_QUASTART,22,66,40,14,ES_AUTOHSCROLL
+    LTEXT           "から",IDC_STATIC,68,70,14,8
+    EDITTEXT        IDC_EDIT_QUAEND,87,66,40,14,ES_AUTOHSCROLL
+    LTEXT           "まで。",IDC_STATIC,133,70,19,8
+    CONTROL         "書き出し開始フレームと終了フレームに、キーフレームを作る。",IDC_CHECK_CREATE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,93,217,10
+    LTEXT           "(チェックをした場合は、出力quaにのみ、キーフレームが作成されます。)",IDC_STATIC,22,105,219,8
+END
+
+IDD_IMPORTQUADLG DIALOGEX 0, 0, 261, 138
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "QUA追加読み込みダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,132,106,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,190,107,50,14
+    LTEXT           "追加読み込みファイル名",IDC_STATIC,12,14,77,8
+    EDITTEXT        IDC_EDIT_NAME,21,25,166,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF,195,25,50,14
+    LTEXT           "既存モーションの後ろに、指定フレーム数だけ間隔をあけて、\n追加モーションを読み込みます。",IDC_STATIC,12,53,210,24
+    EDITTEXT        IDC_EDIT_SPACE,124,82,40,14,ES_AUTOHSCROLL
+    LTEXT           "間隔の指定（1以上100以下）",IDC_STATIC,25,84,91,8
+END
+
+IDD_ITIMODEDLG DIALOGEX 0, 0, 219, 112
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "位置調整モード選択ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,146,81,50,14
+    CONTROL         "モーションを初期化してから、位置の調整をする。",IDC_MODE_INIT,"Button",BS_AUTORADIOBUTTON | WS_GROUP,12,15,167,10
+    CONTROL         "モーションを適用したまま、位置の調整をする。",IDC_MODE_NOTINIT,"Button",BS_AUTORADIOBUTTON,12,47,160,10
+    LTEXT           "頂点、面、パーツ、ジョイント初期位置を調整できます。",IDC_STATIC,27,29,168,8
+    LTEXT           "頂点位置のみ、調整できます。",IDC_STATIC,28,61,96,8
+END
+
+IDD_ITIDLG DIALOGEX 0, 0, 167, 204
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "位置調整ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "入力値の反映",IDOK,55,175,50,14
+    LTEXT           "位置調整、対称オブジェクトの指定",IDC_STATIC,12,15,108,8
+    GROUPBOX        "数値入力のモード",IDC_STATIC,13,71,136,33
+    CONTROL         "相対値",IDC_MOVE_RELATIVE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,84,38,10
+    CONTROL         "絶対値",IDC_MOVE_ABSOLUTE,"Button",BS_AUTORADIOBUTTON,86,84,38,10
+    LTEXT           "Ｘ座標",IDC_STATIC,18,113,20,8
+    EDITTEXT        IDC_POSX,46,110,89,14,ES_AUTOHSCROLL
+    LTEXT           "Ｙ座標",IDC_STATIC,18,134,20,8
+    EDITTEXT        IDC_POSY,46,131,89,14,ES_AUTOHSCROLL
+    LTEXT           "Ｚ座標",IDC_STATIC,17,155,20,8
+    EDITTEXT        IDC_POSZ,45,152,89,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "頂点",IDC_VERT,22,49,24,14
+    PUSHBUTTON      "面",IDC_FACE,50,49,23,14
+    PUSHBUTTON      "パーツ",IDC_PART,78,49,24,14
+    PUSHBUTTON      "ジョイント",IDC_JOINT,106,49,34,14
+    LTEXT           "(モーションを適用しながらのモードでは、\n頂点のみ選択可能)",IDC_STATIC,20,26,135,18
+END
+
+IDD_SETCOLDLG DIALOGEX 0, 0, 236, 401
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "頂点マテリアル設定ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDOK,170,375,50,14
+    CONTROL         "Button1",IDC_VIEW,"Button",BS_OWNERDRAW | WS_TABSTOP,21,17,86,86
+    GROUPBOX        "作業色",IDC_STATIC,14,8,206,125
+    PUSHBUTTON      "diffuseの設定",IDC_REFDIFFUSE,115,20,58,14
+    CONTROL         "",IDC_VDIFFUSE,"SysAnimate32",WS_BORDER | WS_TABSTOP,181,16,20,20
+    PUSHBUTTON      "specularの設定",IDC_REFSPECULAR,116,44,58,14
+    CONTROL         "",IDC_VSPECULAR,"SysAnimate32",WS_BORDER | WS_TABSTOP,181,40,20,20
+    PUSHBUTTON      "ambientの設定",IDC_REFAMBIENT,115,69,59,14
+    CONTROL         "",IDC_VAMBIENT,"SysAnimate32",WS_BORDER | WS_TABSTOP,181,64,20,20
+    PUSHBUTTON      "emissiveの設定",IDC_REFEMISSIVE,115,94,59,14
+    CONTROL         "",IDC_VEMISSIVE,"SysAnimate32",WS_BORDER | WS_TABSTOP,181,89,20,20
+    CONTROL         "",IDC_SL_POWER,"msctls_trackbar32",TBS_BOTH | WS_TABSTOP,28,111,124,15
+    LTEXT           "スペキュラーpower",IDC_STATIC,23,107,60,8
+    LTEXT           "100.000000",IDC_POWER,163,116,47,8
+    GROUPBOX        "操作モード　　（頂点をクリックしたときの処理）",IDC_STATIC,14,135,205,35
+    CONTROL         "作業色を、頂点にセット",IDC_RADIO_SET,"Button",BS_AUTORADIOBUTTON,19,145,87,10
+    CONTROL         "スポイト（頂点色を作業色にコピー）",IDC_RADIO_SPOIT,"Button",BS_AUTORADIOBUTTON,19,157,125,10
+    GROUPBOX        "パレット　（四角をクリックすると、作業色を保存、復元できます）",IDC_STATIC,14,173,205,183
+    CONTROL         "Button3",IDC_PALETTE1,"Button",BS_OWNERDRAW | WS_TABSTOP,19,197,22,23
+    CONTROL         "Button3",IDC_PALETTE2,"Button",BS_OWNERDRAW | WS_TABSTOP,19,235,22,23
+    CONTROL         "Button3",IDC_PALETTE3,"Button",BS_OWNERDRAW | WS_TABSTOP,19,272,22,23
+    CONTROL         "Button3",IDC_PALETTE4,"Button",BS_OWNERDRAW | WS_TABSTOP,19,307,22,23
+    CONTROL         "Button3",IDC_PALETTE5,"Button",BS_OWNERDRAW | WS_TABSTOP,70,198,22,23
+    CONTROL         "Button3",IDC_PALETTE6,"Button",BS_OWNERDRAW | WS_TABSTOP,70,235,22,23
+    CONTROL         "Button3",IDC_PALETTE7,"Button",BS_OWNERDRAW | WS_TABSTOP,70,272,22,23
+    CONTROL         "Button3",IDC_PALETTE8,"Button",BS_OWNERDRAW | WS_TABSTOP,70,307,22,23
+    CONTROL         "Button3",IDC_PALETTE9,"Button",BS_OWNERDRAW | WS_TABSTOP,121,198,22,23
+    CONTROL         "Button3",IDC_PALETTE10,"Button",BS_OWNERDRAW | WS_TABSTOP,121,234,22,23
+    CONTROL         "Button3",IDC_PALETTE11,"Button",BS_OWNERDRAW | WS_TABSTOP,121,271,22,23
+    CONTROL         "Button3",IDC_PALETTE12,"Button",BS_OWNERDRAW | WS_TABSTOP,121,307,22,23
+    CONTROL         "Button3",IDC_PALETTE13,"Button",BS_OWNERDRAW | WS_TABSTOP,171,196,22,23
+    CONTROL         "Button3",IDC_PALETTE14,"Button",BS_OWNERDRAW | WS_TABSTOP,172,233,22,23
+    PUSHBUTTON      "頂点ペイントのアンドゥー",IDC_UNDO,132,359,88,14
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME1,19,186,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME2,19,224,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME3,19,261,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME4,19,296,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME5,70,186,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME6,70,223,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME7,70,260,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME8,70,296,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME9,121,186,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME10,121,223,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME11,121,259,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME12,121,295,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME13,172,186,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME14,172,223,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME15,172,259,41,8
+    LTEXT           "aaaaaaaaaaaa",IDC_PNAME16,172,295,41,8
+    CONTROL         "Button3",IDC_PALETTE15,"Button",BS_OWNERDRAW | WS_TABSTOP,172,270,22,23
+    CONTROL         "Button3",IDC_PALETTE16,"Button",BS_OWNERDRAW | WS_TABSTOP,172,306,22,23
+    PUSHBUTTON      "ファイルへセーブ",IDC_FILESAVE,19,338,74,14
+    PUSHBUTTON      "ファイルからロード",IDC_FILELOAD,121,338,73,14
+    LTEXT           "----------------------------------------------",IDC_STATIC,22,330,192,8
+    CONTROL         "テクスチャー表示をオフにする。",IDC_CHECK_TEX,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,15,361,108,10
+END
+
+IDD_SETCOL2DLG DIALOGEX 0, 0, 186, 242
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "パレット操作選択ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,41,214,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,99,214,50,14
+    GROUPBOX        "操作を選択",IDC_STATIC,11,12,161,80
+    CONTROL         "作業色をパレットに保存",IDC_RADIO_W2P,"Button",BS_AUTORADIOBUTTON,16,27,91,10
+    CONTROL         "パレット色を、作業色にコピー（復元）",IDC_RADIO_P2W,"Button",BS_AUTORADIOBUTTON,16,42,130,10
+    CONTROL         "このパレット色を初期化",IDC_RADIO_DEL,"Button",BS_AUTORADIOBUTTON,16,58,89,10
+    CONTROL         "パレットの名前を変更",IDC_RADIO_NAME,"Button",BS_AUTORADIOBUTTON,16,74,82,10
+    GROUPBOX        "このパレットのプロパティー",IDC_STATIC,11,97,161,110
+    EDITTEXT        IDC_EDIT1,42,107,53,14,ES_AUTOHSCROLL
+    LTEXT           "名前",IDC_STATIC,16,110,16,8
+    LTEXT           "diffuse",IDC_STATIC,16,133,21,8
+    CONTROL         "",IDC_DIFFUSE,"Static",SS_BLACKFRAME,54,127,20,20
+    LTEXT           "specular",IDC_STATIC,16,163,27,8
+    LTEXT           "ambient",IDC_STATIC,99,134,25,8
+    LTEXT           "emissive",IDC_STATIC,99,161,27,8
+    LTEXT           "specular power",IDC_STATIC,16,186,48,8
+    LTEXT           "100.00000",IDC_POWER,75,186,59,8
+    CONTROL         "",IDC_SPECULAR,"Static",SS_BLACKFRAME,54,156,20,20
+    CONTROL         "",IDC_AMBIENT,"Static",SS_BLACKFRAME,139,127,20,20
+    CONTROL         "",IDC_EMISSIVE,"Static",SS_BLACKFRAME,139,156,20,20
+END
+
+IDD_MOUSEOPTDLG DIALOGEX 0, 0, 266, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "マウス設定ダイアログ"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,141,57,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,199,57,50,14
+    GROUPBOX        "ホイールを回転したときの処理",IDC_STATIC,12,13,237,40
+    CONTROL         "選択しているボーンをツイストする。",IDC_MW_TWIST,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,24,123,10
+    CONTROL         "カメラの距離を変える（拡大縮小）",IDC_MW_DIST,"Button",BS_AUTORADIOBUTTON,16,36,121,10
+END
+
+IDD_CREATEBONEDLG DIALOGEX 0, 0, 209, 222
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ボーン作成ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDOK,142,195,50,14
+    GROUPBOX        "操作の選択",IDC_STATIC,11,11,183,71
+    CONTROL         "ボーンの作成をする。",IDC_RADIO_CREATE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,23,82,10
+    LTEXT           "右クリックで親を選択、左クリックでボーン作成。",IDC_STATIC,26,34,151,8
+    CONTROL         "ボーンの位置の調整をする。",IDC_RADIO_POS,"Button",BS_AUTORADIOBUTTON,16,50,105,10
+    LTEXT           "左ドラッグで、ボーン位置調整",IDC_STATIC,26,60,108,8
+    GROUPBOX        "現在選択中のパーツ",IDC_STATIC,12,86,182,102
+    EDITTEXT        IDC_NAME,17,127,160,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "名前の変更",IDC_SETNAME,71,147,50,14
+    LTEXT           "このパーツが、ボーンを作る際の、「親」になります。",IDC_STATIC,17,96,170,8
+    LTEXT           "名前",IDC_STATIC,19,115,16,8
+    PUSHBUTTON      "削除（ジョイント選択時のみ）",IDC_DELBONE,45,167,101,14
+END
+
+IDD_SELSCOPEDLG DIALOGEX 0, 0, 222, 321
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "対応オブジェクトの指定ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,86,291,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,148,290,50,14
+    CONTROL         "",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,19,33,184,95
+    LTEXT           "どのボーンの影響範囲かを選択してください。（展開可）",IDC_STATIC,22,18,170,8
+    LTEXT           "どの表示オブジェクト（ターゲット）に対しての影響範囲かを\n選択してください。",IDC_STATIC,15,165,193,25
+    LISTBOX         IDC_LIST1,19,199,184,78,LBS_SORT | LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+END
+
+IDD_INFSCOPEDLG DIALOGEX 0, 0, 237, 442
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "影響範囲作成、調整ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDOK,94,416,50,14
+    GROUPBOX        "影響範囲を決定する要素を、選択してください。",IDC_STATIC,12,13,209,140
+    LTEXT           "どのボーンに対する\n影響範囲かを選択します。",IDC_STATIC,17,24,88,19
+    CONTROL         "",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,16,44,124,87
+    LTEXT           "どの表示オブジェクトに対する\n影響範囲かを選択します。",IDC_STATIC,121,23,95,19
+    LISTBOX         IDC_LIST1,146,44,68,85,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      "影響範囲形状を作成",IDC_CREATE,24,157,86,14
+    PUSHBUTTON      "影響範囲形状を削除",IDC_DELETE,126,157,85,14
+    GROUPBOX        "マウス左クリックでの、位置調整モード",IDC_STATIC,11,175,211,52
+    CONTROL         "影響範囲形状全体を移動",IDC_RADIO_MVALL,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,196,95,10
+    CONTROL         "影響範囲形状の頂点を移動",IDC_RADIO_MVVERT,"Button",BS_AUTORADIOBUTTON,19,210,103,10
+    LTEXT           "影響範囲形状の、表示、非表示切り替え",IDC_STATIC,15,346,125,8
+    CONTROL         "",IDC_LIST2,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,16,356,205,56
+    GROUPBOX        "影響範囲形状の、拡大縮小",IDC_STATIC,12,230,210,75
+    CONTROL         "",IDC_SLIDER_BONE,"msctls_trackbar32",WS_TABSTOP,13,248,100,15
+    LTEXT           "<< 縮小　      　        拡大 >>",IDC_STATIC,20,261,93,8
+    LTEXT           "ボーン方向",IDC_STATIC,46,241,36,8
+    CONTROL         "",IDC_SLIDER_VERT,"msctls_trackbar32",WS_TABSTOP,117,247,100,15
+    LTEXT           "<< 縮小　      　        拡大 >>",IDC_STATIC,123,260,93,8
+    LTEXT           "ボーン垂直方向その１",IDC_STATIC,134,240,70,8
+    CONTROL         "",IDC_SLIDER_HOR,"msctls_trackbar32",WS_TABSTOP,13,279,100,15
+    LTEXT           "<< 縮小　      　        拡大 >>",IDC_STATIC,20,292,93,8
+    LTEXT           "ボーン垂直方向その２",IDC_STATIC,29,272,70,8
+    GROUPBOX        "影響範囲形状の色",IDC_STATIC,12,307,210,34
+    PUSHBUTTON      "色の設定",IDC_REFCOL,25,318,50,14
+    CONTROL         "",IDC_SLIDER_ALL,"msctls_trackbar32",WS_TABSTOP,117,278,100,15
+    LTEXT           "<< 縮小　      　        拡大 >>",IDC_STATIC,123,291,93,8
+    LTEXT           "全方向",IDC_STATIC,149,271,23,8
+    CONTROL         "",IDC_COL,"Static",SS_BLACKFRAME | SS_NOTIFY,91,317,15,15
+    LTEXT           "（上で選択している影響範囲しか、位置調整できません。）",IDC_STATIC,28,185,178,8
+    LTEXT           "両方選択しないと、操作できません。",IDC_STATIC,59,139,133,8
+END
+
+IDD_PAINTDLG DIALOGEX 0, 0, 280, 482
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "頂点単位影響度設定ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDOK,113,455,50,14
+    LTEXT           "どのボーンの影響度を設定するかを選択",IDC_STATIC,12,9,128,8
+    CONTROL         "",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,19,18,246,60
+    GROUPBOX        "影響度の計算方法の選択",IDC_STATIC,11,188,253,86
+    GROUPBOX        "影響度設定方法の選択",IDC_STATIC,12,276,252,25
+    PUSHBUTTON      "通常",IDC_NOR,57,284,28,14
+    PUSHBUTTON      "排他",IDC_EXC,89,284,28,14
+    PUSHBUTTON      "加算",IDC_ADD,121,284,28,14
+    PUSHBUTTON      "減算",IDC_SUB,152,284,28,14
+    PUSHBUTTON      "消去",IDC_ERA,184,284,28,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,11,381,255,72
+    LTEXT           "頂点の影響度一覧（頂点右クリックで、設定せずにリスト表示のみが可能）\n比重、正規化前影響度の数値を左クリックで、直接編集可能",IDC_STATIC,14,364,246,15
+    GROUPBOX        "比重（％）",IDC_STATIC,12,303,252,29
+    CONTROL         "",IDC_SL_PER,"msctls_trackbar32",WS_TABSTOP,36,310,134,15
+    LTEXT           "123.4567%",IDC_PER,177,315,69,8
+    EDITTEXT        IDC_DISPINF,198,232,50,14,ES_AUTOHSCROLL
+    CONTROL         "影響度設定時に、正規化（合計を１に）する[通常はオンに]",IDC_CHK_NORM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,336,195,10
+    PUSHBUTTON      "デフォルト",IDC_DEF,11,348,37,14
+    PUSHBUTTON      "正規化",IDC_NORM,50,348,28,14
+    PUSHBUTTON      "アンドゥー",IDC_UNDO,79,348,39,14
+    GROUPBOX        "マウス左クリックの役割",IDC_STATIC,11,127,253,30
+    PUSHBUTTON      "X軸対称",IDC_SYMX,45,256,32,14
+    PUSHBUTTON      "Y軸対称",IDC_SYMY,77,256,32,14
+    PUSHBUTTON      "Z軸対称",IDC_SYMZ,109,256,32,14
+    LTEXT           "距離",IDC_STATIC,157,259,16,8
+    EDITTEXT        IDC_SYMDIST,175,256,50,14,ES_AUTOHSCROLL
+    CONTROL         "頂点をクリックし、影響度を設定する。",IDC_RADIO_SETINF,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,136,131,10
+    CONTROL         "ボーンをドラッグし、ボーン変形する。",IDC_RADIO_BONE,"Button",BS_AUTORADIOBUTTON,16,146,130,10
+    CONTROL         "ボーンからの距離と角度で計算[スキニング有り](赤色)",IDC_RADIO_ONESKIN0,"Button",BS_AUTORADIOBUTTON | WS_GROUP,14,199,184,10
+    CONTROL         "ボーンからの距離のみで計算[スキニング有り](緑色)",IDC_RADIO_ONESKIN1,"Button",BS_AUTORADIOBUTTON,14,211,179,10
+    CONTROL         "１つのボーンだけの影響を受ける[スキニング無し](青色)",IDC_RADIO_NOSKIN0,"Button",BS_AUTORADIOBUTTON,14,222,189,10
+    CONTROL         "影響度を直接、数値で指定する(黄色)",IDC_RADIO_DIRECT0,"Button",BS_AUTORADIOBUTTON,14,234,132,10
+    CONTROL         "軸対称の点から影響度情報をコピーする(水色)",IDC_RADIO_SYM,"Button",BS_AUTORADIOBUTTON,14,246,161,10
+    LTEXT           "指定数値",IDC_STATIC,163,235,30,8
+    GROUPBOX        "色の表示モード",IDC_STATIC,12,158,252,29
+    CONTROL         "選択したボーンに影響する頂点に色をつけて表示。",IDC_RADIO_DISPBONE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,16,166,173,10
+    CONTROL         "対称コピーした頂点のみに色をつけて表示。",IDC_RADIO_DISPSYM,"Button",BS_AUTORADIOBUTTON,16,176,151,10
+    PUSHBUTTON      "対称更新",IDC_SYMRENEW,120,348,35,14
+    PUSHBUTTON      "マイナス一括対称塗",IDC_SYMLUMP,156,348,83,14
+    COMBOBOX        IDC_COMBO_SELDISP,70,85,134,263,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "設定パーツ名",IDC_STATIC,15,88,52,8
+    LTEXT           "ブラシ",IDC_STATIC,16,109,20,8
+    COMBOBOX        IDC_COMBO_BRUSH,40,105,83,82,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "ブラシサイズ",IDC_STATIC,128,109,41,8
+    EDITTEXT        IDC_BRUSHSIZE,171,106,47,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "適用",IDC_APPLYBRUSH,228,106,25,14
+END
+
+IDD_ONEORALLDLG DIALOGEX 0, 0, 211, 88
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "処理対象の選択ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,85,62,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,141,62,50,14
+    LTEXT           "処理対称を、選択してください。",IDC_STATIC,12,18,95,8
+    CONTROL         "直前にクリックした頂点だけに、処理をする。",IDC_RADIO_ONE,"Button",BS_AUTORADIOBUTTON | WS_GROUP,21,30,167,10
+    CONTROL         "全ての頂点に、処理をする。",IDC_RADIO_ALL,"Button",BS_AUTORADIOBUTTON,21,44,103,10
+END
+
+IDD_EDITINF DIALOGEX 0, 0, 186, 90
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "影響度エディットダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,70,66,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,125,66,50,14
+    LTEXT           "ボーン名",IDC_BONENAME,11,12,161,8
+    LTEXT           "情報の種類",IDC_KIND,12,24,159,8
+    EDITTEXT        IDC_VAL,69,36,73,14,ES_AUTOHSCROLL
+END
+
+IDD_WRITEXFILEDLG DIALOGEX 0, 0, 242, 192
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "X File 出力ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,87,161,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,152,161,50,14
+    LTEXT           "書き出し倍率\n（HGIMG3では、0.01倍程度がいいと思います）",IDC_STATIC,12,16,191,23
+    EDITTEXT        IDC_MULT,34,38,55,14,ES_AUTOHSCROLL
+    LTEXT           "頂点マテリアルは、面単位のマテリアルに変換して\n出力します。",IDC_STATIC,16,68,211,30
+    LTEXT           "出力ファイル名",IDC_STATIC,13,121,57,8
+    EDITTEXT        IDC_XNAME,20,133,151,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REFX,178,132,50,14
+END
+
+IDD_TOON1DLG DIALOGEX 0, 0, 251, 425
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "トゥーン１設定ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDOK,101,399,50,14
+    LISTBOX         IDC_LIST1,16,22,108,61,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "設定パーツ選択",IDC_STATIC,33,11,57,8
+    LTEXT           "マテリアル選択",IDC_STATIC,152,11,57,8
+    LISTBOX         IDC_LIST2,131,22,101,61,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "陰のテクスチャ",IDC_STATIC,12,87,57,8
+    CONTROL         "",IDC_TEXTURE,"Static",SS_BLACKFRAME,18,97,206,20
+    PUSHBUTTON      "暗い色設定",IDC_AMBIENT,15,121,61,14
+    PUSHBUTTON      "明るい色設定",IDC_DIFFUSE,91,121,62,14
+    PUSHBUTTON      "ハイライト色設定",IDC_SPECULAR,164,121,66,14
+    LTEXT           "暗い色の範囲（上限）指定",IDC_STATIC,9,155,97,8
+    CONTROL         "",IDC_SLDARK,"msctls_trackbar32",WS_TABSTOP,7,165,101,15
+    LTEXT           "0.3333333",IDC_DARK,38,180,59,8
+    LTEXT           "ハイライト色の範囲（下限）指定",IDC_STATIC,114,154,121,8
+    CONTROL         "",IDC_SLBRIGHT,"msctls_trackbar32",WS_TABSTOP,115,164,112,15
+    LTEXT           "0.6666666",IDC_BRIGHT,154,180,59,8
+    EDITTEXT        IDC_NAME,23,206,103,14,ES_AUTOHSCROLL
+    LTEXT           "マテリアル名の変更（31文字まで）",IDC_STATIC,12,194,129,8
+    PUSHBUTTON      "名前変更",IDC_CHANGENAME,134,207,50,14
+    LTEXT           "( 255, 255, 255 )",IDC_TEXT_AMBIENT,11,138,69,8
+    LTEXT           "( 255, 255, 255 )",IDC_TEXT_DIFFUSE,89,138,69,8
+    LTEXT           "( 255, 255, 255 )",IDC_TEXT_SPECULAR,164,137,69,8
+    GROUPBOX        "角度の閾値設定",IDC_STATIC,12,223,223,81
+    LTEXT           "以下の項目は、選択したパーツ内のすべてのマテリアルに\n適応されます。\n角度とは、ライトの反転ベクトルと、頂点の法線との\nなす角度です。",IDC_STATIC,17,235,211,34
+    LTEXT           "暗い色の角度の下限値",IDC_STATIC,16,271,81,8
+    LTEXT           "ハイライト色の角度の上限値",IDC_STATIC,127,271,105,8
+    CONTROL         "",IDC_SLDARKDEG,"msctls_trackbar32",WS_TABSTOP,16,279,101,15
+    CONTROL         "",IDC_SLBRIGHTDEG,"msctls_trackbar32",WS_TABSTOP,129,279,101,15
+    LTEXT           "66.42182",IDC_TEXT_DARKDEG,41,293,67,8
+    LTEXT           "25.84193",IDC_TEXT_BRIGHTDEG,157,292,65,8
+    GROUPBOX        "輪郭線（マテリアルごと）の設定",IDC_STATIC,11,308,221,86
+    CONTROL         "選択したマテリアルの輪郭線を表示する。",IDC_DISPEDGE0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,321,168,10
+    CONTROL         "輪郭線を反転する（両面表示オブジェ調整用）",IDC_INVEDGE0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,336,184,10
+    LTEXT           "輪郭線の色",IDC_STATIC,20,355,41,8
+    CONTROL         "",IDC_EDGECOL0,"SysAnimate32",WS_BORDER | WS_TABSTOP,65,348,20,20
+    LTEXT           "( 255, 255, 255 )",IDC_TEXT_EDGECOL0,158,354,69,8
+    PUSHBUTTON      "色の設定",IDC_B_EDGECOL0,95,351,50,14
+    LTEXT           "線の太さ",IDC_STATIC,19,377,33,8
+    EDITTEXT        IDC_EDGEWIDTH0,55,373,73,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "太さ変更",IDC_B_EDGEWIDTH0,137,372,50,14
+END
+
+IDD_LDFBX DIALOGEX 0, 0, 284, 118
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "FBX ファイル読み込みダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,155,87,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,212,87,50,14
+    LTEXT           "FBX ファイル名",IDC_STATIC,11,13,72,8
+    EDITTEXT        IDC_SIGNAME,34,26,165,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF,212,26,50,14
+    LTEXT           "倍率",IDC_STATIC,13,53,40,8
+    EDITTEXT        IDC_MULT,34,65,89,14,ES_AUTOHSCROLL
+END
+
+IDD_LDX DIALOGEX 0, 0, 284, 118
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "X ファイル読み込みダイアログ"
+FONT 9, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,155,87,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,212,87,50,14
+    LTEXT           "X ファイル名",IDC_STATIC,11,13,72,8
+    EDITTEXT        IDC_SIGNAME,34,26,165,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REF,212,26,50,14
+    LTEXT           "倍率   （LWから出力したXの場合、１０倍以上しないと、小さくて見えないことがあります。）",IDC_STATIC,13,53,257,8
+    EDITTEXT        IDC_MULT,34,65,89,14,ES_AUTOHSCROLL
+END
+
+IDD_MOTCHANGEDLG DIALOGEX 0, 0, 217, 305
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "モーション変化設定ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,50,281,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,112,281,50,14
+    CONTROL         "",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,14,28,189,248
+END
+
+IDD_MCPARENTDLG DIALOGEX 0, 0, 231, 342
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "分岐元のプロパティ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,63,312,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,117,312,50,14
+    LTEXT           "モーション名",IDC_STATIC,11,11,49,8
+    EDITTEXT        IDC_MNAME,10,21,161,14,ES_AUTOHSCROLL
+    LTEXT           "総フレーム数",IDC_STATIC,12,41,49,8
+    LTEXT           "***フレーム",IDC_TOTALFRAME,28,53,89,8
+    LTEXT           "ファイル名",IDC_STATIC,12,67,41,8
+    LTEXT           "file.qua",IDC_FNAME,28,78,143,8
+    CONTROL         "アイドリングモーションにする。",IDC_CHECK_IDLING,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,93,156,10
+    CONTROL         "イベント番号０でアイドリングに戻す。",IDC_CHECK_EV0IDLE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,11,108,160,10
+    LTEXT           "共通分岐イベント番号（０で未設定）",IDC_STATIC,10,129,137,8
+    GROUPBOX        "共通分岐禁止イベント番号",IDC_STATIC,13,165,203,131
+    EDITTEXT        IDC_COMMONID,148,124,65,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_FORBIDID,17,216,40,14,ES_AUTOHSCROLL
+    LISTBOX         IDC_LIST1,123,177,87,109,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    PUSHBUTTON      ">> 追加 >>",IDC_ADDFORBID,65,216,50,14
+    PUSHBUTTON      "<< 削除 <<",IDC_DELFORBID,65,235,50,14
+    CONTROL         "補間を挟まない（共通イベント用）",IDC_CHECK_NOTFU,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,144,144,10
+END
+
+IDD_MCCHILDDLG DIALOGEX 0, 0, 198, 239
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,47,210,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,101,210,50,14
+    LTEXT           "分岐先モーション名",IDC_STATIC,12,16,73,8
+    COMBOBOX        IDC_COMBO_NAME,13,28,169,198,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "分岐元フレーム番号",IDC_STATIC,14,50,170,44
+    CONTROL         "いつでも分岐する",IDC_RADIO_ALW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,19,61,80,10
+    CONTROL         "指定フレームより前で分岐",IDC_RADIO_FIX,"Button",BS_AUTORADIOBUTTON,19,75,112,10
+    EDITTEXT        IDC_FIXFRAME,134,73,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "イベント番号設定",IDC_STATIC,15,166,170,37
+    EDITTEXT        IDC_JUMPTO,134,109,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "補間の有無",IDC_STATIC,13,130,169,30
+    CONTROL         "補間モーションを挟まずに分岐する。",IDC_CHECK_NOFU,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,143,152,10
+    LTEXT           "分岐先",IDC_STATIC,24,112,25,8
+    GROUPBOX        "分岐先フレーム番号",IDC_STATIC,14,100,169,26
+    EDITTEXT        IDC_EVENTNO,135,180,40,14,ES_AUTOHSCROLL
+    LTEXT           "イベント番号",IDC_STATIC,77,184,49,8
+END
+
+IDD_WRITEMAFDLG DIALOGEX 0, 0, 290, 205
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "モーションアクセラレータファイル(moa)保存ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,155,179,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,211,178,50,14
+    LTEXT           "moaファイル名（拡張子を除く）",IDC_STATIC,11,13,117,8
+    EDITTEXT        IDC_MAFNAME,23,23,191,14,ES_AUTOHSCROLL
+    LTEXT           "ディレクトリの場所",IDC_STATIC,12,44,73,8
+    EDITTEXT        IDC_PARENT,23,57,191,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REFPARENT,220,57,50,14
+    LTEXT           "ディレクトリの場所に、moa名と同じ名前のフォルダを作成し、\nその中に、moaと、moaで参照している全てのquaを保存します。",IDC_STATIC,22,107,241,22
+    GROUPBOX        "保存方法",IDC_STATIC,12,80,263,94
+    CONTROL         "新規ディレクトリに保存",IDC_RADIO_NEW,"Button",BS_AUTORADIOBUTTON | WS_GROUP,17,92,104,10
+    CONTROL         "ディレクトリの場所に保存",IDC_RADIO_OLD,"Button",BS_AUTORADIOBUTTON,17,132,112,10
+    LTEXT           "ディレクトリの場所に、moaとmoaで参照している全てのquaを\n保存します。",IDC_STATIC,23,147,244,21
+END
+
+IDD_KFPARAMDLG DIALOGEX 0, 0, 273, 289
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "キーフレームパラメータ設定ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,154,263,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,208,263,50,14
+    GROUPBOX        "整数型（int）",IDC_STATIC,17,46,242,83
+    LTEXT           "INT0",IDC_STATIC,22,59,26,9
+    EDITTEXT        IDC_INT0,22,68,50,13,ES_AUTOHSCROLL
+    LTEXT           "INT1",IDC_STATIC,80,60,26,9
+    EDITTEXT        IDC_INT1,80,68,50,13,ES_AUTOHSCROLL
+    LTEXT           "INT2",IDC_STATIC,140,60,26,9
+    EDITTEXT        IDC_INT2,140,68,50,13,ES_AUTOHSCROLL
+    LTEXT           "INT3",IDC_STATIC,200,60,26,9
+    EDITTEXT        IDC_INT3,200,68,50,13,ES_AUTOHSCROLL
+    LTEXT           "INT4",IDC_STATIC,22,92,26,9
+    EDITTEXT        IDC_INT4,22,100,50,13,ES_AUTOHSCROLL
+    LTEXT           "INT5",IDC_STATIC,80,92,26,9
+    EDITTEXT        IDC_INT5,80,100,50,13,ES_AUTOHSCROLL
+    LTEXT           "INT6",IDC_STATIC,140,92,26,9
+    EDITTEXT        IDC_INT6,140,100,50,13,ES_AUTOHSCROLL
+    LTEXT           "INT7",IDC_STATIC,200,92,26,9
+    EDITTEXT        IDC_INT7,200,100,50,13,ES_AUTOHSCROLL
+    GROUPBOX        "実数型（double）",IDC_STATIC,17,142,242,83
+    LTEXT           "Double0",IDC_STATIC,22,155,39,9
+    EDITTEXT        IDC_DOUBLE0,22,164,50,13,ES_AUTOHSCROLL
+    LTEXT           "Double1",IDC_STATIC,80,156,39,9
+    EDITTEXT        IDC_DOUBLE1,80,164,50,13,ES_AUTOHSCROLL
+    LTEXT           "Double2",IDC_STATIC,139,156,39,9
+    EDITTEXT        IDC_DOUBLE2,139,164,50,13,ES_AUTOHSCROLL
+    LTEXT           "Double3",IDC_STATIC,199,155,39,9
+    EDITTEXT        IDC_DOUBLE3,199,164,50,13,ES_AUTOHSCROLL
+    LTEXT           "Double4",IDC_STATIC,22,190,39,9
+    EDITTEXT        IDC_DOUBLE4,22,198,50,13,ES_AUTOHSCROLL
+    LTEXT           "Double5",IDC_STATIC,80,190,39,9
+    EDITTEXT        IDC_DOUBLE5,80,198,50,13,ES_AUTOHSCROLL
+    LTEXT           "Double6",IDC_STATIC,140,190,39,9
+    EDITTEXT        IDC_DOUBLE6,140,198,50,13,ES_AUTOHSCROLL
+    LTEXT           "Double7",IDC_STATIC,200,190,39,9
+    EDITTEXT        IDC_DOUBLE7,200,198,50,13,ES_AUTOHSCROLL
+    LTEXT           "モーション名",IDC_MNAME,23,14,175,8
+    LTEXT           "フレーム番号",IDC_MFRAME,24,28,185,8
+    PUSHBUTTON      "全てゼロリセット",IDC_PARAMRESET,95,233,80,14
+    PUSHBUTTON      "前",IDC_BEFFRAME,223,19,19,14
+    PUSHBUTTON      "後",IDC_AFTFRAME,244,19,20,13
+END
+
+IDD_LDQUADLG DIALOGEX 0, 0, 178, 84
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "QUA読み込みダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,43,52,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,95,52,50,14
+    LTEXT           "倍率(移動成分に掛け算します)",IDC_STATIC,13,14,113,8
+    EDITTEXT        IDC_MULTQUA,29,26,55,14,ES_AUTOHSCROLL
+END
+
+IDD_OVERWRITEDLG DIALOGEX 0, 0, 359, 145
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "上書き保存ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,239,119,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,293,119,50,14
+    LTEXT           "一番最近に読み込みまたは書き込みしたファイルと同名で保存します。\n１回も読み書きしていない場合は、処理はスキップされます。",IDC_STATIC,12,14,323,18
+    CONTROL         "sigファイルを上書き保存する。",IDC_OW_SIG,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,47,132,10
+    LTEXT           "スタティック",IDC_OWSIGNAME,25,63,315,8
+    CONTROL         "moaファイルと、対応するquaを上書き保存する。",IDC_OW_MOA,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,12,82,192,10
+    LTEXT           "スタティック",IDC_OWMOANAME,25,98,315,8
+END
+
+IDD_EXTSIGDLG DIALOGEX 0, 0, 242, 221
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "sig抽出読み込みダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,71,188,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,124,188,50,14
+    LTEXT           "抽出sigファイル名",IDC_STATIC,12,15,69,8
+    EDITTEXT        IDC_EXTSIGNAME,11,25,161,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REFEXTSIG,177,25,50,14
+    CONTROL         "影１の設定を読み込む",IDC_CHKEI1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,101,96,10
+    CONTROL         "影２の設定を読み込む",IDC_CHKEI2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,115,96,10
+    CONTROL         "影３の設定を読み込む",IDC_CHKEI3,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,130,96,10
+    CONTROL         "ボーンの個数、名前、階層、位置を読み込む。",IDC_CHKBONE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,18,67,184,10
+    LTEXT           "注意：作業データと抽出データで、\n表示オブジェクトの名前が一致している必要があります。\n影３は距離１００以内の一番近い点の影響度を\n読み込みます。",IDC_STATIC,13,149,214,38
+    LTEXT           "倍率",IDC_STATIC,19,48,17,8
+    EDITTEXT        IDC_MULT,44,45,40,14,ES_AUTOHSCROLL
+    CONTROL         "ボーンの位置は読み込まない。",IDC_CHKJPOS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,37,80,128,10
+END
+
+IDD_MATERIALDLG DIALOGEX 0, 0, 236, 417
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "面マテリアル設定ダイアログ"
+FONT 8, "ＭＳ Ｐゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDOK,89,393,50,14
+    CONTROL         "Button1",IDC_VIEW,"Button",BS_OWNERDRAW | WS_TABSTOP,21,110,85,74
+    GROUPBOX        "作業色",IDC_STATIC,14,95,206,138
+    PUSHBUTTON      "拡散光の設定",IDC_REFDIFFUSE,115,106,58,14
+    CONTROL         "",IDC_VDIFFUSE,"SysAnimate32",WS_BORDER | WS_TABSTOP,181,101,20,20
+    PUSHBUTTON      "反射光の設定",IDC_REFSPECULAR,116,127,58,14
+    CONTROL         "",IDC_VSPECULAR,"SysAnimate32",WS_BORDER | WS_TABSTOP,181,123,20,20
+    PUSHBUTTON      "周囲光の設定",IDC_REFAMBIENT,115,149,59,14
+    CONTROL         "",IDC_VAMBIENT,"SysAnimate32",WS_BORDER | WS_TABSTOP,181,145,20,20
+    PUSHBUTTON      "自己照明の設定",IDC_REFEMISSIVE,115,171,59,14
+    CONTROL         "",IDC_VEMISSIVE,"SysAnimate32",WS_BORDER | WS_TABSTOP,181,167,20,20
+    CONTROL         "",IDC_SL_POWER,"msctls_trackbar32",TBS_BOTH | WS_TABSTOP,28,193,124,15
+    LTEXT           "反射の強さ",IDC_STATIC,23,186,36,8
+    LTEXT           "100.000000",IDC_POWER,163,200,47,8
+    LISTBOX         IDC_LIST1,17,26,198,55,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_HSCROLL | WS_TABSTOP
+    LTEXT           "マテリアル番号  01234",IDC_MATNO,23,86,193,8
+    LTEXT           "編集したいマテリアル名をクリックしてください。",IDC_STATIC,41,13,142,8
+    PUSHBUTTON      "作業色をマテリアルに適用する",IDC_CHANGEMAT,58,213,113,14
+    LTEXT           "不透明度(0.0から1.0)",IDC_STATIC,21,246,66,8
+    EDITTEXT        IDC_ALPHA,94,243,53,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "テクスチャーの設定画面へ",IDC_TEXTURE,59,377,114,14
+    GROUPBOX        "アルファ",IDC_STATIC,14,235,205,27
+    PUSHBUTTON      "適用",IDC_APPLYALPHA,160,242,50,14
+    GROUPBOX        "ブレンドモード",IDC_STATIC,14,264,205,111
+    COMBOBOX        IDC_COMBO1,16,275,201,102,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    GROUPBOX        "アルファテスト",IDC_STATIC,25,292,176,62
+    LTEXT           "不透明時",IDC_STATIC,28,302,30,8
+    LTEXT           "半透明時",IDC_STATIC,29,327,30,8
+    CONTROL         "アルファテストオン",IDC_ON_WA0,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,312,73,10
+    EDITTEXT        IDC_TESTVAL0,157,309,40,14,ES_AUTOHSCROLL
+    LTEXT           "閾値(0～255)",IDC_STATIC,109,313,43,8
+    CONTROL         "アルファテストオン",IDC_ON_WA1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,34,339,73,10
+    EDITTEXT        IDC_TESTVAL1,158,336,40,14,ES_AUTOHSCROLL
+    LTEXT           "閾値(0～255)",IDC_STATIC,110,340,43,8
+    PUSHBUTTON      "適用",IDC_APPLYALPHATEST,91,357,50,14
+END
+
+IDD_NORMALMAP DIALOGEX 0, 0, 250, 164
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "白黒-->法線マップ変換ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,121,139,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,175,139,50,14
+    LTEXT           "白黒の高さマップから、バンプ用の法線マップを作成します。",IDC_STATIC,11,14,225,8
+    LTEXT           "白黒の高さマップファイル(入力ファイル)",IDC_STATIC,12,38,153,8
+    EDITTEXT        IDC_HMAP,20,49,162,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REFHMAP,187,48,50,14
+    LTEXT           "法線マップファイル（出力ファイル（BMPのみ））",IDC_STATIC,12,78,181,8
+    EDITTEXT        IDC_NMAP,20,89,162,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REFNMAP,187,89,50,14
+    LTEXT           "高さパラメータ",IDC_STATIC,12,117,57,8
+    EDITTEXT        IDC_HPARAM,76,114,63,14,ES_AUTOHSCROLL
+END
+
+IDD_BONEPROPDLG DIALOGEX 0, 0, 186, 367
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "ボーンのプロパティダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "閉じる",IDOK,68,344,50,14
+    GROUPBOX        "回転",IDC_STATIC,11,22,161,59
+    LTEXT           "Z軸",IDC_STATIC,18,34,13,8
+    EDITTEXT        IDC_ROTZ,37,31,60,14,ES_AUTOHSCROLL
+    LTEXT           "X軸",IDC_STATIC,17,51,13,8
+    EDITTEXT        IDC_ROTX,37,48,60,14,ES_AUTOHSCROLL
+    LTEXT           "Y軸",IDC_STATIC,18,67,13,8
+    EDITTEXT        IDC_ROTY,37,64,60,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "適用",IDC_APPLYROT,109,49,50,14
+    GROUPBOX        "移動",IDC_STATIC,11,187,161,62
+    LTEXT           "Z軸",IDC_STATIC,17,201,13,8
+    EDITTEXT        IDC_MVZ,37,198,60,14,ES_AUTOHSCROLL
+    LTEXT           "X軸",IDC_STATIC,17,219,13,8
+    EDITTEXT        IDC_MVX,37,215,60,14,ES_AUTOHSCROLL
+    LTEXT           "Y軸",IDC_STATIC,17,235,13,8
+    EDITTEXT        IDC_MVY,37,231,60,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "適用",IDC_APPLYMV,109,216,50,14
+    GROUPBOX        "スケール",IDC_STATIC,11,249,161,61
+    LTEXT           "Z軸",IDC_STATIC,18,263,13,8
+    EDITTEXT        IDC_SCZ,37,260,60,14,ES_AUTOHSCROLL
+    LTEXT           "X軸",IDC_STATIC,17,281,13,8
+    EDITTEXT        IDC_SCX,37,277,60,14,ES_AUTOHSCROLL
+    LTEXT           "Y軸",IDC_STATIC,18,297,13,8
+    EDITTEXT        IDC_SCY,37,293,60,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "適用",IDC_APPLYSC,109,279,50,14
+    LTEXT           "ボーン名",IDC_BONENAME,15,10,156,8
+    LTEXT           "回転の座標系は「座１」です（可変）。",IDC_ZA_ROT,16,318,137,8
+    GROUPBOX        "角度制限(動作可能角度)",IDC_STATIC,12,82,160,102
+    LTEXT           "Z軸",IDC_STATIC,18,94,13,8
+    LTEXT           "X軸",IDC_STATIC,18,111,13,8
+    LTEXT           "Y軸",IDC_STATIC,18,127,13,8
+    EDITTEXT        IDC_LIMZ0,34,92,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LIMZ1,95,91,40,14,ES_AUTOHSCROLL
+    LTEXT           "～",IDC_STATIC,81,95,9,8
+    EDITTEXT        IDC_LIMX0,34,109,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LIMX1,96,108,40,14,ES_AUTOHSCROLL
+    LTEXT           "～",IDC_STATIC,82,112,9,8
+    EDITTEXT        IDC_LIMY0,34,126,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_LIMY1,95,125,40,14,ES_AUTOHSCROLL
+    LTEXT           "～",IDC_STATIC,81,129,9,8
+    PUSHBUTTON      "適用",IDC_APPLYLIM,109,144,50,14
+    CONTROL         "制限を無視する",IDC_IGNLIM,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,20,147,72,10
+    LTEXT           "移動とスケールの座標系は「座１」（固定）",IDC_STATIC,15,331,161,8
+    PUSHBUTTON      "X+ --> X- 対称セット(全ボーン)",IDC_SETSYMM,19,162,140,14
+END
+
+IDD_CHKOWDLG DIALOGEX 0, 0, 400, 70
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "上書き確認ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "上書きする",IDOK,84,45,50,14
+    PUSHBUTTON      "しない。",IDCANCEL,137,45,50,14
+    LTEXT           "ファイル名",IDC_FILENAME,11,13,371,8
+    LTEXT           "は、すでに存在します。上書きしますか？",IDC_STATIC,11,26,189,8
+    PUSHBUTTON      "全てする",IDC_ALLYES,202,45,50,14
+    PUSHBUTTON      "全てしない",IDC_ALLNO,255,45,50,14
+END
+
+IDD_LDMKM DIALOGEX 0, 0, 278, 135
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "mkm読み込みダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,161,107,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,215,106,50,14
+    LTEXT           "モーションファイル（mkm）",IDC_STATIC,11,15,101,8
+    EDITTEXT        IDC_MKMNAME,26,26,181,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REFMKMNAME,215,26,50,14
+    LTEXT           "初期状態モーションファイル（mkm）",IDC_STATIC,12,47,133,8
+    EDITTEXT        IDC_INITNAME,27,59,179,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "参照",IDC_REFINITNAME,215,58,50,14
+    LTEXT           "移動成分倍率",IDC_STATIC,12,88,49,8
+    EDITTEXT        IDC_MULT,70,85,60,14,ES_AUTOHSCROLL
+END
+
+IDD_TEXKEYDLG DIALOGEX 0, 0, 391, 110
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    LTEXT           "frameno  start: xxxx  end:xxxx  current:xxxx  total:xxxx",IDC_TEX_CURRENT,99,63,229,8
+    CONTROL         "Slider1",IDC_SL_MP,"msctls_trackbar32",TBS_TOP | WS_TABSTOP,91,88,270,15
+    PUSHBUTTON      "ペースト",IDC_FRAMEPASTE,282,22,28,14
+    PUSHBUTTON      "コピー",IDC_FRAMECOPY,282,6,28,14
+    PUSHBUTTON      "プレビュー",IDC_PREVIEW,348,6,36,14
+    CONTROL         "",IDC_MP,"Static",SS_BLACKFRAME,96,76,260,11
+    PUSHBUTTON      "削除",IDC_FRAMEDEL,311,6,34,14
+    CONTROL         "Spin1",IDC_SP_MP,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,361,73,18,14
+    PUSHBUTTON      "ストップ",IDC_STOP,348,21,36,14
+    PUSHBUTTON      "全削除",IDC_ALLDELETE,311,22,35,14
+    LTEXT           "なし",IDC_SELLOCK_NAME,3,16,90,8
+    PUSHBUTTON      "前",IDC_BEFORE_MP,358,89,12,14
+    PUSHBUTTON      "後",IDC_NEXT_MP,370,89,12,14
+    PUSHBUTTON      "キー作成",IDC_CREATEKEY,311,38,36,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,98,2,182,60
+    LTEXT           "情報格納ボーン名",IDC_STATIC,4,6,54,8
+    LTEXT           "テクスチャアニメのキー情報は\nボーンごとに格納されます。\n現在表示しているキーは\n上記のボーンに格納されます。",IDC_STATIC,4,29,94,41
+END
+
+IDD_DSKEYDLG DIALOGEX 0, 0, 390, 110
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    LTEXT           "frameno  start: xxxx  end:xxxx  current:xxxx  total:xxxx",IDC_TEX_CURRENT,106,65,203,8
+    CONTROL         "Slider1",IDC_SL_MP,"msctls_trackbar32",TBS_TOP | WS_TABSTOP,90,89,270,15
+    PUSHBUTTON      "ペースト",IDC_FRAMEPASTE,316,18,29,14
+    PUSHBUTTON      "コピー",IDC_FRAMECOPY,316,2,28,14
+    PUSHBUTTON      "プレビュー",IDC_PREVIEW,347,3,34,14
+    CONTROL         "",IDC_MP,"Static",SS_BLACKFRAME,95,77,260,11
+    PUSHBUTTON      "削除",IDC_FRAMEDEL,316,33,29,14
+    CONTROL         "Spin1",IDC_SP_MP,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,360,75,18,14
+    PUSHBUTTON      "ストップ",IDC_STOP,347,19,33,14
+    PUSHBUTTON      "全削除",IDC_ALLDELETE,316,48,30,14
+    LTEXT           "なし",IDC_SELLOCK_NAME,5,15,94,8
+    PUSHBUTTON      "前",IDC_BEFORE_MP,357,91,12,14
+    PUSHBUTTON      "後",IDC_NEXT_MP,370,91,12,14
+    PUSHBUTTON      "キー作成",IDC_CREATEKEY,281,37,32,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,104,2,174,61
+    LTEXT           "情報格納ボーン名",IDC_STATIC,4,3,54,8
+    LTEXT           "ディスプレイスイッチのキー情報は\nボーンごとに格納されます。\n現在表示しているキーは\n上記のボーンに格納されます。",IDC_STATIC,3,26,100,35
+    PUSHBUTTON      "全てオン",IDC_ALLON,281,4,31,14
+    PUSHBUTTON      "全てオフ",IDC_ALLOFF,281,21,32,14
+END
+
+IDD_SHADOWDLG DIALOGEX 0, 0, 174, 119
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "影パラメータ設定ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,34,88,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,89,88,50,14
+    LTEXT           "影の濃さ（アンビエント色に掛ける係数）",IDC_STATIC,12,16,153,8
+    EDITTEXT        IDC_DARKRATE,30,28,57,14,ES_AUTOHSCROLL
+    LTEXT           "Z比較時のバイアス（デフォルト0.005）",IDC_STATIC,12,53,145,8
+    EDITTEXT        IDC_BIAS,30,65,57,14,ES_AUTOHSCROLL
+END
+
+IDD_4DLG DIALOGEX 0, 0, 186, 156
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "IK平面設定ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,121,127,50,14
+    LTEXT           "ボーン名",IDC_STATIC,11,11,33,8
+    LTEXT           "スタティック",IDC_BONENAME,54,12,117,8
+    PUSHBUTTON      "座１",IDC_ZA1,29,25,23,14
+    PUSHBUTTON      "座２",IDC_ZA2,57,25,23,14
+    COMBOBOX        IDC_COMBO_PLANE,94,24,75,90,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "Z：",IDC_STATIC,26,62,13,8
+    EDITTEXT        IDC_EDIT_Z,44,59,65,14,ES_AUTOHSCROLL
+    GROUPBOX        "回転角度",IDC_STATIC,16,48,100,72
+    LTEXT           "X：",IDC_STATIC,26,79,13,8
+    EDITTEXT        IDC_EDIT_X,44,76,65,14,ES_AUTOHSCROLL
+    LTEXT           "Y：",IDC_STATIC,26,97,13,8
+    EDITTEXT        IDC_EDIT_Y,44,94,65,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "適用",IDC_APPLY,122,58,50,14
+END
+
+IDD_CREATEKEYDLG DIALOGEX 0, 0, 256, 94
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "キー作成選択ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,130,63,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,185,63,50,14
+    CONTROL         "キーフレームがあるボーンの情報だけ書き出す。",IDC_CREATE0,"Button",BS_AUTORADIOBUTTON | WS_GROUP,20,17,192,10
+    CONTROL         "キーがない場合も姿勢を計算して書き出す。",IDC_CREATE1,"Button",BS_AUTORADIOBUTTON,20,32,176,10
+END
+
+IDD_GRAPHDLG DIALOGEX 0, 0, 166, 290
+STYLE DS_SETFONT | WS_POPUP | WS_SYSMENU
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    CONTROL         "",IDC_GRAPH,"Static",SS_BLACKFRAME,30,5,126,236
+    CONTROL         "",IDC_YOKO,"Static",SS_BLACKFRAME,30,241,126,25
+    CONTROL         "",IDC_TATE,"Static",SS_BLACKFRAME,5,5,25,236
+    PUSHBUTTON      "X",IDC_DRAGX,8,267,12,12
+    PUSHBUTTON      "Y",IDC_DRAGY,21,267,12,12
+    PUSHBUTTON      "Z",IDC_DRAGZ,34,267,12,12
+    LTEXT           "drag ( ***, *** )",IDC_DRAGVAL,50,270,105,8
+END
+
+IDD_EDITLISTINF DIALOGEX 0, 0, 218, 100
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "影響度編集ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,90,72,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,143,72,50,14
+    LTEXT           "dispobjname",IDC_DISPOBJNAME,12,14,198,8
+    LTEXT           "頂点番号",IDC_VERTNO,12,27,104,8
+    LTEXT           "ボーン名",IDC_BONENAME,11,39,189,8
+    LTEXT           "影響度",IDC_STATIC,11,56,25,8
+    EDITTEXT        IDC_INFVAL,55,51,63,14,ES_AUTOHSCROLL
+END
+
+IDD_MFOLDERDLG DIALOGEX 0, 0, 185, 273
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "モーフフォルダ設定ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,65,245,50,14
+    PUSHBUTTON      "キャンセル",IDCANCEL,120,245,50,14
+    LISTBOX         IDC_LIST3,18,34,151,54,LBS_NOINTEGRALHEIGHT | WS_VSCROLL | WS_TABSTOP
+    LTEXT           "モーフのベース形状にしたいオブジェクトを\nクリックしてください。",IDC_STATIC,12,13,165,17
+    CONTROL         "",IDC_TREE1,"SysTreeView32",WS_BORDER | WS_TABSTOP,18,123,153,102
+    LTEXT           "モーフアニメ情報を格納するボーンを\nクリックしてください。",IDC_STATIC,14,100,160,22
+END
+
+IDD_MORPHKEYDLG DIALOGEX 0, 0, 391, 110
+STYLE DS_SETFONT | WS_CHILD | WS_SYSMENU
+FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
+BEGIN
+    LTEXT           "frameno  start: xxxx  end:xxxx  current:xxxx  total:xxxx",IDC_TEX_CURRENT,8,66,229,8
+    CONTROL         "Slider1",IDC_SL_MP,"msctls_trackbar32",TBS_TOP | WS_TABSTOP,0,87,270,15
+    PUSHBUTTON      "ペースト",IDC_FRAMEPASTE,319,22,28,14
+    PUSHBUTTON      "コピー",IDC_FRAMECOPY,319,6,28,14
+    PUSHBUTTON      "プレビュー",IDC_PREVIEW,349,74,36,14
+    CONTROL         "",IDC_MP,"Static",SS_BLACKFRAME,5,77,260,11
+    PUSHBUTTON      "削除",IDC_FRAMEDEL,349,6,34,14
+    CONTROL         "Spin1",IDC_SP_MP,"msctls_updown32",UDS_ARROWKEYS | UDS_HORZ,277,72,18,14
+    PUSHBUTTON      "ストップ",IDC_STOP,349,89,36,14
+    PUSHBUTTON      "全削除",IDC_ALLDELETE,349,22,35,14
+    PUSHBUTTON      "前",IDC_BEFORE_MP,274,88,12,14
+    PUSHBUTTON      "後",IDC_NEXT_MP,286,88,12,14
+    PUSHBUTTON      "キー作成",IDC_CREATEKEY,349,38,36,14
+    CONTROL         "",IDC_LIST1,"SysListView32",LVS_REPORT | LVS_ALIGNLEFT | WS_BORDER | WS_TABSTOP,3,3,182,62
+    COMBOBOX        IDC_COMBO1,190,10,108,98,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
+    CONTROL         "",IDC_SL_VAL,"msctls_trackbar32",TBS_TOP | WS_TABSTOP,188,31,111,15
+    EDITTEXT        IDC_EDIT_VAL,191,51,40,14,ES_AUTOHSCROLL
+    PUSHBUTTON      "0",IDC_ZERO,265,51,13,14
+    PUSHBUTTON      "1",IDC_ONE,280,51,14,14
+    PUSHBUTTON      "全て0",IDC_ALLZERO,319,38,26,14
+    PUSHBUTTON      "適用",IDC_APPLYVAL,236,51,26,14
+END
+
+IDD_GLOWVIEWDLG DIALOGEX 0, 0, 342, 365
+STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "グロー確認ダイアログ"
+FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,157,345,50,14
+    CONTROL         "",IDC_VIEW,"Static",SS_BLACKFRAME,15,15,312,312
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO 
+BEGIN
+    IDD_CAMERADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 232
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 184
+    END
+
+    IDD_SIGEDITDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 158
+        BOTTOMMARGIN, 324
+    END
+
+    IDD_OPTDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 281
+        BOTTOMMARGIN, 383
+    END
+
+    IDD_MOTPARAMDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 389
+        BOTTOMMARGIN, 110
+    END
+
+    IDD_SHDPARAMDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 224
+        BOTTOMMARGIN, 318
+    END
+
+    IDD_LOADPARAMDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 137
+        BOTTOMMARGIN, 275
+    END
+
+    IDD_FRAMEOPEDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 121
+        BOTTOMMARGIN, 146
+    END
+
+    IDD_MOTSETTINGDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 184
+        BOTTOMMARGIN, 289
+    END
+
+    IDD_JOINTLOCDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 144
+        BOTTOMMARGIN, 125
+    END
+
+    IDD_NEWJOINTDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 165
+        BOTTOMMARGIN, 78
+    END
+
+    IDD_WRITEBMPDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 159
+        BOTTOMMARGIN, 130
+    END
+
+    IDD_INFLUENCEDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 329
+        BOTTOMMARGIN, 352
+    END
+
+    IDD_BGDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 209
+        BOTTOMMARGIN, 239
+    END
+
+    IDD_LIGHTDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 196
+        BOTTOMMARGIN, 201
+    END
+
+    IDD_VERSIONDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 124
+        BOTTOMMARGIN, 60
+    END
+
+    IDD_MQODLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 208
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 155
+    END
+
+    IDD_DISPSWITCHDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 213
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 371
+    END
+
+    IDD_TEXSETTINGDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 296
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 373
+    END
+
+    IDD_LDSIG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 277
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_WRITEBFDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 261
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 135
+    END
+
+    IDD_FRAMECOPYDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 398
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 286
+    END
+
+    IDD_PASTETYPEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 256
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 115
+    END
+
+    IDD_PARSDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 187
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 271
+    END
+
+    IDD_AXISDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 384
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 102
+    END
+
+    IDD_MOTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 557
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 152
+    END
+
+    IDD_VIKDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 383
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 102
+    END
+
+    IDD_BONELINEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 245
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 230
+    END
+
+    IDD_WRITEMQODLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 248
+    END
+
+    IDD_LDBVH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 262
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 268
+    END
+
+    IDD_WRITEIM2Dlg, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 227
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 139
+    END
+
+    IDD_MIKOBLENDDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 280
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 107
+    END
+
+    IDD_LOADNAMEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 509
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 161
+    END
+
+    IDD_LDGROUNDDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 277
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_IKTARGETDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 269
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 247
+    END
+
+    IDD_FRAMESHIFTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 266
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 85
+    END
+
+    IDD_FRAMEPASTEDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 185
+        BOTTOMMARGIN, 194
+    END
+
+    IDD_WRITEQUADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 254
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 152
+    END
+
+    IDD_IMPORTQUADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 254
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 131
+    END
+
+    IDD_ITIMODEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 212
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 105
+    END
+
+    IDD_ITIDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 160
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 197
+    END
+
+    IDD_SETCOLDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 229
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 394
+    END
+
+    IDD_SETCOL2DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 235
+    END
+
+    IDD_MOUSEOPTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 259
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+
+    IDD_CREATEBONEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 202
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 215
+    END
+
+    IDD_SELSCOPEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 215
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 314
+    END
+
+    IDD_INFSCOPEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 230
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 435
+    END
+
+    IDD_PAINTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 273
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 475
+    END
+
+    IDD_ONEORALLDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 204
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 81
+    END
+
+    IDD_EDITINF, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 83
+    END
+
+    IDD_WRITEXFILEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 185
+    END
+
+    IDD_TOON1DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 244
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 418
+    END
+
+    IDD_LDFBX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 277
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_LDX, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 277
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_MOTCHANGEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 298
+    END
+
+    IDD_MCPARENTDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 224
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 335
+    END
+
+    IDD_MCCHILDDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 191
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 232
+    END
+
+    IDD_WRITEMAFDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 283
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 198
+    END
+
+    IDD_KFPARAMDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 266
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 282
+    END
+
+    IDD_LDQUADLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 171
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 77
+    END
+
+    IDD_OVERWRITEDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 352
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 138
+    END
+
+    IDD_EXTSIGDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 235
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 214
+    END
+
+    IDD_MATERIALDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 229
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 410
+    END
+
+    IDD_NORMALMAP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 243
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 157
+    END
+
+    IDD_BONEPROPDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 360
+    END
+
+    IDD_CHKOWDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 393
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 63
+    END
+
+    IDD_LDMKM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 271
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 128
+    END
+
+    IDD_TEXKEYDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 388
+        BOTTOMMARGIN, 109
+    END
+
+    IDD_DSKEYDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 387
+        BOTTOMMARGIN, 109
+    END
+
+    IDD_SHADOWDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 167
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 111
+    END
+
+    IDD_4DLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 179
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 149
+    END
+
+    IDD_CREATEKEYDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 249
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 87
+    END
+
+    IDD_GRAPHDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 4
+        RIGHTMARGIN, 162
+        TOPMARGIN, 5
+    END
+
+    IDD_EDITLISTINF, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 210
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_MFOLDERDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 178
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 266
+    END
+
+    IDD_MORPHKEYDLG, DIALOG
+    BEGIN
+        RIGHTMARGIN, 388
+        BOTTOMMARGIN, 109
+    END
+
+    IDD_GLOWVIEWDLG, DIALOG
+    BEGIN
+        LEFTMARGIN, 5
+        RIGHTMARGIN, 337
+        TOPMARGIN, 5
+        BOTTOMMARGIN, 360
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Icon
+//
+
+// Icon with lowest ID value placed first to ensure application icon
+// remains consistent on all systems.
+IDI_ICON1               ICON                    "RDB2.ico"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Accelerator
+//
+
+IDR_ACCELERATOR1 ACCELERATORS 
+BEGIN
+    VK_DOWN,        IDM_CTRL_YADOWN,        VIRTKEY, CONTROL, NOINVERT
+    VK_UP,          IDM_CTRL_YAUP,          VIRTKEY, CONTROL, NOINVERT
+    "B",            IDM_CTRLB,              VIRTKEY, CONTROL, NOINVERT
+    "C",            IDM_CTRLC,              VIRTKEY, CONTROL, NOINVERT
+    VK_NEXT,        IDM_CTRLDOWN,           VIRTKEY, CONTROL, NOINVERT
+    "I",            IDM_CTRLI,              VIRTKEY, CONTROL, NOINVERT
+    "J",            IDM_CTRLJ,              VIRTKEY, CONTROL, NOINVERT
+    "N",            IDM_CTRLN,              VIRTKEY, CONTROL, NOINVERT
+    "O",            IDM_CTRLO,              VIRTKEY, CONTROL, NOINVERT
+    "T",            IDM_CTRLT,              VIRTKEY, CONTROL, NOINVERT
+    VK_PRIOR,       IDM_CTRLUP,             VIRTKEY, CONTROL, NOINVERT
+    "V",            IDM_CTRLV,              VIRTKEY, CONTROL, NOINVERT
+    "X",            IDM_CTRLX,              VIRTKEY, CONTROL, NOINVERT
+    "Z",            IDM_CTRLZ,              VIRTKEY, CONTROL, NOINVERT
+    VK_DOWN,        IDM_DOWN,               VIRTKEY, NOINVERT
+    VK_END,         IDM_END,                VIRTKEY, NOINVERT
+    "G",            IDM_GDISP,              VIRTKEY, CONTROL, NOINVERT
+    VK_HOME,        IDM_HOME,               VIRTKEY, NOINVERT
+    "K",            IDM_IKTON,              VIRTKEY, CONTROL, NOINVERT
+    "K",            IDM_IKTTOGGLE,          VIRTKEY, SHIFT, CONTROL, NOINVERT
+    VK_LEFT,        IDM_LEFT,               VIRTKEY, NOINVERT
+    VK_NEXT,        IDM_NEXT,               VIRTKEY, NOINVERT
+    "S",            IDM_OVERWRITE,          VIRTKEY, CONTROL, NOINVERT
+    VK_PAUSE,       IDM_PAUSE,              VIRTKEY, NOINVERT
+    VK_PRIOR,       IDM_PRIOR,              VIRTKEY, NOINVERT
+    VK_RIGHT,       IDM_RIGHT,              VIRTKEY, NOINVERT
+    VK_DOWN,        IDM_SHIFT_DOWN,         VIRTKEY, SHIFT, NOINVERT
+    VK_LEFT,        IDM_SHIFT_LEFT,         VIRTKEY, SHIFT, NOINVERT
+    VK_RIGHT,       IDM_SHIFT_RIGHT,        VIRTKEY, SHIFT, NOINVERT
+    VK_UP,          IDM_SHIFT_UP,           VIRTKEY, SHIFT, NOINVERT
+    VK_UP,          IDM_UP,                 VIRTKEY, NOINVERT
+    VK_ZOOM,        IDM_ZOOM,               VIRTKEY, NOINVERT
+    VK_UP,          IDM_TARGET_UP,          VIRTKEY, SHIFT, CONTROL, NOINVERT
+    VK_DOWN,        IDM_TARGET_DOWN,        VIRTKEY, SHIFT, CONTROL, NOINVERT
+    VK_LEFT,        IDM_TARGET_LEFT,        VIRTKEY, SHIFT, CONTROL, NOINVERT
+    VK_RIGHT,       IDM_TARGET_RIGHT,       VIRTKEY, SHIFT, CONTROL, NOINVERT
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// SIG
+//
+
+SQ100_2                 SIG                     "sig1.bin"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// RCDATA
+//
+
+IDR_RCDATA1             RCDATA                  "e:\\disp3\\fx\\sigshaderb4_20.fxo"
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// String Table
+//
+
+STRINGTABLE 
+BEGIN
+    IDS_PROJNAME            "RokDeBone2"
+    IDS_TB_R                "左ドラッグでボーン回転"
+    IDS_TB_T                "左ドラッグでボーン移動"
+    IDS_TB_S                "左ドラッグでボーン拡大"
+    IDS_TB_G                "グローバル軸で回転"
+    IDS_TB_L                "ローカル軸で回転"
+    IDS_TB_T2               "左ドラッグで、ツリー移動"
+    IDS_TB_ITI              "左ドラッグで、頂点、面、パーツ、ジョイント初期位置移動"
+    IDS_TB_FACE             "面表示"
+    IDS_TB_LINE             "線表示"
+    IDS_TB_ZA1              "ローカル座標系"
+    IDS_TB_ZA2              "グローバル座標系"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TB_IKT              "IKターゲットの位置調整"
+    IDS_TB_POINT            "点表示"
+    IDS_TB_COLR             "RDB2オリジナル色計算"
+    IDS_TB_COLP             "Phongでの色計算"
+    IDS_TB_COLB             "Blinnでの色計算"
+    IDS_TB_COLS             "Schlickでの色計算"
+    IDS_TB_COLM             "メタセコClassicでの色計算"
+    IDS_TB_OFC              "クランプでの色オーバーフロー処理"
+    IDS_TB_OFS              "スケールでの色オーバーフロー処理"
+    IDS_TB_OFO              "オリジナルの色オーバーフロー処理"
+    IDS_TB_COL              "頂点単位でのマテリアルの設定"
+    IDS_TB_BONE             "ボーンの作成"
+    IDS_TB_EI1              "パーツ単位の影響ボーン設定"
+    IDS_TB_EI2              "形状による影響範囲設定"
+    IDS_TB_EI3              "頂点単位の影響度設定"
+    IDS_TB_COLT             "トゥーン１での色計算"
+END
+
+STRINGTABLE 
+BEGIN
+    IDS_TB_TOON1            "トゥーンの陰の色の設定"
+    IDS_TB_MO               "モーション変化の設定"
+    IDS_TB_ZA3              "ローカルボーン座標系"
+    IDS_TB_SHA              "影を表示します"
+    IDS_TB_4                "座４用の回転平面の指定"
+    IDS_TB_TEN2             "全点表示"
+    IDS_TB_ZA4              "指定軸の座標系"
+    IDS_TB_GLOW             "グロー表示確認"
+END
+
+#endif    // 日本語 resources
+/////////////////////////////////////////////////////////////////////////////
+
+
+
+#ifndef APSTUDIO_INVOKED
+/////////////////////////////////////////////////////////////////////////////
+//
+// Generated from the TEXTINCLUDE 3 resource.
+//
+1 TYPELIB "RokDeBone2.tlb"
+
+/////////////////////////////////////////////////////////////////////////////
+#endif    // not APSTUDIO_INVOKED
+

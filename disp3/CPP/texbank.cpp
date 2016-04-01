@@ -11,18 +11,8 @@
 
 #include <texbank.h>
 
-//#include <D3DX9.h>
-
-//#include "c:\program files\microsoft platform sdk\samples\multimedia\common\include\D3DUtil.h"
-//#include "c:\program files\microsoft platform sdk\samples\multimedia\common\include\DXUtil.h"
-//#include "c:\program files\microsoft sdk\samples\multimedia\common\include\D3DUtil.h"
-//#include "c:\program files\microsoft sdk\samples\multimedia\common\include\DXUtil.h"
-
-//#include "c:\DXSDK\samples\multimedia\common\include\D3DUtil.h"
-//#include "c:\DXSDK\samples\multimedia\common\include\DXUtil.h"
-
-#include "c:\pgfile9\e3dhsp3\D3DUtil.h"
-#include "c:\pgfile9\e3dhsp3\DXUtil.h"
+#include "..\..\RokDeBone2DX\D3DUtil.h"
+#include "..\..\RokDeBone2DX\DXUtil.h"
 
 #include <Panda.h>
 

@@ -1,0 +1,11 @@
+HKCR
+{
+	NoRemove AppID
+	{
+		'%APPID%' = s 'RokDeBone2'
+		'RokDeBone2.EXE'
+		{
+			val AppID = s '%APPID%'
+		}
+	}
+}

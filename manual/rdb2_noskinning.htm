@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>スキニングせずに関節を曲げる方法</B></FONT><BR>
+<BR>
+このページでは関節をカクカクとロボットのように曲げる方法を説明します。<BR>
+<BR>
+まず今回説明に使用する形状データを紹介します（図１）<BR>
+<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_noskin0.jpg" width="907" height="539" border="0"><BR>
+図１：サンプルデータ（未設定）<BR>
+<BR>
+今回使うデータは図１のように表示パーツがblue, yellow, redの３つに分かれていて、<BR>
+パーツの分かれ目の部分に青、青黄、黄赤、赤のボーンが入っています。<BR>
+<BR>
+スキニングありの場合には表示パーツは１つでもかまいませんが、<BR>
+ロボットのように曲げたい場合には、曲がる部分ごとに表示パーツをあらかじめ分けておく必要があります。<BR>
+メタセコイアの場合にはオブジェクトを分けておけばOKです。<BR>
+フリー版の六角代王の場合はレイヤーを分けておいてください。<BR>
+<BR>
+<BR>
+スキニング有りで関節を曲げた場合とスキニングなしで関節を曲げた場合の例を図２、図３に示します。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_noskin1.jpg" width="605" height="507" border="0"><BR>
+図２：スキニング有りで関節を曲げた場合<BR>
+<BR>
+<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_noskin2.jpg" width="602" height="509" border="0"><BR>
+図３：スキニング無しで関節を曲げた場合<BR>
+<BR>
+<BR>
+図２と図３の曲がり方の違いは頂点に影響するボーンの数が異なることによります。<BR>
+図２の場合は、関節部分の頂点は関節の前と後ろにあるボーン両方の影響を受けるようになっています。<BR>
+影響の大きさはボーンからの距離と角度によって変化していて、関節部分で頂点が徐々に曲がるようになっています。<BR>
+<BR>
+それに対し図３の場合は、１つの頂点に対して１つだけのボーンの影響を受けるようになっています。<BR>
+blueは青黄ボーンだけの影響を受け、yellowは黄赤ボーンだけの影響を受け、redは赤ボーンだけの影響を受けるようにすると<BR>
+図３のように曲がります。<BR>
+<BR>
+<BR>
+ですのでカクカクと曲げる時には、１つのパーツに１つだけの影響ボーンを設定すればいいことになります。<BR>
+RokDeBone2の以前のバージョンでは、スキニング有り無しの指定と影１での設定が必要でしたが、<BR>
+現バージョンでは表示パーツの名前を変えるだけでこの設定が可能です。<BR>
+<BR>
+表示パーツの名前を<BR>
+表示パーツ名-影響ボーン名<BR>
+のように、半角の「-」でつないで記述するだけでOKです。<BR>
+<BR>
+名前の変え方は階層構造エディタで表示パーツ名を右クリックし、出てきたダイアログのいちばん上の名前の欄に<BR>
+入力すれば変更できます。<BR>
+<BR>
+<BR>
+図４にそれぞれの表示パーツの名前に影響ボーン指定を加えたところを示します。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_noskin3.jpg" width="328" height="547" border="0"><BR>
+図４：名前による影響ボーンの指定<BR>
+<BR>
+<BR>
+設定はこれだけです。<BR>
+名前を変えるだけでカクカクと曲げることが可能です。<BR>
+<BR>
+<BR>
+参考までに、今回使用したデータを、アップしておきますので、ご利用ください。<BR>
+<A href="zipfiles/noskinning2.zip">スキニング無しのサンプルデータのダウンロード　（　４KB　）</A><BR>
+<BR>
+<A href="index.htm">トップページに戻る</A><BR>
+</P>
+</BODY>
+</HTML>

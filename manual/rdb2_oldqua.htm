@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>ボーン構造を変えた後で、古いモーションを読み込む方法</B></FONT><BR>
+<BR>
+<BR>
+ver5.0.3.4以降で対応した名前基準のファイルの場合は<BR>
+ボーンの名前が一致したデータだけを読み込むので<BR>
+ボーン構造が多少変わってもそのまま読み込める可能性が高いです。<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+以下は番号基準のファイルについての説明です。<BR>
+<BR>
+<BR>
+ボーン構造を、変更した場合、変更する前に作ったquaファイルは、<BR>
+そのままでは、使用できなくなってしまいます。<BR>
+<BR>
+階層構造を、大きく変化させた場合は、残念ながら対応策はありませんが、<BR>
+ボーンの数を増やしたり、減らしたりしただけの場合は、<BR>
+古いquaを読み込む技があります。<BR>
+<BR>
+<BR>
+<B>ボーンを足した場合</B><BR>
+<BR>
+まず、ぼーんを付け足した場合、<BR>
+新しいボーンを無効にします。<BR>
+<BR>
+”階層構造エディタ”で、新しいボーンを選択して、<BR>
+”表示パラメータの設定”メニューを選択して、<BR>
+”Sig Params　ダイアログ”を表示します。<BR>
+ダイアログの、”このオブジェクトを無効にする”チェックボックスに、<BR>
+チェックを入れると、無効になります。<BR>
+<BR>
+新しいボーンを、無効にした後で、古いモーションを読み込みます。<BR>
+<BR>
+モーションを読み込んだ後で、<BR>
+”このオブジェクトを無効にする”チェックボックスのチェックをはずして、<BR>
+新しいボーンを有効にします。<BR>
+<BR>
+<BR>
+<B>ボーンを減らした場合</B><BR>
+<BR>ジョイントを、減らしたい場合は、<BR>
+mqoは、変更せずに、モーションを読んだ後に、<BR>
+ジョイントを無効にするだけで、OKです。<BR>
+<BR>
+<BR>
+<BR>
+と、こんな具合に、古いモーションを読み込むことが出来ます。<BR>
+<U>つまり、<B>有効な</B>ボーンの階層構造が、同じであれば、<BR>
+qua ファイルは、使い回すことができる、</U>ということを、意味しています。<BR>
+<BR>
+注意して欲しいのは、プログラムは、<BR>
+quaの読み込み時に、階層構造だけを元に判定するという点です。<BR>
+つまり、ボーンの名前は、関係ありません。<BR>
+<BR>
+同じ名前を付けていても、階層構造エディタで、見たときに、<BR>
+親子や、兄弟の順番が違っている場合には、<BR>
+quaの使い回しはできません。<BR>
+<BR>
+//////////////////////////<BR>
+<BR>
+現在はユーザーさんが作った便利なツールでモーションをコンバートすることができます。<BR>
+詳しくはを<A href="http://www5d.biglobe.ne.jp/~ochikko/userstool.htm">http://www5d.biglobe.ne.jp/~ochikko/userstool.htm</A>ご覧ください。<BR>
+<BR>
+<BR>
+</P>
+<P><A href="rokdebone.htm">RokDeBone2のページに戻る</A></P>
+</BODY>
+</HTML>

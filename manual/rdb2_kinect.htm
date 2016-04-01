@@ -1,0 +1,81 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>RokDeBone2とKinectでモーションキャプチャ</TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>RokDeBone2がKinectに対応しました。</B></FONT><BR>
+<BR>
+KinectとはMicrosoftのコンシューマゲーム機XBOX360用のカメラデバイスです。<BR>
+OpenNIというプログラムを用いることによりKinectをパソコンで使用できます。<BR>
+<BR>
+RokDeBone2ではKinectをモーションキャプチャに使用します。<BR>
+<BR>
+今まではモーションキャプチャというと数百万円の設備が必要でしたが<BR>
+１万数千円のKinectとRokDeBone2を使って自分の部屋でモーションキャプチャが出来ます。<BR>
+<BR>
+以下に簡単に使い方を説明します。<BR>
+<BR>
+○インストール<BR>
+Kinectをパソコンで使用するにはOpenNIをインストールする必要があります。<BR>
+インストール方法は<A href="OpenNI_install/ONIInstall.htm">こちら</A>をご覧ください。<BR>
+<BR>
+<BR>
+○モデルの準備<BR>
+モデルデータは図１のような初期姿勢のものでなくてはなりません。<BR>
+<BR>
+<IMG src="jpegfiles/ShokiShisei.png" width="168" height="299" border="0"><BR>
+図１：初期姿勢<BR>
+<BR>
+○kstファイルの準備<BR>
+kstファイルとはKinectでキャプチャするボーンと３Dモデルデータのボーンの対応表です。<BR>
+テキスト形式なのでメモ帳で編集できますが、GUIでの編集もサポートしています。<BR>
+<BR>
+RokDeBone2の「Kinect」--&gt;「kstファイルの作成」メニューを選択すると図２のようなダイアログが出ます。<BR>
+<BR>
+<IMG src="jpegfiles/kineco_kstdlg.png" width="452" height="564" border="0"><BR>
+図２：kst編集ダイアログ<BR>
+<BR>
+コンボボックスでそれぞれの対応するボーンを選択します。<BR>
+ねじれ防止は不具合が出ない限り初期状態でしようするといいでしょう。<BR>
+<BR>
+出力したら「Kinect」--&gt;「kst読み込み」メニューでkstファイルを読み込みます。<BR>
+<BR>
+<BR>
+<BR>
+○モーションキャプチャ<BR>
+RokDeBone2の「Kinect」--&gt;「キャプチャ開始」メニューでキャプチャを開始します。<BR>
+キャプチャには２種類あります。<BR>
+<BR>
+１つは現在編集中のモーションの最初のフレームから最後のフレームまでの間にキャプチャする方法です。<BR>
+最後のフレームに達すると自動的にキャプチャは終了します。<BR>
+初期状態ではフレーム長は６０位になっているので、モーションウインドウの「設定」ボタンを押して<BR>
+モーション長を２０００などの長めの値にしておくと良いでしょう。<BR>
+<BR>
+<BR>
+もう１つは現在編集中のモーションのカレントフレーム１フレームだけにポーズをキャプチャする方法です。<BR>
+キャプチャ開始するとカウントダウンが始まります。カウントが０になったときのポーズがカレントフレームに記録されます。<BR>
+<BR>
+<BR>
+どちらの方法もキャプチャ開始には図１の初期姿勢を自分で取ることから始まります。<BR>
+この姿勢をKinectが認識しないとキャプチャは始まりません。<BR>
+<BR>
+初期姿勢を取る際はKinectから２，３メートルはなれ、全身がカメラに映る状態が好ましいです。<BR>
+またしっかりと初期姿勢を取らないとモーション全体の質が落ちるので注意してください。<BR>
+<BR>
+<BR>
+キャプチャ開始メニューを選択してKinectが起動するまでに１０秒近く掛かります。<BR>
+起動すると自分のシルエットが赤く画面右下に表示されますので初期姿勢を取ってキャプチャを開始してください。<BR>
+<BR>
+<BR>
+<A href="rokdebone.htm">RokDeBone2のページへ</A><BR>
+<BR>
+<A href="index.htm">おちゃっこLABトップページへ</A><BR>
+<BR>
+<BR>
+</P>
+</BODY>
+</HTML>

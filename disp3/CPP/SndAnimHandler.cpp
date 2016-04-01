@@ -12,7 +12,7 @@
 
 #include <SndAnimHandler.h>
 
-#include "c:/pgfile9/RokDeBone2DX/SoundSet.h"
+#include "..\..\RokDeBone2DX\SoundSet.h"
 #include <SndAnim.h>
 #include <SndKey.h>
 #include <SndFrame.h>

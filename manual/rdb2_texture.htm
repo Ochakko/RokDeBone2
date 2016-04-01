@@ -1,0 +1,50 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><B><FONT size="+2">RokDeBone2、Easy3Dでのテクスチャ</FONT></B><BR>
+<BR>
+pngなどの透過テクスチャーを設定したい場合は、<BR>
+メタセコイアで不透明度を0.999などにして半透明扱いにするか、もしくは、<BR>
+RokDeBone2のメインメニューの「面マテリアル」を選択しテクスチャ設定ボタンを押し、<BR>
+「透過設定」のところを「テクスチャのアルファ値を元に、半透明にする。」に設定してください。<BR>
+<BR>
+このように設定したパーツは半透明扱いになります。<BR>
+そのため、Easy3Dで表示するときにはE3DRenderのwithalpha引数に１を指定しないと表示されません。<BR>
+<BR>
+<BR>
+<B>以下はver4.0.0.1以前の制限です。</B><BR>
+ver4.0.0.1以降はメタセコイアでの面ごとの材質設定をそのまま適用します。<BR>
+１パーツに何個テクスチャがあっても大丈夫です。<BR>
+<BR>
+ver4.0.0.1以前の制限<BR>
+<BR>
+RokDeBone2では、１つのパーツ（メタセコイアでいうオブジェクト）につき、１つのテクスチャしか設定できません。<BR>
+各パーツの先頭の面に設定してある、テクスチャファイル名が、そのパーツ全体のテクスチャファイル名として、適用されます。<BR>
+<BR>
+様々な模様のテクスチャを貼りたい場合には、<BR>
+数種類のテクスチャを1枚にまとめ、ＵＶ設定で、模様を設定するか、<BR>
+もしくは、<BR>
+テクスチャ毎に、パーツを分けて、モデリングしてください。<BR>
+<BR>
+<BR>
+また、<BR>
+ひとつのオブジェクトに、テクスチャを貼った面と、貼ってない面を、混在させると、<BR>
+テクスチャを貼ってない面の色が、暗くなります。<BR>
+<B>テクスチャを貼る面と、貼らない面のオブジェクトは、分けてください。</B><BR>
+<BR>
+<BR>
+<A href="rokdebone.htm">RokDeBone2のトップページに戻る<BR>
+<BR>
+</A><A href="index.htm">トップページに戻る</A><BR>
+<BR>
+<BR>
+<BR>
+</P>
+</BODY>
+</HTML>

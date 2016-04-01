@@ -62,12 +62,25 @@ int CBLDFile::InitParams()
 
 	ZeroMemory( m_dir, sizeof( char ) * MAX_PATH );
 
+	m_tagplayend = -1;
+	m_playflag = 0;
+	m_stopflag = 0;
+
+	m_bgmstartcnt = 0;
+	m_bgmendcnt = 0;
+	m_sndframeno = 0;
+	m_sndframeoffset = 0;
+
+	m_soundsetid = 0;
+	m_bgmid = 0;
+
 	return 0;
 }
 int CBLDFile::InitBLD( BLD* dstbld )
 {
 	ZeroMemory( dstbld, sizeof( BLD ) );
 	dstbld->mult = 1.0f;
+	dstbld->hsid = -1;
 	return 0;
 }
 

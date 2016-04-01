@@ -1,0 +1,19 @@
+// RokDeBone2.idl : RokDeBone2 の IDL ソース
+//
+
+// このファイルは、タイプ ライブラリ (RokDeBone2.tlb) およびマーシャリング コードを
+// 作成するために MIDL ツールによって処理されます。
+
+import "oaidl.idl";
+import "ocidl.idl";
+#include "olectl.h"//
+
+[
+	uuid(424F9DA3-F6DC-4565-919B-1591D72CA727),
+	version(1.0),
+	helpstring("RokDeBone2 1.0 タイプ ライブラリ")
+]
+library RokDeBone2Lib
+{
+	importlib("stdole2.tlb");
+};

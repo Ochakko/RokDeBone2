@@ -1,6 +1,0 @@
-// VersionDlg.cpp : CVersionDlg のインプリメンテーション
-#include "stdafx.h"
-#include "VersionDlg.h"
-
-/////////////////////////////////////////////////////////////////////////////
-// CVersionDlg

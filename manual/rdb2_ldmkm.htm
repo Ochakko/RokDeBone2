@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2">mkmファイルの読み込み方</FONT><BR>
+<BR>
+RokDeBone2 ver4.0.2.5からmkm読み込み機能が付きました。<BR>
+mkmとはmikotoというソフトが出力するモーションファイルのことです。<BR>
+<BR>
+mkmを読み込むには、mikoto形式のmqoをあらかじめ読み込んでいることが前提となります。<BR>
+mikoto形式のmqoを読み込んだ状態で、Fileメニューから「モーションファイル読み込み」の「*.mkmの読み込み」を選択します（図１）。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_mkmmenu.jpg" width="636" height="317" border="0"><BR>
+図１：mkm読み込みメニュー<BR>
+<BR>
+<BR>
+すると図２のようなダイアログが出ます。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_mkmdlg.jpg" width="450" height="237" border="0"><BR>
+図２：mkm読み込みダイアログ<BR>
+<BR>
+図２を見ると分かるとおり、mkmは２つ指定する必要があります。<BR>
+１つはポーズをつけ作成したモーションのmkmで<BR>
+もうひとつはポーズをつけていない初期状態のmkmです。<BR>
+<BR>
+初期状態のmkmの作り方を説明します。<BR>
+まずmikotoでボーン入りのmqoを読み込みます。<BR>
+そしてどれでもいいのでジョイントをマウスでクリックします。<BR>
+そうすると新たにモーションを作る旨のダイアログが出ます。<BR>
+ポーズを付けずに、この状態でmkmを保存し図２の「初期状態モーションファイル」のところに指定してください。<BR>
+<BR>
+<BR>
+<FONT size="+1"><B>注意事項</B></FONT><BR>
+RokDeBone2で対応しているmkmは、mikoto <B>04f</B> の出力するmkmファイルです。<BR>
+mikotoにはたくさんのバージョンがありますが、<B>04f</B>を使ってください。<BR>
+<BR>
+mikotoの古いバージョン（04f以前のもの）で作ったファイルを04fで読み込んで出力しなおした場合でも<BR>
+うまくいかない場合があります。<BR>
+<B>04f で新規に作成したmkmファイルを使用してください。</B><BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<A href="rokdebone.htm">RokDeBone2のトップページに戻る</A><BR>
+</P>
+</BODY>
+</HTML>

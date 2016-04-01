@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 6.5.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><B><FONT size="+2">ディスプレイスイッチの使い方</FONT></B><BR>
+<BR>
+</P>
+<P>キーフレームごとに、パーツの表示、非表示をコントロールすることが出来ます。<BR>
+装備のチェンジなどに、使用してください。<BR>
+<BR>
+簡単な、使用例を、下に示します。<BR>
+<BR>
+<BR>
+<IMG src="jpegfiles/dgg_switch.gif" width="320" height="268" border="0"><BR>
+<BR>
+<BR>
+連番BMP出力を元に、作ったGIFアニメです。<BR>
+（例によって、分かりやすいように、表示間隔を、長く設定しているので、ぎこちないですが。。）<BR>
+ドリルや、水中モータ、バズーカの表示を、順番にON、OFFしています。<BR>
+<BR>
+設定方法ですが、まず、階層構造エディタで、三角のアイコンを選択して、メニューから、sig
+paramsダイアログを出します。<BR>
+<BR>
+<IMG src="jpegfiles/sigparamsdlg.jpg" width="400" height="738" border="0"><BR>
+<BR>
+sig params ダイアログの下の方に、ディスプレイスイッチ番号の設定、の欄があります。<BR>
+ここで、表示、非表示を切り替えたいパーツに、スイッチ番号を指定します。<BR>
+スイッチ番号は、１から１５までの１５個、使用できます。<BR>
+<BR>
+次に、キーフレームごとに、スイッチのオン、オフをセットします。<BR>
+モーションダイアログの、”スイッチの設定”ボタンを押すと、下のようなダイアログが出ます。<BR>
+<BR>
+<IMG src="jpegfiles/dispswitchdlg.jpg" width="333" height="635" border="0"><BR>
+<BR>
+上段で、各スイッチの状態を確認し、下段で、目的のスイッチを、オン、オフします。<BR>
+<BR>
+ページの、はじめの、GIFアニメの例では、<BR>
+ドリルにスイッチ１を、水中モータにスイッチ５を、バズーカにスイッチ3を、sig
+paramsダイアログで指定しています。<BR>
+<BR>
+初期状態は、全てスイッチオフ、<BR>
+次に、スイッチ１，５，３の順で、オンにしています。<BR>
+<BR>
+<BR>
+<BR>
+参考までに、今回使用したデータをアップしておきます。<BR>
+(モデルデータは、takaさんの　ドガガ　です。<BR>
+http://www.geocities.co.jp/AnimeComic-White/6367/<BR>
+)<BR>
+<BR>
+<A href="zipfiles/dogaga_data.zip">ドガガのデータのダウンロード（97KB）</A><BR>
+（元データと、加工データが入っています。）<BR>
+<BR>
+[老婆心ながら。。　ドガガのように、階層数の少ないボーンのモデルに、RokDeBone2でモーションを付ける場合は、<BR>
+モーションダイアログの、”ボーンの階層数”を、１とか２の小さな値にしておかないと、<BR>
+IK時に、モデル全体が、あっちこっちに動いて、大変なことになるので、注意してください。]<BR>
+<BR>
+</P>
+<P><BR>
+<A href="rokdebone.htm">RokDeBone2のトップページに戻る</A></P>
+</BODY>
+</HTML>

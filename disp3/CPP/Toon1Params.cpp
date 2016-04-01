@@ -22,7 +22,7 @@
 int g_toon1matcnt = 0;
 
 #ifndef INEASY3D
-#include "c:\pgfile9\RokDeBone2DX\inidata.h"
+#include "..\..\RokDeBone2DX\inidata.h"
 extern CIniData* g_inidata;
 #endif
 

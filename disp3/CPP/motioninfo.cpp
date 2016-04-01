@@ -1783,7 +1783,7 @@ CMotionPoint2* CMotionInfo::AddMotionPoint( int srcmotkind, int srcframeno,
 	float srcmvx, float srcmvy, float srcmvz, DWORD srcdswitch, int srcinterp, float scalex, float scaley, float scalez, int userint1 )
 {
 	if( (srcmotkind >= kindnum) || (srcmotkind < 0) ){
-		DbgOut( "MotionInfo : AddMotionPoint : srcmotkind error !!!\n" );
+		DbgOut( "MotionInfo : AddMotionPoint : srcmotkind error !!!, motkind %d, kindnum %d\n", srcmotkind, kindnum );
 		_ASSERT( 0 );
 		return 0;
 	}

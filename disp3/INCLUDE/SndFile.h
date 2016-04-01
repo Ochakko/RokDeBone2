@@ -10,6 +10,7 @@ class CSndAnim;
 class CSndKey;
 class CSoundSet;
 class CSoundBank;
+class CATagHandler;
 
 typedef struct tag_sndbuf
 {
@@ -25,8 +26,8 @@ public:
 	CSndFile();
 	~CSndFile();
 
-	int WriteSndFile( char* filename, CSndAnim* srcanim, CSoundSet* ssptr );
-	int LoadSndFile( char* filename, CSndAnimHandler* srcsndah, CSoundBank* sbptr, CSndAnim** ppanim );
+	int WriteSndFile( char* filename, CSndAnim* srcanim, CSoundSet* ssptr, CATagHandler* tagh, int srcanimno );
+	int LoadSndFile( char* filename, CSndAnimHandler* srcsndah, CSoundBank* sbptr, CSndAnim** ppanim, CATagHandler* tagh );
 
 private:
 	int InitParams();
@@ -36,6 +37,8 @@ private:
 
 	int WriteAnimInfo();
 	int WriteSndAnim();
+	int WriteTagList();
+
 
 	int SetBuffer();
 	int CheckFileVersion( int* verptr );
@@ -43,6 +46,10 @@ private:
 	int ReadSndAnim();
 	int ReadSndKey( SNDBUF* animbuf );
 	int ReadSndElem( SNDBUF* keybuf, SNDELEM* dstsnde );
+
+	int ReadTagList();
+	int ReadTagElem( SNDBUF* animbuf );
+
 
 	int DeleteAnim( CSndAnimHandler* srcsndah );
 
@@ -63,6 +70,8 @@ public:
 	CSndAnim* m_anim;
 	CSoundSet* m_ss;
 	int m_loadversion;
+	CATagHandler* m_tagh;
+	int m_curanimno;
 };
 
 

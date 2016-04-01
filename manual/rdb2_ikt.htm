@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><B><FONT size="+2">IKターゲットの使い方（MikuMikuDance風の接地の仕方について）</FONT></B><BR>
+<BR>
+MikuMikuDanceのIKの仕方に衝撃を受けた作者は<BR>
+RokDeBone2でも同じようなことが出来ないかと試行錯誤してみた。<BR>
+結果は割と近いことは出来るということです。<BR>
+<BR>
+<BR>
+目的<BR>
+足を接地した状態で膝を曲げ伸ばししたい。<BR>
+<BR>
+<BR>
+方法<BR>
+<BR>
+まずモデルを読み込んだら足の付け根に「IK伝達禁止フラグ」を設定します。<BR>
+これは足の先からの姿勢計算を足の付け根で止めるための設定です。<BR>
+これがないと足を動かしたいのに体全体があらぬ方向を向いてしまったり半分に折れ曲がったり（笑）するので必須の設定です。<BR>
+<BR>
+IK伝達禁止フラグを設定するには設定したいジョイントをマウスで右クリックしてIK伝達禁止フラグのメニューにチェックを入れます。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt0.png" width="552" height="400" border="0"><BR>
+<BR>
+マニピュレータのリングが邪魔をしてボーンが選べないときは、Shiftを押しながらクリックするとボーンの選択が楽になります。<BR>
+<BR>
+足の付け根２か所にIK伝達禁止フラグを設定してください。<BR>
+設定されると丸印で表示されていたジョイントのマークが四角に変わります。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt1.png" width="452" height="387" border="0"><BR>
+<BR>
+<BR>
+次につま先とかかとにIKターゲットを設定します。<BR>
+IKターゲットにはジョイントが指定の位置に近づくようにする効果があります。<BR>
+<BR>
+設定したいジョイントを右クリックして「IKターゲットの設定」メニューを選択しても設定できますが<BR>
+楽チンなショートカットがあります。<BR>
+設定したいジョイントを選択してある状態でCtrl + K ボタンを押すと<BR>
+現在のジョイントの位置にIKターゲットが設定されます。<BR>
+<BR>
+今回は両足のつま先とかかとの合計４か所にIKターゲットを設定します。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt2.png" width="457" height="386" border="0"><BR>
+<BR>
+<BR>
+これで下準備はOKです。<BR>
+上下左右に動かしてみましょう。<BR>
+と、ここであせった人は「R」モードのまま動かしてしまうかもしれませんね。<BR>
+「R」モードでは回転しか出来ないので上下左右に動かしても思った結果にはなりません。<BR>
+全体移動の「T2」モードを使います。<BR>
+<BR>
+ツールバーの「T２」ボタンを押してください。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt3.png" width="764" height="456" border="0"><BR>
+<BR>
+<BR>
+「T2」モードではどのジョイントをドラッグしても体全体が動きます。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt4.png" width="507" height="369" border="0"><BR>
+<BR>
+左上にドラッグしたのが上図。<BR>
+つま先とかかとが水色の球にひっぱられています。ひっぱりすぎると足が球から離れます。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt5.png" width="502" height="364" border="0"><BR>
+<BR>
+右下にドラッグしたのが上図。<BR>
+足が接地した状態でひざが曲がっています。<BR>
+<BR>
+同様に右上、左下にドラッグしてみます。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt6.png" width="504" height="367" border="0"><BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt7.png" width="504" height="364" border="0"><BR>
+<BR>
+<BR>
+上下に動かしてひざの曲がり具合を調整します。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt8.png" width="501" height="359" border="0"><BR>
+<BR>
+横からも見て確認します。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_ikt9.png" width="500" height="364" border="0"><BR>
+<BR>
+<BR>
+と、こんな感じでMikuMikuDanceに近いIKが楽しめます。<BR>
+「R」じゃなくて「T2」で移動させるところがみそです。<BR>
+<BR>
+<BR>
+追記：（2009/05/23）<BR>
+<BR>
+ひざが反対側に曲がってしまう場合は、「T2」移動の前に「R」でひざを曲げたい方向に少しだけ曲げておくとよいです。<BR>
+また回転角度制限も有効です。<BR>
+回転角度制限は設定したいボーンを右クリックし「ボーンプロパティ」を選んで設定してください。<BR>
+<BR>
+足の回転軸を固定したい場合には<A href="rdb2_za4.htm">指定した軸に関してのみIK回転する方法</A>をご覧ください。<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<A href="index.htm">トップページに戻る</A><BR>
+<BR>
+<BR>
+</P>
+</BODY>
+</HTML>

@@ -1,0 +1,29 @@
+﻿2011/01/28 11:29:52 にビルドを開始しました。
+     1>ノード 3 上のプロジェクト "D:\pgfile9\libvorbis-1.3.2\win32\VS2010\vorbisdec\vorbisdec_static.vcxproj" (build ターゲット)。
+     1>InitializeBuildStatus:
+         "AlwaysCreate" が指定されたため "Win32\Release\vorbisdec.unsuccessfulbuild" を作成しています。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\..\include /I..\..\..\..\libogg\include /I"..\..\..\..\libogg-1.2.0\include" /I..\..\..\..\ogg\include /I..\..\..\..\..\..\..\core\ogg\libogg\include /Zi /nologo /W4 /WX- /Ox /Ob2 /Oi /Ot /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _VC80_UPGRADE=0x0710 /D _UNICODE /D UNICODE /GF /Gm- /MD /GS- /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Win32\Release\\" /Fd"Win32\Release\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\examples\decoder_example.c
+         decoder_example.c
+     1>..\..\..\examples\decoder_example.c(79): warning C4127: 条件式が定数です。
+     1>..\..\..\examples\decoder_example.c(219): warning C4127: 条件式が定数です。
+     1>..\..\..\examples\decoder_example.c(251): warning C4244: '初期化中' : 'double' から 'int' への変換です。データが失われる可能性があります。
+     1>..\..\..\examples\decoder_example.c(264): warning C4244: '=' : 'int' から 'ogg_int16_t' への変換です。データが失われる可能性があります。
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\vorbisdec.exe) が Linker の OutputFile プロパティ値 (D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\vorbisdec_static.exe) と一致しません。このため、プロジェクトが正常にビルドされない可能性があります。この問題を解決するには、$(OutDir)、$(TargetName)、および $(TargetExt) の各プロパティ値が、%(Link.OutputFile) で指定されている値と一致することを確認してください。
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(992,5): warning MSB8012: TargetName(vorbisdec) が Linker の OutputFile プロパティ値 (vorbisdec_static) と一致しません。このため、プロジェクトが正常にビルドされない可能性があります。この問題を解決するには、$(OutDir)、$(TargetName)、および $(TargetExt) の各プロパティ値が、%(Link.OutputFile) で指定されている値と一致することを確認してください。
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\vorbisdec_static.exe" /INCREMENTAL:NO /NOLOGO /LIBPATH:..\..\..\..\libogg\win32\VS2010\Win32\Release /LIBPATH:..\Win32\Release /LIBPATH:"..\..\..\..\libogg-1.2.0\win32\VS2010\Win32\Release" /LIBPATH:..\..\..\..\ogg\win32\VS2010\Win32\Release /LIBPATH:..\..\..\..\..\..\..\core\ogg\libogg\win32\VS2010\Win32\Release libogg_static.lib libvorbis_static.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Win32\Release\vorbisdec.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /PDB:"D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\vorbisdec.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\vorbisdec.lib" /MACHINE:X86 Win32\Release\decoder_example.obj
+         "D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\libvorbis_static.lib"
+         コード生成しています。
+         コード生成が終了しました。
+         vorbisdec_static.vcxproj -> D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\vorbisdec.exe
+       Manifest:
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\vorbisdec_static.exe;#1" /manifest Win32\Release\vorbisdec.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         ファイル "Win32\Release\vorbisdec.unsuccessfulbuild" を削除しています。
+         "Win32\Release\vorbisdec.lastbuildstate" のタッチ タスクを実行しています。
+     1>プロジェクト "D:\pgfile9\libvorbis-1.3.2\win32\VS2010\vorbisdec\vorbisdec_static.vcxproj" (build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:04.71

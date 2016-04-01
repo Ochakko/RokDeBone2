@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2">制限角度ファイル（limファイル）のフォーマット</FONT><BR>
+<BR>
+RokDeBone2ではボーンの動きに制限角度を設定することが出来ます。<BR>
+モデルデータを読み込み、ジョイント部分を右クリックし「ボーンプロパティ」を選択すると<BR>
+図１のような、制限角度が設定できるダイアログが出てきます。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_boneprop0.jpg" width="304" height="552" border="0"><BR>
+図１：ボーンプロパティダイアログ<BR>
+<BR>
+<BR>
+角度制限ファイルは、図１のダイアログの「角度制限」のボックス内の情報をボーンごとに保存するものです。<BR>
+拡張子はlimで、テキストファイルです。<BR>
+RokDeBone2のFileメニューから保存と読み込みを行います。<BR>
+(制限角度情報はsigファイルにも保存されます。複数のモデルで使い回したい場合などにlimファイルを使ってください。)<BR>
+<BR>
+<BR>
+フォーマットは以下のようになります。<BR>
+<BR>
+//////////////////<BR>
+<BR>
+RokDeBone2 LimitFile ver1.0.0.1<BR>
+LIMELEM{<BR>
+　　　　JointName=左足<BR>
+　　　　StartX=-179.0<BR>
+　　　　EndX=179.0<BR>
+　　　　StartY=0.0<BR>
+　　　　EndY=30.0<BR>
+　　　　StartZ=-30.0<BR>
+　　　　EndZ=179.0<BR>
+　　　　IgnoreFlag=0<BR>
+}<BR>
+<BR>
+LIMELEM{<BR>
+　　　　JointName=左ひざ<BR>
+　　　　StartX=-179.0<BR>
+　　　　EndX=179.0<BR>
+　　　　StartY=0.0<BR>
+　　　　EndY=30.0<BR>
+　　　　StartZ=-30.0<BR>
+　　　　EndZ=179.0<BR>
+　　　　IgnoreFlag=0<BR>
+}<BR>
+<BR>
+…<BR>
+<BR>
+//////////////////<BR>
+<BR>
+改行は\r\nです。<BR>
+ファイルのヘッダーは<BR>RokDeBone2 LimitFile ver1.0.0.1<BR>
+で、１字一句間違えないように記述する必要があります。<BR>
+<BR>
+LIMELEM{ } で囲まれた部分が１個のボーンの情報を表します。<BR>
+<BR>
+中カッコ{, } の後は必ず改行がないといけません。<BR>
+<BR>
+=の前後にはスペースなどを書いてはいけません。<BR>
+<BR>
+IgnoreFlagは、制限角度を無視する場合に１を、無視しない場合に０を記述します。<BR>
+<BR>
+見出しの大文字小文字は上の例とまったく同じように記述する必要があります。<BR>
+<BR>
+</P>
+<P><A href="rokdebone.htm">RokDeBone2のトップページに戻る</A><BR>
+</P>
+</BODY>
+</HTML>

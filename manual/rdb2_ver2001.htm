@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=SHIFT_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 9.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>RokDeBone2 ver2.0.0.1での変更点について</B></FONT><BR>
+<BR>
+<BR>
+ver2.0.0.1での変更で、ボーンの姿勢情報の格納の仕方が変わりました。<BR>
+今までは、子供の姿勢を、親にセットしていたのですが、<BR>
+子供の姿勢は、子供にセットするように、変更しました。<BR>
+<BR>
+これにより、枝分かれボーンが正常に扱えるようになりましたが、<BR>
+一部、データで、修正が必要な部分が出てきます。<BR>
+<BR>
+<B>修正が必要なのは、「影１」ボタンで設定した、パーツ単位の影響情報です。</B><BR>
+今まで、親の名前で指定していたのを、子供の名前で指定するように、変えなければいけません。<BR>
+<BR>
+また、影響を受けないボーンの指定のバグが取れたので、<BR>
+そのことによる、動作の違いも出てくることと思います。<BR>
+たとえば、影響を受けないボーンに、「腕」を指定すると、<BR>
+今までは、腕を子供とするボーンの影響は、受けるようになっていたのですが、<BR>
+ver2.0.0.1からは、指定したジョイントを子供に持つボーンの影響は、うけなくなります。<BR>
+<BR>
+「影２」、「影３」ボタンでの影響度の設定は、そのまま、ver2.0.0.1以降でも使用できます。<BR>
+<BR>
+<BR>
+</P>
+<P><A href="index.htm">トップページに戻る</A></P>
+</BODY>
+</HTML>

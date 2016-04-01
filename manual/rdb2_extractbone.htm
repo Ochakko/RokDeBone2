@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2">メタセコイアとデータの往復をするには。</FONT><BR>
+<BR>
+RokDeBone2で詳細な影響度の設定をし終わってから、形状データに不備が見つかり、メタセコイアでmqoの修正をする場合、<BR>
+いままでのバージョンでは、mqoを読み直した後に、また一から影響度の設定をやり直さなければいけませんでした。<BR>
+<BR>
+ですが、新バージョンからは、新しいmqoを読み直した後に、古いsigから抽出読み込み機能で、<BR>
+ボーンデータ、影１設定データ、影２設定データ、影３設定データを読み込み、データをすばやく復帰させることが出来ます。<BR>
+<BR>
+これにより、メタセコイアとのデータの往復がかなり楽になります。<BR>
+<BR>
+ボーンデータの抽出読み込みでは、抽出用のsigとまったく同じボーン構造を再現します。<BR>
+足りないボーンは新規に作成する機能も付いています。<BR>
+影１、影２、影３の抽出読み込みでは、作業中のデータと抽出用のsigとで、表示オブジェクトの名前が一致していることが条件になります。<BR>
+影３の読み込みは、頂点数が変化していても対応できます。<BR>
+距離が１００より近い頂点のうち、一番近い頂点の影３データを読み込みます。<BR>
+<BR>
+抽出読み込みは、fileメニューから実行します。<BR>
+<IMG src="jpegfiles/rdb2_extractbone1.jpg" width="599" height="468" border="0"><BR>
+<BR>
+<BR>
+抽出読み込み用のダイアログを下に示します。<BR>
+<IMG src="jpegfiles/rdb2_extractbone2.jpg" width="362" height="281" border="0"><BR>
+<BR>
+ボーン情報、影１、影２、影３をそれぞれ個別に読み込めるようになっています。<BR>
+<BR>
+<BR>
+<BR>
+<A href="rokdebone.htm">RokDeBone2のトップページに戻る</A><BR>
+<BR>
+<A href="index.htm">トップページに戻る</A><BR>
+<BR>
+</P>
+</BODY>
+</HTML>

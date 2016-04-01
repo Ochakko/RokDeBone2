@@ -7,9 +7,9 @@
 #define SNDCONVCPP
 #include <SndConv.h>
 
-#include "c:\pgfile9\RokDeBone2DX\HuSound.h"
-#include "c:\pgfile9\RokDeBone2DX\SoundSet.h"
-#include "c:\pgfile9\RokDeBone2DX\SoundElem.h"
+#include "..\..\RokDeBone2DX\HuSound.h"
+#include "..\..\RokDeBone2DX\SoundSet.h"
+#include "..\..\RokDeBone2DX\SoundElem.h"
 
 #include <crtdbg.h>
 

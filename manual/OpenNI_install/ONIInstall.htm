@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta name="GENERATOR" content="JustSystems Homepage Builder Version 16.0.4.0 for Windows">
+<H1>OpenNIのインストール</H1>
+<Br>
+<Br>RokDeBone2やEasy3DのKinect機能を利用する前に、OpenNIのインストールが必要です。<Br>
+OpenNIとは、パソコンからKinectを利用するためのソフトウェアです。<Br>
+
+<Br><P>OpenNIは日々バージョンアップしていますが<BR>
+RokDeBone2、Easy3Dが対応しているのは過去のバージョンです。<BR>
+新しいバージョンへの対応も検討していますが<BR>
+新しいバージョンはまだ６４ビットOS環境でうまく動かなかったりすることがあるようなので<BR>
+当分古いバージョンを使います。<BR>
+<BR>
+<BR>
+古いバージョンは正規の配布元からはもう配布されていません。<BR>
+そこでおちゃっこLABに過去バージョンをまとめてアップしました。<BR>
+<BR>
+以下のアドレスからダウンロードしてください。<BR>
+<A href="http://ochakkolab.moo.jp/KinectOldVer/KinectOld.zip">http://ochakkolab.moo.jp/KinectOldVer/KinectOld.zip</A><BR>
+<BR>
+なおこのzipに入っているファイルのライセンスについては<Br>
+<A href="http://www.openni.org/">http://www.openni.org/</A> <Br>
+<A href="https://github.com/avin2/SensorKinect">https://github.com/avin2/SensorKinect</A><BR>
+をご覧ください。<Br>
+<Br>
+</P><H2>インストール手順</H2><H3>（１）ドライバーをインストールします</H3>
+
+<Font Color="red">※ Kinect関係のドライバを既にインストールされている方は，事前にアンインストールしておきます．<Br>
+<BR>
+※ UAC関連でインストールなどが出来ない場合は一時的にUACをOFFにします． <Br>
+　 [コントロールパネル]&gt;[ユーザーアカウント]&gt;[ユーザーアカウント制御設定の変更]と進み， <Br>
+　 スライダーを一番下まで下げ，Windowsを再起動することでUACをOFFにできます．<Br>
+<Br>
+</Font><P>avin2-SensorKinect-b7cd39d.zip<BR>
+を解凍しておきます。</P>PCにKinectを接続します。<Br>
+<Font Color="red">※Kinectは、USBでPCに接続しますが、新しいタイプのKinectは、コネクタがUSBではないので、<Br>
+変換ケーブルが必要です。変換ケーブルの購入手順は<A href="html/Kinect_USB.htm">こちら</A>をご参照ください。<Br></Font>
+<Br><Br>
+
+接続すると、デバイスドライバのインストールが自動で始まりますが、<Br>
+下図のように、インストールに失敗します。<Br><Br>
+
+<Img Src="image/Driver_2.png" Border="1" Width="824" Height="129"><Br><Br><Br><Br>
+
+[コントロールパネル]から[デバイスマネージャー]を開きます． <Br><Br>
+すると、“ほかのデバイス”のツリーに“Xbox NUI Motor”が「！」がついた状態で存在していますので、<Br>
+これを右クリックし、「ドライバーソフトウェアの更新」を選択します。<Br><Br><Br>
+
+<Img Src="image/Driver_3.png" Border="1"><Br><Br><Br><Br>
+<Img Src="image/Driver_4.png" Border="1" Width="491" Height="559"><Br><Br><Br><Br>
+
+
+すると，どのような方法でインストールするか問われるので，<Br>
+下側にある“コンピュータを参照してドライバーソフトウェアを検索します”を選びます．<Br><Br>   
+
+<Img Src="image/Driver_5.png" Border="1"><Br><Br><Br><Br>
+
+
+次にドライバの場所を聞いてくるので，<Br>
+（３）でダウンロードしたファイルの中にあるドライバの場所を指定します．<Br> 
+ドライバの場所は以下の通りです。<Br><Br>
+
+<Font Color="red">[（３）で解凍したフォルダ]\avin2-SensorKinect-<u>28738dc</u>\Platform\Win32\Driver <Br>
+※ただし、下線部はバージョンによって異なります。</Font><Br><Br>
+
+
+“サブフォルダーも検索する”にチェックを入れておきましょう． <Br>
+ 指定したら“次へ”を押してインストールを開始します． <Br><Br><Br>
+
+<Img Src="image/Driver_6.png" Border="1"><Br><Br><Br><Br>
+
+Windowsセキュリティが以下のような画面を出した場合、<Br>
+下の選択肢を選択します。<Br>
+これは、ドライバがMicrosoftの署名を受けていないために表示される画面です。<Br>
+<Br><Br>
+<Img Src="image/Driver_7.png" Border="1"><Br><Br><Br><Br>
+
+
+インストールが完了すると、デバイスマネージャの表示が変わり、<Br>
+"PrimeSensor"の中に、<Br>
+"Kinect Audio", "Kinect Camera", "Kinect Motor"<Br>
+の３つが表示されます。<Br><Br>
+<Img Src="image/Driver_8.png" Border="1"><Br><Br><Br><Br>
+<Br><Br>
+
+<H3>（２）OpenNIをインストールします</H3>OpenNI-<u>Win32-1.1.0.38</u>-Redist.exeを実行してインストールします． <Br>
+※下線部は、バージョンやOSによって異なります。<Br><Br>
+
+ダイアログに沿ってインストールを行って下さい。<Br><P><BR>
+<STRONG>（３）PrimeSensor 5.0.0 for Windows(Kinect Mod)をインストールします． <BR>
+</STRONG>　　…\avin2-SensorKinect-b7cd39d\Bin <BR>
+のパスに入っている<STRONG>SensorKinect-Win32-5.0.0.exe</STRONG><BR>
+を実行し、インストールします。 <BR> 　<STRONG><SPAN style="COLOR: #ff0000">※ これのをインストールする前にOpenNIをインストールしないとインストールが完了しません．</SPAN></STRONG> 
+<BR>
+</P><H3>（４）NITEをインストールします</H3>NITE-Win32-1.3.0.17.exe　を実行します。<Br><Br>途中でライセンスキーを求められるので，キー(0KOIk2JeIBYClPWVnMoRKn5cdY4=)を入力してインストールを進めます． <Br><Br>
+
+<Img Src="image/NITE_I1.png" Border="1" Width="509" Height="398"><Br><Br><Br>以上で、OpenNIのインストールが完了し、Kinectによるキャプチャが可能になりました。<Br>
+お疲れ様でした。<Br><Br><Br>
+
+【参考URL】<Br>
+まとめ？ブログ様<Br>
+http://kgxpx834.blog58.fc2.com/blog-entry-22.html<Br><Br><Br><Br><Br>
+
+

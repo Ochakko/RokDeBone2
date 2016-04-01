@@ -50,7 +50,7 @@
 #include <map>
 using namespace std;
 
-#include "c:\pgfile9\RokDeBone2DX\inidata.h"
+#include "..\..\RokDeBone2DX\inidata.h"
 extern CIniData* g_inidata;
 
 //#include <fbxaxissystem.h>

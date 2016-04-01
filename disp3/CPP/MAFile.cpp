@@ -27,9 +27,9 @@
 #include "c:\pgfile9\e3dhsp3\handlerset.h"
 
 #else
-#include "c:\pgfile9\RokDeBone2DX\viewer.h" //!!!!!!!!!!!!!!!!!!!!!!!!
-#include "c:\pgfile9\RokDeBone2DX\motdlg.h" //!!!!!!!!!!!!!!!!!!!!!!!!
-#include "c:\pgfile9\RokDeBone2DX\MotChangeDlg.h" //!!!!!!!!!!!!!!!!!!
+#include "..\..\RokDeBone2DX\viewer.h" //!!!!!!!!!!!!!!!!!!!!!!!!
+#include "..\..\RokDeBone2DX\motdlg.h" //!!!!!!!!!!!!!!!!!!!!!!!!
+#include "..\..\RokDeBone2DX\MotChangeDlg.h" //!!!!!!!!!!!!!!!!!!
 
 extern CMotDlg* g_motdlg;
 #endif

@@ -1,0 +1,268 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE>RokDeBone2のプラグインのページ</TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>RokDeBone2 Plugin SDK</B></FONT><BR>
+<BR>
+<BR>
+<B><FONT size="+1">１、概要</FONT></B><BR>
+<BR>
+RokDeBone2 ver1.0.7.6 から、プラグイン機能が付きました。<BR>
+このページでは、RokDeBone2から呼び出すことの出来るプラグインの作り方について説明します。<BR>
+<BR>
+プラグインは、Ｃ言語で作成します。<BR>
+RokDeBone2には、プラグインの種類というものは、ありません。<BR>
+RokDeBone2のプラグインメニューから、実行したいプラグインを選ぶと、<BR>
+プラグインのRDBOnSelectPlugin() という関数が、RokDeBone2から、1回、呼ばれるようになっています。<BR>
+この機能により、エクスポーターの作成などが、可能になります。<BR>
+<BR>
+ＳＤＫver1.0.7.6では、RDBOnSelectPlugin()にしか、対応しませんが、<BR>
+将来、<BR>
+RDBOnRender()<BR>
+RDBOnTransform()<BR>
+RDBOnLoadModel()<BR>
+RDBOnDestroyModel()<BR>
+RDBOnLoadMotion()<BR>
+RDBOnDestroyMotion()<BR>
+などを実装し、レンダーや、モーション制御のプラグインも作れるようにするかもしれません。<BR>
+プラグインの種類を決めないため、これらの関数を、好きな組み合わせで、必要なものだけ、実装する形に出来たらいいな、と思っています。<BR>
+<BR>
+##############<BR>
+<FONT color="#ff0000">ver5.5.0.5で追加</FONT><BR>
+<BR>
+RokDeBone2が終了する直前にプラグインのRDBOnClose()が呼ばれます。<BR>
+<BR>
+RokDeBone2でユーザーがボーンの姿勢を操作し、マウスを離した時に<BR>
+プラグインのRDBOnPose( int motid )が呼ばれます。<BR>
+RDBOnPoseが呼ばれた段階ではモーションポイントは変化していますがFillUpは行われていません。<BR>
+<BR>
+##############<BR>
+<BR>
+<FONT size="+1"><B>２、サンプル</B></FONT><BR>
+<BR>
+ＳＤＫに、エクスポータのサンプルを付けてありますので、<BR>
+まずは、どんなものかを、見てみてください。<BR>
+<BR>
+Visual Studio 2008 SP1で、使用できるようになっています。<BR>
+まず、「プロジェクトを開く」から、slnファイルを開いてください。<BR>
+<BR>
+RDBPlugin.h, RDBInit.cpp, coef_r.hが、プラグインの共通ファイルです。<BR>
+これらのファイルは、必ず、プロジェクトファイルに追加する必要があります。<BR>
+また、これらのファイルは、編集する必要は、ありません。<BR>
+<BR>
+サンプルのShapeExporterの場合は、<BR>
+自分で編集するのは、ShapeExporter.cppのみです。<BR>
+<BR>
+RDBGetPlugInID, RDBGetPlugInName, は、RokDeBone2で、プラグインを識別するための情報として使用します。<BR>
+ＩＤや名前などを、適当に決めて、編集してください。<BR>
+これらの関数を削除すると、RokDeBone2用のプラグインとは識別されず、<BR>
+RokDeBone2のプラグインメニューに、羅列されませんので、注意してください。<BR>
+<BR>
+<BR>
+作成したdllは、Pluginsフォルダーに入れてください。<BR>
+<BR>
+<BR>
+<BR>
+<B><FONT size="+1">３、プラグインから呼び出せる関数</FONT></B><BR>
+<BR>
+プラグインから呼び出せる関数には、関数の頭に、RDBが付いています。<BR>
+ほとんど、Easy3Dと同じ形になっています。<BR>
+<BR>
+Easy3Dをお使いの方は、おわかりと思いますが、<BR>
+モデルデータには、hsid (ハンドラーセットＩＤの略)　というＩＤが付いています。<BR>
+モデルデータに対する処理には、ほとんど、全て、このhsidが必要になります。<BR>
+RokDeBone2では、このhsidで、どのモデルデータに対する処理なのかを、識別することになります。<BR>
+<BR>
+hsidは、RDBGetCurrentHSIDという関数で、取得できるようになっています。<BR>
+モデルデータを読み込んでいないときは、hsidに-1の値がセットされます。<BR>
+RDBOnSelectPluginなどの関数の最初の部分で、<BR>
+必ず、RDBGetCurrentHSIDで、hsidを取得し、-1でないかどうかを、チェックするようにしてください。<BR>
+<BR>
+モーションについても、同様です。<BR>
+RDBGetCurrentMotIDという関数で、モーションを識別するＩＤが取得できます。<BR>
+モーションを読み込んでいない場合は、-1が取得されます。<BR>
+<BR>
+ＩＤは、表示用パーツ、ジョイントを識別する際にも、使用します。<BR>
+表示用パーツ、ジョイントは、シリアル番号で、識別されます。<BR>
+シリアル番号は、<BR>
+RDBGetPartNoByNameや、RDBGetDispObjInfoや、RDBGetJointInfoなどで、取得できます。<BR>
+<BR>
+猫のモデルデータの手のオブジェクトに対する処理を行いたいときは、<BR>
+まず、猫モデルのhsidを取得し、次に、手のオブジェクトのシリアル番号を取得し、<BR>
+RDBで始まる関数を、hsidと、シリアル番号を引数に渡して、呼び出せば、ＯＫです。<BR>
+<BR>
+プラグインから呼び出せる関数を表にしました。<BR>
+<A href="rdb2pluginsdk_func.htm"><FONT size="+3">関数表</FONT></A>をご覧ください。<BR>
+<BR>
+<BR>
+<BR>
+ユーザーさんが作成したRokDeBone2のプラグインは、<BR>
+<B><FONT size="+1"><A href="http://www5d.biglobe.ne.jp/~ochikko/usersplugin.htm">http://www5d.biglobe.ne.jp/~ochikko/usersplugin.htm</A></FONT></B>で紹介しています。<BR>
+<BR>
+<BR>
+<BR>
+<B><FONT size="+1">更新ログ</FONT></B><BR>
+<BR>
+2005/10/23<BR>
+　　ver1.0.7.7を公開<BR>
+<BR>
+<BR>
+2005/10/27<BR>
+　　RDB2PluginSDKのバージョンアップ　ver1.0.7.7<BR>
+<BR>
+　　　　ＵＶ情報取得関数の追加<BR>
+　　　　　　RDBGetUV<BR>
+　　　　法線情報の取得関数追加<BR>
+　　　　　　RDBGetNormal<BR>
+　　　　　　モーションを適用した法線と、初期状態の法線の両方を取得できます。<BR>
+<BR>
+　　　　ＳＤＫサンプル（ShapeExporter.cpp）に、追加関数の使用例の記述を追加。<BR>
+<BR>
+　　　　<B>ver1.0.7.7のＳＤＫで作ったプラグインは、RokDeBone2 ver1.0.7.7以降でないと実行できません。</B><BR>
+<BR>
+<BR>
+2005/11/13<BR>
+　　RDB2PluginSDKのバージョンアップ　ver1.0.7.9<BR>
+<BR>
+　　　　自己照明の値、スペキュラーPowerの値を、プラグインから取得できるようにしました。<BR>
+　　　　ver1.0.7.9のＳＤＫで作ったプラグインは、ver1.0.7.9以降のRokDeBone2でしか、実行できません。<BR>
+<BR>
+<BR>
+2006/07/18<BR>
+　　RDB2PluginSDKのバージョンアップ　ver1.1.1.5<BR>
+　　　　頂点単位の影響度をプラグインから設定できるようになりました。<BR>
+　　　　　　RDBGetInfElem2<BR>
+　　　　　　　　頂点単位の影響度を取得。子供ジョイント番号も取得<BR>
+　　　　　　RDBGetOrgVertNo<BR>
+　　　　　　　　RokDeBone2の内部データの頂点番号を、読み込みmqoの頂点番号に変換<BR>
+　　　　　　RDBSaveSigFile<BR>
+　　　　　　　　頂点単位の影響度の入ったsigを出力<BR>
+　　　　　　RDBSetInfElem<BR>
+　　　　　　　　頂点単位の影響度をセット<BR>
+　　　　　　RDBChkIM2Status<BR>
+　　　　　　　　RDBGetOrgVertNoが使用可能かどうかをチェック<BR>
+<BR>
+　　　　<B>ver1.1.1.5のＳＤＫで作ったプラグインは、ver1.1.1.5以降のRokDeBone2でしか、実行できません。</B><BR>
+<BR>
+<BR>
+2006/07/22<BR>
+　　RDB2PluginSDKのバージョンアップ　ver1.1.1.7<BR>
+　　　　プログレスバー操作関数の追加<BR>
+　　　　　　RDBCreateProgressBar<BR>
+　　　　　　RDBSetProgressBar<BR>
+　　　　　　RDBDestroyProgressBar<BR>
+<BR>
+　　　　<B>ver1.1.1.7のＳＤＫで作ったプラグインは、ver1.1.1.7以降のRokDeBone2でしか、実行できません。</B><BR>
+<BR>
+2006/08/17<BR>
+　　RDB2PluginSDKのバージョンアップ　ver2.0.0.5<BR>
+　　　　関数追加<BR>
+　　　　　　RDBGetVersion　　RokDeBone2のバージョンを取得<BR>
+　　　　　　RDBIsJoint　　パーツがジョイントかどうかを判定<BR>
+<BR>
+　　　　<B>ver2.0.0.5のＳＤＫで作ったプラグインは、ver2.0.0.5以降のRokDeBone2でしか、実行できません。</B><BR>
+　　　　<BR>
+2008/01/15<BR>
+　　RDB2PluginSDKのバージョンアップ　ver3.0.4.0<BR>
+　　　　RDBGetNotionNum, RDBGetMotionName, RDBGetKeyFrameSRT2の追加。<BR>
+<BR>
+　　　　RDBGetKeyFrameLeng関数をカレントモーション以外のmotidでも呼び出せるように修正。<BR>
+<BR>
+　　　　マニュアルの間違い修正<BR>
+　　　　　　RDBGetClockwiseの引数。<BR>
+　　　　　　RDBGetKeyFrameNoの引数。<BR>
+<BR>
+　　　　<B>ver3.0.4.0のＳＤＫで作ったプラグインは、ver3.0.4.0以降のRokDeBone2でしか、実行できません。</B><BR>
+<BR>
+2008/04/02<BR>
+　　RDB2PluginSDKのバージョンアップ　ver4.0.0.1<BR>
+　　　　マテリアルに対応。<BR>
+　　　　　　RDBGetMaterialNum<BR>
+　　　　　　RDBGetMaterial<BR>
+　　　　　　RDBGetMaterialNo<BR>
+　　　　　　の追加。<BR>
+<BR>
+　　　　　　ShapeExporterの更新<BR>
+<BR>
+　　　　<B>ver4.0.0.1のＳＤＫで作ったプラグインは、ver4.0.0.1以降のRokDeBone2でしか、実行できません。</B><BR>
+<BR>
+2009/08/08<BR>
+　　RDB2PluginSDKのバージョンアップ　ver5.1.0.0<BR>
+　　　　３２ビットの頂点インデックスに対応。<BR>
+　　　　　　RDBGetTriIndicesInt命令を追加。<BR>
+<BR>
+2009/11/28<BR>
+　　RDB2PluginSDKのバージョンアップ　ver5.2.1.4<BR>
+　　　　ボーンの作成削除命令を追加。<BR>
+　　　　　　ボーンのインポーターも作れるようになりました。<BR>
+　　　　　　RDBCreateBone<BR>
+　　　　　　RDBDestroyBone<BR>
+　　　　　　RDBGetSelectedJoint<BR>
+　　　　　　RDBSetJointInitialPos<BR>
+<BR>
+　　　　コンパイラをVisual Studio 2005からVisual Studio 2008 SP1 に変更しました。<BR>
+2009/12/13<BR>
+　　RDB2PluginSDKのバージョンアップ　ver5.2.1.7<BR>
+　　　　モーフの情報取得設定のための命令を追加。<BR>
+　　　　　　RDBGetMorphBaseNum<BR>
+　　　　　　RDBGetMorphBaseInfo<BR>
+　　　　　　RDBGetMorphTargetInfo<BR>
+　　　　　　RDBGetMorphKeyNum<BR>
+　　　　　　RDBGetMorphKey<BR>
+　　　　　　RDBGetCurMorphInfo<BR>
+　　　　　　RDBCreateMorph<BR>
+　　　　　　RDBAddMorphTarget<BR>
+　　　　　　RDBSetMorphKey<BR>
+　　　　　　RDBDestroyMorphKey<BR>
+　　　　モーション制御用の命令を追加。<BR>
+　　　　　　RDBSetMotionFrameNo<BR>
+<BR>
+　　　　新しい命令はRokDeBone2 ver5.2.1.7以降でしか実行できません。<BR>
+<BR>
+2009/12/31<BR>
+　　RDB2PluginSDKのバージョンアップ　ver5.2.2.0<BR>
+　　　　トゥーン情報の取得設定命令を追加。<BR>
+　　　　　　RDBGetToon1MaterialNum<BR>
+　　　　　　RDBGetToon1Material<BR>
+　　　　　　RDBSetToon1Name<BR>
+　　　　　　RDBSetToon1Diffuse<BR>
+　　　　　　RDBSetToon1Specular<BR>
+　　　　　　RDBSetToon1Ambient<BR>
+　　　　　　RDBSetToon1NL<BR>
+　　　　　　RDBSetToon1Edge0<BR>
+　　　　このバージョンで作成したプラグインはRokDeBone2 ver5.2.2.0以降でしか実行できません。<BR>
+<BR>
+2011/06/21<BR>
+　　RDB2PluginSDKのバージョンアップ　ver5.5.0.5<BR>
+　　　　RokDeBone2から呼び出される命令の追加。<BR>
+　　　　　　RDBOnClose<BR>
+　　　　　　　　RokDeBone2終了時に呼び出されます。<BR>
+　　　　　　RDBOnPose<BR>
+　　　　　　　　RokDeBone2でユーザーがボーンの姿勢を編集し、マウスを離したときに呼び出されます。<BR>
+<BR>
+　　　　プラグインから呼び出せる命令の追加。<BR>
+　　　　　　RDBSetKeyFrameSRT2<BR>
+　　　　　　RDBFillUpMotion<BR>
+　　　　　　RDBGetSplineParams<BR>
+　　　　　　RDBSetSplineParams<BR>
+　　　　　　RDBCalcSplineParams<BR>
+<BR>
+　　　　これらの新しい命令はRokDeBone2 ver5.5.0.5以降にプラグインをインストールしたときにのみ使えます。<BR>
+<BR>
+</P>
+<P><A href="index.htm">トップページに戻る</A></P>
+<P><BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</P>
+</BODY>
+</HTML>

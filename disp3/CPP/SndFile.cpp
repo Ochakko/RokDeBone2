@@ -16,9 +16,12 @@
 #include <SndAnim.h>
 #include <SndKey.h>
 
-#include "c:\pgfile9\RokDeBone2DX\SoundBank.h"
-#include "c:\pgfile9\RokDeBone2DX\SoundSet.h"
-#include "c:\pgfile9\RokDeBone2DX\SoundElem.h"
+#include "..\..\RokDeBone2DX\SoundBank.h"
+#include "..\..\RokDeBone2DX\SoundSet.h"
+#include "..\..\RokDeBone2DX\SoundElem.h"
+
+#include <ATagHandler.h>
+#include <ATag.h>
 
 #include <crtdbg.h>
 
@@ -45,6 +48,33 @@ static char strsndelemend[256] = "#SndElem End\r\n";
 static char strendfile[256] = "#EndOfFile\r\n";
 
 
+/*
+
+#TagList Start
+	$keynum 10
+	#TagFrame Start
+		$frameno 146
+		$elemnum 1
+		#TagElem Start
+			$tagname lets.wav
+		#TagElem End
+	#TagFrame End
+
+	...
+
+#TagList End
+
+*/
+static char strtagstart[256] = "#TagList Start\r\n";
+static char strtagend[256] = "#TagList End\r\n";
+
+static char strtagframestart[256] = "#TagFrame Start\r\n";
+static char strtagframeend[256] = "#TagFrame End\r\n";
+
+static char strtagelemstart[256] = "#TagElem Start\r\n";
+static char strtagelemend[256] = "#TagElem End\r\n";
+
+
 CSndFile::CSndFile()
 {
 	InitParams();
@@ -65,6 +95,8 @@ int CSndFile::InitParams()
 	ZeroMemory( m_line, sizeof( char ) * SNDLINELEN );
 	m_anim = 0;
 	m_loadversion = 0;
+	m_tagh = 0;
+	m_curanimno = 0;
 	return 0;
 }
 int CSndFile::DestroyObjs()
@@ -118,7 +150,7 @@ int CSndFile::Write2File( char* lpFormat, ... )
 	return 0;
 }
 
-int CSndFile::WriteSndFile( char* filename, CSndAnim* srcanim, CSoundSet* ssptr )
+int CSndFile::WriteSndFile( char* filename, CSndAnim* srcanim, CSoundSet* ssptr, CATagHandler* tagh, int srcanimno )
 {
 	m_hfile = CreateFile( (LPCTSTR)filename, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_ALWAYS,
 		FILE_FLAG_SEQUENTIAL_SCAN, NULL );
@@ -138,6 +170,12 @@ int CSndFile::WriteSndFile( char* filename, CSndAnim* srcanim, CSoundSet* ssptr 
 		_ASSERT( 0 );
 		return 1;
 	}
+	m_tagh = tagh;
+	if( !m_tagh ){
+		_ASSERT( 0 );
+		return 1;
+	}
+	m_curanimno = srcanimno;
 
 	m_anim->CheckAndDelInvalid( m_ss );//チェック。不正データ削除。
 
@@ -155,6 +193,13 @@ int CSndFile::WriteSndFile( char* filename, CSndAnim* srcanim, CSoundSet* ssptr 
 	ret = WriteSndAnim();
 	if( ret ){
 		DbgOut( "SndFile : WriteSndFile : WriteSndAnim error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+	ret = WriteTagList();
+	if( ret ){
+		DbgOut( "SndFile : WriteSndFile : WriteTagList error !!!\n" );
 		_ASSERT( 0 );
 		return 1;
 	}
@@ -286,6 +331,57 @@ int CSndFile::WriteSndAnim()
 		free( keynoarray );
 	}
 	ret = Write2File( &(strsndend[0]) );
+	_ASSERT( !ret );
+
+	return 0;
+}
+
+
+int CSndFile::WriteTagList()
+{
+/*
+static char strtagstart[256] = "#TagList Start\r\n";
+static char strtagend[256] = "#TagList End\r\n";
+
+static char strtagelemstart[256] = "#TagElem Start\r\n";
+static char strtagelemend[256] = "#TagElem End\r\n";
+*/
+	int ret;
+
+	ret = Write2File( &(strtagstart[0]) );
+	_ASSERT( !ret );
+
+	unsigned int keynum = 0;
+	keynum = m_tagh->GetTagNum( m_curanimno );
+
+	ret = Write2File( "\t$keynum %d\r\n", keynum );
+	_ASSERT( !ret );
+
+	if( keynum > 0 ){
+		int keyno;
+		for( keyno = 0; keyno < keynum; keyno++ ){
+			CATag curtag;
+			ret = m_tagh->GetTag( m_curanimno, keyno, &curtag );
+			_ASSERT( !ret );
+
+			ret = Write2File( "\t%s", strtagelemstart );
+			_ASSERT( !ret );
+
+				ret = Write2File( "\t\t$tagname %s\r\n", curtag.GetName().c_str() );
+				_ASSERT( !ret );
+
+				ret = Write2File( "\t\t$start %f\r\n", curtag.GetStart() );
+				_ASSERT( !ret );
+		
+				ret = Write2File( "\t\t$end %f\r\n", curtag.GetEnd() );
+				_ASSERT( !ret );
+
+			ret = Write2File( "\t%s", strtagelemend );
+			_ASSERT( !ret );
+
+		}
+	}
+	ret = Write2File( &(strtagend[0]) );
 	_ASSERT( !ret );
 
 	return 0;
@@ -621,6 +717,133 @@ int CSndFile::ReadSndElem( SNDBUF* keybuf, SNDELEM* dstsnde )
 }
 
 
+int CSndFile::ReadTagList()
+{
+	int ret;
+	char* startpat;
+	char* endpat;
+	startpat = &(strtagstart[0]);
+	endpat = &(strtagend[0]);
+
+	char* startptr = 0;
+	char* endptr = 0;
+	startptr = strstr( m_sndbuf.buf, startpat );
+	endptr = strstr( m_sndbuf.buf, endpat );
+
+	if( !startptr || !endptr ){
+		//タグリストがないからリターン。
+		_ASSERT( 0 );
+		return 0;
+	}
+
+	int chkendpos;
+	chkendpos = (int)( endptr - m_sndbuf.buf );
+	if( (chkendpos >= (int)m_sndbuf.bufleng) || (endptr < startptr) ){
+		DbgOut( "SndFile : ReadTagList : endmark error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+	SNDBUF animbuf;
+	animbuf.buf = startptr;
+	animbuf.bufleng = (int)( endptr - startptr );
+	animbuf.pos = 0;
+	animbuf.isend = 0;
+
+	int keynum = 0;
+	ret = Read_Int( &animbuf, "$keynum ", &keynum );
+	if( ret || (keynum < 0) ){
+		DbgOut( "SndFile : ReadTagList : Read_Int keynum error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+	int keyno;
+	for( keyno = 0; keyno < keynum; keyno++ ){
+		ret = ReadTagElem( &animbuf );
+		if( ret ){
+			DbgOut( "SndFile : ReadTagList : ReadTagElem %d error !!!\n", keyno );
+			_ASSERT( 0 );
+			return 1;
+		}
+	}
+
+	return 0;
+}
+
+int CSndFile::ReadTagElem( SNDBUF* animbuf )
+{
+	int ret;
+	char* startptr = 0;
+	char* endptr = 0;
+	startptr = strstr( animbuf->buf + animbuf->pos, strtagelemstart );
+	endptr = strstr( animbuf->buf + animbuf->pos, strtagelemend );
+
+	if( !startptr || !endptr ){
+		DbgOut( "SndFile : ReadTagElem : key section pattern not found error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+	int chkendpos;
+	chkendpos = (int)( endptr - animbuf->buf );
+	if( (chkendpos >= (int)animbuf->bufleng) || (endptr < startptr) ){
+		DbgOut( "SndFile : ReadTagElem : endmark error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+	SNDBUF keybuf;
+	keybuf.buf = startptr;
+	keybuf.bufleng = (int)( endptr - startptr );
+	keybuf.pos = 0;
+	keybuf.isend = 0;
+	
+	char tagname[256];
+	ZeroMemory( tagname, sizeof( char ) * 256 );
+	ret = Read_Str( animbuf, "$tagname ", tagname, 256 );
+	if( ret ){
+		DbgOut( "SndFIle : ReadTagElem : Read_Str tagname error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+	float fstart = 0.0f;
+	ret = Read_Float( animbuf, "$start ", &fstart );
+	if( ret || (fstart < 0.0f) ){
+		DbgOut( "SndFile : ReadTagElem : Read_Float start error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+	float fend = 0.0f;
+	ret = Read_Float( animbuf, "$end ", &fend );
+	if( ret || (fstart < 0.0f) ){
+		DbgOut( "SndFile : ReadTagElem : Read_Float end error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+
+	ret = m_tagh->AddTag( m_curanimno, (const double)fstart, (const double)fend, tagname );
+	if( ret ){
+		DbgOut( "SndFile : ReadTagElem : AddTag error !!!\n" );
+		_ASSERT( 0 );
+		return 1;
+	}
+
+	//_ASSERT( 0 );
+
+
+
+	int nextpos;
+	nextpos = chkendpos + (int)strlen( strtagelemend );
+	animbuf->pos = nextpos;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+	return 0;
+}
+
+
 int CSndFile::DeleteAnim( CSndAnimHandler* srcsndah )
 {
 	int ret;
@@ -863,7 +1086,7 @@ int CSndFile::Read_Str( SNDBUF* sndbuf, char* srcpat, char* dststr, int arraylen
 
 
 
-int CSndFile::LoadSndFile( char* filename, CSndAnimHandler* srcsndah, CSoundBank* sbptr, CSndAnim** ppanim )
+int CSndFile::LoadSndFile( char* filename, CSndAnimHandler* srcsndah, CSoundBank* sbptr, CSndAnim** ppanim, CATagHandler* srctagh )
 {
 	int ret;
 
@@ -875,6 +1098,7 @@ int CSndFile::LoadSndFile( char* filename, CSndAnimHandler* srcsndah, CSoundBank
 	}
 	m_anim = 0;
 	m_mode = SNDFILE_LOAD;
+	m_tagh = srctagh;
 
 	m_hfile = CreateFile( (LPCTSTR)filename, GENERIC_READ, 0, NULL, OPEN_EXISTING,
 		FILE_FLAG_SEQUENTIAL_SCAN, NULL );
@@ -931,6 +1155,16 @@ int CSndFile::LoadSndFile( char* filename, CSndAnimHandler* srcsndah, CSoundBank
 		return 1;
 	}
 
+	
+	m_curanimno = m_anim->m_motkind;
+
+	ret = ReadTagList();
+	if( ret ){
+		DbgOut( "SndFile : LoadSndFile : ReadTagList error !!!\n" );
+		_ASSERT( 0 );
+		DeleteAnim( srcsndah );
+		return 1;
+	}
 
 	*ppanim = m_anim;
 

@@ -187,6 +187,7 @@ typedef struct tag_bld
 	float mult;
 	int flag;
 	int mode;
+	int hsid;
 }BLD;
 
 typedef struct tag_SNDELEM

@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><B><FONT size="+2">グローの使い方</FONT></B><BR>
+<BR>
+グローとは発光しているように見せるためのポストエフェクトです。<BR>
+発光している部分の周囲は多少ぼけて光が広がっているような表示になります。<BR>
+<BR>
+グローは任意の場所を光らせることが出来ます。<BR>
+発光する部分の指定はテクスチャで行います。<BR>
+テクスチャのアルファ成分に０を指定した所は発光せず、アルファ成分に０以外を指定した部分が光ります。<BR>
+アルファ成分が大きければ大きいほど強い発光になります。<BR>
+RokDeBone2, Easy3Dのグローはこのようにテクスチャで指定するので<BR>
+グローを使用するには必ずアルファ付きのテクスチャ設定が必要です。<BR>
+テクスチャファイルにはpng、ddsなどを使うと良いでしょう。<BR>
+<BR>
+グロー設定方法について説明します。<BR>
+まず「材質」--&gt;「面マテリアル」メニューを選択し面マテリアル設定ダイアログを出します。<BR>
+このダイアログの上のリストボックスでグローを設定したいマテリアル名をマウスでクリックした後、<BR>
+「テクスチャの設定画面へ」ボタンを押します。<BR>
+<BR>
+すると図１のようなダイアログが出ます。<BR>
+<IMG src="jpegfiles/rdb2_glowsetting.png" width="550" height="654" border="0"><BR>
+図１　：　テクスチャ設定ダイアログ<BR>
+<BR>
+テクスチャ設定ダイアログのテクスチャモードで<BR>
+「グロー」または「グロー＋半透明」のモードを選びます。<BR>
+<BR>
+「グロー」モードはテクスチャのアルファ成分をグローの指定のみに使用するモードです。<BR>
+このモードではテクスチャのアルファ成分による透過表示は行われません。<BR>
+よって、通常に表示する場合アルファが０の部分も不透明で表示されます。<BR>
+<BR>
+「グロー＋半透明」モードはテクスチャのアルファ成分をグローの指定に使うと同時に<BR>
+透過表示にも使用します。<BR>
+つまりアルファ成分が０になっている部分は通常表示時に表示されません。<BR>
+<BR>
+モードを選んだら必ず「テクスチャファイル名」のところでグロー用のテクスチャを追加します。<BR>
+グローモードを選んでもテクスチャが追加されていないと有効になりません。<BR>
+設定したら「OK」ボタンを押します。<BR>
+<BR>
+グローの表示を確認するにはツールバーの「グ」ボタンを押します（図２）。<BR>
+<IMG src="jpegfiles/rdb2_gubutton.png" width="688" height="141" border="0"><BR>
+図２　：　「グ」ボタン<BR>
+<BR>
+「グ」ボタンを押すと図３のようなグローを反映した表示ウインドウのあるダイアログが出ます。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_glowviewdlg.png" width="450" height="459" border="0"><BR>
+図３　：　グロー確認ダイアログ<BR>
+<BR>
+グロー確認ダイアログでグローが弱すぎたり強すぎたりした場合は図１のダイアログで調整が出来ます。<BR>
+図１のテクスチャ設定ダイアログの「グロー倍率」のところで発光色のRGB成分をそれぞれ何倍するかを指定できます。<BR>
+グローはHDRではないので非常に大きい値を入れても値が飽和してしますので強くするには限界があります。<BR>
+<BR>
+グロー倍率のRGBのそれぞれの値を異なる値に設定すれば発光の色味を変えることが出来ます。<BR>
+図４は赤の倍率を青と緑の倍率よりも高くした時の図です。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_glowmultred.png" width="445" height="461" border="0"><BR>
+図４　：　グロー色の色味の調整。<BR>
+<BR>
+<BR>
+<BR>
+Easy3Dでの使用について。<BR>
+Easy3DでもRokDeBone2と同様のグローを表示できます。<BR>
+詳しくはe3dhsp3_glow.hsp（HSP）またはGlowソリューション（C++）をご覧ください。<BR>
+<BR>
+Easy3DのサンプルよりもRokDeBone2の表示の方が発光が強いと感じるかもしれません。<BR>
+これはライトの強さの違いによるものです。<BR>
+RokDeBone2のライトはデフォルトではRGB（255, 255, 255）になっていますが<BR>
+Easy3DのサンプルのライトはRGB(200, 200, 200)にしています。<BR>
+ライトの強さを揃えればRokDeBone2とEasy3Dで同じ表示をすることが出来ます。<BR>
+<BR>
+Easy3Dの方がグローの具合をいろいろ調整できるようになっています。<BR>
+グロー倍率はE3DSetMaterialGlowParamsでリアルタイムに変更できます。<BR>
+変更コストも低いです。<BR>
+ガウスぼかしのdispersion引数を調整すればボケ具合も変えることが出来るでしょう。<BR>
+（RokDeBone2のdispersionの値は２０．０ｆです。）<BR>
+<BR>
+<A href="rokdebone.htm">RokDeBone2のトップページに戻る<BR>
+<BR>
+</A><A href="index.htm">トップページに戻る</A><A href="rokdebone.htm"><BR>
+<BR>
+<BR>
+</A></P>
+</BODY>
+</HTML>

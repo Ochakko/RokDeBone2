@@ -627,13 +627,20 @@ int CMQOFile::CheckFileVersion()
 	}
 
 	char pat2[] = "Format Text Ver 1.0";
+	char pat3[] = "Format Text Ver 1.1";
 	int pat2leng = (int)strlen( pat2 );
+	int pat3leng = (int)strlen( pat3 );
 	int cmp2 = 1;//!!!
+	int cmp3 = 1;//!!!
 
 	if( pat2leng <= leng2 )
 		cmp2 = strncmp( pat2, m_linechar, pat2leng );
+	if( pat3leng <= leng2 )
+		cmp3 = strncmp( pat3, m_linechar, pat3leng );
 
-	if( cmp2 ){
+
+
+	if( cmp2 && cmp3 ){
 		if( m_apphwnd )
 			::SendMessage( m_apphwnd, WM_USER_ENABLE_MENU, 0, 0 );
 		::MessageBox( m_apphwnd, "このfile versionには、対応していません。\n読み込めません。", "読み込みエラー", MB_OK );

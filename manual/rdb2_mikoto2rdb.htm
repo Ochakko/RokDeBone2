@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>mikoto用のデータを、RokDeBone2で使用するには。</B></FONT></P>
+<P><BR>
+RokDeBone2 ver1.0.6.2から、標準機能として、mikoto用のmqo読み込み機能が付きました。<BR>
+mqo読み込み時に、「mikoto形式のポリゴンのボーンデータを含む」を選択してください。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_mqodlg.jpg" width="374" height="271" border="0"><BR>
+<BR>
+<BR>
+　　　読み込み倍率は、５から８倍がいいと思います。<BR>
+<BR>
+　　　関節の曲がり方に、問題がある場合は、<A href="rdb2_influence.htm">影響度の設定方法</A>で、<BR>
+　　　影響範囲の設定を調整してください。<BR>
+<BR>
+<BR>
+　　　また、今のバージョンは、アンカー形状に制限があります。<BR>
+　　　　　へこんだ形状には、対応していません。<BR>
+　　　　　１つのアンカーに、複数の立体を指定することは出来ません（これをすると、アンカー内に頂点が入っていないと判定されます）<BR>
+<BR>
+　　　mikotoデータ読み込み時には、RokDeBone2の、階層構造エディタでの、影響ボーンの設定機能は、使えません。<BR>
+<BR>
+<BR>
+　　　GENKIさんのホームページにmikoto形式データをRokDeBone2で使うための解説があります。<BR>
+　　　こちらもあわせてご覧ください。<BR>
+　　　<A href="http://homepage3.nifty.com/ghpk/e3d/e3d001.htm#rdb">http://homepage3.nifty.com/ghpk/e3d/e3d001.htm#rdb</A><BR>
+<BR>
+<BR>
+<BR>
+<FONT color="#ff0000">///// 以下は、ver1.0.6.2以前の情報です</FONT>。<BR>
+<BR>
+<BR>
+このページでは、mikoto用のデータをRokDeBone2で使用するための説明をします。<BR>
+まずは、mikoto用のデータと、RokDeBone2のデータで、どこが違うのかを見てみましょう。<BR>
+<BR>
+<FONT size="+1"><B>１，mikotoとRokDeBone2のデータの違い</B></FONT><BR>
+<BR>
+大きな違いとして２つあります。<BR>
+ボーンデータの入れ方の違いと、影響度の指定方法の違いです。<BR>
+<BR>
+<B>１－１、ボーンデータの違い</B><BR>
+<BR>
+mikotoでも、RokDeBone2でも、ボーンデータは形状データに入れることになります。<BR>
+それぞれのボーンの形状を、図で示します。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_miko_mikobone.jpg" width="386" height="363" border="0"><BR>
+<BR>
+上の図が、mikoto用のボーンのデータです。<BR>
+それぞれのボーンは、三角形データとして、入力します。<BR>
+<BR>
+それに対して、RokDeBone2用のボーンのデータは、下の図のようになります。<BR>
+ボーンは、線形上で入力します。<BR>
+親子関係は、データには含まれません。<BR>
+<A href="rdb2_bonefile.htm">ボーンファイル</A>というテキストファイルで、ボーンの名前と階層構造を、<BR>
+一括して、指定することが可能です。<BR>
+<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_miko_rdb2bone.jpg" width="383" height="340" border="0"><BR>
+<BR>
+<BR>
+<B>１－２、影響度指定方法の違い</B><BR>
+<BR>
+次に、影響度指定方法の違いを、図で示します。<BR>
+<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_miko_mikoinf.jpg" width="383" height="338" border="0"><BR>
+<BR>
+上の図が、mikoto用の、影響度を指定するためのデータです。<BR>
+ボックスオブジェクトによって、範囲を指定します。<BR>
+<BR>
+それに対し、RokDeBone2では、形状データには、影響度を表すデータは含まれません。<BR>
+モデルデータ自体を、あらかじめ、パーツごとに分けておき、<BR>
+RokDeBone2上で、<BR>
+下の図に示す、影響を受けるボーンの指定ダイアログにより、指定します。<BR>
+また、<A href="rdb2_bim.htm">影響マップファイル</A>というテキストファイルによる、細かい指定も可能です。<BR>
+<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_miko_rdb2inf.jpg" width="580" height="456" border="0"><BR>
+<BR>
+<BR>
+もっと、詳しく、RokDeBone2のボーンデータの作り方について、知りたい方は、<BR>
+<A href="rdb2_putbone.htm">ボーンの入れ方のページ</A>をご覧ください。<BR>
+<BR>
+<BR>
+<B><FONT size="+1">２，mikoto用のデータを、RokDeBone2で使用するには</FONT></B><BR>
+<BR>
+さて、２つのデータの違いが分かったところで、<BR>
+データを変換してみましょう。<BR>
+<BR>
+データの変換には、らんまるさんの作った、mikoto_to_RDBを使います。<BR>
+mikoto_to_RDBは、<A href="userstool.htm">ユーザーさんの支援ツールのページ</A>からダウンロードできます。<BR>
+<BR>
+コマンドプロンプトに、命令を１個、書くことにより、<BR>
+mikoto用のmqoファイルから、<BR>
+RokDeBone2用のmqoファイル（out.mqo）と、ボーンファイル(out.bon)が作成されます。<BR>
+<BR>
+つまり、三角のボーンデータが、線のボーンデータに変換され（out.mqo）、<BR>
+ボーンの名前と階層構造が、ボーンファイル（out.bon）に変換されるわけです。<BR>
+<BR>
+RokDeBone2を起動して、out.mqo, out.bonの順に、fileメニューから読み込めば、<BR>
+mikoto用に作ったデータが、RokDeBone2で使用できることになります。<BR>
+<BR>
+現在の、mikoto_to_RDBでは、ボーンの影響度については、まだ、実装されていないので、<BR>
+out.mqo, out.bonを読み込んだ後、影響を受けるボーンの指定ダイアログで、<BR>
+影響度を設定しなければなりません。<BR>
+詳しくは、<A href="rdb2_putbone.htm">ボーンデータの入れ方のページ</A>の該当部分をご覧ください。<BR>
+<BR>
+ですが、<B>mikoto_to_RDBの今後のバージョンで、mikoto用のmqoファイルから、<BR>
+<A href="rdb2_bim.htm">影響マップファイル</A>も作成する予定です。</B><BR>
+<BR>
+<BR>
+影響マップ出力機能が実装されれば、<BR>
+out.mqo, out.bonと、影響マップファイルを読み込むことにより、<BR>
+面倒な設定をせずに、<BR>
+mikotoにより近い形で、RokDeBone2上で、データを扱えるようになる予定です。<BR>
+<BR>
+<BR>
+</P>
+<P><A href="rokdebone.htm">RokDeBone2のページに戻る</A></P>
+<P><A href="index.htm">トップページに戻る</A><BR>
+</P>
+</BODY>
+</HTML>

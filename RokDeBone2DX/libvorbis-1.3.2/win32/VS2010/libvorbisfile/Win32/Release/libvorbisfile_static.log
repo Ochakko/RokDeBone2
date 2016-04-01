@@ -1,0 +1,38 @@
+﻿2011/01/28 11:29:52 にビルドを開始しました。
+     1>ノード 2 上のプロジェクト "D:\pgfile9\libvorbis-1.3.2\win32\VS2010\libvorbisfile\libvorbisfile_static.vcxproj" (build ターゲット)。
+     1>InitializeBuildStatus:
+         "AlwaysCreate" が指定されたため "Win32\Release\libvorbisfile.unsuccessfulbuild" を作成しています。
+       ClCompile:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I..\..\..\include /I..\..\..\..\libogg\include /I"..\..\..\..\libogg-1.2.0\include" /I..\..\..\..\ogg\include /I..\..\..\..\..\..\..\core\ogg\libogg\include /Zi /nologo /W3 /WX- /O2 /Oy- /D WIN32 /D NDEBUG /D _WINDOWS /D _USRDLL /D LIBVORBISFILE_EXPORTS /D _VC80_UPGRADE=0x0710 /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Win32\Release\\" /Fd"Win32\Release\vc100.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\..\lib\vorbisfile.c
+         vorbisfile.c
+     1>..\..\..\lib\vorbisfile.c(259): warning C4244: '関数' : 'ogg_int64_t' から 'long' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(273): warning C4244: '=' : 'ogg_int64_t' から 'int' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(539): warning C4244: 'return' : 'ogg_int64_t' から 'int' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(566): warning C4244: 'return' : 'ogg_int64_t' から 'int' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(570): warning C4244: 'return' : 'ogg_int64_t' から 'int' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(580): warning C4244: 'return' : 'ogg_int64_t' から 'int' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(642): warning C4244: 'return' : 'ogg_int64_t' から 'int' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(875): warning C4244: '関数' : 'ogg_int64_t' から 'long' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(1013): warning C4996: 'fopen': This function or variable may be unsafe. Consider using fopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+                 C:\Program Files\Microsoft Visual Studio 10.0\VC\include\stdio.h(234) : 'fopen' の宣言を確認してください。
+     1>..\..\..\lib\vorbisfile.c(1115): warning C4244: '=' : 'double' から 'float' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(1116): warning C4244: 'return' : 'double' から 'long' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(1120): warning C4244: 'return' : 'double' から 'long' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(1148): warning C4244: '=' : 'double' から 'long' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(1676): warning C4244: '=' : 'ogg_int64_t' から 'long' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(1713): warning C4244: '初期化中' : 'double' から 'ogg_int64_t' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(1743): warning C4244: '初期化中' : 'double' から 'ogg_int64_t' への変換です。データが失われる可能性があります。
+     1>..\..\..\lib\vorbisfile.c(2079): warning C4244: '初期化中' : 'double' から 'float' への変換です。データが失われる可能性があります。
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(1151,5): warning MSB8012: TargetPath(D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\libvorbisfile.lib) が Library の OutputFile プロパティ値 (D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\libvorbisfile_static.lib) と一致しません。このため、プロジェクトが正常にビルドされない可能性があります。この問題を解決するには、$(OutDir)、$(TargetName)、および $(TargetExt) の各プロパティ値が、%(Lib.OutputFile) で指定されている値と一致することを確認してください。
+     1>C:\Program Files\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(1153,5): warning MSB8012: TargetName(libvorbisfile) が Library の OutputFile プロパティ値 (libvorbisfile_static) と一致しません。このため、プロジェクトが正常にビルドされない可能性があります。この問題を解決するには、$(OutDir)、$(TargetName)、および $(TargetExt) の各プロパティ値が、%(Lib.OutputFile) で指定されている値と一致することを確認してください。
+       Lib:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\Lib.exe /OUT:"D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\libvorbisfile_static.lib" /NOLOGO Win32\Release\vorbisfile.obj
+         libvorbisfile_static.vcxproj -> D:\pgfile9\libvorbis-1.3.2\win32\VS2010\Win32\Release\libvorbisfile.lib
+       FinalizeBuildStatus:
+         ファイル "Win32\Release\libvorbisfile.unsuccessfulbuild" を削除しています。
+         "Win32\Release\libvorbisfile.lastbuildstate" のタッチ タスクを実行しています。
+     1>プロジェクト "D:\pgfile9\libvorbis-1.3.2\win32\VS2010\libvorbisfile\libvorbisfile_static.vcxproj" (build ターゲット) のビルドが完了しました。
+
+ビルドに成功しました。
+
+経過時間 00:00:00.67

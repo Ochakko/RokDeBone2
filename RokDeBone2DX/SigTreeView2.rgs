@@ -1,0 +1,31 @@
+HKCR
+{
+	RokDeBone2.SigTreeView2.1 = s 'SigTreeView2 Class'
+	{
+		CLSID = s '{6CC111E2-2D14-4C9D-A25D-CD98C36D1A8F}'
+	}
+	RokDeBone2.SigTreeView2 = s 'SigTreeView2 Class'
+	{
+		CLSID = s '{6CC111E2-2D14-4C9D-A25D-CD98C36D1A8F}'
+		CurVer = s 'RokDeBone2.SigTreeView2.1'
+	}
+	NoRemove CLSID
+	{
+		ForceRemove {6CC111E2-2D14-4C9D-A25D-CD98C36D1A8F} = s 'SigTreeView2 Class'
+		{
+			ProgID = s 'RokDeBone2.SigTreeView2.1'
+			VersionIndependentProgID = s 'RokDeBone2.SigTreeView2'
+			ForceRemove 'Programmable'
+			LocalServer32 = s '%MODULE%'
+			val AppID = s '%APPID%'
+			ForceRemove 'Control'
+			ForceRemove 'ToolboxBitmap32' = s '%MODULE%, 102'
+			'MiscStatus' = s '0'
+			{
+			    '1' = s '%OLEMISC%'
+			}
+			'TypeLib' = s '{424F9DA3-F6DC-4565-919B-1591D72CA727}'
+			'Version' = s '1.0'
+		}
+	}
+}

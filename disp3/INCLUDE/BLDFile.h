@@ -2,6 +2,7 @@
 #define BLDFILEH
 
 #include <D3DX9.h>
+#include <Coef.h>
 
 #define BLDLINELEN	4096
 
@@ -66,6 +67,19 @@ public:
 	BLD m_moebld;
 
 	char m_dir[MAX_PATH];
+
+	int m_tagplayend;
+	int m_playflag;
+	int m_stopflag;
+
+	int m_bgmstartcnt;
+	int m_bgmendcnt;
+	int m_sndframeno;
+	int m_sndframeoffset;
+
+	int m_soundsetid;
+	int m_bgmid;
+
 };
 
 

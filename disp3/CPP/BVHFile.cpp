@@ -36,7 +36,7 @@
 #include <dbg.h>
 
 #ifndef INEASY3D
-#include "c:\pgfile9\RokDeBone2DX\MotParamDlg.h"
+#include "..\..\RokDeBone2DX\MotParamDlg.h"
 #endif
 
 enum {

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 11.0.0.0 for Windows">
+<META http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2"><B>透明度アニメについて</B></FONT><BR>
+<BR>
+RokDeBone2 ver5.3.1.5から透明度のキーフレームアニメーションが出来るようになりました。<BR>
+透明度アニメ設定はAlphaタブで行います。<BR>
+図１にAlphaタブを示します。<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_alphaanim.png" width="706" height="532" border="0"><BR>
+図１：アルファタブを選択したところ<BR>
+<BR>
+<BR>
+透明度アニメはマルチレイヤーモーションへ対応するために任意のボーンに情報を格納できます。<BR>
+どのボーンに情報を格納するかを決めて階層構造エディタでボーンを選択してから設定を始めてください。<BR>
+どのボーンに情報を格納するかはAlphaタブの左側に表示されています。（図ではTopOfmat1）<BR>
+<BR>
+<BR>
+Alphaタブでマテリアルごとに透明度のキーを作成できます。<BR>
+まず下にあるタイムラインのスライダーをキーを作りたいフレーム番号に合わせます。<BR>
+そして中央の表のマテリアル名のところ（図では例えば「body」とか）をマウスでクリックします。<BR>
+クリックすると透明度の数値設定ダイアログが出てくるのでそこで透明度を指定するとキーが作成されます。<BR>
+マテリアル名をクリックしても設定ダイアログが出ない場合は、もう一度クリックしてください。<BR>
+<BR>
+タイムスライダーの位置にキーが存在する項目には透明度の数値の頭にに「＊」が付いて表示されます。<BR>
+キーが存在しない場合は、キーとキーの間を補間計算した数値が「＊」無しで表示されます。<BR>
+<BR>
+<BR>
+透明度アニメはquaファイルに保存されます。<BR>
+設定後はFileメニューからquaの保存をしてください。<BR>
+<BR>
+<BR>
+<FONT color="#ff0000">注意して欲しいのは透明度アニメは半透明のマテリアルにしか使えないということです。</FONT><BR>
+不透明（アルファ１．０）のマテリアルに透明度アニメを設定するとその部分は表示されなくなります。<BR>
+<BR>
+これを避けるには<FONT color="#ff0000">面マテリアルの設定であらかじめマテリアルの透明度を０．９９などの数値にしておきます。</FONT><BR>
+「材質」--&gt;「面マテリアル」メニューを選択して出てきたダイアログで透明度を０．９９にしている例を図２に示します。<BR>
+<BR>
+<BR>
+<IMG src="jpegfiles/rdb2_alpha099.png" width="367" height="607" border="0"><BR>
+図２：アルファ０．９９<BR>
+<BR>
+このアルファの設定はsigに保存されるので、設定後Fileメニューからsigファイルを保存してください。<BR>
+<BR>
+<BR>
+<A href="index.htm">トップページに戻る</A><BR>
+</P>
+</BODY>
+</HTML>

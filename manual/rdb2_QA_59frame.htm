@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta name="GENERATOR" content="JustSystems Homepage Builder Version 16.0.4.0 for Windows">
+<title>RokDeBone2 Q&amp;A: どうやったらフレーム番号を５９より上に出来ますか？</title>
+</head>
+<body>
+<p><font size="+1"><b>Q&amp;A: どうやったらフレーム番号を５９より上にすることが出来ますか？</b></font><br>
+</p>
+<p><img src="jpegfiles/rdb2_59f_load.png" width="686" height="508" border="0"><br>
+図１：モデルデータ読み込み直後の状態<br>
+<br>
+図１にモデルデータを読み込んだ直後の図を示します。<br>
+表示範囲は２つのスライドバーを操作して変更します。<br>
+まず上の方のスライドバーの上に書いてある文字を読んでください。<br>
+<br>
+「frameno: current 0, start 0, end 59, total 60」<br>
+と書いてあります。<br>
+<br>
+currentの数字は現在のフレーム番号で<br>
+startの数字は表示範囲の最初のフレームで<br>
+endの数字は表示範囲の最後のフレームで<br>
+totalの数字はフレーム長です。<br>
+<br>
+つまり初期状態ではモーションの長さが６０フレームで<br>
+その最初から最後までが表示範囲に設定されていることになります。<br>
+<br>
+この状態ではいくらスライダーを動かしても<br>
+フレーム番号を５９より上にすることは出来ません。<br>
+<br>
+(フレーム長 - 1)より大きなフレーム番号は、どうやっても表示できないのです。<br>
+ここでは２００フレームのモーションの作り方を説明します。<br>
+<br>
+まず、「設定」ボタンを押します。<br>
+すると図２のようなダイアログが出ます。<br>
+<br>
+<br>
+<img src="jpegfiles/rdb2_59f_200f.png" width="385" height="482" border="0"><br>
+図２：設定ボタンを押してフレーム長を設定<br>
+<br>
+「総フレーム数」のところに２００と入れてダイアログのOKボタンを押します。<br>
+すると図３のようになります。<br>
+<br>
+<br>
+<br>
+<img src="jpegfiles/rdb2_59f_200f_2.png" width="687" height="257" border="0"><br>
+図３：フレーム長が２００に変更された<br>
+<br>
+totalの数字が２００に変更されました。<br>
+しかしstartは０でendは５９になっているので<br>
+この状態では上の方のスライダーを動かしても<br>
+０から５９フレームまでしか操作できません。<br>
+<br>
+ここからが下のほうのスライドバーの出番です。<br>
+下のほうのスライダーの先頭は０フレームで末尾は(フレーム長 - 1)になります。<br>
+<br>
+上の方のスライダーの可動範囲は、下のほうのスライダーの色の付いている部分に対応するフレーム番号になります。<br>
+<br>
+では下のほうのスライダーを動かしてみましょう。<br>
+<br>
+<br>
+<img src="jpegfiles/rdb2_59f_70start.png" width="686" height="247" border="0"><br>
+図４：フレーム表示範囲を変更する<br>
+<br>
+下のほうのスライダーを動かしました。<br>
+図４のように７個目の目盛りまで動かすと<br>
+current 70, start 70, end 129となりました。<br>
+<br>
+これは表示範囲が７０から１２９フレームになり、現在のフレーム番号が７０になったことを示します。<br>
+このように下のスライドバーで表示範囲を設定します。<br>
+<br>
+表示範囲は数値でも設定可能です。<br>
+スライダーの右の方に「開始位置」と「表示幅」という入力ボックスがあります。<br>
+<br>
+ここに数値を入力し、適用ボタンを押すことで表示範囲を変更できます。<br>
+<br>
+例えば一度に全部のフレームを見れるようにしてみましょう。<br>
+<br>
+<br>
+<img src="jpegfiles/rdb2_59f_allview.png" width="686" height="240" border="0"><br>
+図５：全てのフレームを一度に見えるようにする<br>
+<br>
+「表示開始位置」に０を記入して「--&gt;位置適用」ボタンを押し<br>
+「表示幅」にフレーム長と同じ数字を入力して「--&gt;幅適用」ボタンを押します。<br>
+<br>
+すると<br>
+current 0, start 0, end 199, total 200<br>
+となり<br>
+２００フレーム長の最初から最後まで<br>
+つまりフレーム０からフレーム１９９までを上の方のスライダーで操作できるようになりました。<br>
+<br>
+</p>
+<p><br>
+<br>
+<a href="rokdebone.htm">RokDeBone2のトップページに戻る</a><BR>
+<BR>
+<a href="index.htm">トップページに戻る</a><BR>
+</p>
+</body>
+</html>

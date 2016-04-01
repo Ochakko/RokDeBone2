@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=SHIFT_JIS">
+<META name="GENERATOR" content="IBM WebSphere Studio Homepage Builder Version 9.0.0.0 for Windows">
+<META http-equiv="Content-Style-Type" content="text/css">
+<TITLE></TITLE>
+</HEAD>
+<BODY>
+<P><FONT size="+2">IM2ボーン影響マップファイルと、鏡面の問題</FONT><BR>
+<BR>
+支援ツールのEye's Paintまたは、E3DVertexPaintを使うと、<BR>
+頂点単位で、ボーンの影響範囲を設定できますが、<BR>
+気を付けてもらいたい点があります。<BR>
+<BR>
+メタセコイアで、鏡面の設定をしている場合です。<BR>
+<A href="rdb2_im2file.htm">im2ファイルの仕様</A>を見ると、お分かりいただけるように、<BR>
+mqoファイル中での頂点の番号をもとに、影響範囲を設定します。<BR>
+<BR>
+そのため、鏡面設定をして、フリーズしていないmqoファイルからsigを作り、<BR>
+im2ファイルを設定しようとしたときに、不具合が生じます。<BR>
+（フリーズしていないと、その分の、頂点番号が存在しないため。）<BR>
+<BR>
+ですので、<FONT size="+1" color="#800080">影響マップファイルim2を使用したい場合には、<BR>
+メタセコイアの<U>鏡面をフリーズ</U>してから、RokDeBone2で読み込んでください。<BR>
+</FONT><FONT color="#800080"><BR>
+<BR>
+<BR>
+<BR>
+<BR>
+</FONT><A href="rokdebone.htm">RokDeBone2のトップページに戻る</A><BR>
+<BR>
+<A href="index.htm">トップページに戻る</A><BR>
+</P>
+</BODY>
+</HTML>
