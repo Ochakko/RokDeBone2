@@ -1,0 +1,40 @@
+RokDeBone2 SoundSetFile ver1001 type00
+$SoundSetNum 1
+
+#SoundSet Start
+	$name "bucho_dance"
+	$dirname "sounds"
+	$effectnum 5
+	#BGM Start
+		$name "bgm.ogg"
+		$reverb 0
+	#BGM End
+
+	#Effect Start
+		$name "1.wav"
+		$reverb 0
+		$bufnum 8
+	#Effect End
+	#Effect Start
+		$name "2.wav"
+		$reverb 0
+		$bufnum 8
+	#Effect End
+	#Effect Start
+		$name "3.wav"
+		$reverb 0
+		$bufnum 8
+	#Effect End
+	#Effect Start
+		$name "4.wav"
+		$reverb 0
+		$bufnum 8
+	#Effect End
+	#Effect Start
+		$name "lets.wav"
+		$reverb 0
+		$bufnum 1
+	#Effect End
+#SoundSet End
+
+#EndOfFile

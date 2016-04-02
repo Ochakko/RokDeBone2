@@ -1,0 +1,192 @@
+Motion Accelerator File ver5.0 type01
+
+#FULENG {
+	5
+}
+
+#EVENTKEY {
+}
+
+#TRUNK {
+	"walk", "walk.qua", "Normal0", 0, 0, 0, 0
+	"idle", "idle.qua", "Idling0", 0, 30, 0, 0
+	"pick_up", "pick_up.qua", "Normal0", 0, 0, 0, 0
+	"pick_down", "pick_down.qua", "Normal0", 0, 0, 0, 0
+	"pick_down2", "pick_down2.qua", "Normal0", 0, 0, 0, 0
+	"pick_inside", "pick_inside.qua", "Normal0", 0, 0, 0, 0
+	"pick_outside", "pick_outside.qua", "Normal0", 0, 0, 0, 0
+	"pick_dance", "pick_dance.qua", "Normal0", 0, 0, 0, 0
+	"pick_dance2", "pick_dance2.qua", "Normal0", 0, 0, 0, 0
+	"pick_dance3", "pick_dance3.qua", "Normal0", 0, 0, 0, 0
+	"koke2", "koke2.qua", "Normal0", 0, 0, 0, 0
+	"zukkoke", "zukkoke.qua", "Normal0", 0, 0, 0, 0
+	"nobi", "nobi.qua", "Normal0", 0, 0, 0, 0
+	"jump_left", "jump_left.qua", "Normal0", 0, 0, 0, 0
+	"jump_right", "jump_right.qua", "Normal0", 0, 0, 0, 0
+	"long", "long.qua", "Normal0", 0, 0, 0, 0
+	"talk", "talk.qua", "Normal0", 0, 0, 0, 0
+	"intro", "intro.qua", "Normal0", 0, 0, 0, 0
+	"shakehip", "shakehip.qua", "Normal0", 0, 0, 0, 0
+	"talk_cool", "talk_cool.qua", "Normal0", 0, 0, 0, 0
+}
+
+#BRANCH "walk" {
+	"intro", 21, -1, 0, 0
+}
+
+#BRANCH "idle" {
+	"pick_up", 1, -1, 0, 0
+	"pick_up", 2, -1, 0, 0
+	"pick_up", 3, -1, 0, 0
+	"pick_up", 4, -1, 0, 1
+	"pick_outside", 5, -1, 0, 0
+	"pick_inside", 6, -1, 0, 0
+	"pick_dance", 7, -1, 0, 0
+	"pick_dance2", 8, -1, 0, 0
+	"pick_dance3", 9, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+	"intro", 21, -1, 0, 0
+	"shakehip", 22, -1, 0, 0
+}
+
+#BRANCH "pick_up" {
+	"pick_down", 1, -1, 0, 0
+	"pick_down", 2, -1, 0, 0
+	"pick_down2", 3, -1, 0, 0
+	"pick_down2", 4, -1, 0, 0
+	"pick_outside", 5, -1, 0, 0
+	"pick_inside", 6, -1, 0, 0
+	"pick_dance", 7, -1, 0, 0
+	"pick_dance2", 8, -1, 0, 0
+	"pick_dance3", 9, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "pick_down" {
+	"pick_down2", 2, -1, 0, 0
+	"pick_down2", 3, -1, 0, 0
+	"pick_down2", 4, -1, 0, 0
+	"pick_outside", 5, -1, 0, 0
+	"pick_inside", 6, -1, 0, 1
+	"pick_dance", 7, -1, 0, 0
+	"pick_dance2", 8, -1, 0, 0
+	"pick_dance3", 9, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "pick_down2" {
+	"pick_down", 1, -1, 0, 0
+	"pick_down", 2, -1, 0, 0
+	"pick_down", 3, -1, 0, 0
+	"pick_down", 4, -1, 0, 0
+	"pick_outside", 5, -1, 0, 0
+	"pick_inside", 6, -1, 0, 0
+	"pick_dance", 7, -1, 0, 0
+	"pick_dance2", 8, -1, 0, 0
+	"pick_dance3", 9, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "pick_inside" {
+	"pick_outside", 1, -1, 0, 0
+	"pick_down", 2, -1, 0, 0
+	"pick_up", 3, -1, 0, 0
+	"pick_up", 4, -1, 0, 0
+	"pick_outside", 5, -1, 0, 0
+	"pick_dance", 7, -1, 0, 0
+	"pick_dance2", 8, -1, 0, 0
+	"pick_dance3", 9, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "pick_outside" {
+	"pick_up", 1, -1, 0, 0
+	"pick_up", 2, -1, 0, 0
+	"pick_up", 3, -1, 0, 0
+	"pick_up", 4, -1, 0, 0
+	"pick_outside", 5, -1, 0, 0
+	"pick_inside", 6, -1, 0, 0
+	"pick_dance", 7, -1, 0, 0
+	"pick_dance2", 8, -1, 0, 0
+	"pick_dance3", 9, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "pick_dance" {
+	"pick_down", 2, -1, 0, 0
+	"pick_down2", 3, -1, 0, 0
+	"pick_up", 4, -1, 0, 0
+	"pick_outside", 5, -1, 0, 0
+	"pick_inside", 6, -1, 0, 0
+	"pick_dance2", 8, -1, 0, 0
+	"pick_dance3", 9, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "pick_dance2" {
+	"pick_down2", 3, -1, 0, 0
+	"pick_up", 4, -1, 0, 0
+	"pick_inside", 5, -1, 0, 0
+	"pick_inside", 6, -1, 0, 0
+	"pick_dance", 7, -1, 0, 0
+	"pick_dance3", 9, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "pick_dance3" {
+	"pick_down", 2, -1, 0, 0
+	"pick_down2", 3, -1, 0, 0
+	"pick_up", 4, -1, 0, 0
+	"pick_outside", 5, -1, 0, 0
+	"pick_inside", 6, -1, 0, 0
+	"pick_dance", 7, -1, 0, 0
+	"pick_dance2", 8, -1, 0, 0
+	"nobi", 10, -1, 0, 0
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "nobi" {
+	"jump_left", 11, -1, 0, 0
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "jump_left" {
+	"jump_right", 12, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "jump_right" {
+	"jump_left", 11, -1, 0, 0
+	"long", 13, -1, 0, 0
+}
+
+#BRANCH "intro" {
+	"pick_dance2", 1, -1, 0, 1
+}
+

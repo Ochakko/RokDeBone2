@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<BLD>  
+  <FileInfo>
+    <kind>RokDeBone2BatchLoad</kind>
+    <version>1001</version>
+    <type>0</type>
+  </FileInfo>
+  <Sound>
+    <SoundSet>sound_set.ssf</SoundSet>
+    <SoundAnim>sound_anime.saf</SoundAnim>
+  </Sound>
+  <Ground>
+    <file>stage\stage2.mqo</file>
+    <mult>1000.0</mult>
+  </Ground>
+  <Camera>
+    <mode>KAE</mode>
+    <file>cam_anime.cam</file>
+  </Camera>
+  <Character>
+    <shape>bucho\buch.sig</shape>
+    <shapemult>1.0</shapemult>
+    <moa>bucho\mot_acc.moa</moa>
+    <gpa>global_pos_anime.gpa</gpa>
+    <moe>mot_event_anime.moe</moe>
+  </Character>
+</BLD>

@@ -1,0 +1,7 @@
+Motion Accelerator File ver4.0 type01
+
+#TRUNK {
+	"jouge", "jouge.qua", "Idling0", 0, 1, 0, 0
+	"yoko", "yoko.qua", "Normal0", 0, 2, 0, 0
+}
+

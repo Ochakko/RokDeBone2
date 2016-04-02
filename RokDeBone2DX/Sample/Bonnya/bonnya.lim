@@ -1,0 +1,419 @@
+RokDeBone2 LimitFile ver1.0.0.1
+LIMELEM{
+	JointName=TopOfmat1
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=mat1
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=ãπ
+	StartX=-45.000000
+	EndX=45.000000
+	StartY=-45.000000
+	EndY=45.000000
+	StartZ=-45.000000
+	EndZ=45.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_å®[L]_X+
+	StartX=-15.000000
+	EndX=30.000000
+	StartY=-15.000000
+	EndY=45.000000
+	StartZ=-10.000000
+	EndZ=0.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=å®[L]_X+
+	StartX=-45.000000
+	EndX=160.000000
+	StartY=-135.000000
+	EndY=30.000000
+	StartZ=-0.000000
+	EndZ=180.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=òr[L]_X+
+	StartX=-5.000000
+	EndX=165.000000
+	StartY=-165.000000
+	EndY=5.000000
+	StartZ=-0.000000
+	EndZ=0.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=éË[L]_X+
+	StartX=-65.000000
+	EndX=15.000000
+	StartY=-90.000000
+	EndY=80.000000
+	StartZ=-90.000000
+	EndZ=90.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_å®[R]_X-
+	StartX=-30.000000
+	EndX=15.000000
+	StartY=-15.000000
+	EndY=45.000000
+	StartZ=-0.000000
+	EndZ=10.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=å®[R]_X-
+	StartX=-160.000000
+	EndX=45.000000
+	StartY=-135.000000
+	EndY=30.000000
+	StartZ=-180.000000
+	EndZ=0.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=òr[R]_X-
+	StartX=-165.000000
+	EndX=5.000000
+	StartY=-165.000000
+	EndY=5.000000
+	StartZ=-0.000000
+	EndZ=0.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=éË[R]_X-
+	StartX=-15.000000
+	EndX=65.000000
+	StartY=-90.000000
+	EndY=80.000000
+	StartZ=-90.000000
+	EndZ=90.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_ì™
+	StartX=-60.000000
+	EndX=50.000000
+	StartY=-45.000000
+	EndY=45.000000
+	StartZ=-45.000000
+	EndZ=45.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=ì™
+	StartX=-30.000000
+	EndX=30.000000
+	StartY=-60.000000
+	EndY=40.000000
+	StartZ=-45.000000
+	EndZ=45.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_ñ⁄[L]_X+
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=ñ⁄[L]_X+
+	StartX=-50.000000
+	EndX=50.000000
+	StartY=-60.000000
+	EndY=50.000000
+	StartZ=-0.000000
+	EndZ=0.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_ñ⁄[R]_X-
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=ñ⁄[R]_X-
+	StartX=-50.000000
+	EndX=50.000000
+	StartY=-60.000000
+	EndY=50.000000
+	StartZ=-0.000000
+	EndZ=0.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_É}ÉtÉâÇP[L]_X+
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=É}ÉtÉâÇP[L]_X+
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=É}ÉtÉâÇQ[L]_X+
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-135.000000
+	EndZ=135.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_É}ÉtÉâÇP[R]_X-
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=É}ÉtÉâÇP[R]_X-
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=É}ÉtÉâÇQ[R]_X-
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-135.000000
+	EndZ=135.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=çò
+	StartX=-45.000000
+	EndX=45.000000
+	StartY=-45.000000
+	EndY=45.000000
+	StartZ=-45.000000
+	EndZ=45.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_ÉÇÉÇ[L]_X+
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=ÉÇÉÇ[L]_X+
+	StartX=-100.000000
+	EndX=30.000000
+	StartY=-30.000000
+	EndY=150.000000
+	StartZ=-90.000000
+	EndZ=100.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=ÉXÉl[L]_X+
+	StartX=-0.000000
+	EndX=0.000000
+	StartY=-160.000000
+	EndY=0.000000
+	StartZ=-0.000000
+	EndZ=0.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=ë´[L]_X+
+	StartX=-45.000000
+	EndX=45.000000
+	StartY=-55.000000
+	EndY=65.000000
+	StartZ=-45.000000
+	EndZ=60.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_ÉÇÉÇ[R]_X-
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=ÉÇÉÇ[R]_X-
+	StartX=-30.000000
+	EndX=100.000000
+	StartY=-30.000000
+	EndY=150.000000
+	StartZ=-100.000000
+	EndZ=90.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=ÉXÉl[R]_X-
+	StartX=-0.000000
+	EndX=0.000000
+	StartY=-160.000000
+	EndY=0.000000
+	StartZ=0.000000
+	EndZ=-0.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=ë´[R]_X-
+	StartX=-45.000000
+	EndX=45.000000
+	StartY=-65.000000
+	EndY=55.000000
+	StartZ=-60.000000
+	EndZ=45.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=FLOAT_îˆÇP
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=îˆÇP
+	StartX=-90.000000
+	EndX=90.000000
+	StartY=-135.000000
+	EndY=90.000000
+	StartZ=-90.000000
+	EndZ=90.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=îˆÇQ
+	StartX=-90.000000
+	EndX=90.000000
+	StartY=-90.000000
+	EndY=90.000000
+	StartZ=-90.000000
+	EndZ=90.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=îˆÇR
+	StartX=-90.000000
+	EndX=90.000000
+	StartY=-90.000000
+	EndY=90.000000
+	StartZ=-90.000000
+	EndZ=90.000000
+	IgnoreFlag=0
+}
+
+LIMELEM{
+	JointName=TopOfçú
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+
+LIMELEM{
+	JointName=çú
+	StartX=-179.000000
+	EndX=179.000000
+	StartY=-179.000000
+	EndY=179.000000
+	StartZ=-179.000000
+	EndZ=179.000000
+	IgnoreFlag=1
+}
+

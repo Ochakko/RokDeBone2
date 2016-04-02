@@ -1,0 +1,16 @@
+BoneFile : type separated : ver1001
+RELATIVE_BONENO_MODE
+
+NAMEPART_START
+0000:ball_par
+0001:ball_chil
+0002:kaku_par
+0003:kaku_chil
+NAMEPART_END
+
+
+TREEPART_START
+
+-0001,0000,0001,
+-0001,0002,0003,
+TREEPART_END
