@@ -507,6 +507,49 @@ int CMQOFile::LoadMQOFile( float multiple, char* filename, CTreeHandler2* srclpt
 	}	
 
 
+	DWORD sizehigh;
+	DWORD bufleng;
+	bufleng = GetFileSize(mqobuf.hfile, &sizehigh);
+	if (bufleng < 0){
+		_ASSERT(0);
+		return 1;
+	}
+	if (sizehigh != 0){
+		_ASSERT(0);
+		return 1;
+	}
+
+	if (mqobuf.buf){
+		free(mqobuf.buf);
+		mqobuf.buf = 0;
+	}
+	mqobuf.bufleng = 0;
+	mqobuf.pos = 0;
+	mqobuf.isend = 0;
+
+	mqobuf.buf = (unsigned char*)malloc(sizeof(unsigned char) * (bufleng + 1));
+	if (!mqobuf.buf){
+		_ASSERT(0);
+		return 1;
+	}
+	ZeroMemory(mqobuf.buf, sizeof(unsigned char) * (bufleng + 1));
+
+	DWORD rleng, readleng;
+	rleng = bufleng;
+	ReadFile(mqobuf.hfile, (void*)mqobuf.buf, rleng, &readleng, NULL);
+	if (rleng != readleng){
+		_ASSERT(0);
+
+		if (mqobuf.buf){
+			free(mqobuf.buf);
+			mqobuf.buf = 0;
+		}
+		return 1;
+	}
+
+	mqobuf.bufleng = bufleng;
+
+
 	ret = LoadMQOFile_aft( multiple, srclpth, srclpsh, srclpmh, offset, groundflag, bonetype, adjustuvflag, offsetpos, rot );
 	if( ret ){
 		DbgOut( "mqofile : LoadMQOFile : LoadMQOFile_aft error !!!\n" );
@@ -653,51 +696,18 @@ int CMQOFile::CheckFileVersion()
 	return 0;
 }
 
-int CMQOFile::GrowUpMQOBuf()
-{
-	if( mqobuf.isend == 1 )
-		return 1;
-
-	mqobuf.buf = (unsigned char*)realloc( mqobuf.buf, mqobuf.bufleng + BUFBLOCKLEN );
-	if( !mqobuf.buf ){
-		DbgOut( "MQOFile : GrowUpMQOFile : buf alloc error !!!" );
-		return 1;
-	}
-
-	DWORD rleng, readleng;
-	rleng = BUFBLOCKLEN;
-	ReadFile( mqobuf.hfile, (void*)(mqobuf.buf + mqobuf.bufleng), rleng, &readleng, NULL );
-	
-	if( rleng != readleng ){
-		mqobuf.isend = 1;
-	}
-
-	mqobuf.bufleng += BUFBLOCKLEN;
-
-	return 0;
-}
 
 int CMQOFile::GetLine( int* getlen )
 {
 	int ret;
 
 	if( mqobuf.buf == 0 ){
-		ret = GrowUpMQOBuf();
-		if( ret ){
-			_ASSERT( 0 );
-			return 1;
-		}
-		if( mqobuf.bufleng == 0 ){
-			_ASSERT( 0 );
-			DbgOut( "MQOFile : GetLine : empty file : warning !!!" );
-			return 1;
-		}
-	}else if( (mqobuf.pos >= mqobuf.bufleng) && (mqobuf.isend == 0) ){
-		ret = GrowUpMQOBuf();
-		if( ret ){
-			_ASSERT( 0 );
-			return 1;
-		}
+		_ASSERT( 0 );
+		return 1;
+	}else if( mqobuf.pos >= mqobuf.bufleng ){
+		_ASSERT( 0 );
+		m_state = BEGIN_FINISH;
+		return 0;
 	}
 
 	int notfound = 1;
@@ -706,29 +716,18 @@ int CMQOFile::GetLine( int* getlen )
 		stepno++;
 
 		if( mqobuf.pos + stepno >= mqobuf.bufleng ){
-			if( notfound == 1 ){
-				if( mqobuf.isend == 0 ){
-					ret = GrowUpMQOBuf();
-					if( ret ){
-						_ASSERT( 0 );
-						return 1;
-					}
-				}else{
-					_ASSERT( 0 );
-					DbgOut( "MQOFile : GetLine : file is end warning !!!" );
-					break;
-				}
-			}
+			_ASSERT( 0 );
+			m_state = BEGIN_FINISH;
+			return 0;
 		}
 	}
 
 	if( notfound == 0 ){
 		stepno++; //\n‚Ì•ª
 	}else{
-		if( mqobuf.isend == 0 ){
-			_ASSERT( 0 );
-			return 1;
-		}
+		_ASSERT( 0 );
+		m_state = BEGIN_FINISH;
+		return 0;
 	}
 
 	if( LINECHARLENG > stepno ){
@@ -765,26 +764,13 @@ int CMQOFile::GetBytes( unsigned char** dstuc, int getlen )
 	int ret;
 
 	if( mqobuf.buf == 0 ){
-		ret = GrowUpMQOBuf();
-		if( ret ){
-			return 1;
-		}
-		if( mqobuf.bufleng == 0 ){
-			DbgOut( "MQOFile : GetBytes : empty file : warning !!!" );
-			return 1;
-		}
+		DbgOut( "MQOFile : GetBytes : empty file : warning !!!" );
+		return 1;
 	}
 	
 	while( mqobuf.pos + getlen >= mqobuf.bufleng ){
-		if( mqobuf.isend == 0 ){
-			ret = GrowUpMQOBuf();
-			if( ret ){
-				return 1;
-			}
-		}else{
-			DbgOut( "MQOFile : GetBytes : file is end warning !!!" );
-			return 1;
-		}
+		DbgOut( "MQOFile : GetBytes : file is end warning !!!" );
+		return 1;
 	}
 
 	*dstuc = mqobuf.buf + mqobuf.pos;

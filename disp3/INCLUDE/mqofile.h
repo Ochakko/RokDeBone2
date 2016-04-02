@@ -96,7 +96,6 @@ private:
 	//int GetLine( char* dstchar, int dstlen, int* getlen );
 	int GetLine( int* getlen );
 	int GetBytes( unsigned char** dstuc, int getlen );
-	int GrowUpMQOBuf();
 
 	int ReadScene( MQOSTATE* nextstate );
 	int ReadMaterial( MQOSTATE* nextstate );
