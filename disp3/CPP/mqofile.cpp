@@ -768,7 +768,7 @@ int CMQOFile::GetBytes( unsigned char** dstuc, int getlen )
 		return 1;
 	}
 	
-	while( mqobuf.pos + getlen >= mqobuf.bufleng ){
+	if( mqobuf.pos + getlen >= mqobuf.bufleng ){
 		DbgOut( "MQOFile : GetBytes : file is end warning !!!" );
 		return 1;
 	}
