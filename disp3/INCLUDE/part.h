@@ -26,7 +26,7 @@ class CPart : public CBaseDat
 
 public:
 	CPart();
-	~CPart();
+	virtual ~CPart();
 
 	virtual void	InitParams();
 

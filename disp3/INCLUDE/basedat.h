@@ -67,7 +67,7 @@ class	CBaseDat
 {
 public:
 	CBaseDat();
-	~CBaseDat();
+	virtual ~CBaseDat();
 
 	void	InitParams();
 	void	ResetFlag();
@@ -109,7 +109,7 @@ public:
 	CVec3f( float x, float y, float z );
 	CVec3f( float x, float y, float z, __int64 setflag );
 
-	~CVec3f();
+	virtual ~CVec3f();
 	void	InitParams();
 	int	CopyData( CVec3f* srcdata );
 	int DumpMem( HANDLE hfile, int tabnum, int dumpflag );
@@ -138,7 +138,7 @@ class CMeshInfo : public CBaseDat
 {
 public:
 	CMeshInfo();
-	~CMeshInfo();
+	virtual ~CMeshInfo();
 
 
 	//int SetMem( void* srcdata, __int64 setflag );
@@ -189,7 +189,7 @@ class CVecLine : public CBaseDat
 {
 public:
 	CVecLine();
-	~CVecLine();
+	virtual ~CVecLine();
 	
 	// Ç∑Ç◊Çƒèâä˙âª	
 	void	InitParams();

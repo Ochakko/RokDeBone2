@@ -38,7 +38,7 @@ class CMotionInfo	: public CBaseDat
 
 public:
 	CMotionInfo();
-	~CMotionInfo();
+	virtual ~CMotionInfo();
 
 	CMatrix2* operator() ( int srckind, int srcno ){
 		CMatrix2* matptr = 0;

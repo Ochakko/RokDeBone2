@@ -20,7 +20,7 @@ class CTexBank : public CNameBank
 {
 public:
 	CTexBank( UINT miplevels, DWORD mipfilter );
-	~CTexBank();
+	virtual ~CTexBank();
 
 	int CreateTexData( int datano, LPDIRECT3DDEVICE9 pdev, int srcsizex = 0, int srcsizey = 0 );
 	int CreateTexDataFromMainWindow( int datano, LPDIRECT3DDEVICE9 pdev );

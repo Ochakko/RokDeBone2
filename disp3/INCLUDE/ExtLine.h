@@ -24,7 +24,7 @@ class CExtLine : public CBaseDat
 {
 public:
 	CExtLine();
-	~CExtLine();
+	virtual ~CExtLine();
 
 public:
 	int SetMeshInfo( CMeshInfo* srcmeshinfo );

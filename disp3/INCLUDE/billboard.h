@@ -17,7 +17,7 @@ class CBillboard : public CBaseDat
 {
 public:
 	CBillboard();
-	~CBillboard();
+	virtual ~CBillboard();
 
 	int CreateBuffers( CMeshInfo* srcmeshinfo );
 	

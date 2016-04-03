@@ -34,7 +34,7 @@ public:
 	//void	operator delete( void *p );
 
 	CMotionCtrl( CTreeHandler2* lphandler, int srcserino );
-	~CMotionCtrl();
+	virtual ~CMotionCtrl();
 
 
 	// ‰Šú‰»

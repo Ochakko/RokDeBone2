@@ -43,7 +43,7 @@ class CShdElem : public CBaseDat
 {
 public:
 	CShdElem( int srcserino );
-	~CShdElem();
+	virtual ~CShdElem();
 	
 	//void	*operator new( size_t size );
 	//void	operator delete( void *p );

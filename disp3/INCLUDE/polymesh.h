@@ -24,7 +24,7 @@ class CPolyMesh : public CBaseDat
 {
 public:
 	CPolyMesh();
-	~CPolyMesh();
+	virtual ~CPolyMesh();
 
 	int CreatePointBuf( CMeshInfo* srcmeshinfo, float srcalpha );
 	int CreateIndexBuf( int srcfacenum );

@@ -38,7 +38,7 @@ class CPolyMesh2 : public CBaseDat
 {
 public:
 	CPolyMesh2();
-	~CPolyMesh2();
+	virtual ~CPolyMesh2();
 
 	//int CreatePointBuf( CMeshInfo* srcmeshinfo );
 	//int CreateIndexBuf( int srcfacenum );

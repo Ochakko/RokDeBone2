@@ -13,7 +13,7 @@ class CMotionPoint2 : public CMotionPoint
 {
 public:
 	CMotionPoint2();
-	~CMotionPoint2();
+	virtual ~CMotionPoint2();
 
 	int InitParams();
 	int CreateSppIfNot();

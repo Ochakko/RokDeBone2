@@ -10,7 +10,7 @@ class CMotionPoint
 {
 public:
 	CMotionPoint();
-	~CMotionPoint();
+	virtual ~CMotionPoint();
 	
 	int InitParams();
 

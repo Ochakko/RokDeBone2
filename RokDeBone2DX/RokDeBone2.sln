@@ -1,5 +1,7 @@
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RokDeBone2", "RokDeBone2.vcxproj", "{83CB9733-F6CA-4AB9-AD95-F6DBED70B806}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RokDeBone2PS", "RokDeBone2PS.vcxproj", "{5D2E4A23-660D-4740-9536-706863E5748D}"

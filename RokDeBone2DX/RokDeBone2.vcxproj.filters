@@ -959,6 +959,339 @@
     <ClInclude Include="PmCipher\PmCipher.h">
       <Filter>panda</Filter>
     </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\AlpChange.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\AlpKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\ATag.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\ATagHandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\AutoSpline.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\basedat.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\bbox.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\BBox2.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\bezmesh.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\bgdisp2.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\billboard.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\billboardelem.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\BLDFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\BoneFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\boneinfo.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\borderface.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\bsphere.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\BVHelem.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\BVHFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\CameraAnim.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\CameraAnimHandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\CameraFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\CameraKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\CameraSWKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\Coef.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\Cpuid.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\d3ddisp.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\dbg.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\dibfile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\DispSwitch.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\DSChange.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\DSKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\EQUFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\EventKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\ExtLine.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\ExtLineIO.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\ExtPoint.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\FBXBone.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\FBXExporter.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\FBXFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\GPAnim.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\GPAnimHandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\GPData.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\GPFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\GPKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\IM2File.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\InfElem.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\InfScope.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\LimFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\Line.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\LiSPSM.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MAFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MAOpe.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MCHandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\mkmfile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MkmMot.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MkmRot.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MkmTra.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MMotElem.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MMotKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MOEAnim.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MOEAnimHandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MOEEHelper.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MOEFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MOEKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\morph.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MorphKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\mothandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\motionctrl.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\motioninfo.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\motionpoint.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\motionpoint2.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\mqoface.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\mqofile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\mqomaterial.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\mqoobject.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\MState.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\namebank.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\part.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\polymesh.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\polymesh2.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\PoseFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\quaternion.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\RokFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\shdelem.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\shdhandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndAnim.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndAnimHandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndConv.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndFrame.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndFullFrame.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndPath.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SndSetFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SPParam.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\SymmOpe.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\texbank.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\TexChange.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\TexChangePt.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\TexKey.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\TexKeyPt.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\Toon1File.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\Toon1Params.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\TraElem.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\treeelem2.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\treehandler.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\treehandler2.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\Vec3List.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\XFile.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\forbidid.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SigTreeView2.htm">

@@ -5,7 +5,7 @@ class CNameBank
 {
 public:
 	CNameBank();
-	~CNameBank();
+	virtual ~CNameBank();
 
 	// ！！！　srcnoは、シリアルではなく、配列のインデックス。　！！！
 	char* operator() ( int srcno ){
