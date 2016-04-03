@@ -772,7 +772,7 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 	KFbxXMatrix lXMatrix;
     KFbxNode* lSkel;
 
-	if( fbxbone->type == FB_NORMAL ){
+	if( (fbxbone->type == FB_NORMAL) ||  (fbxbone->type == FB_ENDJOINT)){
 
 		int seri = fbxbone->selem->serialno;
 		CShdElem* curbone = fbxbone->selem;
@@ -816,12 +816,28 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 
 				CShdElem* parbone = curbone->parent;
 				D3DXVECTOR3 pos;
-				if( parbone->IsJoint() ){
-					pos.x = parbone->part->jointloc.x;
-					pos.y = parbone->part->jointloc.y;
-					pos.z = parbone->part->jointloc.z;
-				}else{
-					pos = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
+				if (fbxbone->type == FB_NORMAL){
+					if (parbone->IsJoint()){
+						pos.x = parbone->part->jointloc.x;
+						pos.y = parbone->part->jointloc.y;
+						pos.z = parbone->part->jointloc.z;
+					}
+					else{
+						pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+					}
+				}
+				else if (fbxbone->type == FB_ENDJOINT){
+					if (curbone->IsJoint()){
+						pos.x = curbone->part->jointloc.x;
+						pos.y = curbone->part->jointloc.y;
+						pos.z = curbone->part->jointloc.z;
+					}
+					else{
+						pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+					}
+				}
+				else{
+					_ASSERT(0);
 				}
 
 				KFbxScene* lScene = pMesh->GetScene();
@@ -860,7 +876,7 @@ void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 	KFbxXMatrix lXMatrix;
     KFbxNode* lSkel;
 
-	if( fbxbone->type == FB_NORMAL ){
+	if ((fbxbone->type == FB_NORMAL) || (fbxbone->type == FB_ENDJOINT)){
 
 		int seri = fbxbone->selem->serialno;
 		CShdElem* curbone = fbxbone->selem;
@@ -904,12 +920,28 @@ void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 
 				CShdElem* parbone = curbone->parent;
 				D3DXVECTOR3 pos;
-				if( parbone->IsJoint() ){
-					pos.x = parbone->part->jointloc.x;
-					pos.y = parbone->part->jointloc.y;
-					pos.z = parbone->part->jointloc.z;
-				}else{
-					pos = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
+				if (fbxbone->type == FB_NORMAL){
+					if (parbone->IsJoint()){
+						pos.x = parbone->part->jointloc.x;
+						pos.y = parbone->part->jointloc.y;
+						pos.z = parbone->part->jointloc.z;
+					}
+					else{
+						pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+					}
+				}
+				else if (fbxbone->type == FB_ENDJOINT){
+					if (curbone->IsJoint()){
+						pos.x = curbone->part->jointloc.x;
+						pos.y = curbone->part->jointloc.y;
+						pos.z = curbone->part->jointloc.z;
+					}
+					else{
+						pos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+					}
+				}
+				else{
+					_ASSERT(0);
 				}
 
 				KFbxScene* lScene = pMesh->GetScene();
@@ -1030,274 +1062,430 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
     KTime lTime;
     int lKeyIndex = 0;
     KFbxNode* lSkel = 0;
+	lSkel = fbxbone->skelnode;
+	if (!lSkel){
+		_ASSERT(0);
+		return;
+	}
+	const char* bonename = lSkel->GetName();
 
-	if( fbxbone->type == FB_NORMAL ){
-	//if( fbxbone->type != FB_ROOT ){
-		int seri = fbxbone->selem->serialno;
-		CShdElem* curbone = fbxbone->selem;
-		_ASSERT( curbone );
-		lSkel = fbxbone->skelnode;
-		if( !lSkel ){
-			_ASSERT( 0 );
-			return;
-		}
-		const char* bonename = lSkel->GetName();
-
-
-		CMotionCtrl* curmc = (*s_lpmh)( seri );
-		_ASSERT( curmc );
-		CMotionInfo* curmi = curmc->motinfo;
-		_ASSERT( curmi );
-		CTreeElem2* curte = (*s_lpth)( seri );
 
 //		ERotationOrder lRotationOrder0 = eEULER_ZXY;
-		ERotationOrder lRotationOrder0 = eEULER_XYZ;
-		ERotationOrder lRotationOrder1 = eEULER_ZXY;
-		lSkel->SetRotationOrder(KFbxNode::eSOURCE_SET , lRotationOrder0 );
-		lSkel->SetRotationOrder(KFbxNode::eDESTINATION_SET , lRotationOrder1 );
+	ERotationOrder lRotationOrder0 = eEULER_XYZ;
+	ERotationOrder lRotationOrder1 = eEULER_ZXY;
+	lSkel->SetRotationOrder(KFbxNode::eSOURCE_SET , lRotationOrder0 );
+	lSkel->SetRotationOrder(KFbxNode::eDESTINATION_SET , lRotationOrder1 );
 
-		CMotionPoint2 calcmp;
+	CMotionPoint2 calcmp;
 
-		KFbxAnimCurve* lCurveTX;
-		KFbxAnimCurve* lCurveTY;
-		KFbxAnimCurve* lCurveTZ;
+	KFbxAnimCurve* lCurveTX;
+	KFbxAnimCurve* lCurveTY;
+	KFbxAnimCurve* lCurveTZ;
 
-		D3DXVECTOR3 orgtra;
-		int frameno;
+	D3DXVECTOR3 orgtra;
+	int frameno;
+
+	if (fbxbone->type == FB_ENDJOINT){
+		int seri = fbxbone->selem->serialno;
+		CShdElem* curbone = fbxbone->selem;
+		_ASSERT(curbone);
 
 		CPart* curpart = curbone->part;
-		_ASSERT( curpart );
-					
+		_ASSERT(curpart);
+
 		CShdElem* parbone = curbone->parent;
 		CShdElem* gparbone = 0;
-		if( parbone ){
+		if (parbone){
 			CPart* parpart = parbone->part;
-			_ASSERT( parpart );
+			_ASSERT(parpart);
 
-			CShdElem* gparbone = parbone->parent;
-			CPart* gparpart;
-			if( gparbone && gparbone->IsJoint() ){
-				gparpart = gparbone->part;
-			}else{
-				gparpart = 0;
+			if (parpart){
+				orgtra = D3DXVECTOR3(curpart->jointloc.x - parpart->jointloc.x, curpart->jointloc.y - parpart->jointloc.y, -curpart->jointloc.z - -parpart->jointloc.z);
 			}
-
-			if( gparpart ){
-				orgtra = D3DXVECTOR3(parpart->jointloc.x - gparpart->jointloc.x, parpart->jointloc.y - gparpart->jointloc.y, -parpart->jointloc.z - -gparpart->jointloc.z);
-			}else{
-				orgtra = D3DXVECTOR3(parpart->jointloc.x, parpart->jointloc.y, -parpart->jointloc.z);
+			else{
+				orgtra = D3DXVECTOR3(curpart->jointloc.x, curpart->jointloc.y, -curpart->jointloc.z);
 			}
-		}else{
-			orgtra = D3DXVECTOR3( curpart->jointloc.x, curpart->jointloc.y, -curpart->jointloc.z );
+		}
+		else{
+			orgtra = D3DXVECTOR3(curpart->jointloc.x, curpart->jointloc.y, -curpart->jointloc.z);
 		}
 
 		orgtra *= s_fbxmult;
 
-/*
-anim rotate.rotateX rotateX joint1 0 1 0;
-animData {
-*/
-/*
-		s_writefile->Write2File( "anim translate.translateX translateX %s %d 1 0;\r\n", bonename, jointcnt );
-		s_writefile->Write2File( "animData {\r\n" );
-		s_writefile->Write2File( " input time;\r\n" );
-		s_writefile->Write2File( " output angular;\r\n" );
-		s_writefile->Write2File( " weighted 0;\r\n" );
-		s_writefile->Write2File( " preInfinity constant;\r\n" );
-		s_writefile->Write2File( " postInfinity constant;\r\n" );
-		s_writefile->Write2File( " keys {\r\n" );
-*/
-		lCurveTX = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_X, true);		
+		lCurveTX = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_X, true);
 		lCurveTX->KeyModifyBegin();
-		for( frameno = 0; frameno <= motmax; frameno++ ){
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveTX->KeyAdd(lTime);
+			lCurveTX->KeySetValue(lKeyIndex, orgtra.x);
+			lCurveTX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+		}
+		lCurveTX->KeyModifyEnd();
+
+		lCurveTY = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Y, true);
+		lCurveTY->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveTY->KeyAdd(lTime);
+			lCurveTY->KeySetValue(lKeyIndex, orgtra.y);
+			lCurveTY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+
+		}
+		lCurveTY->KeyModifyEnd();
+
+		lCurveTZ = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Z, true);
+		lCurveTZ->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lKeyIndex = lCurveTZ->KeyAdd(lTime);
+			lCurveTZ->KeySetValue(lKeyIndex, orgtra.z);
+			lCurveTZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+		}
+		lCurveTZ->KeyModifyEnd();
+
+		/////////////////////
+
+		KFbxAnimCurve* lCurveRX;
+		lCurveRX = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_X, true);
+		lCurveRX->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRX->KeyAdd(lTime);
+			lCurveRX->KeySetValue(lKeyIndex, 0.0);
+			lCurveRX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+		}
+		lCurveRX->KeyModifyEnd();
+		KFbxAnimCurve* lCurveRY;
+		lCurveRY = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Y, true);
+		lCurveRY->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRY->KeyAdd(lTime);
+			lCurveRY->KeySetValue(lKeyIndex, 0.0);
+			lCurveRY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+		}
+		lCurveRY->KeyModifyEnd();
+		KFbxAnimCurve* lCurveRZ;
+		lCurveRZ = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Z, true);
+		lCurveRZ->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRZ->KeyAdd(lTime);
+			lCurveRZ->KeySetValue(lKeyIndex, 0.0);
+			lCurveRZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+		}
+		lCurveRZ->KeyModifyEnd();
+
+		jointcnt++;
+	}
+	else if ((fbxbone->type == FB_BUNKI_CHIL) || (fbxbone->type == FB_ROOT)){
+
+		lCurveTX = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_X, true);
+		lCurveTX->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveTX->KeyAdd(lTime);
+			lCurveTX->KeySetValue(lKeyIndex, 0.0);
+			lCurveTX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+		}
+		lCurveTX->KeyModifyEnd();
+
+		lCurveTY = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Y, true);
+		lCurveTY->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveTY->KeyAdd(lTime);
+			lCurveTY->KeySetValue(lKeyIndex, 0.0);
+			lCurveTY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+
+		}
+		lCurveTY->KeyModifyEnd();
+
+		lCurveTZ = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Z, true);
+		lCurveTZ->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lKeyIndex = lCurveTZ->KeyAdd(lTime);
+			lCurveTZ->KeySetValue(lKeyIndex, 0.0);
+			lCurveTZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+		}
+		lCurveTZ->KeyModifyEnd();
+
+		/////////////////////
+
+		s_writefile->Write2File("anim rotate.rotateX rotateX %s %d 1 0;\n", bonename, jointcnt);
+		s_writefile->Write2File("animData {\n");
+		s_writefile->Write2File(" input time;\n");
+		s_writefile->Write2File(" output angular;\n");
+		s_writefile->Write2File(" weighted 0;\n");
+		s_writefile->Write2File(" preInfinity constant;\n");
+		s_writefile->Write2File(" postInfinity constant;\n");
+		s_writefile->Write2File(" keys {\n");
+		KFbxAnimCurve* lCurveRX;
+		lCurveRX = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_X, true);
+		lCurveRX->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRX->KeyAdd(lTime);
+			lCurveRX->KeySetValue(lKeyIndex, 0.0);
+			lCurveRX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+
+			s_writefile->Write2File("%d 0.0000 linear linear 1 1 0;\n", frameno * s_itscale);
+		}
+		lCurveRX->KeyModifyEnd();
+		s_writefile->Write2File(" }\n");
+		s_writefile->Write2File("}\n");
+
+		////////////////////
+		s_writefile->Write2File("anim rotate.rotateY rotateY %s %d 1 1;\n", bonename, jointcnt);
+		s_writefile->Write2File("animData {\n");
+		s_writefile->Write2File(" input time;\n");
+		s_writefile->Write2File(" output angular;\n");
+		s_writefile->Write2File(" weighted 0;\n");
+		s_writefile->Write2File(" preInfinity constant;\n");
+		s_writefile->Write2File(" postInfinity constant;\n");
+		s_writefile->Write2File(" keys {\n");
+		KFbxAnimCurve* lCurveRY;
+		lCurveRY = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Y, true);
+		lCurveRY->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRY->KeyAdd(lTime);
+			lCurveRY->KeySetValue(lKeyIndex, 0.0);
+			lCurveRY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+
+			s_writefile->Write2File("%d 0.0000 linear linear 1 1 0;\n", frameno * s_itscale);
+		}
+		lCurveRY->KeyModifyEnd();
+		s_writefile->Write2File(" }\n");
+		s_writefile->Write2File("}\n");
+
+
+		s_writefile->Write2File("anim rotate.rotateZ rotateZ %s %d 1 1;\n", bonename, jointcnt);
+		s_writefile->Write2File("animData {\n");
+		s_writefile->Write2File(" input time;\n");
+		s_writefile->Write2File(" output angular;\n");
+		s_writefile->Write2File(" weighted 0;\n");
+		s_writefile->Write2File(" preInfinity constant;\n");
+		s_writefile->Write2File(" postInfinity constant;\n");
+		s_writefile->Write2File(" keys {\n");
+		KFbxAnimCurve* lCurveRZ;
+		lCurveRZ = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Z, true);
+		lCurveRZ->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRZ->KeyAdd(lTime);
+			lCurveRZ->KeySetValue(lKeyIndex, 0.0);
+			lCurveRZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+
+			s_writefile->Write2File("%d 0.0000 linear linear 1 1 0;\n", frameno * s_itscale);
+		}
+		lCurveRZ->KeyModifyEnd();
+		s_writefile->Write2File(" }\n");
+		s_writefile->Write2File("}\n");
+
+
+		jointcnt++;
+	}
+	else{
+		int seri = fbxbone->selem->serialno;
+		CShdElem* curbone = fbxbone->selem;
+		_ASSERT(curbone);
+
+		CPart* curpart = curbone->part;
+		_ASSERT(curpart);
+
+		CShdElem* parbone = curbone->parent;
+		CShdElem* gparbone = 0;
+		if (parbone){
+			CPart* parpart = parbone->part;
+			_ASSERT(parpart);
+
+			CShdElem* gparbone = parbone->parent;
+			CPart* gparpart;
+			if (gparbone && gparbone->IsJoint()){
+				gparpart = gparbone->part;
+			}
+			else{
+				gparpart = 0;
+			}
+
+			if (gparpart){
+				orgtra = D3DXVECTOR3(parpart->jointloc.x - gparpart->jointloc.x, parpart->jointloc.y - gparpart->jointloc.y, -parpart->jointloc.z - -gparpart->jointloc.z);
+			}
+			else{
+				orgtra = D3DXVECTOR3(parpart->jointloc.x, parpart->jointloc.y, -parpart->jointloc.z);
+			}
+		}
+		else{
+			orgtra = D3DXVECTOR3(curpart->jointloc.x, curpart->jointloc.y, -curpart->jointloc.z);
+		}
+
+		orgtra *= s_fbxmult;
+
+		CMotionCtrl* curmc = (*s_lpmh)(seri);
+		_ASSERT(curmc);
+		CMotionInfo* curmi = curmc->motinfo;
+		_ASSERT(curmi);
+		CTreeElem2* curte = (*s_lpth)(seri);
+
+
+
+		lCurveTX = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_X, true);
+		lCurveTX->KeyModifyBegin();
+		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
-			//ret = curmi->CalcMotionPointOnFrame( &axisq, curbone, &calcmp, curmotid, frameno, &hasmpflag );
-			ret = curmc->CalcMotionPointOnFrame( curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh );
-			_ASSERT( !ret );
-			lTime.SetSecondDouble( (double)frameno / s_timescale );
-			lKeyIndex = lCurveTX->KeyAdd( lTime );
+			ret = curmc->CalcMotionPointOnFrame(curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh);
+			_ASSERT(!ret);
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveTX->KeyAdd(lTime);
 			float settra = orgtra.x + calcmp.m_mvx * s_fbxmult;
 			lCurveTX->KeySetValue(lKeyIndex, settra);
 			lCurveTX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
-
-//			s_writefile->Write2File( "%d %.4f linear linear 1 1 0;\r\n", frameno * s_itscale, settra );
 		}
 		lCurveTX->KeyModifyEnd();
-//		s_writefile->Write2File( " }\r\n" );
-//		s_writefile->Write2File( "}\r\n" );
 
-/*
-		s_writefile->Write2File( "anim translate.translateY translateY %s %d 1 1;\r\n", bonename, jointcnt );
-		s_writefile->Write2File( "animData {\r\n" );
-		s_writefile->Write2File( " input time;\r\n" );
-		s_writefile->Write2File( " output angular;\r\n" );
-		s_writefile->Write2File( " weighted 0;\r\n" );
-		s_writefile->Write2File( " preInfinity constant;\r\n" );
-		s_writefile->Write2File( " postInfinity constant;\r\n" );
-		s_writefile->Write2File( " keys {\r\n" );
-*/
-		lCurveTY = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Y, true);		
+		lCurveTY = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Y, true);
 		lCurveTY->KeyModifyBegin();
-		for( frameno = 0; frameno <= motmax; frameno++ ){
+		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
-			//ret = curmi->CalcMotionPointOnFrame( &axisq, curbone, &calcmp, curmotid, frameno, &hasmpflag );
-			ret = curmc->CalcMotionPointOnFrame( curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh );
-			_ASSERT( !ret );
-			lTime.SetSecondDouble( (double)frameno / s_timescale );
-			lKeyIndex = lCurveTY->KeyAdd( lTime );
+			ret = curmc->CalcMotionPointOnFrame(curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh);
+			_ASSERT(!ret);
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveTY->KeyAdd(lTime);
 			float settra = orgtra.y + calcmp.m_mvy * s_fbxmult;
 			lCurveTY->KeySetValue(lKeyIndex, settra);
 			lCurveTY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
 
-//			s_writefile->Write2File( "%d %.4f linear linear 1 1 0;\r\n", frameno * s_itscale, settra );
 		}
 		lCurveTY->KeyModifyEnd();
-//		s_writefile->Write2File( " }\r\n" );
-//		s_writefile->Write2File( "}\r\n" );
 
-/*
-		s_writefile->Write2File( "anim translate.translateZ translateZ %s %d 1 2;\r\n", bonename, jointcnt );
-		s_writefile->Write2File( "animData {\r\n" );
-		s_writefile->Write2File( " input time;\r\n" );
-		s_writefile->Write2File( " output angular;\r\n" );
-		s_writefile->Write2File( " weighted 0;\r\n" );
-		s_writefile->Write2File( " preInfinity constant;\r\n" );
-		s_writefile->Write2File( " postInfinity constant;\r\n" );
-		s_writefile->Write2File( " keys {\r\n" );
-*/
-		lCurveTZ = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Z, true);		
+		lCurveTZ = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Z, true);
 		lCurveTZ->KeyModifyBegin();
-		for( frameno = 0; frameno <= motmax; frameno++ ){
+		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
-			//ret = curmi->CalcMotionPointOnFrame( &axisq, curbone, &calcmp, curmotid, frameno, &hasmpflag );
-			ret = curmc->CalcMotionPointOnFrame( curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh );
-			_ASSERT( !ret );
-			lTime.SetSecondDouble( (double)frameno / s_timescale );
-			lKeyIndex = lCurveTZ->KeyAdd( lTime );
+			ret = curmc->CalcMotionPointOnFrame(curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh);
+			_ASSERT(!ret);
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveTZ->KeyAdd(lTime);
 			//float settra = orgtra.z + calcmp.m_mvz * s_fbxmult;
 			float settra = orgtra.z - calcmp.m_mvz * s_fbxmult;
 			lCurveTZ->KeySetValue(lKeyIndex, settra);
 			lCurveTZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
-
-//			s_writefile->Write2File( "%d %.4f linear linear 1 1 0;\r\n", frameno * s_itscale, settra );
 		}
 		lCurveTZ->KeyModifyEnd();
-//		s_writefile->Write2File( " }\r\n" );
-//		s_writefile->Write2File( "}\r\n" );
 
-/////////////////////
+		/////////////////////
 
 		CMotionPoint2* firstmp = *(curmi->firstmp + curmotid);
 		CMotionPoint2* curmp = firstmp;
-		D3DXVECTOR3 befeul( 0.0f, 0.0f, 0.0f );
-		D3DXVECTOR3 cureul( 0.0f, 0.0f, 0.0f );
+		D3DXVECTOR3 befeul(0.0f, 0.0f, 0.0f);
+		D3DXVECTOR3 cureul(0.0f, 0.0f, 0.0f);
 		CQuaternion axisq;
-		axisq.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
+		axisq.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
 		CQuaternion befq;
 		CQuaternion curq;
 
 
-		s_writefile->Write2File( "anim rotate.rotateX rotateX %s %d 1 0;\n", bonename, jointcnt );
-		s_writefile->Write2File( "animData {\n" );
-		s_writefile->Write2File( " input time;\n" );
-		s_writefile->Write2File( " output angular;\n" );
-		s_writefile->Write2File( " weighted 0;\n" );
-		s_writefile->Write2File( " preInfinity constant;\n" );
-		s_writefile->Write2File( " postInfinity constant;\n" );
-		s_writefile->Write2File( " keys {\n" );
+		s_writefile->Write2File("anim rotate.rotateX rotateX %s %d 1 0;\n", bonename, jointcnt);
+		s_writefile->Write2File("animData {\n");
+		s_writefile->Write2File(" input time;\n");
+		s_writefile->Write2File(" output angular;\n");
+		s_writefile->Write2File(" weighted 0;\n");
+		s_writefile->Write2File(" preInfinity constant;\n");
+		s_writefile->Write2File(" postInfinity constant;\n");
+		s_writefile->Write2File(" keys {\n");
 		KFbxAnimCurve* lCurveRX;
-		lCurveRX = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_X, true);		
+		lCurveRX = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_X, true);
 		lCurveRX->KeyModifyBegin();
-		befeul = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-		befq.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
-		for( frameno = 0; frameno <= motmax; frameno++ ){
+		befeul = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		befq.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
+		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
 			//ret = curmi->CalcMotionPointOnFrame( &axisq, curbone, &calcmp, curmotid, frameno, &hasmpflag );
-			ret = curmc->CalcMotionPointOnFrame( curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh );
-			_ASSERT( !ret );
-			curq = calcmp.m_q.CalcFBXEul( befq, befeul, &cureul );
-			lTime.SetSecondDouble( (double)frameno / s_timescale );
-			lKeyIndex = lCurveRX->KeyAdd( lTime );
+			ret = curmc->CalcMotionPointOnFrame(curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh);
+			_ASSERT(!ret);
+			curq = calcmp.m_q.CalcFBXEul(befq, befeul, &cureul);
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRX->KeyAdd(lTime);
 			lCurveRX->KeySetValue(lKeyIndex, cureul.x);
 			lCurveRX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
 			befeul = cureul;
 			befq = curq;
 
-			s_writefile->Write2File( "%d %.4f linear linear 1 1 0;\n", frameno * s_itscale, cureul.x );
+			s_writefile->Write2File("%d %.4f linear linear 1 1 0;\n", frameno * s_itscale, cureul.x);
 		}
 		lCurveRX->KeyModifyEnd();
-		s_writefile->Write2File( " }\n" );
-		s_writefile->Write2File( "}\n" );
+		s_writefile->Write2File(" }\n");
+		s_writefile->Write2File("}\n");
 
 		////////////////////
-		s_writefile->Write2File( "anim rotate.rotateY rotateY %s %d 1 1;\n", bonename, jointcnt );
-		s_writefile->Write2File( "animData {\n" );
-		s_writefile->Write2File( " input time;\n" );
-		s_writefile->Write2File( " output angular;\n" );
-		s_writefile->Write2File( " weighted 0;\n" );
-		s_writefile->Write2File( " preInfinity constant;\n" );
-		s_writefile->Write2File( " postInfinity constant;\n" );
-		s_writefile->Write2File( " keys {\n" );
+		s_writefile->Write2File("anim rotate.rotateY rotateY %s %d 1 1;\n", bonename, jointcnt);
+		s_writefile->Write2File("animData {\n");
+		s_writefile->Write2File(" input time;\n");
+		s_writefile->Write2File(" output angular;\n");
+		s_writefile->Write2File(" weighted 0;\n");
+		s_writefile->Write2File(" preInfinity constant;\n");
+		s_writefile->Write2File(" postInfinity constant;\n");
+		s_writefile->Write2File(" keys {\n");
 		KFbxAnimCurve* lCurveRY;
-		lCurveRY = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Y, true);		
+		lCurveRY = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Y, true);
 		lCurveRY->KeyModifyBegin();
-		befeul = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-		befq.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
-		for( frameno = 0; frameno <= motmax; frameno++ ){
+		befeul = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		befq.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
+		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
 			//ret = curmi->CalcMotionPointOnFrame( &axisq, curbone, &calcmp, curmotid, frameno, &hasmpflag );
-			ret = curmc->CalcMotionPointOnFrame( curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh );
-			_ASSERT( !ret );
-			calcmp.m_q.CalcFBXEul( befq, befeul, &cureul );
-			lTime.SetSecondDouble( (double)frameno / s_timescale );
-			lKeyIndex = lCurveRY->KeyAdd( lTime );
+			ret = curmc->CalcMotionPointOnFrame(curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh);
+			_ASSERT(!ret);
+			calcmp.m_q.CalcFBXEul(befq, befeul, &cureul);
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRY->KeyAdd(lTime);
 			lCurveRY->KeySetValue(lKeyIndex, cureul.y);
 			lCurveRY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
 			befeul = cureul;
 			befq = curq;
-			s_writefile->Write2File( "%d %.4f linear linear 1 1 0;\n", frameno * s_itscale, cureul.y );
+			s_writefile->Write2File("%d %.4f linear linear 1 1 0;\n", frameno * s_itscale, cureul.y);
 		}
 		lCurveRY->KeyModifyEnd();
-		s_writefile->Write2File( " }\n" );
-		s_writefile->Write2File( "}\n" );
+		s_writefile->Write2File(" }\n");
+		s_writefile->Write2File("}\n");
 
 
-		s_writefile->Write2File( "anim rotate.rotateZ rotateZ %s %d 1 1;\n", bonename, jointcnt );
-		s_writefile->Write2File( "animData {\n" );
-		s_writefile->Write2File( " input time;\n" );
-		s_writefile->Write2File( " output angular;\n" );
-		s_writefile->Write2File( " weighted 0;\n" );
-		s_writefile->Write2File( " preInfinity constant;\n" );
-		s_writefile->Write2File( " postInfinity constant;\n" );
-		s_writefile->Write2File( " keys {\n" );
+		s_writefile->Write2File("anim rotate.rotateZ rotateZ %s %d 1 1;\n", bonename, jointcnt);
+		s_writefile->Write2File("animData {\n");
+		s_writefile->Write2File(" input time;\n");
+		s_writefile->Write2File(" output angular;\n");
+		s_writefile->Write2File(" weighted 0;\n");
+		s_writefile->Write2File(" preInfinity constant;\n");
+		s_writefile->Write2File(" postInfinity constant;\n");
+		s_writefile->Write2File(" keys {\n");
 		KFbxAnimCurve* lCurveRZ;
-		lCurveRZ = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Z, true);		
+		lCurveRZ = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Z, true);
 		lCurveRZ->KeyModifyBegin();
-		befq.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
-		befeul = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-		for( frameno = 0; frameno <= motmax; frameno++ ){
+		befq.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
+		befeul = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
 			//ret = curmi->CalcMotionPointOnFrame( &axisq, curbone, &calcmp, curmotid, frameno, &hasmpflag );
-			ret = curmc->CalcMotionPointOnFrame( curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh );
-			_ASSERT( !ret );
-			curq = calcmp.m_q.CalcFBXEul( befq, befeul, &cureul );
-			lTime.SetSecondDouble( (double)frameno / s_timescale );
-			lKeyIndex = lCurveRZ->KeyAdd( lTime );
+			ret = curmc->CalcMotionPointOnFrame(curbone, &calcmp, curmotid, frameno, &hasmpflag, s_lpsh, s_lpmh);
+			_ASSERT(!ret);
+			curq = calcmp.m_q.CalcFBXEul(befq, befeul, &cureul);
+			lTime.SetSecondDouble((double)frameno / s_timescale);
+			lKeyIndex = lCurveRZ->KeyAdd(lTime);
 			lCurveRZ->KeySetValue(lKeyIndex, cureul.z);
 			lCurveRZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
 			befeul = cureul;
 			befq = curq;
-			s_writefile->Write2File( "%d %.4f linear linear 1 1 0;\n", frameno * s_itscale, cureul.z );
+			s_writefile->Write2File("%d %.4f linear linear 1 1 0;\n", frameno * s_itscale, cureul.z);
 		}
 		lCurveRZ->KeyModifyEnd();
-		s_writefile->Write2File( " }\n" );
-		s_writefile->Write2File( "}\n" );
+		s_writefile->Write2File(" }\n");
+		s_writefile->Write2File("}\n");
 
 
 		jointcnt++;
-
-	//}
 	}
+
+		
 	if( fbxbone->m_child ){
 		AnimateBoneReq( fbxbone->m_child, lAnimLayer, curmotid, motmax, jointcnt );
 	}
@@ -1611,7 +1799,7 @@ CFBXBone* CreateFBXBone( KFbxScene* pScene )
 
 	KFbxNode* lSkeletonRoot;
 	// Create skeleton root. 
-    KString lRootName( "CreatedTopJoint" );
+    KString lRootName( "RootNode" );
     KFbxSkeleton* lSkeletonRootAttribute = KFbxSkeleton::Create(pScene, lRootName);
     lSkeletonRootAttribute->SetSkeletonType(KFbxSkeleton::eROOT);
     lSkeletonRoot = KFbxNode::Create(pScene,lRootName.Buffer());
@@ -1671,7 +1859,8 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 	_ASSERT( te );
 	CPart* part = pbone->part;
 	_ASSERT( part );
-
+	CTreeElem2* parte = (*s_lpth)( pbone->parent->serialno );
+	_ASSERT(parte);
 	CPart* parpart = parfbxbone->selem->part;
 	_ASSERT( parpart );
 
@@ -1689,119 +1878,83 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 		gparpart = 0;
 	}
 
-	CFBXBone* fbxbone = new CFBXBone();
-	if( !fbxbone ){
-		_ASSERT( 0 );
-		return;
-	}
-	
-	char newname[256] = {0};
-	sprintf_s( newname, 256, "%s", te->engname );
-	fbxbone->type = FB_NORMAL;
-
-	KString lLimbNodeName1( newname );
-	KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene,lLimbNodeName1);
-	lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-	lSkeletonLimbNodeAttribute1->Size.Set(1.0);
-	KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene,lLimbNodeName1.Buffer());
-	lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
-	if( gparpart ){
-		lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult, 
-			parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
-	}else{
-		lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
-	}
-	parfbxbone->skelnode->AddChild(lSkeletonLimbNode1);
-
-	fbxbone->selem = pbone;
-	fbxbone->skelnode = lSkeletonLimbNode1;
-	parfbxbone->AddChild( fbxbone );
-
-
-	if( part->bonenum >= 2 ){
+	static int s_bunkicnt = 0;
+	if (parpart && (parpart->bonenum >= 2)){
 		CFBXBone* fbxbone2 = new CFBXBone();
-		if( !fbxbone2 ){
-			_ASSERT( 0 );
+		if (!fbxbone2){
+			_ASSERT(0);
 			return;
 		}
+		char newname2[256] = { 0 };
+		sprintf_s(newname2, 256, "%s_bunki%d", parte->engname, s_bunkicnt++);
 
-		char newname2[256] = {0};
-		sprintf_s( newname2, 256, "%s_bunki", te->engname );
-		fbxbone2->type = FB_BUNKI;
-
-		KString lLimbNodeName2( newname2 );
-		KFbxSkeleton* lSkeletonLimbNodeAttribute2 = KFbxSkeleton::Create(pScene,lLimbNodeName2);
+		KString lLimbNodeName2(newname2);
+		KFbxSkeleton* lSkeletonLimbNodeAttribute2 = KFbxSkeleton::Create(pScene, lLimbNodeName2);
 		lSkeletonLimbNodeAttribute2->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
 		lSkeletonLimbNodeAttribute2->Size.Set(1.0);
-		KFbxNode* lSkeletonLimbNode2 = KFbxNode::Create(pScene,lLimbNodeName2.Buffer());
+		KFbxNode* lSkeletonLimbNode2 = KFbxNode::Create(pScene, lLimbNodeName2.Buffer());
 		lSkeletonLimbNode2->SetNodeAttribute(lSkeletonLimbNodeAttribute2);
 		lSkeletonLimbNode2->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
+		parfbxbone->skelnode->AddChild(lSkeletonLimbNode2);
 
-		fbxbone->skelnode->AddChild(lSkeletonLimbNode2);
-
-		fbxbone2->selem = pbone;
+		fbxbone2->selem = pbone->parent;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		fbxbone2->skelnode = lSkeletonLimbNode2;
-		fbxbone->AddChild( fbxbone2 );
+		parfbxbone->AddChild(fbxbone2);
 
-		if( !pbone->child ){
+		fbxbone2->type = FB_BUNKI_CHIL;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//if (parte){
+		//	parfbxbone->type = FB_BUNKI_PAR;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//}
+
+		CFBXBone* fbxbone = new CFBXBone();
+		if (!fbxbone){
+			_ASSERT(0);
+			return;
+		}
+		char newname[256] = { 0 };
+		sprintf_s(newname, 256, "%s", te->engname);
+
+
+		KString lLimbNodeName1(newname);
+		KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
+		lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+		lSkeletonLimbNodeAttribute1->Size.Set(1.0);
+		KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
+		lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
+		if (gparpart){
+			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
+				parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
+		}
+		else{
+			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
+		}
+		fbxbone2->skelnode->AddChild(lSkeletonLimbNode1);
+
+		fbxbone->selem = pbone;
+		fbxbone->skelnode = lSkeletonLimbNode1;
+		fbxbone2->AddChild(fbxbone);
+		fbxbone->type = FB_NORMAL;
+
+		
+		if (!pbone->child){
 			//endjoint‚ðì‚é
 			char endname[256];
-			sprintf_s( endname, 256, "%s_end", te->engname );
+			sprintf_s(endname, 256, "%s_end", te->engname);
 
-			KString lLimbNodeName3( endname );
-			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene,lLimbNodeName3);
+			KString lLimbNodeName3(endname);
+			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
 			lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
 			lSkeletonLimbNodeAttribute3->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene,lLimbNodeName3.Buffer());
+			KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
 			lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
 
-			lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult, 
+			lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
 				part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
 			lSkeletonLimbNode2->AddChild(lSkeletonLimbNode3);
 
 			CFBXBone* fbxbone3 = new CFBXBone();
-			if( !fbxbone3 ){
-				_ASSERT( 0 );
-				return;
-			}
-			fbxbone3->type = FB_ENDJOINT;
-			fbxbone2->skelnode->AddChild(lSkeletonLimbNode3);
-
-			fbxbone3->selem = pbone;
-			fbxbone3->skelnode = lSkeletonLimbNode3;
-			fbxbone2->AddChild( fbxbone3 );
-		}
-
-
-		if( pbone->child ){
-			CreateFBXBoneReq( pScene, pbone->child, fbxbone2 );
-		}
-
-		CShdElem* validbro = s_lpsh->GetValidBrother( pbone->brother );
-		if( validbro ){
-			CreateFBXBoneReq( pScene, validbro, parfbxbone );
-		}
-
-	}else{
-		if( !pbone->child ){
-			//endjoint‚ðì‚é
-			char endname[256];
-			sprintf_s( endname, 256, "%s_end", te->engname );
-
-			KString lLimbNodeName3( endname );
-			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene,lLimbNodeName3);
-			lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-			lSkeletonLimbNodeAttribute3->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene,lLimbNodeName3.Buffer());
-			lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
-
-			lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult, 
-				part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
-			lSkeletonLimbNode1->AddChild(lSkeletonLimbNode3);
-
-			CFBXBone* fbxbone3 = new CFBXBone();
-			if( !fbxbone3 ){
-				_ASSERT( 0 );
+			if (!fbxbone3){
+				_ASSERT(0);
 				return;
 			}
 			fbxbone3->type = FB_ENDJOINT;
@@ -1809,18 +1962,90 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 
 			fbxbone3->selem = pbone;
 			fbxbone3->skelnode = lSkeletonLimbNode3;
-			fbxbone->AddChild( fbxbone3 );
+			fbxbone->AddChild(fbxbone3);
+		}
+		
+
+
+		if (pbone->brother){
+			CreateFBXBoneReq(pScene, pbone->brother, parfbxbone);
 		}
 
-		if( pbone->child ){
-			CreateFBXBoneReq( pScene, pbone->child, fbxbone );
+		if (pbone->child){
+			CreateFBXBoneReq(pScene, pbone->child, fbxbone);
 		}
 
-		CShdElem* validbro = s_lpsh->GetValidBrother( pbone->brother );
-		if( validbro ){
-			CreateFBXBoneReq( pScene, validbro, parfbxbone );
+	}
+	else{
+		//par’†S‰ñ“]
+		CFBXBone* fbxbone = new CFBXBone();
+		if (!fbxbone){
+			_ASSERT(0);
+			return;
+		}
+		char newname[256] = { 0 };
+		sprintf_s(newname, 256, "%s", te->engname);
+
+		KString lLimbNodeName1(newname);
+		KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
+		lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+		lSkeletonLimbNodeAttribute1->Size.Set(1.0);
+		KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
+		lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
+		if (gparpart){
+			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
+				parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
+		}
+		else{
+			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
+		}
+		parfbxbone->skelnode->AddChild(lSkeletonLimbNode1);
+
+		fbxbone->selem = pbone;
+		fbxbone->skelnode = lSkeletonLimbNode1;
+		parfbxbone->AddChild(fbxbone);
+		fbxbone->type = FB_NORMAL;
+
+		
+		if (!pbone->child){
+			//endjoint‚ðì‚é ˆÊ’uî•ñ
+			char endname[256];
+			sprintf_s(endname, 256, "%s_end", te->engname);
+
+			KString lLimbNodeName3(endname);
+			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
+			lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			lSkeletonLimbNodeAttribute3->Size.Set(1.0);
+			KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
+			lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
+
+			lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+				part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+			lSkeletonLimbNode1->AddChild(lSkeletonLimbNode3);
+
+			CFBXBone* fbxbone3 = new CFBXBone();
+			if (!fbxbone3){
+				_ASSERT(0);
+				return;
+			}
+			fbxbone3->type = FB_ENDJOINT;
+			fbxbone->skelnode->AddChild(lSkeletonLimbNode3);
+
+			fbxbone3->selem = pbone;
+			fbxbone3->skelnode = lSkeletonLimbNode3;
+			fbxbone->AddChild(fbxbone3);
+		}
+		
+
+		if (pbone->brother){
+			CreateFBXBoneReq(pScene, pbone->brother, parfbxbone);
+		}
+
+		if (pbone->child){
+			CreateFBXBoneReq(pScene, pbone->child, fbxbone);
 		}
 	}
+
 }
 
 void CreateDummyInfDataReq( CFBXBone* fbxbone, KFbxSdkManager*& pSdkManager, KFbxScene*& pScene, KFbxNode* srcRootNode )

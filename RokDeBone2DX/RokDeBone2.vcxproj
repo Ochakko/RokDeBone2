@@ -479,7 +479,6 @@
     <ClInclude Include="..\disp3\INCLUDE\ExtPoint.h" />
     <ClInclude Include="..\disp3\INCLUDE\FBXBone.h" />
     <ClInclude Include="..\disp3\INCLUDE\FBXExporter.h" />
-    <ClInclude Include="..\disp3\INCLUDE\FBXFile.h" />
     <ClInclude Include="..\disp3\INCLUDE\forbidid.h" />
     <ClInclude Include="..\disp3\INCLUDE\GPAnim.h" />
     <ClInclude Include="..\disp3\INCLUDE\GPAnimHandler.h" />

@@ -823,11 +823,11 @@
     <ClCompile Include="..\disp3\\CPP\ATagHandler.cpp">
       <Filter>disp3</Filter>
     </ClCompile>
-    <ClCompile Include="..\disp3\CPP\FBXExporter.cpp">
-      <Filter>disp3</Filter>
-    </ClCompile>
     <ClCompile Include="..\disp3\CPP\FBXBone.cpp">
-      <Filter>disp3</Filter>
+      <Filter>FBX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\disp3\CPP\FBXExporter.cpp">
+      <Filter>FBX</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1070,15 +1070,6 @@
     <ClInclude Include="..\disp3\INCLUDE\ExtPoint.h">
       <Filter>disp3</Filter>
     </ClInclude>
-    <ClInclude Include="..\disp3\INCLUDE\FBXBone.h">
-      <Filter>disp3</Filter>
-    </ClInclude>
-    <ClInclude Include="..\disp3\INCLUDE\FBXExporter.h">
-      <Filter>disp3</Filter>
-    </ClInclude>
-    <ClInclude Include="..\disp3\INCLUDE\FBXFile.h">
-      <Filter>disp3</Filter>
-    </ClInclude>
     <ClInclude Include="..\disp3\INCLUDE\GPAnim.h">
       <Filter>disp3</Filter>
     </ClInclude>
@@ -1291,6 +1282,12 @@
     </ClInclude>
     <ClInclude Include="..\disp3\INCLUDE\forbidid.h">
       <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\FBXBone.h">
+      <Filter>FBX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\FBXExporter.h">
+      <Filter>FBX</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
