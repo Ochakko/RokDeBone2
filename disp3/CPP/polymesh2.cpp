@@ -7834,7 +7834,7 @@ int CPolyMesh2::CreateToon1Buffer( LPDIRECT3DDEVICE9 pdev, D3DXMATERIAL* pmat, D
 //////////
 	int matno;
 	int faceno;
-	int setfaceno = 0;
+	int setfaceno = 0;// m_optindexbuf2のfaceno。matnoを越えて変化する点に注意。！！！！
 	int isfirst;
 	for( matno = 0; matno < matnum; matno++ ){
 		
@@ -7842,9 +7842,9 @@ int CPolyMesh2::CreateToon1Buffer( LPDIRECT3DDEVICE9 pdev, D3DXMATERIAL* pmat, D
 		(m_materialblock + matno)->materialno = matno;
 
 		for( faceno = 0; faceno < meshinfo->n; faceno++ ){
-			DWORD curattrib;
+			DWORD curattrib;//パーツごとのマテリアル番号
 			curattrib = *(m_attrib + faceno);
-			int curattrib0;
+			int curattrib0;//モデルごとのマテリアル番号
 			curattrib0 = *(m_attrib0 + faceno);
 			CMQOMaterial* curmqomat;
 			curmqomat = GetMaterialFromNo( mqomat, curattrib0 );

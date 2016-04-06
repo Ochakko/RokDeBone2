@@ -288,7 +288,7 @@ private:
 	int SetExtLineIndices( int* dstindices, DWORD numindices );
 
 
-	int SetTriNormalPM2_nolight( D3DXVECTOR3* worldv, CPolyMesh2* pm2 );
+	int SetTriNormalPM2_nolight(D3DXVECTOR3* worldv, CPolyMesh2* pm2);
 	int SetTriNormalPM();
 	int SetRevNormal();
 

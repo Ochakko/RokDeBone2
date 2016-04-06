@@ -32204,6 +32204,7 @@ int CMyD3DApplication::SaveFBXFile()
 
 	int saveshader = m_shandler->m_shader;
 
+	/*
 	m_shandler->m_shader = COL_TOON1;
 	m_tbb_colT = 0;
 	SendMessage( m_hWnd, WM_COMMAND, (WPARAM)IDTBB_COLT, 0 );
@@ -32217,6 +32218,34 @@ int CMyD3DApplication::SaveFBXFile()
 			return 1;
 		}
 	}
+	*/
+
+	//forceflag = 1でCreateToon1Bufferを呼び出す。
+	int ret;
+	if (m_shandler){
+		m_shandler->m_shader = COL_TOON1;
+		ret = m_shandler->CreateToon1Buffer(m_pd3dDevice, 1);
+		if (ret){
+			DbgOut("viewer : ColorChange : IDTBB_COLT : COL_TOON1 : sh CreateToon1Buffer error !!!\n");
+			_ASSERT(0);
+			return 1;
+		}
+	}
+	if (m_dtri_sh){
+		m_dtri_sh->m_shader = COL_TOON1;
+		ret = m_dtri_sh->CreateToon1Buffer(m_pd3dDevice, 1);
+		if (ret){
+			_ASSERT(0);
+			return 1;
+		}
+	}
+
+	m_tbb_colP = 0;
+	m_tbb_colT = 1;
+	m_tbb_colPP = 0;
+	CheckTBB();
+
+
 
 	WCHAR wname[MAX_PATH];
 	MultiByteToWideChar( CP_ACP, MB_PRECOMPOSED, fbxdlg.name, MAX_PATH, wname, MAX_PATH );
@@ -32232,7 +32261,7 @@ int CMyD3DApplication::SaveFBXFile()
 		return 1;
 	}
 
-
+	/*
 	m_shandler->m_shader = saveshader;
 
 	switch( m_shandler->m_shader ){
@@ -32258,6 +32287,7 @@ int CMyD3DApplication::SaveFBXFile()
 		SendMessage( m_hWnd, WM_COMMAND, (WPARAM)IDTBB_COLP, 0 );
 		break;
 	}
+	*/
 
 	MessageBox( "FBX出力に成功しました。", "成功", MB_OK );
 

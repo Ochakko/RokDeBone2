@@ -1322,7 +1322,7 @@ int CD3DDisp::CreateVertexAndIndex( int clockwise )
 
 
 	m_dispIndices = new int[ m_numIndices ];
-		
+
 	m_orgNormal = new D3DXVECTOR3[ m_numTLV ];
 
 	if( ((!m_skinv || !m_skintan || !m_smaterial) && !m_lv ) || !m_dispIndices || !m_orgNormal ){
@@ -1331,6 +1331,8 @@ int CD3DDisp::CreateVertexAndIndex( int clockwise )
 		_ASSERT( 0 );
 		return 1;
 	}
+	ZeroMemory(m_dispIndices, sizeof(int) * m_numIndices);
+	ZeroMemory(m_orgNormal, sizeof(D3DXVECTOR3) * m_numTLV);
 
 	if( (clockwise == 3) && (m_linekind == 0) ){
 		m_revskinv = (SKINVERTEX*)malloc( sizeof( SKINVERTEX ) * m_numTLV );
@@ -12843,7 +12845,6 @@ int CD3DDisp::GetNormal( D3DXVECTOR3* normalptr )
 int CD3DDisp::CalcInitialNormal( CPolyMesh2* pm2 )
 {
 
-
 	D3DXVECTOR3* tmpw;
 	tmpw = new D3DXVECTOR3 [m_numTLV];
 	if( !tmpw ){
@@ -12878,7 +12879,8 @@ int CD3DDisp::CalcInitialNormal( CPolyMesh2* pm2 )
 		}
 	}
 
-	free( tmpw );
+	delete[] tmpw;
+
 
 	//// — –Ê
 	if( m_revNormal ){
