@@ -87,6 +87,8 @@ typedef struct tag_animinfo
 }ANIMINFO;
 static CWriteFile* s_writefile = 0;
 
+static map<CShdElem*, map<int, int>> s_linkdirty;
+
 static float s_fbxmult = 1.0f;
 static double s_timescale = 30.0;
 //static double s_timescale = 1.0;
@@ -108,6 +110,7 @@ static CTreeHandler2* s_lpdtrith;
 static CShdElem* s_topjoint[256];
 static int s_topnum;
 static LPDIRECT3DDEVICE9 s_pdev;
+
 
 static void CreateDummyInfDataReq( CFBXBone* fbxbone, KFbxSdkManager*& pSdkManager, KFbxScene*& pScene, KFbxNode* srcRootNode );
 
@@ -471,9 +474,9 @@ bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
 						CShdElem** ppsetbone = (CShdElem**)malloc(s_lpsh->s2shd_leng * sizeof(CShdElem*));
 						_ASSERT(ppsetbone);
 						ZeroMemory(ppsetbone, s_lpsh->s2shd_leng * sizeof(CShdElem*));
-						LinkMeshToSkeletonPM2Req(s_fbxbone, lSkin, pScene, lMesh, curse, pm2, pmb, psetflag, ppsetbone, facenum);
-
 						
+						s_linkdirty.clear();
+						LinkMeshToSkeletonPM2Req(s_fbxbone, lSkin, pScene, lMesh, curse, pm2, pmb, psetflag, ppsetbone, facenum);
 						LinkToTopBone(lSkin, pScene, pm2, psetflag, pmb, facenum);
 						
 
@@ -1007,9 +1010,7 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 	int cmp5 = strcmp(pMesh->GetName(), "body_m5");
 
 
-	//if ((fbxbone->type == FB_NORMAL) || (fbxbone->type == FB_ENDJOINT) || (fbxbone->type == FB_BUNKI_CHIL)){
-	if ((fbxbone != s_fbxbone) && (fbxbone != s_firsttopbone) && ((fbxbone->type == FB_NORMAL) || (fbxbone->type == FB_BUNKI_CHIL))){
-	//if (fbxbone->type == FB_NORMAL){
+	if ((fbxbone != s_fbxbone) && (fbxbone->selem != s_firsttopbone->selem) && ((fbxbone->type == FB_NORMAL) || (fbxbone->type == FB_BUNKI_CHIL))){
 
 		int seri = fbxbone->selem->serialno;
 		CShdElem* curbone = fbxbone->selem;
@@ -1022,6 +1023,12 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 
 
 		if (doneflag == 0){
+			map<int, int> mapdirty;
+			s_linkdirty[curbone] = mapdirty;
+			map<CShdElem*, map<int, int>>::iterator itrlinkdirty;
+			itrlinkdirty = s_linkdirty.find(curbone);
+
+
 			CTreeElem2* curte = (*s_lpth)(seri);
 			_ASSERT(curte);
 
@@ -1081,10 +1088,21 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 							CInfElem* curie = pm2->m_IE + vno[vcnt];
 							int ieno = curie->GetInfElemByBone(curbone->serialno);
 							if (ieno >= 0){
-								lCluster->AddControlPointIndex(vno[vcnt], (double)((curie->ie + ieno)->dispinf));
-								//lCluster->AddControlPointIndex(vsetno, (double)((curie->ie + ieno)->dispinf));
-								(fbxbone->m_boneinfcnt)++;
-								*(psetflag + vno[vcnt]) = 1;
+								map<int, int>::iterator itrmapdirty;
+								itrmapdirty = itrlinkdirty->second.find(vno[vcnt]);
+								if (itrmapdirty == itrlinkdirty->second.end()){
+									lCluster->AddControlPointIndex(vno[vcnt], (double)((curie->ie + ieno)->dispinf));
+									//lCluster->AddControlPointIndex(vsetno, (double)((curie->ie + ieno)->dispinf));
+									(fbxbone->m_boneinfcnt)++;
+									*(psetflag + vno[vcnt]) = 1;
+									itrlinkdirty->second[vno[vcnt]] = 1;
+								}else if ((int)(itrmapdirty->second) != 1){
+									lCluster->AddControlPointIndex(vno[vcnt], (double)((curie->ie + ieno)->dispinf));
+									//lCluster->AddControlPointIndex(vsetno, (double)((curie->ie + ieno)->dispinf));
+									(fbxbone->m_boneinfcnt)++;
+									*(psetflag + vno[vcnt]) = 1;
+									itrlinkdirty->second[vno[vcnt]] = 1;
+								}
 							}
 							vsetno++;
 						}
@@ -1163,6 +1181,13 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* pse
 		}
 		CShdElem* curbone = s_firsttopbone->selem;
 
+		
+		map<CShdElem*, map<int, int>>::iterator itrlinkdirty;
+		map<int, int> mapdirty;
+		s_linkdirty[curbone] = mapdirty;
+		itrlinkdirty = s_linkdirty.find(curbone);
+
+
 		KFbxCluster *lCluster = 0;
 
 
@@ -1193,12 +1218,22 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* pse
 					CInfElem* curie = pm2->m_IE + vno[vcnt];
 					int ieno = curie->GetInfElemByBone(curbone->serialno);
 					if (ieno >= 0){
-						lCluster->AddControlPointIndex(vno[vcnt], (double)((curie->ie + ieno)->dispinf));
-						(s_firsttopbone->m_boneinfcnt)++;
-						*(psetflag + vno[vcnt]) = 1;
-						//lCluster->AddControlPointIndex(vsetno, (double)((curie->ie + ieno)->dispinf));
-						//(s_firsttopbone->m_boneinfcnt)++;
-						//*(psetflag + vsetno) = 1;
+						map<int, int>::iterator itrmapdirty;
+						itrmapdirty = itrlinkdirty->second.find(vno[vcnt]);
+						if (itrmapdirty == itrlinkdirty->second.end()){
+							lCluster->AddControlPointIndex(vno[vcnt], (double)((curie->ie + ieno)->dispinf));
+							//lCluster->AddControlPointIndex(vsetno, (double)((curie->ie + ieno)->dispinf));
+							(s_firsttopbone->m_boneinfcnt)++;
+							*(psetflag + vno[vcnt]) = 1;
+							itrlinkdirty->second[vno[vcnt]] = 1;
+						}
+						else if ((int)(itrmapdirty->second) != 1){
+							lCluster->AddControlPointIndex(vno[vcnt], (double)((curie->ie + ieno)->dispinf));
+							//lCluster->AddControlPointIndex(vsetno, (double)((curie->ie + ieno)->dispinf));
+							(s_firsttopbone->m_boneinfcnt)++;
+							*(psetflag + vno[vcnt]) = 1;
+							itrlinkdirty->second[vno[vcnt]] = 1;
+						}
 					}
 					vsetno++;
 				}
