@@ -36,11 +36,12 @@ END_MSG_MAP()
 public:
 	char name[MAX_PATH];
 	float mult;
+	int createbunkiflag;
 
 private:
 	CWindow m_name_wnd;
 	CWindow m_mult_wnd;
-
+	CWindow m_dlg_wnd;
 private:
 	void SetWnd();
 	int ParamsToDlg();

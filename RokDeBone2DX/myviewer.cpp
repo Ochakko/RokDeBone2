@@ -32254,7 +32254,7 @@ int CMyD3DApplication::SaveFBXFile()
 	WideCharToMultiByte( CP_UTF8, 0, wname, -1, fbxpath, MAX_PATH, NULL, NULL );	
 
 	int ret2;
-	ret2 = WriteFBXFile( m_pd3dDevice, m_thandler, m_shandler, m_mhandler, fbxpath, fbxdlg.mult, m_dtri_th, m_dtri_sh );
+	ret2 = WriteFBXFile( m_pd3dDevice, m_thandler, m_shandler, m_mhandler, fbxpath, fbxdlg.mult, m_dtri_th, m_dtri_sh, fbxdlg.createbunkiflag );
 	if( ret2 ){
 		_ASSERT( 0 );
 		MessageBox( "FBX出力に失敗しました。", "エラー", MB_OK );

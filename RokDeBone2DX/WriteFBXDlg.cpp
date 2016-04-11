@@ -58,6 +58,17 @@ LRESULT CWriteFBXDlg::OnOK(WORD wNotifyCode, WORD wID, HWND hWndCtl, BOOL& bHand
 		strcpy_s( name, MAX_PATH, tempchar );
 	}
 
+/////
+	UINT checkflag;
+	checkflag = m_dlg_wnd.IsDlgButtonChecked(IDC_CHECK1);
+	if (checkflag == BST_CHECKED){
+		createbunkiflag = 1;
+	}
+	else if (checkflag == BST_UNCHECKED){
+		createbunkiflag = 0;
+	}
+
+
 	if( ret == 0 )
 		EndDialog(wID);
 
@@ -77,6 +88,8 @@ void CWriteFBXDlg::SetWnd()
 
 	m_mult_wnd = GetDlgItem( IDC_MULT );
 	_ASSERT( m_mult_wnd );
+
+	m_dlg_wnd = m_hWnd;
 
 }
 

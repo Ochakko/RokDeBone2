@@ -86,6 +86,7 @@ typedef struct tag_animinfo
 	char engmotname[256];
 }ANIMINFO;
 static CWriteFile* s_writefile = 0;
+static int s_createbunkiflag = 0;
 
 static map<CShdElem*, map<int, int>> s_linkdirty;
 
@@ -281,8 +282,10 @@ bool SaveScene(KFbxSdkManager* pSdkManager, KFbxDocument* pScene, const char* pF
     return lStatus;
 }
 
-int WriteFBXFile( LPDIRECT3DDEVICE9 pdev, CTreeHandler2* lpth, CShdHandler* lpsh, CMotHandler* lpmh, char* pfilename, float fbxmult, CTreeHandler2* lpdtrith, CShdHandler* lpdtrish )
+int WriteFBXFile( LPDIRECT3DDEVICE9 pdev, CTreeHandler2* lpth, CShdHandler* lpsh, CMotHandler* lpmh, char* pfilename, float fbxmult, CTreeHandler2* lpdtrith, CShdHandler* lpdtrish, int createbunkiflag )
 {
+	s_createbunkiflag = createbunkiflag;
+
 	if( s_writefile ){
 		delete s_writefile;
 		s_writefile = 0;
@@ -2384,6 +2387,22 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 	CPart* parpart = pbone->parent->part;
 	_ASSERT(parpart);
 
+	char curname[256];
+	char parname[256];
+	strcpy_s(curname, 256, te->engname);
+	strcpy_s(parname, 256, parte->engname);
+	char* curjointnameptr;
+	char* parjointnameptr;
+	curjointnameptr = strstr(curname, "_Joint");
+	if (curjointnameptr){
+		*curjointnameptr = 0;
+	}
+	parjointnameptr = strstr(parname, "_Joint");
+	if (parjointnameptr){
+		*parjointnameptr = 0;
+	}
+
+
 	CShdElem* gparbone = pbone->parent->parent;
 	CPart* gparpart = 0;
 	if (gparbone && gparbone->IsJoint()){
@@ -2394,7 +2413,7 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 	}
 
 	static int s_bunkicnt = 0;
-	if (parpart && (parpart->bonenum >= 2)){
+	if ((s_createbunkiflag == 1) && parpart && (parpart->bonenum >= 2)){
 		
 
 		CFBXBone* fbxbone2 = new CFBXBone();
@@ -2403,7 +2422,7 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 			return;
 		}
 		char newname2[256] = { 0 };
-		sprintf_s(newname2, 256, "%s_bunki%d", parte->engname, s_bunkicnt++);
+		sprintf_s(newname2, 256, "%s_%s_bunki_Joint", parname, curname);
 
 		KString lLimbNodeName2(newname2);
 		KFbxSkeleton* lSkeletonLimbNodeAttribute2 = KFbxSkeleton::Create(pScene, lLimbNodeName2);
@@ -2429,7 +2448,7 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 			return;
 		}
 		char newname[256] = { 0 };
-		sprintf_s(newname, 256, "%s", te->engname);
+		sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
 
 
 		KString lLimbNodeName1(newname);
@@ -2456,7 +2475,7 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 		if (!pbone->child){
 			//endjoint‚ðì‚é
 			char endname[256];
-			sprintf_s(endname, 256, "%s_end", te->engname);
+			sprintf_s(endname, 256, "%s_Joint", curname);
 
 			KString lLimbNodeName3(endname);
 			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
@@ -2501,7 +2520,7 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 			return;
 		}
 		char newname[256] = { 0 };
-		sprintf_s(newname, 256, "%s", te->engname);
+		sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
 
 		KString lLimbNodeName1(newname);
 		KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
@@ -2527,7 +2546,7 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 		if (!pbone->child){
 			//endjoint‚ðì‚é ˆÊ’uî•ñ
 			char endname[256];
-			sprintf_s(endname, 256, "%s_end", te->engname);
+			sprintf_s(endname, 256, "%s_Joint", curname);
 
 			KString lLimbNodeName3(endname);
 			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
