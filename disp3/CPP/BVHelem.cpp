@@ -475,16 +475,16 @@ int CBVHElem::SetMotionParams( int srcframeno, float* srcfloat )
 				( trans + srcframeno )->y = *( srcfloat + chanelno );
 				break;
 			case CHANEL_ZPOS:
-				( trans + srcframeno )->z = *( srcfloat + chanelno );
+				( trans + srcframeno )->z = -*( srcfloat + chanelno );//
 				break;
 			case CHANEL_ZROT:
 				( rotate + srcframeno )->z = *( srcfloat + chanelno );
 				break;
 			case CHANEL_XROT:
-				( rotate + srcframeno )->x = *( srcfloat + chanelno );
+				( rotate + srcframeno )->x = -*( srcfloat + chanelno );//
 				break;
 			case CHANEL_YROT:
-				( rotate + srcframeno )->y = *( srcfloat + chanelno );
+				( rotate + srcframeno )->y = -*( srcfloat + chanelno );//
 				break;
 			default:
 				DbgOut( "bvhelem : SetMotionParams : unknown chanel type warning skip !!!\n" );
@@ -550,8 +550,9 @@ int CBVHElem::SetPosition()
 		partransptr = 0;
 	}
 
-	position = offset + parpos;
-
+	position.x = offset.x + parpos.x;
+	position.y = offset.y + parpos.y;
+	position.z = -offset.z + parpos.z;
 
 	return 0;
 }
@@ -613,8 +614,8 @@ int CBVHElem::ConvertRotate2Q()
 {
 	int fno;
 
-	CQuaternion y180q;
-	y180q.SetRotation( 0.0f, 180.0f, 0.0f );
+	//CQuaternion y180q;
+	//y180q.SetRotation( 0.0f, 180.0f, 0.0f );
 
 	if( qptr && trans && transpose ){
 		CQuaternion q[ ROTAXIS_MAX ];
@@ -629,19 +630,19 @@ int CBVHElem::ConvertRotate2Q()
 			q[ ROTAXIS_Z ].SetRotation( 0.0f, 0.0f, ( rotate + fno )->z );
 
 			qall = q[ rotorder[0] ] * q[ rotorder[1] ] * q[ rotorder[2] ];
-//			q = qz * qx * qy;
-			if( isroot ){
-				//q = q * y180q;
-				qall = y180q * qall;
-			}
 
-			*( qptr + fno ) = qall;
+//			q = qz * qx * qy;
+			//if( isroot ){
+			//	qall = y180q * qall;
+			//}
+
+			*(qptr + fno) = qall;
+
 	///////////////
 			qall.transpose( transpose + fno );
 
 	///////////////
-			y180q.Rotate( ( trans + fno ), *( trans + fno ) );
-
+			//y180q.Rotate( ( trans + fno ), *( trans + fno ) );
 
 		}
 
