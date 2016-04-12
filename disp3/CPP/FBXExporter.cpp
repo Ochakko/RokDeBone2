@@ -2378,6 +2378,8 @@ CFBXBone* CreateFBXBone( KFbxScene* pScene )
 
 void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 {
+
+
 	CTreeElem2* te = (*s_lpth)(pbone->serialno);
 	_ASSERT(te);
 	CPart* part = pbone->part;
@@ -2412,8 +2414,14 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 		gparpart = 0;
 	}
 
+	CFBXBone* fbxbone = new CFBXBone();
+	if (!fbxbone){
+		_ASSERT(0);
+		return;
+	}
+
 	static int s_bunkicnt = 0;
-	if ((s_createbunkiflag == 1) && parpart && (parpart->bonenum >= 2)){
+	if ((pbone->notuse == 0) && (s_createbunkiflag == 1) && parpart && (parpart->bonenum >= 2)){
 		
 
 		CFBXBone* fbxbone2 = new CFBXBone();
@@ -2438,15 +2446,7 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 		parfbxbone->AddChild(fbxbone2);
 
 		fbxbone2->type = FB_BUNKI_CHIL;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		//if (parte){
-		//	parfbxbone->type = FB_BUNKI_PAR;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		//}
 
-		CFBXBone* fbxbone = new CFBXBone();
-		if (!fbxbone){
-			_ASSERT(0);
-			return;
-		}
 		char newname[256] = { 0 };
 		sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
 
@@ -2501,24 +2501,9 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 			fbxbone->AddChild(fbxbone3);
 		}
 
-
-
-		if (pbone->brother){
-			CreateFBXBoneReq(pScene, pbone->brother, parfbxbone);
-		}
-
-		if (pbone->child){
-			CreateFBXBoneReq(pScene, pbone->child, fbxbone);
-		}
-
 	}
 	else{
 		//par’†S‰ñ“]
-		CFBXBone* fbxbone = new CFBXBone();
-		if (!fbxbone){
-			_ASSERT(0);
-			return;
-		}
 		char newname[256] = { 0 };
 		sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
 
@@ -2572,15 +2557,16 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 			fbxbone->AddChild(fbxbone3);
 		}
 
-
-		if (pbone->brother){
-			CreateFBXBoneReq(pScene, pbone->brother, parfbxbone);
-		}
-
-		if (pbone->child){
-			CreateFBXBoneReq(pScene, pbone->child, fbxbone);
-		}
 	}
+
+	if (pbone->brother){
+		CreateFBXBoneReq(pScene, pbone->brother, parfbxbone);
+	}
+
+	if ((pbone->notuse == 0) && pbone->child){
+		CreateFBXBoneReq(pScene, pbone->child, fbxbone);
+	}
+
 
 }
 
