@@ -2340,35 +2340,37 @@ CFBXBone* CreateFBXBone( KFbxScene* pScene )
 		CPart* toppart = topj->part;
 		_ASSERT( toppart );
 
-		KFbxNode* lSkeletonNode;
-		KString lNodeName( topte->engname );
-		KFbxSkeleton* lSkeletonNodeAttribute = KFbxSkeleton::Create(pScene, lNodeName);
-		lSkeletonNodeAttribute->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-		lSkeletonNode = KFbxNode::Create(pScene,lNodeName.Buffer());
-		lSkeletonNode->SetNodeAttribute(lSkeletonNodeAttribute);    
-		lSkeletonNode->LclTranslation.Set(KFbxVector4(toppart->jointloc.x * s_fbxmult, toppart->jointloc.y * s_fbxmult, -toppart->jointloc.z * s_fbxmult));
-		//lSkeletonNode->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
+		if (topj->notuse == 0){
+			KFbxNode* lSkeletonNode;
+			KString lNodeName(topte->engname);
+			KFbxSkeleton* lSkeletonNodeAttribute = KFbxSkeleton::Create(pScene, lNodeName);
+			lSkeletonNodeAttribute->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			lSkeletonNode = KFbxNode::Create(pScene, lNodeName.Buffer());
+			lSkeletonNode->SetNodeAttribute(lSkeletonNodeAttribute);
+			lSkeletonNode->LclTranslation.Set(KFbxVector4(toppart->jointloc.x * s_fbxmult, toppart->jointloc.y * s_fbxmult, -toppart->jointloc.z * s_fbxmult));
+			//lSkeletonNode->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
 
-//_ASSERT(0);
-		CFBXBone* fbxbone = new CFBXBone();
-		if( !fbxbone ){
-			_ASSERT( 0 );
-			return 0;
-		}
-		fbxbone->type = FB_NORMAL;
-		fbxbone->selem = topj;
-		fbxbone->skelnode = lSkeletonNode;
+			//_ASSERT(0);
+			CFBXBone* fbxbone = new CFBXBone();
+			if (!fbxbone){
+				_ASSERT(0);
+				return 0;
+			}
+			fbxbone->type = FB_NORMAL;
+			fbxbone->selem = topj;
+			fbxbone->skelnode = lSkeletonNode;
 
-		if (firsttopflag == 1){
-			s_firsttopbone = fbxbone;
-			firsttopflag = 0;
-		}
+			if (firsttopflag == 1){
+				s_firsttopbone = fbxbone;
+				firsttopflag = 0;
+			}
 
-		retfbxbone->skelnode->AddChild(lSkeletonNode);
-		retfbxbone->AddChild( fbxbone );
+			retfbxbone->skelnode->AddChild(lSkeletonNode);
+			retfbxbone->AddChild(fbxbone);
 
-		if( topj->child ){
-			CreateFBXBoneReq( pScene, topj->child, fbxbone );
+			if (topj->child){
+				CreateFBXBoneReq(pScene, topj->child, fbxbone);
+			}
 		}
 	}
 
@@ -2420,146 +2422,147 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 	}
 
 	static int s_bunkicnt = 0;
-	if ((pbone->notuse == 0) && (s_createbunkiflag == 1) && parpart && (parpart->bonenum >= 2)){
-		
-
-		CFBXBone* fbxbone2 = new CFBXBone();
-		if (!fbxbone2){
-			_ASSERT(0);
-			return;
-		}
-		char newname2[256] = { 0 };
-		sprintf_s(newname2, 256, "%s_%s_bunki_Joint", parname, curname);
-
-		KString lLimbNodeName2(newname2);
-		KFbxSkeleton* lSkeletonLimbNodeAttribute2 = KFbxSkeleton::Create(pScene, lLimbNodeName2);
-		lSkeletonLimbNodeAttribute2->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-		lSkeletonLimbNodeAttribute2->Size.Set(1.0);
-		KFbxNode* lSkeletonLimbNode2 = KFbxNode::Create(pScene, lLimbNodeName2.Buffer());
-		lSkeletonLimbNode2->SetNodeAttribute(lSkeletonLimbNodeAttribute2);
-		lSkeletonLimbNode2->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
-		parfbxbone->skelnode->AddChild(lSkeletonLimbNode2);
-
-		fbxbone2->selem = pbone->parent;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		fbxbone2->skelnode = lSkeletonLimbNode2;
-		parfbxbone->AddChild(fbxbone2);
-
-		fbxbone2->type = FB_BUNKI_CHIL;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-		char newname[256] = { 0 };
-		sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
+	if (pbone->notuse == 0){
+		if ((s_createbunkiflag == 1) && parpart && (parpart->bonenum >= 2)){
 
 
-		KString lLimbNodeName1(newname);
-		KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
-		lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-		lSkeletonLimbNodeAttribute1->Size.Set(1.0);
-		KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
-		lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
-		if (gparpart){
-			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
-				parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
-		}
-		else{
-			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult, part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
-		}
-		fbxbone2->skelnode->AddChild(lSkeletonLimbNode1);
-
-		fbxbone->selem = pbone;
-		fbxbone->skelnode = lSkeletonLimbNode1;
-		fbxbone2->AddChild(fbxbone);
-		fbxbone->type = FB_NORMAL;
-
-
-		if (!pbone->child){
-			//endjoint‚ðì‚é
-			char endname[256];
-			sprintf_s(endname, 256, "%s_Joint", curname);
-
-			KString lLimbNodeName3(endname);
-			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
-			lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-			lSkeletonLimbNodeAttribute3->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
-			lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
-
-			lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
-				part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
-			lSkeletonLimbNode2->AddChild(lSkeletonLimbNode3);
-
-			CFBXBone* fbxbone3 = new CFBXBone();
-			if (!fbxbone3){
+			CFBXBone* fbxbone2 = new CFBXBone();
+			if (!fbxbone2){
 				_ASSERT(0);
 				return;
 			}
-			fbxbone3->type = FB_ENDJOINT;
-			fbxbone->skelnode->AddChild(lSkeletonLimbNode3);
+			char newname2[256] = { 0 };
+			sprintf_s(newname2, 256, "%s_%s_bunki_Joint", parname, curname);
 
-			fbxbone3->selem = pbone;
-			fbxbone3->skelnode = lSkeletonLimbNode3;
-			fbxbone->AddChild(fbxbone3);
-		}
+			KString lLimbNodeName2(newname2);
+			KFbxSkeleton* lSkeletonLimbNodeAttribute2 = KFbxSkeleton::Create(pScene, lLimbNodeName2);
+			lSkeletonLimbNodeAttribute2->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			lSkeletonLimbNodeAttribute2->Size.Set(1.0);
+			KFbxNode* lSkeletonLimbNode2 = KFbxNode::Create(pScene, lLimbNodeName2.Buffer());
+			lSkeletonLimbNode2->SetNodeAttribute(lSkeletonLimbNodeAttribute2);
+			lSkeletonLimbNode2->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
+			parfbxbone->skelnode->AddChild(lSkeletonLimbNode2);
 
-	}
-	else{
-		//par’†S‰ñ“]
-		char newname[256] = { 0 };
-		sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
+			fbxbone2->selem = pbone->parent;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			fbxbone2->skelnode = lSkeletonLimbNode2;
+			parfbxbone->AddChild(fbxbone2);
 
-		KString lLimbNodeName1(newname);
-		KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
-		lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-		lSkeletonLimbNodeAttribute1->Size.Set(1.0);
-		KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
-		lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
-		if (gparpart){
-			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
-				parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
+			fbxbone2->type = FB_BUNKI_CHIL;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+			char newname[256] = { 0 };
+			sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
+
+
+			KString lLimbNodeName1(newname);
+			KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
+			lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			lSkeletonLimbNodeAttribute1->Size.Set(1.0);
+			KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
+			lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
+			if (gparpart){
+				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
+					parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
+			}
+			else{
+				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult, part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+			}
+			fbxbone2->skelnode->AddChild(lSkeletonLimbNode1);
+
+			fbxbone->selem = pbone;
+			fbxbone->skelnode = lSkeletonLimbNode1;
+			fbxbone2->AddChild(fbxbone);
+			fbxbone->type = FB_NORMAL;
+
+
+			if (!pbone->child){
+				//endjoint‚ðì‚é
+				char endname[256];
+				sprintf_s(endname, 256, "%s_Joint", curname);
+
+				KString lLimbNodeName3(endname);
+				KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
+				lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+				lSkeletonLimbNodeAttribute3->Size.Set(1.0);
+				KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
+				lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
+
+				lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+					part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+				lSkeletonLimbNode2->AddChild(lSkeletonLimbNode3);
+
+				CFBXBone* fbxbone3 = new CFBXBone();
+				if (!fbxbone3){
+					_ASSERT(0);
+					return;
+				}
+				fbxbone3->type = FB_ENDJOINT;
+				fbxbone->skelnode->AddChild(lSkeletonLimbNode3);
+
+				fbxbone3->selem = pbone;
+				fbxbone3->skelnode = lSkeletonLimbNode3;
+				fbxbone->AddChild(fbxbone3);
+			}
+
 		}
 		else{
-			//lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
-			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
-				part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
-		}
-		parfbxbone->skelnode->AddChild(lSkeletonLimbNode1);
+			//par’†S‰ñ“]
+			char newname[256] = { 0 };
+			sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
 
-		fbxbone->selem = pbone;
-		fbxbone->skelnode = lSkeletonLimbNode1;
-		parfbxbone->AddChild(fbxbone);
-		fbxbone->type = FB_NORMAL;
-
-
-		if (!pbone->child){
-			//endjoint‚ðì‚é ˆÊ’uî•ñ
-			char endname[256];
-			sprintf_s(endname, 256, "%s_Joint", curname);
-
-			KString lLimbNodeName3(endname);
-			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
-			lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-			lSkeletonLimbNodeAttribute3->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
-			lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
-
-			lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
-				part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
-			lSkeletonLimbNode1->AddChild(lSkeletonLimbNode3);
-
-			CFBXBone* fbxbone3 = new CFBXBone();
-			if (!fbxbone3){
-				_ASSERT(0);
-				return;
+			KString lLimbNodeName1(newname);
+			KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
+			lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			lSkeletonLimbNodeAttribute1->Size.Set(1.0);
+			KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
+			lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
+			if (gparpart){
+				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
+					parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
 			}
-			fbxbone3->type = FB_ENDJOINT;
-			fbxbone->skelnode->AddChild(lSkeletonLimbNode3);
+			else{
+				//lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
+				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+					part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+			}
+			parfbxbone->skelnode->AddChild(lSkeletonLimbNode1);
 
-			fbxbone3->selem = pbone;
-			fbxbone3->skelnode = lSkeletonLimbNode3;
-			fbxbone->AddChild(fbxbone3);
+			fbxbone->selem = pbone;
+			fbxbone->skelnode = lSkeletonLimbNode1;
+			parfbxbone->AddChild(fbxbone);
+			fbxbone->type = FB_NORMAL;
+
+
+			if (!pbone->child){
+				//endjoint‚ðì‚é ˆÊ’uî•ñ
+				char endname[256];
+				sprintf_s(endname, 256, "%s_Joint", curname);
+
+				KString lLimbNodeName3(endname);
+				KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
+				lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+				lSkeletonLimbNodeAttribute3->Size.Set(1.0);
+				KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
+				lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
+
+				lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+					part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+				lSkeletonLimbNode1->AddChild(lSkeletonLimbNode3);
+
+				CFBXBone* fbxbone3 = new CFBXBone();
+				if (!fbxbone3){
+					_ASSERT(0);
+					return;
+				}
+				fbxbone3->type = FB_ENDJOINT;
+				fbxbone->skelnode->AddChild(lSkeletonLimbNode3);
+
+				fbxbone3->selem = pbone;
+				fbxbone3->skelnode = lSkeletonLimbNode3;
+				fbxbone->AddChild(fbxbone3);
+			}
+
 		}
-
 	}
-
 	if (pbone->brother){
 		CreateFBXBoneReq(pScene, pbone->brother, parfbxbone);
 	}
