@@ -1811,7 +1811,8 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 				orgtra = D3DXVECTOR3(parpart->jointloc.x - gparpart->jointloc.x, parpart->jointloc.y - gparpart->jointloc.y, -parpart->jointloc.z - -gparpart->jointloc.z);
 			}
 			else{
-				orgtra = D3DXVECTOR3(curpart->jointloc.x - parpart->jointloc.x, curpart->jointloc.y - parpart->jointloc.y, -curpart->jointloc.z - -parpart->jointloc.z);
+				//orgtra = D3DXVECTOR3(curpart->jointloc.x - parpart->jointloc.x, curpart->jointloc.y - parpart->jointloc.y, -curpart->jointloc.z - -parpart->jointloc.z);
+				orgtra = D3DXVECTOR3(parpart->jointloc.x, parpart->jointloc.y, -parpart->jointloc.z);
 			}
 		}
 		else{
@@ -2474,7 +2475,8 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 					parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
 			}
 			else{
-				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult, part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+				//lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult, part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
 			}
 			fbxbone2->skelnode->AddChild(lSkeletonLimbNode1);
 
@@ -2532,9 +2534,9 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 					parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
 			}
 			else{
-				//lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
-				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
-					part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
+				//lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+				//	part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
 			}
 			parfbxbone->skelnode->AddChild(lSkeletonLimbNode1);
 
