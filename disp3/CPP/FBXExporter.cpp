@@ -232,7 +232,7 @@ bool SaveScene(KFbxSdkManager* pSdkManager, KFbxDocument* pScene, const char* pF
     {
         // Write in fall back format in less no ASCII format found
         pFileFormat = pSdkManager->GetIOPluginRegistry()->GetNativeWriterFormat();
-
+		/*
         //Try to export in ASCII if possible
         int lFormatIndex, lFormatCount = pSdkManager->GetIOPluginRegistry()->GetWriterFormatCount();
 
@@ -249,6 +249,7 @@ bool SaveScene(KFbxSdkManager* pSdkManager, KFbxDocument* pScene, const char* pF
                 }
             }
         }
+		*/
     }
 
     // Set the export states. By default, the export states are always set to 
