@@ -160,6 +160,11 @@ static int DestroyFBXBoneReq( CFBXBone* fbxbone );
 
 static int sortfunc_leng( void *context, const void *elem1, const void *elem2);
 
+
+static D3DXMATRIX CalcBindMatrix(CFBXBone* fbxbone);
+static D3DXMATRIX CalcAxisMatX_aft(D3DXVECTOR3 curpos, D3DXVECTOR3 chilpos);
+
+
 int sortfunc_leng( void *context, const void *elem1, const void *elem2)
 {
 	ANIMINFO* info1 = (ANIMINFO*)elem1;
@@ -1010,7 +1015,6 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 	CD3DDisp* d3ddisp = curse->d3ddisp;
 	_ASSERT( d3ddisp );
 
-	KFbxXMatrix lXMatrix;
     KFbxNode* lSkel;
 
 //	int cmp4 = strcmp(pMesh->GetName(), "body_m4");
@@ -1148,19 +1152,14 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 						_ASSERT(0);
 					}
 
-					KFbxScene* lScene = pMesh->GetScene();
-					//lXMatrix = pMesh->EvaluateGlobalTransform();
-					//lCluster->SetTransformMatrix(lXMatrix);
-					lXMatrix.SetIdentity();
-					lXMatrix[3][0] = -pos.x * s_fbxmult;
-					lXMatrix[3][1] = -pos.y * s_fbxmult;
-					lXMatrix[3][2] = pos.z * s_fbxmult;
+					KFbxXMatrix lXMatrix;
+					lXMatrix = pMesh->EvaluateGlobalTransform();
 					lCluster->SetTransformMatrix(lXMatrix);
 
-					//lXMatrix = lSkel->EvaluateGlobalTransform();
-					//lCluster->SetTransformLinkMatrix(lXMatrix);
-					lXMatrix.SetIdentity();
-					lCluster->SetTransformLinkMatrix(lXMatrix);
+
+					KFbxXMatrix lXMatrix2;
+					lXMatrix2 = lSkel->EvaluateGlobalTransform();
+					lCluster->SetTransformLinkMatrix(lXMatrix2);
 
 					lSkin->AddCluster(lCluster);
 				}
@@ -1441,19 +1440,13 @@ void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 					_ASSERT(0);
 				}
 
-				KFbxScene* lScene = pMesh->GetScene();
-				//if( lScene ) lXMatrix = pMesh->EvaluateGlobalTransform();
-				//lCluster->SetTransformMatrix(lXMatrix);
-				lXMatrix.SetIdentity();
-				lXMatrix[3][0] = -pos.x * s_fbxmult;
-				lXMatrix[3][1] = -pos.y * s_fbxmult;
-				lXMatrix[3][2] = pos.z * s_fbxmult;
+				KFbxXMatrix lXMatrix;
+				lXMatrix = pMesh->EvaluateGlobalTransform();
 				lCluster->SetTransformMatrix(lXMatrix);
 
-				//if( lScene ) lXMatrix = lSkel->EvaluateGlobalTransform();
-				//lCluster->SetTransformLinkMatrix(lXMatrix);
-				lXMatrix.SetIdentity();
-				lCluster->SetTransformLinkMatrix(lXMatrix);
+				KFbxXMatrix lXMatrix2;
+				lXMatrix2 = lSkel->EvaluateGlobalTransform();
+				lCluster->SetTransformLinkMatrix(lXMatrix2);
 
 				lSkin->AddCluster(lCluster);
 			}
@@ -1826,6 +1819,7 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 		CMotionInfo* curmi = curmc->motinfo;
 		_ASSERT(curmi);
 		CTreeElem2* curte = (*s_lpth)(seri);
+
 
 		lCurveTX = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_X, true);
 		lCurveTX->KeyModifyBegin();
@@ -2284,7 +2278,27 @@ void WriteBindPoseReq( CFBXBone* fbxbone, KFbxPose* lPose )
 	if( fbxbone->type != FB_ROOT ){
 		KFbxNode* curskel = fbxbone->skelnode;
 		if( curskel ){
-			KFbxMatrix lBindMatrix = curskel->EvaluateGlobalTransform( lTime0 );
+			D3DXMATRIX tramat = CalcBindMatrix(fbxbone);
+			KFbxMatrix lBindMatrix;
+			//KFbxMatrix lBindMatrix = curskel->EvaluateGlobalTransform( lTime0 );
+			lBindMatrix.SetIdentity();
+			lBindMatrix[0][0] = tramat._11;
+			lBindMatrix[0][1] = tramat._12;
+			lBindMatrix[0][2] = tramat._13;
+			lBindMatrix[0][3] = tramat._14;
+			lBindMatrix[1][0] = tramat._21;
+			lBindMatrix[1][1] = tramat._22;
+			lBindMatrix[1][2] = tramat._23;
+			lBindMatrix[1][3] = tramat._24;
+			lBindMatrix[2][0] = tramat._31;
+			lBindMatrix[2][1] = tramat._32;
+			lBindMatrix[2][2] = tramat._33;
+			lBindMatrix[2][3] = tramat._34;
+			lBindMatrix[3][0] = tramat._41;
+			lBindMatrix[3][1] = tramat._42;
+			lBindMatrix[3][2] = tramat._43;
+			lBindMatrix[3][3] = tramat._44;
+
 			lPose->Add(curskel, lBindMatrix);
 		}
 	}
@@ -2789,7 +2803,6 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 */
 void CreateDummyInfDataReq( CFBXBone* fbxbone, KFbxSdkManager*& pSdkManager, KFbxScene*& pScene, KFbxNode* lMesh, KFbxSkin* lSkin, int bonecnt )
 {
-	int ret;
 	CShdElem* curbone = fbxbone->selem;
 	//if( curbone && (fbxbone->m_boneinfcnt == 0) ){
 	if (curbone ){
@@ -3000,4 +3013,119 @@ void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 		}
 	}
 
+}
+
+D3DXMATRIX CalcBindMatrix(CFBXBone* fbxbone)
+{
+	D3DXVECTOR3 curpos, parpos;
+
+	CShdElem* curbone = fbxbone->selem;
+	CPart* curpart = curbone->part;
+	curpos.x = curpart->jointloc.x * s_fbxmult;
+	curpos.y = curpart->jointloc.y * s_fbxmult;
+	curpos.z = -curpart->jointloc.z * s_fbxmult;
+
+	CFBXBone* parfbxbone = fbxbone->m_parent;
+	if (parfbxbone){
+		CShdElem* parbone = parfbxbone->selem;
+		if (parbone){
+			CPart* parpart = parbone->part;
+			parpos.x = parpart->jointloc.x * s_fbxmult;
+			parpos.y = parpart->jointloc.y * s_fbxmult;
+			parpos.z = -parpart->jointloc.z * s_fbxmult;
+		}
+		else{
+			parpos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		}
+	}
+	else{
+		parpos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+	}
+
+	D3DXMATRIX axismat;
+	D3DXVECTOR3 diffvec = curpos - parpos;
+	float leng = D3DXVec3Length(&diffvec);
+	if (leng >= 0.00001f){
+		axismat = CalcAxisMatX_aft(parpos, curpos);
+		axismat._41 = parpos.x;
+		axismat._42 = parpos.y;
+		axismat._43 = parpos.z;
+	}
+	else{
+		D3DXMatrixIdentity(&axismat);
+		axismat._41 = parpos.x;
+		axismat._42 = parpos.y;
+		axismat._43 = parpos.z;
+	}
+	return axismat;
+
+}
+
+D3DXMATRIX CalcAxisMatX_aft(D3DXVECTOR3 curpos, D3DXVECTOR3 chilpos)
+{
+	D3DXMATRIX retmat;
+	D3DXMatrixIdentity(&retmat);
+	if (curpos == chilpos){
+		return retmat;
+	}
+
+	D3DXVECTOR3 startpos, endpos, upvec;
+
+	D3DXVECTOR3 vecx0, vecy0, vecz0;
+	D3DXVECTOR3 vecx1, vecy1, vecz1;
+
+	startpos = curpos;
+	endpos = chilpos;
+
+	vecx0.x = 1.0;
+	vecx0.y = 0.0;
+	vecx0.z = 0.0;
+
+	vecy0.x = 0.0;
+	vecy0.y = 1.0;
+	vecy0.z = 0.0;
+
+	vecz0.x = 0.0;
+	vecz0.y = 0.0;
+	vecz0.z = 1.0;
+
+	D3DXVECTOR3 bonevec;
+	bonevec = endpos - startpos;
+	D3DXVec3Normalize(&bonevec, &bonevec);
+
+	if ((bonevec.x != 0.0f) || (bonevec.y != 0.0f)){
+		upvec.x = 0.0f;
+		upvec.y = 0.0f;
+		upvec.z = 1.0f;
+		//m_upkind = UPVEC_Z;//vecy1-->Y, vecz1-->Z
+	}
+	else{
+		upvec.x = 0.0f;
+		upvec.y = 1.0f;
+		upvec.z = 0.0f;
+		//m_upkind = UPVEC_Y;//vecy1-->Z, vecz1-->Y
+	}
+
+	vecx1 = bonevec;
+
+	D3DXVec3Cross(&vecy1, &upvec, &vecx1);
+	D3DXVec3Normalize(&vecy1, &vecy1);
+
+	D3DXVec3Cross(&vecz1, &vecx1, &vecy1);
+	D3DXVec3Normalize(&vecy1, &vecy1);
+
+
+	retmat._11 = vecx1.x;
+	retmat._12 = vecx1.y;
+	retmat._13 = vecx1.z;
+
+	retmat._21 = vecy1.x;
+	retmat._22 = vecy1.y;
+	retmat._23 = vecy1.z;
+
+	retmat._31 = vecz1.x;
+	retmat._32 = vecz1.y;
+	retmat._33 = vecz1.z;
+
+	return retmat;
 }
