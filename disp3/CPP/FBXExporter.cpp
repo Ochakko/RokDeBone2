@@ -161,6 +161,7 @@ static int DestroyFBXBoneReq( CFBXBone* fbxbone );
 static int sortfunc_leng( void *context, const void *elem1, const void *elem2);
 
 
+static D3DXMATRIX CalcBindMatrixZA(CFBXBone* fbxbone, int srcmotid);
 static D3DXMATRIX CalcBindMatrix(CFBXBone* fbxbone);
 static D3DXMATRIX CalcAxisMatX_aft(D3DXVECTOR3 curpos, D3DXVECTOR3 chilpos);
 
@@ -1299,9 +1300,9 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* pse
 			//lXMatrix = pMesh->EvaluateGlobalTransform();
 			//lCluster->SetTransformMatrix(lXMatrix);
 			lXMatrix.SetIdentity();
-			lXMatrix[3][0] = -pos.x * s_fbxmult;
-			lXMatrix[3][1] = -pos.y * s_fbxmult;
-			lXMatrix[3][2] = pos.z * s_fbxmult;
+			lXMatrix[3][0] = -pos.x;// *s_fbxmult;
+			lXMatrix[3][1] = -pos.y;// *s_fbxmult;
+			lXMatrix[3][2] = pos.z;// *s_fbxmult;
 			lCluster->SetTransformMatrix(lXMatrix);
 
 			//lXMatrix = lSkel->EvaluateGlobalTransform();
@@ -2263,6 +2264,8 @@ int WriteBindPose(KFbxScene* pScene)
 		_ASSERT( 0 );
 	}
 
+	//s_lpmh->SetMotionFrameNo(s_lpsh, s_firstoutmot, 0, 1);
+
 	WriteBindPoseReq( s_fbxbone, lPose );
 
 	pScene->AddPose(lPose);
@@ -2272,13 +2275,13 @@ int WriteBindPose(KFbxScene* pScene)
 
 void WriteBindPoseReq( CFBXBone* fbxbone, KFbxPose* lPose )
 {
-	KTime lTime0;
-	lTime0.SetSecondDouble( 0.0 );
+	//KTime lTime0;
+	//lTime0.SetSecondDouble( 0.0 );
 	
 	if( fbxbone->type != FB_ROOT ){
 		KFbxNode* curskel = fbxbone->skelnode;
 		if( curskel ){
-			D3DXMATRIX tramat = CalcBindMatrix(fbxbone);
+			D3DXMATRIX tramat = CalcBindMatrixZA(fbxbone, s_firstoutmot);
 			KFbxMatrix lBindMatrix;
 			//KFbxMatrix lBindMatrix = curskel->EvaluateGlobalTransform( lTime0 );
 			lBindMatrix.SetIdentity();
@@ -3014,6 +3017,78 @@ void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 	}
 
 }
+
+D3DXMATRIX CalcBindMatrixZA(CFBXBone* fbxbone, int srcmotid)
+{
+	D3DXMATRIX axismat;
+	CShdElem* curbone = fbxbone->selem;
+	if (curbone){
+		D3DXVECTOR3 curpos;
+		CPart* curpart = curbone->part;
+		if (curpart){
+			curpos.x = curpart->jointloc.x * s_fbxmult;
+			curpos.y = curpart->jointloc.y * s_fbxmult;
+			curpos.z = -curpart->jointloc.z * s_fbxmult;
+		}
+		else{
+			curpos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		}
+
+		D3DXVECTOR3 parpos;
+		CFBXBone* parfbxbone = fbxbone->m_parent;
+		if (parfbxbone){
+			CShdElem* parbone = parfbxbone->selem;
+			if (parbone){
+				CPart* parpart = parbone->part;
+				if (parpart){
+					parpos.x = parpart->jointloc.x * s_fbxmult;
+					parpos.y = parpart->jointloc.y * s_fbxmult;
+					parpos.z = -parpart->jointloc.z * s_fbxmult;
+				}
+				else{
+					parpos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+				}
+			}
+			else{
+				parpos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+			}
+		}
+		else{
+			parpos = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		}
+
+		D3DXVECTOR3 diffvec = curpos - parpos;
+		float boneleng = D3DXVec3Length(&diffvec);
+		if (boneleng >= 0.00001f){
+			int boneno = curbone->serialno;
+			int ret;
+			int framezero = 0;
+			ret = s_lpmh->SetBoneAxisQ(s_lpsh, curbone->serialno, s_lpmh->GetZaType(srcmotid), srcmotid, framezero);
+			_ASSERT(!ret);
+			CQuaternion axisq;
+			ret = curbone->GetBoneAxisQ(&axisq);
+			_ASSERT(!ret);
+
+			axismat = axisq.MakeRotMatX();
+			axismat._41 = parpos.x;
+			axismat._42 = parpos.y;
+			axismat._43 = parpos.z;
+		}
+		else{
+			D3DXMatrixIdentity(&axismat);
+			axismat._41 = parpos.x;
+			axismat._42 = parpos.y;
+			axismat._43 = parpos.z;
+		}
+	}
+	else{
+		D3DXMatrixIdentity(&axismat);
+	}
+
+	return axismat;
+}
+
+
 
 D3DXMATRIX CalcBindMatrix(CFBXBone* fbxbone)
 {
