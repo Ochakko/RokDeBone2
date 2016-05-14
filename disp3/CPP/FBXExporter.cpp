@@ -395,10 +395,10 @@ bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
     KFbxDocumentInfo* sceneInfo = KFbxDocumentInfo::Create(pSdkManager,"SceneInfo");
     sceneInfo->mTitle = "scene made by RokDeBone2";
     sceneInfo->mSubject = "skinmesh and animation";
-    sceneInfo->mAuthor = "RokDeBone2 user";
-    sceneInfo->mRevision = "rev. 1.0";
-    sceneInfo->mKeywords = "skinmesh animation";
-    sceneInfo->mComment = "no particular comments required.";
+	sceneInfo->mAuthor = "OchakkoLab";
+	sceneInfo->mRevision = "rev. 2.0";
+	sceneInfo->mKeywords = "skinmesh animation";
+	sceneInfo->mComment = "no particular comments required.";
 
     // we need to add the sceneInfo before calling AddThumbNailToScene because
     // that function is asking the scene for the sceneInfo.
