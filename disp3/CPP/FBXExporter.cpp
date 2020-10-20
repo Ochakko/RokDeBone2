@@ -577,8 +577,11 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 
 	KFbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
 	K_ASSERT(lUVDiffuseElement != NULL);
-	lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
-	lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eDIRECT);
+	//lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
+	//lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eDIRECT);
+	lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON_VERTEX);
+	lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
+
 
 	int vsetno;
 	d3ddisp->CalcInitialNormal(pm2);
@@ -587,8 +590,8 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 		D3DTLVERTEX* tlv = pm2->opttlv + vsetno;
 		*(lcp + vsetno) = KFbxVector4(tlv->sx * s_fbxmult, tlv->sy * s_fbxmult, -tlv->sz * s_fbxmult, 1.0f);
 
-		KFbxVector2 fbxuv = KFbxVector2(tlv->tu, -tlv->tv);
-		lUVDiffuseElement->GetDirectArray().Add(fbxuv);
+		//KFbxVector2 fbxuv = KFbxVector2(tlv->tu, -tlv->tv);
+		//lUVDiffuseElement->GetDirectArray().Add(fbxuv);
 
 		D3DXVECTOR3 curn = *(d3ddisp->m_orgNormal + vsetno);
 		KFbxVector4 fbxn = KFbxVector4(curn.x, curn.y, -curn.z, 0.0f);
@@ -606,9 +609,28 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	//	lElementNormal->GetDirectArray().Add(fbxn);
 	//}
 
-	//lUVDiffuseElement->GetIndexArray().SetCount(facenum * 3);
 
+	vsetno = 0;
 	int faceno;
+	for (faceno = pmb->startface; faceno < pmb->endface; faceno++){
+		int vno[3];
+		vno[0] = *(pm2->m_optindexbuf2 + faceno * 3);
+		vno[2] = *(pm2->m_optindexbuf2 + faceno * 3 + 1);
+		vno[1] = *(pm2->m_optindexbuf2 + faceno * 3 + 2);
+
+		int vcnt;
+		for (vcnt = 0; vcnt < 3; vcnt++){
+			SKINVERTEX* skinv = d3ddisp->m_skinv + vno[vcnt];
+			KFbxVector2 fbxuv = KFbxVector2(skinv->tex1[0], -skinv->tex1[1]);
+			lUVDiffuseElement->GetDirectArray().Add(fbxuv);
+
+			vsetno++;
+		}
+	}
+	lUVDiffuseElement->GetIndexArray().SetCount(facenum * 3);
+
+	//int faceno;
+	vsetno = 0;
 	int setfaceno = totalfacenum;
 	for (faceno = pmb->startface; faceno < pmb->endface; faceno++){
 		int vno[3];
@@ -628,6 +650,8 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 		{
 			// Control point index
 			lMesh->AddPolygon(vno[i]);
+			lUVDiffuseElement->GetIndexArray().SetAt(vsetno, vsetno);
+			vsetno++;
 		}
 		lMesh->EndPolygon();
 
