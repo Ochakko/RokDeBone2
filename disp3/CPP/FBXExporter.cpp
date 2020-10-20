@@ -563,11 +563,11 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	sprintf_s(nodename, 256, "%sShape%d", curte->engname, s_createcnt);
 	s_createcnt++;
 
-	int facenum = pmb->endface - pmb->startface;
+	int facenum = pmb->endface - pmb->startface + 1;
 
 	KFbxMesh* lMesh = KFbxMesh::Create(pScene, meshname);
 	//lMesh->InitControlPoints(facenum * 3);
-	lMesh->InitControlPoints(pm2->optpleng * 2);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	lMesh->InitControlPoints(pm2->optpleng);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	KFbxVector4* lcp = lMesh->GetControlPoints();
 
 
@@ -594,17 +594,17 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 		KFbxVector4 fbxn = KFbxVector4(curn.x, curn.y, -curn.z, 0.0f);
 		lElementNormal->GetDirectArray().Add(fbxn);
 	}
-	for (vsetno = 0; vsetno < pm2->optpleng; vsetno++){//!!!!!!!!!!!!!!
-		D3DTLVERTEX* tlv = pm2->opttlv + vsetno;
-		*(lcp + vsetno + pm2->optpleng) = KFbxVector4(tlv->sx * s_fbxmult, tlv->sy * s_fbxmult, -tlv->sz * s_fbxmult, 1.0f);
+	//for (vsetno = 0; vsetno < pm2->optpleng; vsetno++){//!!!!!!!!!!!!!!
+	//	D3DTLVERTEX* tlv = pm2->opttlv + vsetno;
+	//	*(lcp + vsetno + pm2->optpleng) = KFbxVector4(tlv->sx * s_fbxmult, tlv->sy * s_fbxmult, -tlv->sz * s_fbxmult, 1.0f);
 
-		KFbxVector2 fbxuv = KFbxVector2(tlv->tu, -tlv->tv);
-		lUVDiffuseElement->GetDirectArray().Add(fbxuv);
+	//	KFbxVector2 fbxuv = KFbxVector2(tlv->tu, -tlv->tv);
+	//	lUVDiffuseElement->GetDirectArray().Add(fbxuv);
 
-		D3DXVECTOR3 curn = *(d3ddisp->m_orgNormal + vsetno);
-		KFbxVector4 fbxn = KFbxVector4(curn.x, curn.y, -curn.z, 0.0f);
-		lElementNormal->GetDirectArray().Add(fbxn);
-	}
+	//	D3DXVECTOR3 curn = *(d3ddisp->m_orgNormal + vsetno);
+	//	KFbxVector4 fbxn = KFbxVector4(curn.x, curn.y, -curn.z, 0.0f);
+	//	lElementNormal->GetDirectArray().Add(fbxn);
+	//}
 
 	//lUVDiffuseElement->GetIndexArray().SetCount(facenum * 3);
 
@@ -2952,7 +2952,7 @@ void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 
 		int seri = fbxbone->selem->serialno;
 		CShdElem* curbone = fbxbone->selem;
-		_ASSERT( curse );
+		_ASSERT( curbone );
 		CTreeElem2* curte = (*s_lpth)( seri );
 		_ASSERT( curte );
 

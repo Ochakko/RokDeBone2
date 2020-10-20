@@ -4,7 +4,7 @@
 
 
  /* File created by MIDL compiler version 7.00.0555 */
-/* at Sun May 15 06:10:33 2016
+/* at Tue Oct 20 17:16:52 2020
  */
 /* Compiler settings for RokDeBone2.idl:
     Oicf, W1, Zp8, env=Win32 (32b run), target_arch=X86 7.00.0555 
