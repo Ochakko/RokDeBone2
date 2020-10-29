@@ -92,8 +92,10 @@ static map<CShdElem*, map<int, int>> s_linkdirty;
 
 static float s_fbxmult = 1.0f;
 static double s_timescale = 30.0;
+//static double s_timescale = 60.0;
 //static double s_timescale = 1.0;
 static int s_itscale = 30;
+//static int s_itscale = 60;
 
 static int s_firstoutmot;
 static ANIMINFO* s_ai = 0;
@@ -1300,18 +1302,18 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* pse
 			}
 		}
 
-		if (1){//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-			if (!lCluster){
-				lCluster = KFbxCluster::Create(pScene, "");
-				lCluster->SetLink(lSkel);
-				lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
-			}
+		//if (1){//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		//	if (!lCluster){
+		//		lCluster = KFbxCluster::Create(pScene, "");
+		//		lCluster->SetLink(lSkel);
+		//		lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+		//	}
 
-			int setv;
-			for (setv = 0; setv < pm2->optpleng; setv++){
-				lCluster->AddControlPointIndex(setv + pm2->optpleng, 1.0);
-			}
-		}
+		//	int setv;
+		//	for (setv = 0; setv < pm2->optpleng; setv++){
+		//		lCluster->AddControlPointIndex(setv + pm2->optpleng, 1.0);
+		//	}
+		//}
 
 
 		if (lCluster){
