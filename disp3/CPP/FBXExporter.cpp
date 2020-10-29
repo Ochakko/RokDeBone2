@@ -1302,18 +1302,18 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* pse
 			}
 		}
 
-		//if (1){//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		//	if (!lCluster){
-		//		lCluster = KFbxCluster::Create(pScene, "");
-		//		lCluster->SetLink(lSkel);
-		//		lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
-		//	}
+		if (1){//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+			if (!lCluster){
+				lCluster = KFbxCluster::Create(pScene, "");
+				lCluster->SetLink(lSkel);
+				lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+			}
 
-		//	int setv;
-		//	for (setv = 0; setv < pm2->optpleng; setv++){
-		//		lCluster->AddControlPointIndex(setv + pm2->optpleng, 1.0);
-		//	}
-		//}
+			int setv;
+			for (setv = 0; setv < pm2->optpleng; setv++){
+				lCluster->AddControlPointIndex(setv + pm2->optpleng, 1.0);
+			}
+		}
 
 
 		if (lCluster){
