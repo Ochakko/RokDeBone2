@@ -2029,8 +2029,8 @@ DbgOut( "quafile : checkzatype : motid %d : interpolation %d, zatype %d\r\n", m_
 
 		int boneno = 0;
 		int serialno;
-		while( boneno >= 0 ){
-			if( header.magicno <= QUAFILEMAGICNO2 ){
+		while (boneno >= 0){
+			if (header.magicno <= QUAFILEMAGICNO2){
 
 				QUADATA data;
 			
@@ -2047,7 +2047,8 @@ DbgOut( "quafile : checkzatype : motid %d : interpolation %d, zatype %d\r\n", m_
 				data.mp.m_mvz *= m_quamult.z;
 
 				boneno = data.boneno;
-				if( (boneno > bonenomax) || (boneno < 0) ){
+				//if( (boneno > bonenomax) || (boneno < 0) ){
+				if ((boneno > bonenomax) || (boneno <= 0)){
 					DbgOut( "QuaFile : LoadQuaFile : boneno out of range : skip data (bno %d)!!!\n", boneno );
 					continue;
 				}

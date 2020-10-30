@@ -77,6 +77,11 @@ public:
 	int GetOptPos( int vertno, D3DXVECTOR3* vpos );
 	int SetOptPos( int vertno, D3DXVECTOR3 vpos );
 
+	int GetOptPosByMaterialVNo(int matno, int matfaceno, int threecnt, D3DXVECTOR3* dstv);
+	int GetOptNormalByMaterialVNo(int matno, int matfaceno, int threecnt, D3DXVECTOR3* dstn);
+	int GetOptUVByMaterialVNo(int matno, int matfaceno, int threecnt, D3DXVECTOR2* dstuv);
+	int GetOptInfByMaterialVNo(int matno, int matfaceno, int threecnt, int boneserialno, int* pexistflag, float* dstinf);
+
 	int MakeFaceno2Materialno( ARGBF* sceneamb, int srcshader, int sigmagicno, int** arrayptr, CMQOMaterial* newmathead, CMQOMaterial* shmathead, int srcseri );
 
 	int WriteMQOObject( HANDLE hfile, int* matnoindex, char* srctexname, CShdElem* selem );

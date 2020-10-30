@@ -87,6 +87,8 @@
       <WarningLevel>Level3</WarningLevel>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <AdditionalIncludeDirectories>.\ZLIB\include;.\PmCipher;C:\Program Files\Autodesk\FBX\FbxSdk\2012.2\include;.\DX90c\include;..\disp3\include;.\libogg-1.2.2\include;.\libvorbis-1.3.2\include;</AdditionalIncludeDirectories>
+      <StructMemberAlignment>4Bytes</StructMemberAlignment>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -140,6 +142,8 @@
       <DebugInformationFormat>
       </DebugInformationFormat>
       <AdditionalIncludeDirectories>.\ZLIB\include;.\PmCipher;C:\Program Files\Autodesk\FBX\FbxSdk\2012.2\include;.\DX90c\include;..\disp3\include;.\libogg-1.2.2\include;.\libvorbis-1.3.2\include;</AdditionalIncludeDirectories>
+      <StructMemberAlignment>4Bytes</StructMemberAlignment>
+      <FloatingPointModel>Fast</FloatingPointModel>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -522,6 +526,7 @@
     <ClInclude Include="..\disp3\INCLUDE\polymesh.h" />
     <ClInclude Include="..\disp3\INCLUDE\polymesh2.h" />
     <ClInclude Include="..\disp3\INCLUDE\PoseFile.h" />
+    <ClInclude Include="..\disp3\INCLUDE\quafile.h" />
     <ClInclude Include="..\disp3\INCLUDE\quaternion.h" />
     <ClInclude Include="..\disp3\INCLUDE\RokFile.h" />
     <ClInclude Include="..\disp3\INCLUDE\shdelem.h" />

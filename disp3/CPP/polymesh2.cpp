@@ -2661,6 +2661,197 @@ int CPolyMesh2::AdjustUVBuf( int aduv )
 //}
 
 
+int CPolyMesh2::GetOptPosByMaterialVNo(int matno, int matfaceno, int threecnt, D3DXVECTOR3* dstv)
+{
+	if ((matno < 0) || (matno >= m_materialnum)){
+		_ASSERT(0);
+		*dstv = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+	if (!m_materialblock){
+		_ASSERT(0);
+		*dstv = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	MATERIALBLOCK* curmb = m_materialblock + matno;
+
+	if ((matfaceno < curmb->startface) || (matfaceno >= curmb->endface)){
+		_ASSERT(0);
+		*dstv = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	if ((threecnt < 0) || (threecnt >= 3)){
+		_ASSERT(0);
+		*dstv = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	int optvno = *(m_optindexbuf2 + matfaceno * 3 + threecnt);
+	if (!opttlv || (optvno < 0) || (optvno >= optpleng)){
+		_ASSERT(0);
+		*dstv = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	D3DTLVERTEX* curtlv = opttlv + optvno;
+	*dstv = D3DXVECTOR3(curtlv->sx, curtlv->sy, curtlv->sz);
+	return 0;
+}
+
+int CPolyMesh2::GetOptNormalByMaterialVNo(int matno, int matfaceno, int threecnt, D3DXVECTOR3* dstn)
+{
+	if ((matno < 0) || (matno >= m_materialnum)){
+		_ASSERT(0);
+		*dstn = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+	if (!m_materialblock){
+		_ASSERT(0);
+		*dstn = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	MATERIALBLOCK* curmb = m_materialblock + matno;
+
+	if ((matfaceno < curmb->startface) || (matfaceno >= curmb->endface)){
+		_ASSERT(0);
+		*dstn = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	if ((threecnt < 0) || (threecnt >= 3)){
+		_ASSERT(0);
+		*dstn = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	int optvno = *(m_optindexbuf2 + matfaceno * 3 + threecnt);
+	if (!opttlv || (optvno < 0) || (optvno >= optpleng)){
+		_ASSERT(0);
+		*dstn = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	if (!m_toonface2oldface){
+		_ASSERT(0);
+		*dstn = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	int orgfaceno = *(m_toonface2oldface + matfaceno);
+	if ((orgfaceno < 0) || (orgfaceno >= meshinfo->n)){
+		_ASSERT(0);
+		*dstn = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	int orgvno = orgfaceno * 3 + threecnt;
+	if (!orgnormal || (orgvno < 0) || (orgvno >= meshinfo->n * 3)){
+		_ASSERT(0);
+		*dstn = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
+		return 1;
+	}
+
+	VEC3F* curn = orgnormal + orgvno;
+	*dstn = D3DXVECTOR3(curn->x, curn->y, curn->z);
+	return 0;
+
+}
+int CPolyMesh2::GetOptUVByMaterialVNo(int matno, int matfaceno, int threecnt, D3DXVECTOR2* dstuv)
+{
+	if ((matno < 0) || (matno >= m_materialnum)){
+		_ASSERT(0);
+		*dstuv = D3DXVECTOR2(0.0f, 0.0f);
+		return 1;
+	}
+	if (!m_materialblock){
+		_ASSERT(0);
+		*dstuv = D3DXVECTOR2(0.0f, 0.0f);
+		return 1;
+	}
+
+	MATERIALBLOCK* curmb = m_materialblock + matno;
+
+	if ((matfaceno < curmb->startface) || (matfaceno >= curmb->endface)){
+		_ASSERT(0);
+		*dstuv = D3DXVECTOR2(0.0f, 0.0f);
+		return 1;
+	}
+
+	if ((threecnt < 0) || (threecnt >= 3)){
+		_ASSERT(0);
+		*dstuv = D3DXVECTOR2(0.0f, 0.0f);
+		return 1;
+	}
+
+	int optvno = *(m_optindexbuf2 + matfaceno * 3 + threecnt);
+	if (!opttlv || (optvno < 0) || (optvno >= optpleng)){
+		_ASSERT(0);
+		*dstuv = D3DXVECTOR2(0.0f, 0.0f);
+		return 1;
+	}
+
+	D3DTLVERTEX* curtlv = opttlv + optvno;
+	*dstuv = D3DXVECTOR2(curtlv->tu, curtlv->tv);
+	return 0;
+
+}
+
+int CPolyMesh2::GetOptInfByMaterialVNo(int matno, int matfaceno, int threecnt, int boneserialno, int* pexistflag, float* dstinf)
+{
+	*pexistflag = 0;
+
+	if ((matno < 0) || (matno >= m_materialnum)){
+		_ASSERT(0);
+		*dstinf = 0.0f;
+		return 1;
+	}
+	if (!m_materialblock){
+		_ASSERT(0);
+		*dstinf = 0.0f;
+		return 1;
+	}
+
+	MATERIALBLOCK* curmb = m_materialblock + matno;
+
+	if ((matfaceno < curmb->startface) || (matfaceno >= curmb->endface)){
+		_ASSERT(0);
+		*dstinf = 0.0f;
+		return 1;
+	}
+
+	if ((threecnt < 0) || (threecnt >= 3)){
+		_ASSERT(0);
+		*dstinf = 0.0f;
+		return 1;
+	}
+
+	int optvno = *(m_optindexbuf2 + matfaceno * 3 + threecnt);
+	if (!m_IE || (optvno < 0) || (optvno >= optpleng)){
+		_ASSERT(0);
+		*dstinf = 0.0f;
+		return 1;
+	}
+
+	CInfElem* curie = m_IE + optvno;
+	int infno;
+	for (infno = 0; infno < curie->infnum; infno++){
+		INFELEM* curIE = curie->ie + infno;
+		if (curIE->bonematno == boneserialno){
+			*dstinf = curIE->dispinf;
+			*pexistflag = 1;
+			return 0;
+		}
+	}
+
+	return 0;
+
+}
+
+
+
 int CPolyMesh2::GetOptPos( int vertno, D3DXVECTOR3* vpos )
 {
 	if( (vertno < 0) || (vertno >= optpleng) ){

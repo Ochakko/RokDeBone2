@@ -1289,6 +1289,9 @@
     <ClInclude Include="..\disp3\INCLUDE\FBXExporter.h">
       <Filter>FBX</Filter>
     </ClInclude>
+    <ClInclude Include="..\disp3\INCLUDE\quafile.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="SigTreeView2.htm">
