@@ -13,25 +13,25 @@
 #ifndef WINVER				// Windows 95 および Windows NT 4 以降のバージョンに固有の機能の使用を許可します。
 //#define WINVER 0x0400		// これを Windows 98 および Windows 2000 またはそれ以降のバージョン向けに適切な値に変更してください。
 //#define WINVER 0x0501
-#define WINVER 0x0500
+#define WINVER 0x0A00
 #endif
 
 #ifndef _WIN32_WINNT		// Windows NT 4 以降のバージョンに固有の機能の使用を許可します。
 //#define _WIN32_WINNT 0x0400	// これを Windows 2000 またはそれ以降のバージョン向けに適切な値に変更してください。
 //#define _WIN32_WINNT 0x0501
-#define _WIN32_WINNT 0x0500
+#define _WIN32_WINNT 0x0A00
 #endif						
 
 #ifndef _WIN32_WINDOWS		// Windows 98 以降のバージョンに固有の機能の使用を許可します。
 //#define _WIN32_WINDOWS 0x0410 // これを Windows Me またはそれ以降のバージョン向けに適切な値に変更してください。
 //#define _WIN32_WINDOWS 0x0501
-#define _WIN32_WINDOWS 0x0500
+#define _WIN32_WINDOWS 0x0A00
 #endif
 
 #ifndef _WIN32_IE			// IE 4.0 以降のバージョンに固有の機能の使用を許可します。
 //#define _WIN32_IE 0x0400	// これを IE 5.0  またはそれ以降のバージョン向けに適切な値に変更してください。
 //#define _WIN32_IE 0x0600
-#define _WIN32_IE 0x0500
+#define _WIN32_IE 0x0A00
 #endif
 
 #define _ATL_APARTMENT_THREADED

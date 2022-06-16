@@ -25,7 +25,7 @@ class CMotionPoint2;
 class CD3DDisp;
 class CMOQMaterial;
 
-class CMotionCtrl : public CBaseDat
+__declspec(align(16)) class CMotionCtrl : public CBaseDat
 {
 public:
 

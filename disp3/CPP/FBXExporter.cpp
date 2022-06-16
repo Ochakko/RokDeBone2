@@ -72,7 +72,7 @@ typedef struct tag_blsindex
 typedef struct tag_blsinfo
 {
 	BLSINDEX blsindex;
-	KFbxNode* basenode;
+	FbxNode* basenode;
 	CMorph* morph;
 	CShdElem* target;
 }BLSINFO;
@@ -82,7 +82,7 @@ typedef struct tag_animinfo
 {
 	int motid;
 	int maxframe;
-	KFbxAnimLayer* animlayer;
+	FbxAnimLayer* animlayer;
 	char engmotname[256];
 }ANIMINFO;
 static CWriteFile* s_writefile = 0;
@@ -115,51 +115,51 @@ static int s_topnum;
 static LPDIRECT3DDEVICE9 s_pdev;
 
 
-static void CreateDummyInfDataReq( CFBXBone* fbxbone, KFbxSdkManager*& pSdkManager, KFbxScene*& pScene, KFbxNode* lMesh, KFbxSkin* lSkin, int* bonecnt, CShdElem** ppsetbone );
+static void CreateDummyInfDataReq( CFBXBone* fbxbone, FbxManager*& pSdkManager, FbxScene*& pScene, FbxNode* lMesh, FbxSkin* lSkin, int* bonecnt, CShdElem** ppsetbone );
 
 
-static CFBXBone* CreateFBXBone( KFbxScene* pScene );
-static void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone );
+static CFBXBone* CreateFBXBone( FbxScene* pScene );
+static void CreateFBXBoneReq( FbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone );
 
-static void InitializeSdkObjects(KFbxSdkManager*& pSdkManager, KFbxScene*& pScene);
-static void DestroySdkObjects(KFbxSdkManager* pSdkManager);
-static void CreateAndFillIOSettings(KFbxSdkManager* pSdkManager);
-static bool SaveScene(KFbxSdkManager* pSdkManager, KFbxDocument* pScene, const char* pFilename, int pFileFormat=-1, bool pEmbedMedia=false);
+static void InitializeSdkObjects(FbxManager*& pSdkManager, FbxScene*& pScene);
+static void DestroySdkObjects(FbxManager* pSdkManager);
+static void CreateAndFillIOSettings(FbxManager* pSdkManager);
+static bool SaveScene(FbxManager* pSdkManager, FbxDocument* pScene, const char* pFilename, int pFileFormat=-1, bool pEmbedMedia=false);
 
-static bool CreateScene(KFbxSdkManager* pSdkManager, KFbxScene* pScene );
-static KFbxNode* CreateFbxMeshPM( KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdElem* curse, CPolyMesh* pm, CMeshInfo* mi );
-static KFbxNode* CreateFbxMeshPM2( KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int mbno, int totalfacenum );
-static KFbxNode* CreateDummyFbxMesh( KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdElem** ppsetbone );
-static KFbxNode* CreateSkeleton(KFbxScene* pScene);
-static void CreateSkeletonReq( KFbxScene* pScene, CShdElem* pbone, CShdElem* pparbone, KFbxNode* pparnode );
+static bool CreateScene(FbxManager* pSdkManager, FbxScene* pScene );
+static FbxNode* CreateFbxMeshPM( FbxManager* pSdkManager, FbxScene* pScene, CShdElem* curse, CPolyMesh* pm, CMeshInfo* mi );
+static FbxNode* CreateFbxMeshPM2( FbxManager* pSdkManager, FbxScene* pScene, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int mbno, int totalfacenum );
+static FbxNode* CreateDummyFbxMesh( FbxManager* pSdkManager, FbxScene* pScene, CShdElem** ppsetbone );
+static FbxNode* CreateSkeleton(FbxScene* pScene);
+static void CreateSkeletonReq( FbxScene* pScene, CShdElem* pbone, CShdElem* pparbone, FbxNode* pparnode );
 
-static void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* pMesh, CShdElem* curse, CPolyMesh* pm, CMeshInfo* mi);
-static void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* pMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum);
-static BOOL LinkMeshToSkeletonPM2Func(KFbxCluster* lCluster, CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* pMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum);
-static void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* pMesh, int bonecnt);
-static void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* lMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum);
-static BOOL LinkToTopBoneFunc(KFbxCluster* lCluster, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* lMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum);
+static void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene, FbxNode* pMesh, CShdElem* curse, CPolyMesh* pm, CMeshInfo* mi);
+static void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene, FbxNode* pMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum);
+static BOOL LinkMeshToSkeletonPM2Func(FbxCluster* lCluster, CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene, FbxNode* pMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum);
+static void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene, FbxNode* pMesh, int bonecnt);
+static void LinkToTopBone(FbxSkin* lSkin, FbxScene* pScene, FbxNode* lMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum);
+static BOOL LinkToTopBoneFunc(FbxCluster* lCluster, FbxSkin* lSkin, FbxScene* pScene, FbxNode* lMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum);
 
 static int ValidatePm2Index(CPolyMesh2* pm2, int optindex);
 
-//void StoreRestPose(KFbxScene* pScene, KFbxNode* pSkeletonRoot);
-static void AnimateSkeleton(KFbxScene* pScene);
-static void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid, int motmax, int bonecnt );
-static int AnimateMorph(KFbxScene* pScene);
+//void StoreRestPose(FbxScene* pScene, FbxNode* pSkeletonRoot);
+static void AnimateSkeleton(FbxScene* pScene);
+static void AnimateBoneReq( CFBXBone* fbxbone, FbxAnimLayer* lAnimLayer, int curmotid, int motmax, int bonecnt );
+static int AnimateMorph(FbxScene* pScene);
 
-//void AddThumbnailToScene(KFbxScene* pScene);
-static void AddNodeRecursively(KArrayTemplate<KFbxNode*>& pNodeArray, KFbxNode* pNode);
-static void SetXMatrix(KFbxXMatrix& pXMatrix, const KFbxMatrix& pMatrix);
-static KFbxTexture*  CreateTexture( KFbxSdkManager* pSdkManager, char* texname );
+//void AddThumbnailToScene(FbxScene* pScene);
+static void AddNodeRecursively(FbxArray<FbxNode*>& pNodeArray, FbxNode* pNode);//KArrayTemplate
+static void SetXMatrix(FbxAMatrix& pXMatrix, const FbxMatrix& pMatrix);
+static FbxTexture*  CreateTexture( FbxManager* pSdkManager, char* texname );
 static int ExistBoneInInfPM( int boneno, CPolyMesh* pm, int facenum );
 static int ExistBoneInInfPM2(int boneno, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int totalfacenum );
 static int ConvName2English( int motid, char* srcptr, char* dstptr, int dstleng );
 
-static int MapShapesOnMeshPM2( KFbxScene* pScene, KFbxNode* pNode, CMorph* morph, MATERIALBLOCK* pmb, int mbno, BLSINDEX* blsindex );
-static int MapTargetShapePM2( KFbxBlendShapeChannel* lBlendShapeChannel, KFbxScene* pScene, CMorph* morph, CShdElem* targetse, MATERIALBLOCK* pmb, int mbno );
+static int MapShapesOnMeshPM2( FbxScene* pScene, FbxNode* pNode, CMorph* morph, MATERIALBLOCK* pmb, int mbno, BLSINDEX* blsindex );
+static int MapTargetShapePM2( FbxBlendShapeChannel* lBlendShapeChannel, FbxScene* pScene, CMorph* morph, CShdElem* targetse, MATERIALBLOCK* pmb, int mbno );
 
-static int WriteBindPose(KFbxScene* pScene);
-static void WriteBindPoseReq( CFBXBone* fbxbone, KFbxPose* lPose );
+static int WriteBindPose(FbxScene* pScene);
+static void WriteBindPoseReq( CFBXBone* fbxbone, FbxPose* lPose );
 static int DestroyFBXBoneReq( CFBXBone* fbxbone );
 
 static int sortfunc_leng( void *context, const void *elem1, const void *elem2);
@@ -180,11 +180,11 @@ int sortfunc_leng( void *context, const void *elem1, const void *elem2)
 }
 
 
-void InitializeSdkObjects(KFbxSdkManager*& pSdkManager, KFbxScene*& pScene)
+void InitializeSdkObjects(FbxManager*& pSdkManager, FbxScene*& pScene)
 {
     // The first thing to do is to create the FBX SDK manager which is the 
     // object allocator for almost all the classes in the SDK.
-    pSdkManager = KFbxSdkManager::Create();
+    pSdkManager = FbxManager::Create();
 
     if (!pSdkManager)
     {
@@ -193,22 +193,22 @@ void InitializeSdkObjects(KFbxSdkManager*& pSdkManager, KFbxScene*& pScene)
     }
 
 	// create an IOSettings object
-	KFbxIOSettings * ios = KFbxIOSettings::Create(pSdkManager, IOSROOT );
+	FbxIOSettings * ios = FbxIOSettings::Create(pSdkManager, IOSROOT );
 	pSdkManager->SetIOSettings(ios);
 
 	// Load plugins from the executable directory
-	KString lPath = KFbxGetApplicationDirectory();
+	FbxString lPath = FbxGetApplicationDirectory();
 #if defined(KARCH_ENV_WIN)
-	KString lExtension = "dll";
+	FbxString lExtension = "dll";
 #elif defined(KARCH_ENV_MACOSX)
-	KString lExtension = "dylib";
+	FbxString lExtension = "dylib";
 #elif defined(KARCH_ENV_LINUX)
-	KString lExtension = "so";
+	FbxString lExtension = "so";
 #endif
 	pSdkManager->LoadPluginsDirectory(lPath.Buffer(), lExtension.Buffer());
 
     // Create the entity that will hold the scene.
-    pScene = KFbxScene::Create(pSdkManager,"");
+    pScene = FbxScene::Create(pSdkManager,"");
 
 /*
 	2013.2の話
@@ -221,7 +221,7 @@ void InitializeSdkObjects(KFbxSdkManager*& pSdkManager, KFbxScene*& pScene)
 
 }
 
-void DestroySdkObjects(KFbxSdkManager* pSdkManager)
+void DestroySdkObjects(FbxManager* pSdkManager)
 {
     // Delete the FBX SDK manager. All the objects that have been allocated 
     // using the FBX SDK manager and that haven't been explicitly destroyed 
@@ -230,13 +230,13 @@ void DestroySdkObjects(KFbxSdkManager* pSdkManager)
     pSdkManager = NULL;
 }
 
-bool SaveScene(KFbxSdkManager* pSdkManager, KFbxDocument* pScene, const char* pFilename, int pFileFormat, bool pEmbedMedia)
+bool SaveScene(FbxManager* pSdkManager, FbxDocument* pScene, const char* pFilename, int pFileFormat, bool pEmbedMedia)
 {
     int lMajor, lMinor, lRevision;
     bool lStatus = true;
 
     // Create an exporter.
-    KFbxExporter* lExporter = KFbxExporter::Create(pSdkManager, "");
+    FbxExporter* lExporter = FbxExporter::Create(pSdkManager, "");
 
     if( pFileFormat < 0 || pFileFormat >= pSdkManager->GetIOPluginRegistry()->GetWriterFormatCount() )
     {
@@ -250,7 +250,7 @@ bool SaveScene(KFbxSdkManager* pSdkManager, KFbxDocument* pScene, const char* pF
         {
             if (pSdkManager->GetIOPluginRegistry()->WriterIsFBX(lFormatIndex))
             {
-                KString lDesc =pSdkManager->GetIOPluginRegistry()->GetWriterFormatDescription(lFormatIndex);
+                FbxString lDesc =pSdkManager->GetIOPluginRegistry()->GetWriterFormatDescription(lFormatIndex);
                 char *lASCII = "ascii";
                 if (lDesc.Find(lASCII)>=0)
                 {
@@ -277,12 +277,12 @@ bool SaveScene(KFbxSdkManager* pSdkManager, KFbxDocument* pScene, const char* pF
     // Initialize the exporter by providing a filename.
     if(lExporter->Initialize(pFilename, pFileFormat, pSdkManager->GetIOSettings()) == false)
     {
-        printf("Call to KFbxExporter::Initialize() failed.\n");
-        printf("Error returned: %s\n\n", lExporter->GetLastErrorString());
+        printf("Call to FbxExporter::Initialize() failed.\n");
+        //printf("Error returned: %s\n\n", lExporter->GetLastErrorString());
         return false;
     }
 
-    KFbxSdkManager::GetFileFormatVersion(lMajor, lMinor, lRevision);
+    FbxManager::GetFileFormatVersion(lMajor, lMinor, lRevision);
     printf("FBX version number for this version of the FBX SDK is %d.%d.%d\n\n", lMajor, lMinor, lRevision);
 
     // Export the scene.
@@ -337,8 +337,8 @@ int WriteFBXFile( LPDIRECT3DDEVICE9 pdev, CTreeHandler2* lpth, CShdHandler* lpsh
 		return 1;
 	}
 
-    KFbxSdkManager* lSdkManager = NULL;
-    KFbxScene* lScene = NULL;
+    FbxManager* lSdkManager = NULL;
+    FbxScene* lScene = NULL;
     bool lResult;
 
     // Prepare the FBX SDK.
@@ -393,10 +393,10 @@ int WriteFBXFile( LPDIRECT3DDEVICE9 pdev, CTreeHandler2* lpth, CShdHandler* lpsh
 	return 0;
 }
 
-bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
+bool CreateScene( FbxManager *pSdkManager, FbxScene* pScene )
 {
     // create scene info
-    KFbxDocumentInfo* sceneInfo = KFbxDocumentInfo::Create(pSdkManager,"SceneInfo");
+    FbxDocumentInfo* sceneInfo = FbxDocumentInfo::Create(pSdkManager,"SceneInfo");
     sceneInfo->mTitle = "scene made by RokDeBone2";
     sceneInfo->mSubject = "skinmesh and animation";
 	sceneInfo->mAuthor = "OchakkoLab";
@@ -410,7 +410,7 @@ bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
 
 //    AddThumbnailToScene(pScene);
 
-    KFbxNode* lRootNode = pScene->GetRootNode();
+    FbxNode* lRootNode = pScene->GetRootNode();
 
 	int ret;
 	ZeroMemory( s_topjoint, sizeof( CShdElem* ) * 256 );
@@ -448,11 +448,11 @@ bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
 				if (curse->m_mtype != M_TARGET){
 					CMeshInfo* mi = curse->GetMeshInfo();
 					_ASSERT(mi);
-					KFbxNode* lMesh = CreateFbxMeshPM(pSdkManager, pScene, curse, pm, mi);
+					FbxNode* lMesh = CreateFbxMeshPM(pSdkManager, pScene, curse, pm, mi);
 					lRootNode->AddChild(lMesh);
 
-					KFbxGeometry* lMeshAttribute = (KFbxGeometry*)lMesh->GetNodeAttribute();
-					KFbxSkin* lSkin = KFbxSkin::Create(pScene, "");
+					FbxGeometry* lMeshAttribute = (FbxGeometry*)lMesh->GetNodeAttribute();
+					FbxSkin* lSkin = FbxSkin::Create(pScene, "");
 					LinkMeshToSkeletonPMReq(s_fbxbone, lSkin, pScene, lMesh, curse, pm, mi);
 					lMeshAttribute->AddDeformer(lSkin);
 
@@ -471,7 +471,7 @@ bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
 					for (matcnt = 0; matcnt < pm2->m_materialnum; matcnt++){
 						MATERIALBLOCK* pmb = pm2->m_materialblock + matcnt;
 						//_ASSERT(0);
-						KFbxNode* lMesh = CreateFbxMeshPM2(pSdkManager, pScene, curse, pm2, pmb, matcnt, facenum);
+						FbxNode* lMesh = CreateFbxMeshPM2(pSdkManager, pScene, curse, pm2, pmb, matcnt, facenum);
 
 						/*
 						
@@ -488,8 +488,8 @@ bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
 
 						lRootNode->AddChild(lMesh);
 
-						KFbxGeometry* lMeshAttribute = (KFbxGeometry*)lMesh->GetNodeAttribute();
-						KFbxSkin* lSkin = KFbxSkin::Create(pScene, "");
+						FbxGeometry* lMeshAttribute = (FbxGeometry*)lMesh->GetNodeAttribute();
+						FbxSkin* lSkin = FbxSkin::Create(pScene, "");
 						int* psetflag = (int*)malloc(pm2->optpleng * sizeof(int));
 						//int* psetflag = (int*)malloc(pm2->meshinfo->n * 3 * sizeof(int));
 						_ASSERT(psetflag);
@@ -520,11 +520,11 @@ bool CreateScene( KFbxSdkManager *pSdkManager, KFbxScene* pScene )
 
 
 
-	KFbxNode* lMesh = CreateDummyFbxMesh(pSdkManager, pScene, ppsetbone);
+	FbxNode* lMesh = CreateDummyFbxMesh(pSdkManager, pScene, ppsetbone);
 	if (lMesh){
 		lRootNode->AddChild(lMesh);
-		KFbxGeometry* lMeshAttribute = (KFbxGeometry*)lMesh->GetNodeAttribute();
-		KFbxSkin* lSkin = KFbxSkin::Create(pScene, "");
+		FbxGeometry* lMeshAttribute = (FbxGeometry*)lMesh->GetNodeAttribute();
+		FbxSkin* lSkin = FbxSkin::Create(pScene, "");
 		int bonecnt = 0;
 		CreateDummyInfDataReq(s_fbxbone, pSdkManager, pScene, lMesh, lSkin, &bonecnt, ppsetbone);
 		lMeshAttribute->AddDeformer(lSkin);
@@ -567,7 +567,7 @@ int ValidatePm2Index(CPolyMesh2* pm2, int optindex)
 }
 
 
-KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int mbno, int totalfacenum)
+FbxNode* CreateFbxMeshPM2(FbxManager* pSdkManager, FbxScene* pScene, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int mbno, int totalfacenum)
 {
 	static int s_createcnt = 0;
 
@@ -590,24 +590,24 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	//int facenum = pmb->endface - pmb->startface + 1;
 	int facenum = pmb->endface - pmb->startface;
 
-	KFbxMesh* lMesh = KFbxMesh::Create(pScene, meshname);
+	FbxMesh* lMesh = FbxMesh::Create(pScene, meshname);
 	lMesh->InitControlPoints(facenum * 3);
 	//lMesh->InitControlPoints(pm2->optpleng);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	KFbxVector4* lcp = lMesh->GetControlPoints();
+	FbxVector4* lcp = lMesh->GetControlPoints();
 
 
-	KFbxGeometryElementNormal* lElementNormal = lMesh->CreateElementNormal();
-	//lElementNormal->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
-	lElementNormal->SetMappingMode(KFbxGeometryElement::eBY_POLYGON_VERTEX);
-	lElementNormal->SetReferenceMode(KFbxGeometryElement::eDIRECT);
+	FbxGeometryElementNormal* lElementNormal = lMesh->CreateElementNormal();
+	//lElementNormal->SetMappingMode(FbxGeometryElement::eByControlPoint);
+	lElementNormal->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
+	lElementNormal->SetReferenceMode(FbxGeometryElement::eDirect);
 
-	KFbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
-	K_ASSERT(lUVDiffuseElement != NULL);
-	//lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
-	//lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eDIRECT);
-	lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON_VERTEX);
-	//lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
-	lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eDIRECT);
+	FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
+	_ASSERT(lUVDiffuseElement != NULL);
+	//lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByControlPoint);
+	//lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eDirect);
+	lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
+	//lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
+	lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eDirect);
 
 
 	//int vsetno;
@@ -615,24 +615,24 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	//_ASSERT(d3ddisp->m_orgNormal);
 	//for (vsetno = 0; vsetno < facenum * 3; vsetno++){
 	//	D3DTLVERTEX* tlv = pm2->opttlv + vsetno;
-	//	*(lcp + vsetno) = KFbxVector4(tlv->sx * s_fbxmult, tlv->sy * s_fbxmult, -tlv->sz * s_fbxmult, 1.0f);
+	//	*(lcp + vsetno) = FbxVector4(tlv->sx * s_fbxmult, tlv->sy * s_fbxmult, -tlv->sz * s_fbxmult, 1.0f);
 
-	//	//KFbxVector2 fbxuv = KFbxVector2(tlv->tu, -tlv->tv);
+	//	//FbxVector2 fbxuv = FbxVector2(tlv->tu, -tlv->tv);
 	//	//lUVDiffuseElement->GetDirectArray().Add(fbxuv);
 
 	//	D3DXVECTOR3 curn = *(d3ddisp->m_orgNormal + vsetno);
-	//	KFbxVector4 fbxn = KFbxVector4(curn.x, curn.y, -curn.z, 0.0f);
+	//	FbxVector4 fbxn = FbxVector4(curn.x, curn.y, -curn.z, 0.0f);
 	//	lElementNormal->GetDirectArray().Add(fbxn);
 	//}
 	////for (vsetno = 0; vsetno < pm2->optpleng; vsetno++){//!!!!!!!!!!!!!!
 	////	D3DTLVERTEX* tlv = pm2->opttlv + vsetno;
-	////	*(lcp + vsetno + pm2->optpleng) = KFbxVector4(tlv->sx * s_fbxmult, tlv->sy * s_fbxmult, -tlv->sz * s_fbxmult, 1.0f);
+	////	*(lcp + vsetno + pm2->optpleng) = FbxVector4(tlv->sx * s_fbxmult, tlv->sy * s_fbxmult, -tlv->sz * s_fbxmult, 1.0f);
 
-	////	KFbxVector2 fbxuv = KFbxVector2(tlv->tu, -tlv->tv);
+	////	FbxVector2 fbxuv = FbxVector2(tlv->tu, -tlv->tv);
 	////	lUVDiffuseElement->GetDirectArray().Add(fbxuv);
 
 	////	D3DXVECTOR3 curn = *(d3ddisp->m_orgNormal + vsetno);
-	////	KFbxVector4 fbxn = KFbxVector4(curn.x, curn.y, -curn.z, 0.0f);
+	////	FbxVector4 fbxn = FbxVector4(curn.x, curn.y, -curn.z, 0.0f);
 	////	lElementNormal->GetDirectArray().Add(fbxn);
 	////}
 
@@ -654,12 +654,12 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 
 		for (vcnt = 0; vcnt < 3; vcnt++) {
 			//0 2 1のインデックス順で書き出して　読み込み時の　０　１　２の順に直す
-			*(lcp + curvno) = KFbxVector4(spos[sindex[vcnt]].x * s_fbxmult, spos[sindex[vcnt]].y * s_fbxmult, -spos[sindex[vcnt]].z * s_fbxmult, 1.0);
+			*(lcp + curvno) = FbxVector4(spos[sindex[vcnt]].x * s_fbxmult, spos[sindex[vcnt]].y * s_fbxmult, -spos[sindex[vcnt]].z * s_fbxmult, 1.0);
 
-			KFbxVector2 fbxuv = KFbxVector2(suv[sindex[vcnt]].x, -suv[sindex[vcnt]].y);
+			FbxVector2 fbxuv = FbxVector2(suv[sindex[vcnt]].x, -suv[sindex[vcnt]].y);
 			lUVDiffuseElement->GetDirectArray().Add(fbxuv);
 
-			KFbxVector4 fbxn = KFbxVector4(snorm[sindex[vcnt]].x, snorm[sindex[vcnt]].y, -snorm[sindex[vcnt]].z, 0.0);
+			FbxVector4 fbxn = FbxVector4(snorm[sindex[vcnt]].x, snorm[sindex[vcnt]].y, -snorm[sindex[vcnt]].z, 0.0);
 			lElementNormal->GetDirectArray().Add(fbxn);
 
 			curvno++;
@@ -685,7 +685,7 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	//	int vcnt;
 	//	for (vcnt = 0; vcnt < 3; vcnt++){
 	//		SKINVERTEX* skinv = d3ddisp->m_skinv + vno[vcnt];
-	//		KFbxVector2 fbxuv = KFbxVector2(skinv->tex1[0], -skinv->tex1[1]);
+	//		FbxVector2 fbxuv = FbxVector2(skinv->tex1[0], -skinv->tex1[1]);
 	//		lUVDiffuseElement->GetDirectArray().Add(fbxuv);
 
 	//		vsetno++;
@@ -709,22 +709,22 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	}
 
 
-	// create a KFbxNode
-	//		KFbxNode* lNode = KFbxNode::Create(pSdkManager,pName);
-	//KFbxNode* lNode = KFbxNode::Create(pScene, meshname);
-	KFbxNode* lNode = KFbxNode::Create(pScene, nodename);
+	// create a FbxNode
+	//		FbxNode* lNode = FbxNode::Create(pSdkManager,pName);
+	//FbxNode* lNode = FbxNode::Create(pScene, meshname);
+	FbxNode* lNode = FbxNode::Create(pScene, nodename);
 	// set the node attribute
 	lNode->SetNodeAttribute(lMesh);
 	// set the shading mode to view texture
-	//lNode->SetShadingMode(KFbxNode::eTEXTURE_SHADING);
+	//lNode->SetShadingMode(FbxNode::eTextureShading);
 	// rotate the plane
-	lNode->LclRotation.Set(KFbxVector4(0, 0, 0));
+	lNode->LclRotation.Set(FbxVector4(0, 0, 0));
 
 	
 	// Set material mapping.
-	KFbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
-	lMaterialElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON);
-	lMaterialElement->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
+	FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
+	lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
+	lMaterialElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
 	if (!lMesh->GetElementMaterial(0)){
 		_ASSERT(0);
 		return NULL;
@@ -746,33 +746,33 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 
 	char matname[256];
 	sprintf_s(matname, 256, "material_%d", s_matcnt);
-	//KString lMaterialName = mqomat->name;
-	KString lMaterialName = matname;
-	KString lShadingName = "Phong";
-	KFbxSurfacePhong* lMaterial = KFbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
+	//FbxString lMaterialName = mqomat->name;
+	FbxString lMaterialName = matname;
+	FbxString lShadingName = "Phong";
+	FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
 
-	//	lMaterial->Diffuse.Set(fbxDouble3(mqomat->dif4f.r, mqomat->dif4f.g, mqomat->dif4f.b));
-	lMaterial->Diffuse.Set(fbxDouble3(xmat9->Diffuse.r, xmat9->Diffuse.g, xmat9->Diffuse.b));
-	lMaterial->Emissive.Set(fbxDouble3(xmat9->Emissive.r, xmat9->Emissive.g, xmat9->Emissive.b));
-	lMaterial->Ambient.Set(fbxDouble3(xmat9->Ambient.r, xmat9->Ambient.g, xmat9->Ambient.b));
+	//	lMaterial->Diffuse.Set(FbxDouble3(mqomat->dif4f.r, mqomat->dif4f.g, mqomat->dif4f.b));
+	lMaterial->Diffuse.Set(FbxDouble3(xmat9->Diffuse.r, xmat9->Diffuse.g, xmat9->Diffuse.b));
+	lMaterial->Emissive.Set(FbxDouble3(xmat9->Emissive.r, xmat9->Emissive.g, xmat9->Emissive.b));
+	lMaterial->Ambient.Set(FbxDouble3(xmat9->Ambient.r, xmat9->Ambient.g, xmat9->Ambient.b));
 	lMaterial->AmbientFactor.Set(1.0);
-	KFbxTexture* curtex = CreateTexture(pSdkManager, xmat->pTextureFilename);
+	FbxTexture* curtex = CreateTexture(pSdkManager, xmat->pTextureFilename);
 	if (curtex){
 		lMaterial->Diffuse.ConnectSrcObject(curtex);
-		lNode->SetShadingMode(KFbxNode::eTEXTURE_SHADING);
+		lNode->SetShadingMode(FbxNode::eTextureShading);
 	}
 	else{
-		lNode->SetShadingMode(KFbxNode::eHARD_SHADING);
+		lNode->SetShadingMode(FbxNode::eHardShading);
 	}
 	lMaterial->DiffuseFactor.Set(1.0);
 	lMaterial->TransparencyFactor.Set(xmat9->Diffuse.a);
 	lMaterial->ShadingModel.Set(lShadingName);
 	lMaterial->Shininess.Set(0.5);
-	lMaterial->Specular.Set(fbxDouble3(xmat9->Specular.r, xmat9->Specular.g, xmat9->Specular.b));
+	lMaterial->Specular.Set(FbxDouble3(xmat9->Specular.r, xmat9->Specular.g, xmat9->Specular.b));
 	lMaterial->SpecularFactor.Set(0.3);
 
 	lNode->AddMaterial(lMaterial);
-	// We are in eBY_POLYGON, so there's only need for index (a plane has 1 polygon).
+	// We are in eByPolygon, so there's only need for index (a plane has 1 polygon).
 	lMaterialElement->GetIndexArray().SetCount(lMesh->GetPolygonCount());
 	// Set the Index to the material
 	for (int i = 0; i<lMesh->GetPolygonCount(); ++i){
@@ -784,7 +784,7 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 }
 
 /*
-KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int mbno)
+FbxNode* CreateFbxMeshPM2(FbxManager* pSdkManager, FbxScene* pScene, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int mbno)
 {
 	CD3DDisp* d3ddisp = curse->d3ddisp;
 	_ASSERT( d3ddisp );
@@ -797,23 +797,23 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	sprintf_s( meshname, 256, "%s_m%d", curte->engname, pmb->materialno );
 	int facenum = pmb->endface - pmb->startface;
 
-	KFbxMesh* lMesh = KFbxMesh::Create( pScene, meshname );
+	FbxMesh* lMesh = FbxMesh::Create( pScene, meshname );
 	lMesh->InitControlPoints( facenum * 3 );
-	KFbxVector4* lcp = lMesh->GetControlPoints();
+	FbxVector4* lcp = lMesh->GetControlPoints();
 
 
-	KFbxGeometryElementNormal* lElementNormal= lMesh->CreateElementNormal();
-	lElementNormal->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
-	lElementNormal->SetReferenceMode(KFbxGeometryElement::eDIRECT);
-	//lElementNormal->SetMappingMode(KFbxGeometryElement::eBY_POLYGON_VERTEX);
-	//lElementNormal->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
+	FbxGeometryElementNormal* lElementNormal= lMesh->CreateElementNormal();
+	lElementNormal->SetMappingMode(FbxGeometryElement::eByControlPoint);
+	lElementNormal->SetReferenceMode(FbxGeometryElement::eDirect);
+	//lElementNormal->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
+	//lElementNormal->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
 
-	KFbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV( "DiffuseUV");
-	K_ASSERT( lUVDiffuseElement != NULL);
-	lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON_VERTEX);
-	lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
-	//lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
-	//lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eDIRECT);
+	FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV( "DiffuseUV");
+	_ASSERT( lUVDiffuseElement != NULL);
+	lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
+	lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
+	//lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByControlPoint);
+	//lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eDirect);
 
 	int vsetno = 0;
 	int faceno;
@@ -826,10 +826,10 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 		int vcnt;
 		for( vcnt = 0; vcnt < 3; vcnt++ ){
 			SKINVERTEX* skinv = d3ddisp->m_skinv + vno[vcnt];
-			*( lcp + vsetno ) = KFbxVector4( skinv->pos[0] * s_fbxmult, skinv->pos[1] * s_fbxmult, -skinv->pos[2] * s_fbxmult, 1.0f );
-			KFbxVector4 fbxn = KFbxVector4( skinv->normal[0], skinv->normal[1], -skinv->normal[2], 0.0f );
+			*( lcp + vsetno ) = FbxVector4( skinv->pos[0] * s_fbxmult, skinv->pos[1] * s_fbxmult, -skinv->pos[2] * s_fbxmult, 1.0f );
+			FbxVector4 fbxn = FbxVector4( skinv->normal[0], skinv->normal[1], -skinv->normal[2], 0.0f );
 			lElementNormal->GetDirectArray().Add( fbxn );
-			KFbxVector2 fbxuv = KFbxVector2( skinv->tex1[0], -skinv->tex1[1] );
+			FbxVector2 fbxuv = FbxVector2( skinv->tex1[0], -skinv->tex1[1] );
 			lUVDiffuseElement->GetDirectArray().Add( fbxuv );
 
 			vsetno++;
@@ -854,20 +854,20 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	}
 
 
-	// create a KFbxNode
-//		KFbxNode* lNode = KFbxNode::Create(pSdkManager,pName);
-	KFbxNode* lNode = KFbxNode::Create( pScene, meshname );
+	// create a FbxNode
+//		FbxNode* lNode = FbxNode::Create(pSdkManager,pName);
+	FbxNode* lNode = FbxNode::Create( pScene, meshname );
 	// set the node attribute
 	lNode->SetNodeAttribute(lMesh);
 	// set the shading mode to view texture
-	lNode->SetShadingMode(KFbxNode::eTEXTURE_SHADING);
+	lNode->SetShadingMode(FbxNode::eTextureShading);
 	// rotate the plane
-	lNode->LclRotation.Set(KFbxVector4(0, 0, 0));
+	lNode->LclRotation.Set(FbxVector4(0, 0, 0));
 
 	// Set material mapping.
-	KFbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
-	lMaterialElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON);
-	lMaterialElement->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
+	FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
+	lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
+	lMaterialElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
 	if( !lMesh->GetElementMaterial(0) ){
 		_ASSERT( 0 );
 		return NULL;
@@ -889,33 +889,33 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 
 	char matname[256];
 	sprintf_s( matname, 256, "material_%d", s_matcnt );
-	//KString lMaterialName = mqomat->name;
-	KString lMaterialName = matname;
-	KString lShadingName  = "Phong";
-	KFbxSurfacePhong* lMaterial = KFbxSurfacePhong::Create( pScene, lMaterialName.Buffer() );
+	//FbxString lMaterialName = mqomat->name;
+	FbxString lMaterialName = matname;
+	FbxString lShadingName  = "Phong";
+	FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create( pScene, lMaterialName.Buffer() );
 
-//	lMaterial->Diffuse.Set(fbxDouble3(mqomat->dif4f.r, mqomat->dif4f.g, mqomat->dif4f.b));
-	lMaterial->Diffuse.Set(fbxDouble3(xmat9->Diffuse.r, xmat9->Diffuse.g, xmat9->Diffuse.b));
-    lMaterial->Emissive.Set(fbxDouble3(xmat9->Emissive.r, xmat9->Emissive.g, xmat9->Emissive.b));
-    lMaterial->Ambient.Set(fbxDouble3(xmat9->Ambient.r, xmat9->Ambient.g, xmat9->Ambient.b));
+//	lMaterial->Diffuse.Set(FbxDouble3(mqomat->dif4f.r, mqomat->dif4f.g, mqomat->dif4f.b));
+	lMaterial->Diffuse.Set(FbxDouble3(xmat9->Diffuse.r, xmat9->Diffuse.g, xmat9->Diffuse.b));
+    lMaterial->Emissive.Set(FbxDouble3(xmat9->Emissive.r, xmat9->Emissive.g, xmat9->Emissive.b));
+    lMaterial->Ambient.Set(FbxDouble3(xmat9->Ambient.r, xmat9->Ambient.g, xmat9->Ambient.b));
     lMaterial->AmbientFactor.Set(1.0);
-	KFbxTexture* curtex = CreateTexture(pSdkManager, xmat->pTextureFilename);
+	FbxTexture* curtex = CreateTexture(pSdkManager, xmat->pTextureFilename);
 	if( curtex ){
 		lMaterial->Diffuse.ConnectSrcObject( curtex );
-		lNode->SetShadingMode(KFbxNode::eTEXTURE_SHADING);
+		lNode->SetShadingMode(FbxNode::eTextureShading);
 	}
 	else{
-		lNode->SetShadingMode(KFbxNode::eHARD_SHADING);
+		lNode->SetShadingMode(FbxNode::eHardShading);
 	}
     lMaterial->DiffuseFactor.Set(1.0);
     lMaterial->TransparencyFactor.Set(xmat9->Diffuse.a);
     lMaterial->ShadingModel.Set(lShadingName);
     lMaterial->Shininess.Set(0.5);
-    lMaterial->Specular.Set(fbxDouble3(xmat9->Specular.r, xmat9->Specular.g, xmat9->Specular.b));
+    lMaterial->Specular.Set(FbxDouble3(xmat9->Specular.r, xmat9->Specular.g, xmat9->Specular.b));
     lMaterial->SpecularFactor.Set(0.3);
 
 	lNode->AddMaterial(lMaterial);
-	// We are in eBY_POLYGON, so there's only need for index (a plane has 1 polygon).
+	// We are in eByPolygon, so there's only need for index (a plane has 1 polygon).
 	lMaterialElement->GetIndexArray().SetCount( lMesh->GetPolygonCount() );
 	// Set the Index to the material
 	for(int i=0; i<lMesh->GetPolygonCount(); ++i){
@@ -925,7 +925,7 @@ KFbxNode* CreateFbxMeshPM2(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdE
 	return lNode;
 }
 */
-KFbxNode* CreateFbxMeshPM(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdElem* curse, CPolyMesh* pm, CMeshInfo* mi)
+FbxNode* CreateFbxMeshPM(FbxManager* pSdkManager, FbxScene* pScene, CShdElem* curse, CPolyMesh* pm, CMeshInfo* mi)
 {
 	CD3DDisp* d3ddisp = curse->d3ddisp;
 	_ASSERT( d3ddisp );
@@ -938,18 +938,18 @@ KFbxNode* CreateFbxMeshPM(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdEl
 	sprintf_s( meshname, 256, "%s", curte->engname );
 	int facenum = mi->n;
 
-	KFbxMesh* lMesh = KFbxMesh::Create( pScene, meshname );
+	FbxMesh* lMesh = FbxMesh::Create( pScene, meshname );
 	lMesh->InitControlPoints( facenum * 3 );
-	KFbxVector4* lcp = lMesh->GetControlPoints();
+	FbxVector4* lcp = lMesh->GetControlPoints();
 
-	KFbxGeometryElementNormal* lElementNormal= lMesh->CreateElementNormal();
-	lElementNormal->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
-	lElementNormal->SetReferenceMode(KFbxGeometryElement::eDIRECT);
+	FbxGeometryElementNormal* lElementNormal= lMesh->CreateElementNormal();
+	lElementNormal->SetMappingMode(FbxGeometryElement::eByControlPoint);
+	lElementNormal->SetReferenceMode(FbxGeometryElement::eDirect);
 
-	KFbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV( "DiffuseUV");
-	K_ASSERT( lUVDiffuseElement != NULL);
-	lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON_VERTEX);
-	lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
+	FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV( "DiffuseUV");
+	_ASSERT( lUVDiffuseElement != NULL);
+	lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
+	lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
 
 	int vsetno = 0;
 	int faceno;
@@ -963,12 +963,12 @@ KFbxNode* CreateFbxMeshPM(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdEl
 		for( vcnt = 0; vcnt < 3; vcnt++ ){
 			SKINVERTEX* skinv = d3ddisp->m_skinv + vno[vcnt];
 
-			*( lcp + vsetno ) = KFbxVector4( skinv->pos[0] * s_fbxmult, skinv->pos[1] * s_fbxmult, -skinv->pos[2] * s_fbxmult, 1.0f );
+			*( lcp + vsetno ) = FbxVector4( skinv->pos[0] * s_fbxmult, skinv->pos[1] * s_fbxmult, -skinv->pos[2] * s_fbxmult, 1.0f );
 
-			KFbxVector4 fbxn = KFbxVector4( skinv->normal[0], skinv->normal[1], -skinv->normal[2], 0.0f );
+			FbxVector4 fbxn = FbxVector4( skinv->normal[0], skinv->normal[1], -skinv->normal[2], 0.0f );
 			lElementNormal->GetDirectArray().Add( fbxn );
 
-			KFbxVector2 fbxuv = KFbxVector2( skinv->tex1[0], -skinv->tex1[1] );
+			FbxVector2 fbxuv = FbxVector2( skinv->tex1[0], -skinv->tex1[1] );
 			lUVDiffuseElement->GetDirectArray().Add( fbxuv );
 
 			vsetno++;
@@ -992,20 +992,20 @@ KFbxNode* CreateFbxMeshPM(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdEl
 	}
 
 
-	// create a KFbxNode
-//		KFbxNode* lNode = KFbxNode::Create(pSdkManager,pName);
-	KFbxNode* lNode = KFbxNode::Create( pScene, meshname );
+	// create a FbxNode
+//		FbxNode* lNode = FbxNode::Create(pSdkManager,pName);
+	FbxNode* lNode = FbxNode::Create( pScene, meshname );
 	// set the node attribute
 	lNode->SetNodeAttribute(lMesh);
 	// set the shading mode to view texture
-	lNode->SetShadingMode(KFbxNode::eTEXTURE_SHADING);
+	lNode->SetShadingMode(FbxNode::eTextureShading);
 	// rotate the plane
-	lNode->LclRotation.Set(KFbxVector4(0, 0, 0));
+	lNode->LclRotation.Set(FbxVector4(0, 0, 0));
 
 	// Set material mapping.
-	KFbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
-	lMaterialElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON);
-	lMaterialElement->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
+	FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
+	lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
+	lMaterialElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
 	if( !lMesh->GetElementMaterial(0) ){
 		_ASSERT( 0 );
 		return NULL;
@@ -1020,33 +1020,33 @@ KFbxNode* CreateFbxMeshPM(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdEl
 
 	char matname[256];
 	sprintf_s( matname, 256, "mat_%s", curte->engname );
-	//KString lMaterialName = mqomat->name;
-	KString lMaterialName = matname;
-	KString lShadingName  = "Phong";
-	KFbxSurfacePhong* lMaterial = KFbxSurfacePhong::Create( pScene, lMaterialName.Buffer() );
+	//FbxString lMaterialName = mqomat->name;
+	FbxString lMaterialName = matname;
+	FbxString lShadingName  = "Phong";
+	FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create( pScene, lMaterialName.Buffer() );
 
-	//KFbxTexture* curtex = CreateTexture(pSdkManager, xmat->pTextureFilename);
+	//FbxTexture* curtex = CreateTexture(pSdkManager, xmat->pTextureFilename);
 	//if (curtex){
 	//	lMaterial->Diffuse.ConnectSrcObject(curtex);
-	//	lNode->SetShadingMode(KFbxNode::eTEXTURE_SHADING);
+	//	lNode->SetShadingMode(FbxNode::eTextureShading);
 	//}
 	//else{
-		lNode->SetShadingMode(KFbxNode::eHARD_SHADING);
+		lNode->SetShadingMode(FbxNode::eHardShading);
 	//}
 
-	lMaterial->Diffuse.Set(fbxDouble3(mi->diffuse->x, mi->diffuse->y, mi->diffuse->z));
-    lMaterial->Emissive.Set(fbxDouble3(0.0, 0.0, 0.0));
-    lMaterial->Ambient.Set(fbxDouble3(mi->ambient->x, mi->ambient->y, mi->ambient->z));
+	lMaterial->Diffuse.Set(FbxDouble3(mi->diffuse->x, mi->diffuse->y, mi->diffuse->z));
+    lMaterial->Emissive.Set(FbxDouble3(0.0, 0.0, 0.0));
+    lMaterial->Ambient.Set(FbxDouble3(mi->ambient->x, mi->ambient->y, mi->ambient->z));
     lMaterial->AmbientFactor.Set(1.0);
     lMaterial->DiffuseFactor.Set(1.0);
     lMaterial->TransparencyFactor.Set(curse->alpha);
     lMaterial->ShadingModel.Set(lShadingName);
     lMaterial->Shininess.Set(0.5);
-    lMaterial->Specular.Set(fbxDouble3(mi->specular->x, mi->specular->y, mi->specular->z));
+    lMaterial->Specular.Set(FbxDouble3(mi->specular->x, mi->specular->y, mi->specular->z));
     lMaterial->SpecularFactor.Set(0.3);
 
 	lNode->AddMaterial(lMaterial);
-	// We are in eBY_POLYGON, so there's only need for index (a plane has 1 polygon).
+	// We are in eByPolygon, so there's only need for index (a plane has 1 polygon).
 	lMaterialElement->GetIndexArray().SetCount( lMesh->GetPolygonCount() );
 	// Set the Index to the material
 	for(int i=0; i<lMesh->GetPolygonCount(); ++i){
@@ -1056,7 +1056,7 @@ KFbxNode* CreateFbxMeshPM(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdEl
 	return lNode;
 }
 
-KFbxTexture*  CreateTexture(KFbxSdkManager* pSdkManager, char* texname)
+FbxTexture*  CreateTexture(FbxManager* pSdkManager, char* texname)
 {
 	if( !texname ){
 		return NULL;
@@ -1065,18 +1065,18 @@ KFbxTexture*  CreateTexture(KFbxSdkManager* pSdkManager, char* texname)
 		return NULL;
 	}
 
-    KFbxFileTexture* lTexture = KFbxFileTexture::Create(pSdkManager,"");
-    KString lTexPath = texname;
+    FbxFileTexture* lTexture = FbxFileTexture::Create(pSdkManager,"");
+    FbxString lTexPath = texname;
 
     // Set texture properties.
     lTexture->SetFileName(lTexPath.Buffer());
     //lTexture->SetName("Diffuse Texture");
 	lTexture->SetName(texname);
-    lTexture->SetTextureUse(KFbxTexture::eSTANDARD);
-    lTexture->SetMappingType(KFbxTexture::eUV);
-    lTexture->SetMaterialUse(KFbxFileTexture::eMODEL_MATERIAL);
+    lTexture->SetTextureUse(FbxTexture::eStandard);
+    lTexture->SetMappingType(FbxTexture::eUV);
+    lTexture->SetMaterialUse(FbxFileTexture::eModelMaterial);
     lTexture->SetSwapUV(false);
-    lTexture->SetAlphaSource (KFbxTexture::eNONE);
+    lTexture->SetAlphaSource (FbxTexture::eNone);
     lTexture->SetTranslation(0.0, 0.0);
     lTexture->SetScale(1.0, 1.0);
     lTexture->SetRotation(0.0, 0.0);
@@ -1085,12 +1085,12 @@ KFbxTexture*  CreateTexture(KFbxSdkManager* pSdkManager, char* texname)
 }
 
 
-BOOL LinkMeshToSkeletonPM2Func(KFbxCluster* lCluster, CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* pMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum)
+BOOL LinkMeshToSkeletonPM2Func(FbxCluster* lCluster, CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene, FbxNode* pMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum)
 {
 	CD3DDisp* d3ddisp = curse->d3ddisp;
 	_ASSERT(d3ddisp);
 
-	KFbxNode* lSkel;
+	FbxNode* lSkel;
 
 	if (!s_firsttopbone || !fbxbone){
 		return FALSE;
@@ -1149,7 +1149,7 @@ BOOL LinkMeshToSkeletonPM2Func(KFbxCluster* lCluster, CFBXBone* fbxbone, KFbxSki
 								if (foundinf == 0){
 									foundinf = 1;
 									if (lCluster){
-										lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+										lCluster->SetLinkMode(FbxCluster::eTotalOne);
 									}
 									else{
 										return TRUE;
@@ -1176,12 +1176,12 @@ BOOL LinkMeshToSkeletonPM2Func(KFbxCluster* lCluster, CFBXBone* fbxbone, KFbxSki
 		}
 
 		if (lCluster){
-			KFbxXMatrix lXMatrix;
+			FbxAMatrix lXMatrix;
 			lXMatrix.SetIdentity();
 			lXMatrix = pMesh->EvaluateGlobalTransform();
 			lCluster->SetTransformMatrix(lXMatrix);
 
-			KFbxXMatrix lXMatrix2;
+			FbxAMatrix lXMatrix2;
 			lXMatrix2 = lSkel->EvaluateGlobalTransform();
 			lCluster->SetTransformLinkMatrix(lXMatrix2);
 
@@ -1195,12 +1195,12 @@ BOOL LinkMeshToSkeletonPM2Func(KFbxCluster* lCluster, CFBXBone* fbxbone, KFbxSki
 
 }
 
-void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* pMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum)
+void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene, FbxNode* pMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum)
 {
 	CD3DDisp* d3ddisp = curse->d3ddisp;
 	_ASSERT( d3ddisp );
 
-    KFbxNode* lSkel;
+    FbxNode* lSkel;
 
 //	int cmp4 = strcmp(pMesh->GetName(), "body_m4");
 //	if (cmp4 == 0){
@@ -1225,9 +1225,9 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 		isdirty = LinkMeshToSkeletonPM2Func(0, fbxbone, lSkin, pScene, pMesh, curse, pm2, pmb, matcnt, psetflag, ppsetbone, totalfacenum);
 
 		if (isdirty){
-			KFbxCluster *lCluster = KFbxCluster::Create(pScene, "");
+			FbxCluster *lCluster = FbxCluster::Create(pScene, "");
 			lCluster->SetLink(lSkel);
-			//lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+			//lCluster->SetLinkMode(FbxCluster::eTotalOne);
 
 			BOOL isdirty2;
 			isdirty2 = LinkMeshToSkeletonPM2Func(lCluster, fbxbone, lSkin, pScene, pMesh, curse, pm2, pmb, matcnt, psetflag, ppsetbone, totalfacenum);
@@ -1244,10 +1244,10 @@ void LinkMeshToSkeletonPM2Req(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSc
 
 }
 
-BOOL LinkToTopBoneFunc(KFbxCluster* lCluster, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* lMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum)
+BOOL LinkToTopBoneFunc(FbxCluster* lCluster, FbxSkin* lSkin, FbxScene* pScene, FbxNode* lMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum)
 {
-	KFbxXMatrix lXMatrix;
-	KFbxNode* lSkel;
+	FbxAMatrix lXMatrix;
+	FbxNode* lSkel;
 
 	if (s_firsttopbone){
 		//lSkel = s_fbxbone->skelnode;
@@ -1287,7 +1287,7 @@ BOOL LinkToTopBoneFunc(KFbxCluster* lCluster, KFbxSkin* lSkin, KFbxScene* pScene
 							if (foundinf == 0){
 								foundinf = 1;
 								if (lCluster){
-									lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+									lCluster->SetLinkMode(FbxCluster::eTotalOne);
 								}
 								else{
 									return TRUE;
@@ -1308,7 +1308,7 @@ BOOL LinkToTopBoneFunc(KFbxCluster* lCluster, KFbxSkin* lSkin, KFbxScene* pScene
 			}
 
 			if (foundinf == 0){
-				//lCluster->SetLinkMode(KFbxCluster::eADDITIVE);
+				//lCluster->SetLinkMode(FbxCluster::eADDITIVE);
 				return FALSE;
 			}
 
@@ -1318,7 +1318,7 @@ BOOL LinkToTopBoneFunc(KFbxCluster* lCluster, KFbxSkin* lSkin, KFbxScene* pScene
 				//pos.y = s_firsttopbone->selem->part->jointloc.y * s_fbxmult;
 				//pos.z = -s_firsttopbone->selem->part->jointloc.z * s_fbxmult;
 
-				KFbxScene* lScene = lMesh->GetScene();
+				FbxScene* lScene = lMesh->GetScene();
 				lXMatrix.SetIdentity();
 				lXMatrix = lMesh->EvaluateGlobalTransform();
 				lCluster->SetTransformMatrix(lXMatrix);
@@ -1345,10 +1345,10 @@ BOOL LinkToTopBoneFunc(KFbxCluster* lCluster, KFbxSkin* lSkin, KFbxScene* pScene
 }
 
 
-void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* lMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum)
+void LinkToTopBone(FbxSkin* lSkin, FbxScene* pScene, FbxNode* lMesh, CShdElem* curse, CPolyMesh2* pm2, MATERIALBLOCK* pmb, int matcnt, int* psetflag, CShdElem** ppsetbone, int totalfacenum)
 {
-	KFbxXMatrix lXMatrix;
-	KFbxNode* lSkel;
+	FbxAMatrix lXMatrix;
+	FbxNode* lSkel;
 
 	if (s_firsttopbone){
 		//lSkel = s_fbxbone->skelnode;
@@ -1362,9 +1362,9 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* lMesh, CShdElem
 			BOOL isdirty;
 			isdirty = LinkToTopBoneFunc(0, lSkin, pScene, lMesh, curse, pm2, pmb, matcnt, psetflag, ppsetbone, totalfacenum);
 			if (isdirty == TRUE){
-				KFbxCluster *lCluster = KFbxCluster::Create(pScene, "");
+				FbxCluster *lCluster = FbxCluster::Create(pScene, "");
 				lCluster->SetLink(lSkel);
-				//lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+				//lCluster->SetLinkMode(FbxCluster::eTotalOne);
 
 				BOOL isdirty2;
 				isdirty2 = LinkToTopBoneFunc(lCluster, lSkin, pScene, lMesh, curse, pm2, pmb, matcnt, psetflag, ppsetbone, totalfacenum);
@@ -1376,10 +1376,10 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* lMesh, CShdElem
 	}
 }
 /*
-void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* psetflag)
+void LinkToTopBone(FbxSkin* lSkin, FbxScene* pScene, CPolyMesh2* pm2, int* psetflag)
 {
-	KFbxXMatrix lXMatrix;
-	KFbxNode* lSkel;
+	FbxAMatrix lXMatrix;
+	FbxNode* lSkel;
 
 	if (s_firsttopbone){
 		//lSkel = s_fbxbone->skelnode;
@@ -1389,9 +1389,9 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* pse
 			return;
 		}
 
-		KFbxCluster *lCluster = KFbxCluster::Create(pScene, "");
+		FbxCluster *lCluster = FbxCluster::Create(pScene, "");
 		lCluster->SetLink(lSkel);
-		lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+		lCluster->SetLinkMode(FbxCluster::eTotalOne);
 
 		int setv;
 		for (setv = 0; setv < pm2->optpleng; setv++){
@@ -1405,7 +1405,7 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* pse
 		pos.y = s_firsttopbone->selem->part->jointloc.y * s_fbxmult;
 		pos.z = -s_firsttopbone->selem->part->jointloc.z * s_fbxmult;
 
-		//KFbxScene* lScene = pMesh->GetScene();
+		//FbxScene* lScene = pMesh->GetScene();
 		//lXMatrix = pMesh->EvaluateGlobalTransform();
 		//lCluster->SetTransformMatrix(lXMatrix);
 		lXMatrix.SetIdentity();
@@ -1425,13 +1425,13 @@ void LinkToTopBone(KFbxSkin* lSkin, KFbxScene* pScene, CPolyMesh2* pm2, int* pse
 */
 
 
-void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* pMesh, CShdElem* curse, CPolyMesh* pm, CMeshInfo* mi)
+void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene, FbxNode* pMesh, CShdElem* curse, CPolyMesh* pm, CMeshInfo* mi)
 {
 	CD3DDisp* d3ddisp = curse->d3ddisp;
 	_ASSERT( d3ddisp );
 
-	KFbxXMatrix lXMatrix;
-    KFbxNode* lSkel;
+	FbxAMatrix lXMatrix;
+    FbxNode* lSkel;
 
 	if (fbxbone->type == FB_NORMAL){
 
@@ -1451,9 +1451,9 @@ void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 			int infdirty = ExistBoneInInfPM( curbone->serialno, pm, mi->n );
 
 			if( infdirty ){
-				KFbxCluster *lCluster = KFbxCluster::Create(pScene,"");
+				FbxCluster *lCluster = FbxCluster::Create(pScene,"");
 				lCluster->SetLink(lSkel);
-				lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+				lCluster->SetLinkMode(FbxCluster::eTotalOne);
 
 				int vsetno = 0;
 				int fno;
@@ -1502,11 +1502,11 @@ void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 					_ASSERT(0);
 				}
 
-				KFbxXMatrix lXMatrix;
+				FbxAMatrix lXMatrix;
 				lXMatrix = pMesh->EvaluateGlobalTransform();
 				lCluster->SetTransformMatrix(lXMatrix);
 
-				KFbxXMatrix lXMatrix2;
+				FbxAMatrix lXMatrix2;
 				lXMatrix2 = lSkel->EvaluateGlobalTransform();
 				lCluster->SetTransformLinkMatrix(lXMatrix2);
 
@@ -1524,10 +1524,10 @@ void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 
 }
 
-void AnimateSkeleton(KFbxScene* pScene)
+void AnimateSkeleton(FbxScene* pScene)
 {
 
-	KString lAnimStackName;
+	FbxString lAnimStackName;
 
 	int motnum = s_lpmh->m_kindnum;
 	if( motnum < 2 ){
@@ -1595,27 +1595,27 @@ endTime 30;
 		sprintf_s(layername, 256, "Base Layer");
 
 		lAnimStackName = engname;
-	    KFbxAnimStack* lAnimStack = KFbxAnimStack::Create(pScene, lAnimStackName);
-        KFbxAnimLayer* lAnimLayer = KFbxAnimLayer::Create(pScene, layername);
-		//KFbxAnimLayer* lAnimLayer = KFbxAnimLayer::Create(lAnimStack, layername);
+	    FbxAnimStack* lAnimStack = FbxAnimStack::Create(pScene, lAnimStackName);
+        FbxAnimLayer* lAnimLayer = FbxAnimLayer::Create(pScene, layername);
+		//FbxAnimLayer* lAnimLayer = FbxAnimLayer::Create(lAnimStack, layername);
 		(s_ai + ano)->animlayer = lAnimLayer;
 		strcpy_s( (s_ai + ano)->engmotname, 256, engname );
         lAnimStack->AddMember(lAnimLayer);
 
 		AnimateBoneReq( s_fbxbone, lAnimLayer, curmotid, motmax, 0 );
 
-		//pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, KFbxNode::eDESTINATION_SET, s_timescale, true );
-		//pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, KFbxNode::eSOURCE_SET, s_timescale, false );
-		pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, KFbxNode::eSOURCE_SET, s_timescale, true );
+		//pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, FbxNode::eDestinationPivot, s_timescale, true );
+		//pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, FbxNode::eSourcePivot, s_timescale, false );
+		pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStack, FbxNode::eSourcePivot, s_timescale, true );
 	}
 }
 
-void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid, int motmax, int jointcnt )
+void AnimateBoneReq( CFBXBone* fbxbone, FbxAnimLayer* lAnimLayer, int curmotid, int motmax, int jointcnt )
 {
 	int ret;
-    KTime lTime;
+    FbxTime lTime;
     int lKeyIndex = 0;
-    KFbxNode* lSkel = 0;
+    FbxNode* lSkel = 0;
 	lSkel = fbxbone->skelnode;
 	if (!lSkel){
 		_ASSERT(0);
@@ -1624,17 +1624,17 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 	const char* bonename = lSkel->GetName();
 
 
-//		ERotationOrder lRotationOrder0 = eEULER_ZXY;
-	ERotationOrder lRotationOrder0 = eEULER_XYZ;
-	ERotationOrder lRotationOrder1 = eEULER_ZXY;
-	lSkel->SetRotationOrder(KFbxNode::eSOURCE_SET , lRotationOrder0 );
-	lSkel->SetRotationOrder(KFbxNode::eDESTINATION_SET , lRotationOrder1 );
+//		EFbxRotationOrder lRotationOrder0 = eEulerZXY;
+	EFbxRotationOrder lRotationOrder0 = eEulerXYZ;
+	EFbxRotationOrder lRotationOrder1 = eEulerZXY;
+	lSkel->SetRotationOrder(FbxNode::eSourcePivot , lRotationOrder0 );
+	lSkel->SetRotationOrder(FbxNode::eDestinationPivot , lRotationOrder1 );
 
 	CMotionPoint2 calcmp;
 
-	KFbxAnimCurve* lCurveTX;
-	KFbxAnimCurve* lCurveTY;
-	KFbxAnimCurve* lCurveTZ;
+	FbxAnimCurve* lCurveTX;
+	FbxAnimCurve* lCurveTY;
+	FbxAnimCurve* lCurveTZ;
 
 	D3DXVECTOR3 orgtra;
 	int frameno;
@@ -1666,66 +1666,66 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 
 		orgtra *= s_fbxmult;
 
-		lCurveTX = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_X, true);
+		lCurveTX = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_X, true);
 		lCurveTX->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveTX->KeyAdd(lTime);
 			lCurveTX->KeySetValue(lKeyIndex, orgtra.x);
-			lCurveTX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTX->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveTX->KeyModifyEnd();
 
-		lCurveTY = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Y, true);
+		lCurveTY = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Y, true);
 		lCurveTY->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveTY->KeyAdd(lTime);
 			lCurveTY->KeySetValue(lKeyIndex, orgtra.y);
-			lCurveTY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTY->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 
 		}
 		lCurveTY->KeyModifyEnd();
 
-		lCurveTZ = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Z, true);
+		lCurveTZ = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Z, true);
 		lCurveTZ->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lKeyIndex = lCurveTZ->KeyAdd(lTime);
 			lCurveTZ->KeySetValue(lKeyIndex, orgtra.z);
-			lCurveTZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTZ->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveTZ->KeyModifyEnd();
 
 		/////////////////////
 
-		KFbxAnimCurve* lCurveRX;
-		lCurveRX = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_X, true);
+		FbxAnimCurve* lCurveRX;
+		lCurveRX = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_X, true);
 		lCurveRX->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRX->KeyAdd(lTime);
 			lCurveRX->KeySetValue(lKeyIndex, 0.0);
-			lCurveRX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRX->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveRX->KeyModifyEnd();
-		KFbxAnimCurve* lCurveRY;
-		lCurveRY = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Y, true);
+		FbxAnimCurve* lCurveRY;
+		lCurveRY = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Y, true);
 		lCurveRY->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRY->KeyAdd(lTime);
 			lCurveRY->KeySetValue(lKeyIndex, 0.0);
-			lCurveRY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRY->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveRY->KeyModifyEnd();
-		KFbxAnimCurve* lCurveRZ;
-		lCurveRZ = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Z, true);
+		FbxAnimCurve* lCurveRZ;
+		lCurveRZ = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Z, true);
 		lCurveRZ->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRZ->KeyAdd(lTime);
 			lCurveRZ->KeySetValue(lKeyIndex, 0.0);
-			lCurveRZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRZ->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveRZ->KeyModifyEnd();
 
@@ -1733,33 +1733,33 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 	}
 	else if ((fbxbone->type == FB_BUNKI_CHIL) || (fbxbone->type == FB_ROOT)){
 
-		lCurveTX = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_X, true);
+		lCurveTX = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_X, true);
 		lCurveTX->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveTX->KeyAdd(lTime);
 			lCurveTX->KeySetValue(lKeyIndex, 0.0);
-			lCurveTX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTX->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveTX->KeyModifyEnd();
 
-		lCurveTY = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Y, true);
+		lCurveTY = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Y, true);
 		lCurveTY->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveTY->KeyAdd(lTime);
 			lCurveTY->KeySetValue(lKeyIndex, 0.0);
-			lCurveTY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTY->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 
 		}
 		lCurveTY->KeyModifyEnd();
 
-		lCurveTZ = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Z, true);
+		lCurveTZ = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Z, true);
 		lCurveTZ->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lKeyIndex = lCurveTZ->KeyAdd(lTime);
 			lCurveTZ->KeySetValue(lKeyIndex, 0.0);
-			lCurveTZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTZ->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveTZ->KeyModifyEnd();
 
@@ -1773,14 +1773,14 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 		s_writefile->Write2File(" preInfinity constant;\n");
 		s_writefile->Write2File(" postInfinity constant;\n");
 		s_writefile->Write2File(" keys {\n");
-		KFbxAnimCurve* lCurveRX;
-		lCurveRX = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_X, true);
+		FbxAnimCurve* lCurveRX;
+		lCurveRX = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_X, true);
 		lCurveRX->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRX->KeyAdd(lTime);
 			lCurveRX->KeySetValue(lKeyIndex, 0.0);
-			lCurveRX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRX->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 
 			s_writefile->Write2File("%d 0.0000 linear linear 1 1 0;\n", frameno * s_itscale);
 		}
@@ -1797,14 +1797,14 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 		s_writefile->Write2File(" preInfinity constant;\n");
 		s_writefile->Write2File(" postInfinity constant;\n");
 		s_writefile->Write2File(" keys {\n");
-		KFbxAnimCurve* lCurveRY;
-		lCurveRY = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Y, true);
+		FbxAnimCurve* lCurveRY;
+		lCurveRY = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Y, true);
 		lCurveRY->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRY->KeyAdd(lTime);
 			lCurveRY->KeySetValue(lKeyIndex, 0.0);
-			lCurveRY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRY->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 
 			s_writefile->Write2File("%d 0.0000 linear linear 1 1 0;\n", frameno * s_itscale);
 		}
@@ -1821,14 +1821,14 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 		s_writefile->Write2File(" preInfinity constant;\n");
 		s_writefile->Write2File(" postInfinity constant;\n");
 		s_writefile->Write2File(" keys {\n");
-		KFbxAnimCurve* lCurveRZ;
-		lCurveRZ = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Z, true);
+		FbxAnimCurve* lCurveRZ;
+		lCurveRZ = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Z, true);
 		lCurveRZ->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRZ->KeyAdd(lTime);
 			lCurveRZ->KeySetValue(lKeyIndex, 0.0);
-			lCurveRZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRZ->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 
 			s_writefile->Write2File("%d 0.0000 linear linear 1 1 0;\n", frameno * s_itscale);
 		}
@@ -1883,7 +1883,7 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 		CTreeElem2* curte = (*s_lpth)(seri);
 
 
-		lCurveTX = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_X, true);
+		lCurveTX = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_X, true);
 		lCurveTX->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
@@ -1893,11 +1893,11 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 			lKeyIndex = lCurveTX->KeyAdd(lTime);
 			float settra = orgtra.x + calcmp.m_mvx * s_fbxmult;
 			lCurveTX->KeySetValue(lKeyIndex, settra);
-			lCurveTX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTX->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveTX->KeyModifyEnd();
 
-		lCurveTY = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Y, true);
+		lCurveTY = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Y, true);
 		lCurveTY->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
@@ -1907,12 +1907,12 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 			lKeyIndex = lCurveTY->KeyAdd(lTime);
 			float settra = orgtra.y + calcmp.m_mvy * s_fbxmult;
 			lCurveTY->KeySetValue(lKeyIndex, settra);
-			lCurveTY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTY->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 
 		}
 		lCurveTY->KeyModifyEnd();
 
-		lCurveTZ = lSkel->LclTranslation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_T_Z, true);
+		lCurveTZ = lSkel->LclTranslation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Z, true);
 		lCurveTZ->KeyModifyBegin();
 		for (frameno = 0; frameno <= motmax; frameno++){
 			int hasmpflag = 0;
@@ -1923,7 +1923,7 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 			//float settra = orgtra.z + calcmp.m_mvz * s_fbxmult;
 			float settra = orgtra.z - calcmp.m_mvz * s_fbxmult;
 			lCurveTZ->KeySetValue(lKeyIndex, settra);
-			lCurveTZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveTZ->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 		}
 		lCurveTZ->KeyModifyEnd();
 
@@ -1947,8 +1947,8 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 		s_writefile->Write2File(" preInfinity constant;\n");
 		s_writefile->Write2File(" postInfinity constant;\n");
 		s_writefile->Write2File(" keys {\n");
-		KFbxAnimCurve* lCurveRX;
-		lCurveRX = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_X, true);
+		FbxAnimCurve* lCurveRX;
+		lCurveRX = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_X, true);
 		lCurveRX->KeyModifyBegin();
 		befeul = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 		befq.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
@@ -1961,7 +1961,7 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRX->KeyAdd(lTime);
 			lCurveRX->KeySetValue(lKeyIndex, cureul.x);
-			lCurveRX->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRX->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 			befeul = cureul;
 			befq = curq;
 
@@ -1980,8 +1980,8 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 		s_writefile->Write2File(" preInfinity constant;\n");
 		s_writefile->Write2File(" postInfinity constant;\n");
 		s_writefile->Write2File(" keys {\n");
-		KFbxAnimCurve* lCurveRY;
-		lCurveRY = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Y, true);
+		FbxAnimCurve* lCurveRY;
+		lCurveRY = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Y, true);
 		lCurveRY->KeyModifyBegin();
 		befeul = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
 		befq.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
@@ -1994,7 +1994,7 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRY->KeyAdd(lTime);
 			lCurveRY->KeySetValue(lKeyIndex, cureul.y);
-			lCurveRY->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRY->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 			befeul = cureul;
 			befq = curq;
 			s_writefile->Write2File("%d %.4f linear linear 1 1 0;\n", frameno * s_itscale, cureul.y);
@@ -2012,8 +2012,8 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 		s_writefile->Write2File(" preInfinity constant;\n");
 		s_writefile->Write2File(" postInfinity constant;\n");
 		s_writefile->Write2File(" keys {\n");
-		KFbxAnimCurve* lCurveRZ;
-		lCurveRZ = lSkel->LclRotation.GetCurve<KFbxAnimCurve>(lAnimLayer, KFCURVENODE_R_Z, true);
+		FbxAnimCurve* lCurveRZ;
+		lCurveRZ = lSkel->LclRotation.GetCurve(lAnimLayer, FBXSDK_CURVENODE_COMPONENT_Z, true);
 		lCurveRZ->KeyModifyBegin();
 		befq.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
 		befeul = D3DXVECTOR3(0.0f, 0.0f, 0.0f);
@@ -2026,7 +2026,7 @@ void AnimateBoneReq( CFBXBone* fbxbone, KFbxAnimLayer* lAnimLayer, int curmotid,
 			lTime.SetSecondDouble((double)frameno / s_timescale);
 			lKeyIndex = lCurveRZ->KeyAdd(lTime);
 			lCurveRZ->KeySetValue(lKeyIndex, cureul.z);
-			lCurveRZ->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+			lCurveRZ->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 			befeul = cureul;
 			befq = curq;
 			s_writefile->Write2File("%d %.4f linear linear 1 1 0;\n", frameno * s_itscale, cureul.z);
@@ -2153,7 +2153,7 @@ int ConvName2English( int motid, char* srcptr, char* dstptr, int dstleng )
 	return 0;
 }
 
-int MapShapesOnMeshPM2( KFbxScene* pScene, KFbxNode* pNode, CMorph* morph, MATERIALBLOCK* pmb, int mbno, BLSINDEX* blsindex )
+int MapShapesOnMeshPM2( FbxScene* pScene, FbxNode* pNode, CMorph* morph, MATERIALBLOCK* pmb, int mbno, BLSINDEX* blsindex )
 {
 	CShdElem* base = morph->m_baseelem;
 	CTreeElem2* basete = (*s_lpth)( base->serialno );
@@ -2165,7 +2165,7 @@ int MapShapesOnMeshPM2( KFbxScene* pScene, KFbxNode* pNode, CMorph* morph, MATER
 
 	char blsname[256] = {0};
 	sprintf_s( blsname, 256, "BLS_%s_%d", basete->engname, mbno );
-	KFbxBlendShape* lBlendShape = KFbxBlendShape::Create(pScene, blsname);
+	FbxBlendShape* lBlendShape = FbxBlendShape::Create(pScene, blsname);
 
 	(blsindex->channelno) = 0;
 
@@ -2176,7 +2176,7 @@ int MapShapesOnMeshPM2( KFbxScene* pScene, KFbxNode* pNode, CMorph* morph, MATER
 
 		char blscname[256] = {0};
 		sprintf_s( blscname, 256, "BLSC_%s_%d", targette->engname, mbno );
-		KFbxBlendShapeChannel* lBlendShapeChannel = KFbxBlendShapeChannel::Create(pScene,blscname);
+		FbxBlendShapeChannel* lBlendShapeChannel = FbxBlendShapeChannel::Create(pScene,blscname);
 		MapTargetShapePM2( lBlendShapeChannel, pScene, morph, targetse, pmb, mbno );
 		lBlendShape->AddBlendShapeChannel(lBlendShapeChannel);
 		
@@ -2195,19 +2195,19 @@ int MapShapesOnMeshPM2( KFbxScene* pScene, KFbxNode* pNode, CMorph* morph, MATER
 
 	}
 
-	KFbxGeometry* lGeometry = pNode->GetGeometry();
+	FbxGeometry* lGeometry = pNode->GetGeometry();
 	lGeometry->AddDeformer(lBlendShape);
 
 	return 0;
 }
 
-int MapTargetShapePM2( KFbxBlendShapeChannel* lBlendShapeChannel, KFbxScene* pScene, CMorph* morph, CShdElem* targetse, MATERIALBLOCK* pmb, int mbno )
+int MapTargetShapePM2( FbxBlendShapeChannel* lBlendShapeChannel, FbxScene* pScene, CMorph* morph, CShdElem* targetse, MATERIALBLOCK* pmb, int mbno )
 {
 	CTreeElem2* targette = (*s_lpth)( targetse->serialno );
 
 	char shapename[256]={0};
 	sprintf_s( shapename, 256, "SHAPE_%s_%d", targette->engname, mbno );
-    KFbxShape* lShape = KFbxShape::Create(pScene,shapename);
+    FbxShape* lShape = FbxShape::Create(pScene,shapename);
 
 	CShdElem* base = morph->m_baseelem;
 	CPolyMesh2* basepm2 = base->polymesh2;
@@ -2218,7 +2218,7 @@ int MapTargetShapePM2( KFbxBlendShapeChannel* lBlendShapeChannel, KFbxScene* pSc
 
 	int cpnum = ( pmb->endface - pmb->startface ) * 3;
     lShape->InitControlPoints(cpnum);
-    KFbxVector4* lVector4 = lShape->GetControlPoints();
+    FbxVector4* lVector4 = lShape->GetControlPoints();
 
 
 //ControllPointに対応させる必要あり　！！！！！
@@ -2249,9 +2249,9 @@ int MapTargetShapePM2( KFbxBlendShapeChannel* lBlendShapeChannel, KFbxScene* pSc
 	return 0;
 }
 
-int AnimateMorph(KFbxScene* pScene)
+int AnimateMorph(FbxScene* pScene)
 {
-    KTime lTime;
+    FbxTime lTime;
     int lKeyIndex = 0;
 
 	if( s_blsinfo.empty() ){
@@ -2268,7 +2268,7 @@ int AnimateMorph(KFbxScene* pScene)
 		ANIMINFO* curai = s_ai + aino;
 		int curmotid = curai->motid;
 		int maxframe = curai->maxframe;
-		KFbxAnimLayer* lAnimLayer = curai->animlayer;
+		FbxAnimLayer* lAnimLayer = curai->animlayer;
 
 		map<int, BLSINFO>::iterator itrblsinfo;
 		for( itrblsinfo = s_blsinfo.begin(); itrblsinfo != s_blsinfo.end(); itrblsinfo++ ){
@@ -2277,8 +2277,8 @@ int AnimateMorph(KFbxScene* pScene)
 			CMotionCtrl* bonemc = curinfo.morph->m_boneelem;
 			CMotionInfo* motinfo = bonemc->motinfo;
 
-			KFbxGeometry* lNurbsAttribute = (KFbxGeometry*)(curinfo.basenode)->GetNodeAttribute();
-			KFbxAnimCurve* lCurve = lNurbsAttribute->GetShapeChannel(0, curinfo.blsindex.channelno, lAnimLayer, true);
+			FbxGeometry* lNurbsAttribute = (FbxGeometry*)(curinfo.basenode)->GetNodeAttribute();
+			FbxAnimCurve* lCurve = lNurbsAttribute->GetShapeChannel(0, curinfo.blsindex.channelno, lAnimLayer, true);
 			if (lCurve)
 			{
 				lCurve->KeyModifyBegin();
@@ -2294,7 +2294,7 @@ int AnimateMorph(KFbxScene* pScene)
 					lTime.SetSecondDouble(dframe / s_timescale);
 					lKeyIndex = lCurve->KeyAdd(lTime);
 					lCurve->KeySetValue(lKeyIndex, morphval * 100.0f);
-					lCurve->KeySetInterpolation(lKeyIndex, KFbxAnimCurveDef::eINTERPOLATION_LINEAR);
+					lCurve->KeySetInterpolation(lKeyIndex, FbxAnimCurveDef::eInterpolationLinear);
 				}
 
 				lCurve->KeyModifyEnd();
@@ -2305,46 +2305,115 @@ int AnimateMorph(KFbxScene* pScene)
 	return 0;
 }
 
-int WriteBindPose(KFbxScene* pScene)
-{
+//int WriteBindPose(FbxScene* pScene)
+//{
+//
+//	FbxPose* lPose = FbxPose::Create(pScene,"BindPose0");
+//	lPose->SetIsBindPose(true);
+//
+//	if( s_firstoutmot >= 0 ){
+//		FbxAnimStack * lCurrentAnimationStack = pScene->FindMember(FBX_TYPE(FbxAnimStack), s_ai->engmotname);
+//		if (lCurrentAnimationStack == NULL)
+//		{
+//			_ASSERT( 0 );
+//			return 1;
+//		}
+//		FbxAnimLayer * mCurrentAnimLayer;
+//		mCurrentAnimLayer = lCurrentAnimationStack->GetMember(FBX_TYPE(FbxAnimLayer), 0);
+//		pScene->GetEvaluator()->SetContext(lCurrentAnimationStack);
+//	}else{
+//		_ASSERT( 0 );
+//	}
+//
+//	//s_lpmh->SetMotionFrameNo(s_lpsh, s_firstoutmot, 0, 1);
+//
+//	WriteBindPoseReq( s_fbxbone, lPose );
+//
+//	pScene->AddPose(lPose);
+//
+//	return 0;
+//}
 
-	KFbxPose* lPose = KFbxPose::Create(pScene,"BindPose0");
+int WriteBindPose(FbxScene* pScene)
+{
+	/*
+	FbxObject* FindMember	(	const FbxCriteria & 	pCriteria,
+	const char * 	pName
+	)		const
+	*/
+
+	//static int s_bvhanimcnt = 0;
+
+
+	//!!!!!!!!!!!!
+	int bvhflag = 0;//!!!!!!!!!!!!!
+
+
+
+	FbxPose* lPose = FbxPose::Create(pScene, "BindPose1");
 	lPose->SetIsBindPose(true);
 
-	if( s_firstoutmot >= 0 ){
-		KFbxAnimStack * lCurrentAnimationStack = pScene->FindMember(FBX_TYPE(KFbxAnimStack), s_ai->engmotname);
-		if (lCurrentAnimationStack == NULL)
-		{
-			_ASSERT( 0 );
-			return 1;
+
+	if (s_firstoutmot >= 0) {
+		FbxAnimStack* lCurrentAnimationStack;
+		//lCurrentAnimationStack = pScene->GetMember(FBX_TYPE(FbxAnimStack), s_ai->motid);
+
+
+
+		if (bvhflag == 0) {
+			lCurrentAnimationStack = pScene->GetSrcObject<FbxAnimStack>(s_ai->motid);
 		}
-		KFbxAnimLayer * mCurrentAnimLayer;
-		mCurrentAnimLayer = lCurrentAnimationStack->GetMember(FBX_TYPE(KFbxAnimLayer), 0);
-		pScene->GetEvaluator()->SetContext(lCurrentAnimationStack);
-	}else{
-		_ASSERT( 0 );
+		else {
+			lCurrentAnimationStack = pScene->GetSrcObject<FbxAnimStack>(0);
+		}
+
+
+		//if (bvhflag == 0){
+		//	lCurrentAnimationStack = pScene->FindMember(FBX_TYPE(FbxAnimStack), s_ai->engmotname);
+		//}
+		//else{
+		//	lCurrentAnimationStack = pScene->FindMember(FBX_TYPE(FbxAnimStack), "bvh_animation_nyan");
+		//}
+		if (lCurrentAnimationStack != NULL)
+		{
+			//_ASSERT( 0 );
+			//return 1;
+
+			//FbxAnimLayer * mCurrentAnimLayer;
+			////mCurrentAnimLayer = lCurrentAnimationStack->GetMember(FBX_TYPE(FbxAnimLayer), 0);
+			//mCurrentAnimLayer = lCurrentAnimationStack->GetSrcObject<FbxAnimLayer>(0);
+			//pScene->GetEvaluator()->SetContext(lCurrentAnimationStack);
+			//
+
+			//gSceneContext->SetCurrentAnimStack(s_ai->motid);
+			//pScene->SetCurrentAnimStack(s_ai->motid);
+			pScene->SetCurrentAnimationStack(lCurrentAnimationStack);
+		}
+	}
+	else {
+		_ASSERT(0);
 	}
 
-	//s_lpmh->SetMotionFrameNo(s_lpsh, s_firstoutmot, 0, 1);
-
-	WriteBindPoseReq( s_fbxbone, lPose );
+	WriteBindPoseReq(s_fbxbone, lPose);
 
 	pScene->AddPose(lPose);
 
 	return 0;
 }
 
-void WriteBindPoseReq( CFBXBone* fbxbone, KFbxPose* lPose )
+
+
+void WriteBindPoseReq( CFBXBone* fbxbone, FbxPose* lPose )
 {
-	//KTime lTime0;
+	//FbxTime lTime0;
 	//lTime0.SetSecondDouble( 0.0 );
 	
 	if( fbxbone->type != FB_ROOT ){
-		KFbxNode* curskel = fbxbone->skelnode;
+		FbxNode* curskel = fbxbone->skelnode;
 		if( curskel ){
 			D3DXMATRIX tramat = CalcBindMatrixZA(fbxbone, s_firstoutmot);
-			KFbxMatrix lBindMatrix;
-			//KFbxMatrix lBindMatrix = curskel->EvaluateGlobalTransform( lTime0 );
+			FbxMatrix lBindMatrix;
+			//FbxMatrix lBindMatrix = curskel->EvaluateGlobalTransform( lTime0 );
 			lBindMatrix.SetIdentity();
 			lBindMatrix[0][0] = tramat._11;
 			lBindMatrix[0][1] = tramat._12;
@@ -2376,6 +2445,7 @@ void WriteBindPoseReq( CFBXBone* fbxbone, KFbxPose* lPose )
 }
 
 
+
 int DestroyFBXBoneReq( CFBXBone* fbxbone )
 {
 	CFBXBone* chilbone = fbxbone->m_child;
@@ -2393,19 +2463,19 @@ int DestroyFBXBoneReq( CFBXBone* fbxbone )
 	return 0;
 }
 
-CFBXBone* CreateFBXBone( KFbxScene* pScene )
+CFBXBone* CreateFBXBone( FbxScene* pScene )
 {
 	s_fbxbonenum = 0;
 	CFBXBone* retfbxbone = 0;
 
-	KFbxNode* lSkeletonRoot;
+	FbxNode* lSkeletonRoot;
 	// Create skeleton root. 
-    KString lRootName( "RootNode" );
-    KFbxSkeleton* lSkeletonRootAttribute = KFbxSkeleton::Create(pScene, lRootName);
-    lSkeletonRootAttribute->SetSkeletonType(KFbxSkeleton::eROOT);
-    lSkeletonRoot = KFbxNode::Create(pScene,lRootName.Buffer());
+    FbxString lRootName( "RootNode" );
+    FbxSkeleton* lSkeletonRootAttribute = FbxSkeleton::Create(pScene, lRootName);
+    lSkeletonRootAttribute->SetSkeletonType(FbxSkeleton::eRoot);
+    lSkeletonRoot = FbxNode::Create(pScene,lRootName.Buffer());
     lSkeletonRoot->SetNodeAttribute(lSkeletonRootAttribute);    
-    lSkeletonRoot->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
+    lSkeletonRoot->LclTranslation.Set(FbxVector4(0.0, 0.0, 0.0));
 	retfbxbone = new CFBXBone();
 	if( !retfbxbone ){
 		_ASSERT( 0 );
@@ -2428,14 +2498,14 @@ CFBXBone* CreateFBXBone( KFbxScene* pScene )
 		_ASSERT( toppart );
 
 		//if (topj->notuse == 0){
-			KFbxNode* lSkeletonNode;
-			KString lNodeName(topte->engname);
-			KFbxSkeleton* lSkeletonNodeAttribute = KFbxSkeleton::Create(pScene, lNodeName);
-			lSkeletonNodeAttribute->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
-			lSkeletonNode = KFbxNode::Create(pScene, lNodeName.Buffer());
+			FbxNode* lSkeletonNode;
+			FbxString lNodeName(topte->engname);
+			FbxSkeleton* lSkeletonNodeAttribute = FbxSkeleton::Create(pScene, lNodeName);
+			lSkeletonNodeAttribute->SetSkeletonType(FbxSkeleton::eLimbNode);
+			lSkeletonNode = FbxNode::Create(pScene, lNodeName.Buffer());
 			lSkeletonNode->SetNodeAttribute(lSkeletonNodeAttribute);
-			lSkeletonNode->LclTranslation.Set(KFbxVector4(toppart->jointloc.x * s_fbxmult, toppart->jointloc.y * s_fbxmult, -toppart->jointloc.z * s_fbxmult));
-			//lSkeletonNode->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
+			lSkeletonNode->LclTranslation.Set(FbxVector4(toppart->jointloc.x * s_fbxmult, toppart->jointloc.y * s_fbxmult, -toppart->jointloc.z * s_fbxmult));
+			//lSkeletonNode->LclTranslation.Set(FbxVector4(0.0, 0.0, 0.0));
 
 			//_ASSERT(0);
 			CFBXBone* fbxbone = new CFBXBone();
@@ -2465,7 +2535,7 @@ CFBXBone* CreateFBXBone( KFbxScene* pScene )
 	return retfbxbone;
 }
 
-void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
+void CreateFBXBoneReq(FbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 {
 
 
@@ -2522,13 +2592,13 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 			char newname2[256] = { 0 };
 			sprintf_s(newname2, 256, "%s_%s_bunki_Joint", parname, curname);
 
-			KString lLimbNodeName2(newname2);
-			KFbxSkeleton* lSkeletonLimbNodeAttribute2 = KFbxSkeleton::Create(pScene, lLimbNodeName2);
-			lSkeletonLimbNodeAttribute2->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			FbxString lLimbNodeName2(newname2);
+			FbxSkeleton* lSkeletonLimbNodeAttribute2 = FbxSkeleton::Create(pScene, lLimbNodeName2);
+			lSkeletonLimbNodeAttribute2->SetSkeletonType(FbxSkeleton::eLimbNode);
 			lSkeletonLimbNodeAttribute2->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode2 = KFbxNode::Create(pScene, lLimbNodeName2.Buffer());
+			FbxNode* lSkeletonLimbNode2 = FbxNode::Create(pScene, lLimbNodeName2.Buffer());
 			lSkeletonLimbNode2->SetNodeAttribute(lSkeletonLimbNodeAttribute2);
-			lSkeletonLimbNode2->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
+			lSkeletonLimbNode2->LclTranslation.Set(FbxVector4(0.0, 0.0, 0.0));
 			parfbxbone->skelnode->AddChild(lSkeletonLimbNode2);
 
 			fbxbone2->selem = pbone->parent;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -2542,19 +2612,19 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 			sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
 
 
-			KString lLimbNodeName1(newname);
-			KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
-			lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			FbxString lLimbNodeName1(newname);
+			FbxSkeleton* lSkeletonLimbNodeAttribute1 = FbxSkeleton::Create(pScene, lLimbNodeName1);
+			lSkeletonLimbNodeAttribute1->SetSkeletonType(FbxSkeleton::eLimbNode);
 			lSkeletonLimbNodeAttribute1->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
+			FbxNode* lSkeletonLimbNode1 = FbxNode::Create(pScene, lLimbNodeName1.Buffer());
 			lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
 			if (gparpart){
-				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
+				lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
 					parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
 			}
 			else{
-				//lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult, part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
-				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
+				//lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult, part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
+				lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
 			}
 			fbxbone2->skelnode->AddChild(lSkeletonLimbNode1);
 
@@ -2570,14 +2640,14 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 				char endname[256];
 				sprintf_s(endname, 256, "%s_Joint", curname);
 
-				KString lLimbNodeName3(endname);
-				KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
-				lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+				FbxString lLimbNodeName3(endname);
+				FbxSkeleton* lSkeletonLimbNodeAttribute3 = FbxSkeleton::Create(pScene, lLimbNodeName3);
+				lSkeletonLimbNodeAttribute3->SetSkeletonType(FbxSkeleton::eLimbNode);
 				lSkeletonLimbNodeAttribute3->Size.Set(1.0);
-				KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
+				FbxNode* lSkeletonLimbNode3 = FbxNode::Create(pScene, lLimbNodeName3.Buffer());
 				lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
 
-				lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+				lSkeletonLimbNode3->LclTranslation.Set(FbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
 					part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
 				lSkeletonLimbNode2->AddChild(lSkeletonLimbNode3);
 
@@ -2601,19 +2671,19 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 			char newname[256] = { 0 };
 			sprintf_s(newname, 256, "%s_%s_Joint", parname, curname);
 
-			KString lLimbNodeName1(newname);
-			KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
-			lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			FbxString lLimbNodeName1(newname);
+			FbxSkeleton* lSkeletonLimbNodeAttribute1 = FbxSkeleton::Create(pScene, lLimbNodeName1);
+			lSkeletonLimbNodeAttribute1->SetSkeletonType(FbxSkeleton::eLimbNode);
 			lSkeletonLimbNodeAttribute1->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
+			FbxNode* lSkeletonLimbNode1 = FbxNode::Create(pScene, lLimbNodeName1.Buffer());
 			lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
 			if (gparpart){
-				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
+				lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
 					parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
 			}
 			else{
-				lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
-				//lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+				lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
+				//lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
 				//	part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
 			}
 			parfbxbone->skelnode->AddChild(lSkeletonLimbNode1);
@@ -2630,14 +2700,14 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 				char endname[256];
 				sprintf_s(endname, 256, "%s_Joint", curname);
 
-				KString lLimbNodeName3(endname);
-				KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
-				lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+				FbxString lLimbNodeName3(endname);
+				FbxSkeleton* lSkeletonLimbNodeAttribute3 = FbxSkeleton::Create(pScene, lLimbNodeName3);
+				lSkeletonLimbNodeAttribute3->SetSkeletonType(FbxSkeleton::eLimbNode);
 				lSkeletonLimbNodeAttribute3->Size.Set(1.0);
-				KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
+				FbxNode* lSkeletonLimbNode3 = FbxNode::Create(pScene, lLimbNodeName3.Buffer());
 				lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
 
-				lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+				lSkeletonLimbNode3->LclTranslation.Set(FbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
 					part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
 				lSkeletonLimbNode1->AddChild(lSkeletonLimbNode3);
 
@@ -2671,7 +2741,7 @@ void CreateFBXBoneReq(KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone)
 
 
 /*
-void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone )
+void CreateFBXBoneReq( FbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone )
 {
 	CTreeElem2* te = (*s_lpth)( pbone->serialno );
 	_ASSERT( te );
@@ -2706,13 +2776,13 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 		char newname2[256] = { 0 };
 		sprintf_s(newname2, 256, "%s_bunki%d", parte->engname, s_bunkicnt++);
 
-		KString lLimbNodeName2(newname2);
-		KFbxSkeleton* lSkeletonLimbNodeAttribute2 = KFbxSkeleton::Create(pScene, lLimbNodeName2);
-		lSkeletonLimbNodeAttribute2->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+		FbxString lLimbNodeName2(newname2);
+		FbxSkeleton* lSkeletonLimbNodeAttribute2 = FbxSkeleton::Create(pScene, lLimbNodeName2);
+		lSkeletonLimbNodeAttribute2->SetSkeletonType(FbxSkeleton::eLimbNode);
 		lSkeletonLimbNodeAttribute2->Size.Set(1.0);
-		KFbxNode* lSkeletonLimbNode2 = KFbxNode::Create(pScene, lLimbNodeName2.Buffer());
+		FbxNode* lSkeletonLimbNode2 = FbxNode::Create(pScene, lLimbNodeName2.Buffer());
 		lSkeletonLimbNode2->SetNodeAttribute(lSkeletonLimbNodeAttribute2);
-		lSkeletonLimbNode2->LclTranslation.Set(KFbxVector4(0.0, 0.0, 0.0));
+		lSkeletonLimbNode2->LclTranslation.Set(FbxVector4(0.0, 0.0, 0.0));
 		parfbxbone->skelnode->AddChild(lSkeletonLimbNode2);
 
 		fbxbone2->selem = pbone->parent;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -2733,18 +2803,18 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 		sprintf_s(newname, 256, "%s", te->engname);
 
 
-		KString lLimbNodeName1(newname);
-		KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
-		lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+		FbxString lLimbNodeName1(newname);
+		FbxSkeleton* lSkeletonLimbNodeAttribute1 = FbxSkeleton::Create(pScene, lLimbNodeName1);
+		lSkeletonLimbNodeAttribute1->SetSkeletonType(FbxSkeleton::eLimbNode);
 		lSkeletonLimbNodeAttribute1->Size.Set(1.0);
-		KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
+		FbxNode* lSkeletonLimbNode1 = FbxNode::Create(pScene, lLimbNodeName1.Buffer());
 		lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
 		if (gparpart){
-			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
+			lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
 				parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
 		}
 		else{
-			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
+			lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
 		}
 		fbxbone2->skelnode->AddChild(lSkeletonLimbNode1);
 
@@ -2759,14 +2829,14 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 			char endname[256];
 			sprintf_s(endname, 256, "%s_end", te->engname);
 
-			KString lLimbNodeName3(endname);
-			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
-			lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			FbxString lLimbNodeName3(endname);
+			FbxSkeleton* lSkeletonLimbNodeAttribute3 = FbxSkeleton::Create(pScene, lLimbNodeName3);
+			lSkeletonLimbNodeAttribute3->SetSkeletonType(FbxSkeleton::eLimbNode);
 			lSkeletonLimbNodeAttribute3->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
+			FbxNode* lSkeletonLimbNode3 = FbxNode::Create(pScene, lLimbNodeName3.Buffer());
 			lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
 
-			lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+			lSkeletonLimbNode3->LclTranslation.Set(FbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
 				part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
 			lSkeletonLimbNode2->AddChild(lSkeletonLimbNode3);
 
@@ -2804,18 +2874,18 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 		char newname[256] = { 0 };
 		sprintf_s(newname, 256, "%s", te->engname);
 
-		KString lLimbNodeName1(newname);
-		KFbxSkeleton* lSkeletonLimbNodeAttribute1 = KFbxSkeleton::Create(pScene, lLimbNodeName1);
-		lSkeletonLimbNodeAttribute1->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+		FbxString lLimbNodeName1(newname);
+		FbxSkeleton* lSkeletonLimbNodeAttribute1 = FbxSkeleton::Create(pScene, lLimbNodeName1);
+		lSkeletonLimbNodeAttribute1->SetSkeletonType(FbxSkeleton::eLimbNode);
 		lSkeletonLimbNodeAttribute1->Size.Set(1.0);
-		KFbxNode* lSkeletonLimbNode1 = KFbxNode::Create(pScene, lLimbNodeName1.Buffer());
+		FbxNode* lSkeletonLimbNode1 = FbxNode::Create(pScene, lLimbNodeName1.Buffer());
 		lSkeletonLimbNode1->SetNodeAttribute(lSkeletonLimbNodeAttribute1);
 		if (gparpart){
-			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
+			lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(parpart->jointloc.x * s_fbxmult - gparpart->jointloc.x * s_fbxmult,
 				parpart->jointloc.y * s_fbxmult - gparpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult - -gparpart->jointloc.z * s_fbxmult));
 		}
 		else{
-			lSkeletonLimbNode1->LclTranslation.Set(KFbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
+			lSkeletonLimbNode1->LclTranslation.Set(FbxVector4(parpart->jointloc.x * s_fbxmult, parpart->jointloc.y * s_fbxmult, -parpart->jointloc.z * s_fbxmult));
 		}
 		parfbxbone->skelnode->AddChild(lSkeletonLimbNode1);
 
@@ -2830,14 +2900,14 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 			char endname[256];
 			sprintf_s(endname, 256, "%s_end", te->engname);
 
-			KString lLimbNodeName3(endname);
-			KFbxSkeleton* lSkeletonLimbNodeAttribute3 = KFbxSkeleton::Create(pScene, lLimbNodeName3);
-			lSkeletonLimbNodeAttribute3->SetSkeletonType(KFbxSkeleton::eLIMB_NODE);
+			FbxString lLimbNodeName3(endname);
+			FbxSkeleton* lSkeletonLimbNodeAttribute3 = FbxSkeleton::Create(pScene, lLimbNodeName3);
+			lSkeletonLimbNodeAttribute3->SetSkeletonType(FbxSkeleton::eLimbNode);
 			lSkeletonLimbNodeAttribute3->Size.Set(1.0);
-			KFbxNode* lSkeletonLimbNode3 = KFbxNode::Create(pScene, lLimbNodeName3.Buffer());
+			FbxNode* lSkeletonLimbNode3 = FbxNode::Create(pScene, lLimbNodeName3.Buffer());
 			lSkeletonLimbNode3->SetNodeAttribute(lSkeletonLimbNodeAttribute3);
 
-			lSkeletonLimbNode3->LclTranslation.Set(KFbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
+			lSkeletonLimbNode3->LclTranslation.Set(FbxVector4(part->jointloc.x * s_fbxmult - parpart->jointloc.x * s_fbxmult,
 				part->jointloc.y * s_fbxmult - parpart->jointloc.y * s_fbxmult, -part->jointloc.z * s_fbxmult - -parpart->jointloc.z * s_fbxmult));
 			lSkeletonLimbNode1->AddChild(lSkeletonLimbNode3);
 
@@ -2866,7 +2936,7 @@ void CreateFBXBoneReq( KFbxScene* pScene, CShdElem* pbone, CFBXBone* parfbxbone 
 
 }
 */
-void CreateDummyInfDataReq( CFBXBone* fbxbone, KFbxSdkManager*& pSdkManager, KFbxScene*& pScene, KFbxNode* lMesh, KFbxSkin* lSkin, int* bonecnt, CShdElem** ppsetbone )
+void CreateDummyInfDataReq( CFBXBone* fbxbone, FbxManager*& pSdkManager, FbxScene*& pScene, FbxNode* lMesh, FbxSkin* lSkin, int* bonecnt, CShdElem** ppsetbone )
 {
 	CShdElem* curbone = fbxbone->selem;
 	//if( curbone && (fbxbone->m_boneinfcnt == 0) ){
@@ -2886,7 +2956,7 @@ void CreateDummyInfDataReq( CFBXBone* fbxbone, KFbxSdkManager*& pSdkManager, KFb
 	}
 
 }
-KFbxNode* CreateDummyFbxMesh(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CShdElem** ppsetbone)
+FbxNode* CreateDummyFbxMesh(FbxManager* pSdkManager, FbxScene* pScene, CShdElem** ppsetbone)
 {
 	static int s_namecnt = 0;
 
@@ -2915,31 +2985,31 @@ KFbxNode* CreateDummyFbxMesh(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CSh
 	//int facenum = s_fbxbonenum;
 	int facenum = notdirtynum;
 
-	KFbxMesh* lMesh = KFbxMesh::Create(pScene, meshname);
+	FbxMesh* lMesh = FbxMesh::Create(pScene, meshname);
 	//lMesh->InitControlPoints(facenum * 3);
 	lMesh->InitControlPoints(facenum * 3);
-	KFbxVector4* lcp = lMesh->GetControlPoints();
+	FbxVector4* lcp = lMesh->GetControlPoints();
 
 
-	KFbxGeometryElementNormal* lElementNormal = lMesh->CreateElementNormal();
-	//lElementNormal->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
-	lElementNormal->SetMappingMode(KFbxGeometryElement::eBY_POLYGON_VERTEX);
-	lElementNormal->SetReferenceMode(KFbxGeometryElement::eDIRECT);
+	FbxGeometryElementNormal* lElementNormal = lMesh->CreateElementNormal();
+	//lElementNormal->SetMappingMode(FbxGeometryElement::eByControlPoint);
+	lElementNormal->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
+	lElementNormal->SetReferenceMode(FbxGeometryElement::eDirect);
 
-	KFbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
-	K_ASSERT(lUVDiffuseElement != NULL);
-	//lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_CONTROL_POINT);
-	lUVDiffuseElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON_VERTEX);
-	lUVDiffuseElement->SetReferenceMode(KFbxGeometryElement::eDIRECT);
+	FbxGeometryElementUV* lUVDiffuseElement = lMesh->CreateElementUV("DiffuseUV");
+	_ASSERT(lUVDiffuseElement != NULL);
+	//lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByControlPoint);
+	lUVDiffuseElement->SetMappingMode(FbxGeometryElement::eByPolygonVertex);
+	lUVDiffuseElement->SetReferenceMode(FbxGeometryElement::eDirect);
 
 	//int vsetno;
 	//for (vsetno = 0; vsetno < facenum * 3; vsetno++){
-	//	*(lcp + vsetno) = KFbxVector4(0.0f, 0.0f, 0.0f, 1.0f);
+	//	*(lcp + vsetno) = FbxVector4(0.0f, 0.0f, 0.0f, 1.0f);
 
-	//	KFbxVector2 fbxuv = KFbxVector2(0.0f, 0.0f);
+	//	FbxVector2 fbxuv = FbxVector2(0.0f, 0.0f);
 	//	lUVDiffuseElement->GetDirectArray().Add(fbxuv);
 
-	//	KFbxVector4 fbxn = KFbxVector4(1.0f, 0.0f, 0.0f, 0.0f);
+	//	FbxVector4 fbxn = FbxVector4(1.0f, 0.0f, 0.0f, 0.0f);
 	//	lElementNormal->GetDirectArray().Add(fbxn);
 	//}
 
@@ -2955,11 +3025,11 @@ KFbxNode* CreateDummyFbxMesh(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CSh
 		int vcnt;
 		for (vcnt = 0; vcnt < 3; vcnt++) {
 			//0 2 1のインデックス順で書き出して　読み込み時の　０　１　２の順に直す
-			*(lcp + srcno[vcnt]) = KFbxVector4(0.0f, 0.0f, 0.0f, 1.0);
-			KFbxVector2 fbxuv = KFbxVector2(0.0f, 0.0f);
+			*(lcp + srcno[vcnt]) = FbxVector4(0.0f, 0.0f, 0.0f, 1.0);
+			FbxVector2 fbxuv = FbxVector2(0.0f, 0.0f);
 			lUVDiffuseElement->GetDirectArray().Add(fbxuv);
 
-			KFbxVector4 fbxn = KFbxVector4(1.0f, 0.0f, 0.0f, 0.0f);
+			FbxVector4 fbxn = FbxVector4(1.0f, 0.0f, 0.0f, 0.0f);
 			lElementNormal->GetDirectArray().Add(fbxn);
 		}
 
@@ -2984,22 +3054,22 @@ KFbxNode* CreateDummyFbxMesh(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CSh
 	}
 
 
-	// create a KFbxNode
-	//		KFbxNode* lNode = KFbxNode::Create(pSdkManager,pName);
-	//KFbxNode* lNode = KFbxNode::Create(pScene, meshname);
-	KFbxNode* lNode = KFbxNode::Create(pScene, nodename);
+	// create a FbxNode
+	//		FbxNode* lNode = FbxNode::Create(pSdkManager,pName);
+	//FbxNode* lNode = FbxNode::Create(pScene, meshname);
+	FbxNode* lNode = FbxNode::Create(pScene, nodename);
 	// set the node attribute
 	lNode->SetNodeAttribute(lMesh);
 	// set the shading mode to view texture
-	//lNode->SetShadingMode(KFbxNode::eTEXTURE_SHADING);
+	//lNode->SetShadingMode(FbxNode::eTextureShading);
 	// rotate the plane
-	lNode->LclRotation.Set(KFbxVector4(0, 0, 0));
+	lNode->LclRotation.Set(FbxVector4(0, 0, 0));
 
 
 	// Set material mapping.
-	KFbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
-	lMaterialElement->SetMappingMode(KFbxGeometryElement::eBY_POLYGON);
-	lMaterialElement->SetReferenceMode(KFbxGeometryElement::eINDEX_TO_DIRECT);
+	FbxGeometryElementMaterial* lMaterialElement = lMesh->CreateElementMaterial();
+	lMaterialElement->SetMappingMode(FbxGeometryElement::eByPolygon);
+	lMaterialElement->SetReferenceMode(FbxGeometryElement::eIndexToDirect);
 	if (!lMesh->GetElementMaterial(0)){
 		_ASSERT(0);
 		return NULL;
@@ -3014,27 +3084,27 @@ KFbxNode* CreateDummyFbxMesh(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CSh
 
 	char matname[256];
 	sprintf_s(matname, 256, "material_%d", s_matcnt);
-	//KString lMaterialName = mqomat->name;
-	KString lMaterialName = matname;
-	KString lShadingName = "Phong";
-	KFbxSurfacePhong* lMaterial = KFbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
+	//FbxString lMaterialName = mqomat->name;
+	FbxString lMaterialName = matname;
+	FbxString lShadingName = "Phong";
+	FbxSurfacePhong* lMaterial = FbxSurfacePhong::Create(pScene, lMaterialName.Buffer());
 
-	//	lMaterial->Diffuse.Set(fbxDouble3(mqomat->dif4f.r, mqomat->dif4f.g, mqomat->dif4f.b));
-	lMaterial->Diffuse.Set(fbxDouble3(1.0f, 1.0f, 1.0f));
-	lMaterial->Emissive.Set(fbxDouble3(0.0f, 0.0f, 0.0f));
-	lMaterial->Ambient.Set(fbxDouble3(0.0f, 0.0f, 0.0f));
+	//	lMaterial->Diffuse.Set(FbxDouble3(mqomat->dif4f.r, mqomat->dif4f.g, mqomat->dif4f.b));
+	lMaterial->Diffuse.Set(FbxDouble3(1.0f, 1.0f, 1.0f));
+	lMaterial->Emissive.Set(FbxDouble3(0.0f, 0.0f, 0.0f));
+	lMaterial->Ambient.Set(FbxDouble3(0.0f, 0.0f, 0.0f));
 	lMaterial->AmbientFactor.Set(1.0);
-	lNode->SetShadingMode(KFbxNode::eHARD_SHADING);
+	lNode->SetShadingMode(FbxNode::eHardShading);
 	
 	lMaterial->DiffuseFactor.Set(1.0);
 	lMaterial->TransparencyFactor.Set(1.0f);
 	lMaterial->ShadingModel.Set(lShadingName);
 	lMaterial->Shininess.Set(0.5);
-	lMaterial->Specular.Set(fbxDouble3(0.0f, 0.0f, 0.0f));
+	lMaterial->Specular.Set(FbxDouble3(0.0f, 0.0f, 0.0f));
 	lMaterial->SpecularFactor.Set(0.3);
 
 	lNode->AddMaterial(lMaterial);
-	// We are in eBY_POLYGON, so there's only need for index (a plane has 1 polygon).
+	// We are in eByPolygon, so there's only need for index (a plane has 1 polygon).
 	lMaterialElement->GetIndexArray().SetCount(lMesh->GetPolygonCount());
 	// Set the Index to the material
 	for (int i = 0; i<lMesh->GetPolygonCount(); ++i){
@@ -3047,10 +3117,10 @@ KFbxNode* CreateDummyFbxMesh(KFbxSdkManager* pSdkManager, KFbxScene* pScene, CSh
 
 }
 
-void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pScene, KFbxNode* pMesh, int bonecnt)
+void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene, FbxNode* pMesh, int bonecnt)
 {
-	KFbxXMatrix lXMatrix;
-    KFbxNode* lSkel;
+	FbxAMatrix lXMatrix;
+    FbxNode* lSkel;
 
 	//if ((fbxbone->type == FB_NORMAL) || (fbxbone->type == FB_ENDJOINT) || (fbxbone->type == FB_BUNKI_CHIL)){
 
@@ -3067,9 +3137,9 @@ void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 				return;
 			}
 
-			KFbxCluster *lCluster = KFbxCluster::Create(pScene,"");
+			FbxCluster *lCluster = FbxCluster::Create(pScene,"");
 			lCluster->SetLink(lSkel);
-			lCluster->SetLinkMode(KFbxCluster::eTOTAL1);
+			lCluster->SetLinkMode(FbxCluster::eTotalOne);
 
 			int vsetno = bonecnt * 3;
 			int vcnt;
@@ -3102,7 +3172,7 @@ void LinkDummyMeshToSkeleton(CFBXBone* fbxbone, KFbxSkin* lSkin, KFbxScene* pSce
 				pos.z = curbone->part->jointloc.z;
 			}
 
-			KFbxScene* lScene = pMesh->GetScene();
+			FbxScene* lScene = pMesh->GetScene();
 			lXMatrix.SetIdentity();
 			lXMatrix = pMesh->EvaluateGlobalTransform();
 			lCluster->SetTransformMatrix(lXMatrix);

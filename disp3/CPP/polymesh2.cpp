@@ -3478,21 +3478,21 @@ int CPolyMesh2::WriteMQOObjectOnFrameMorph( HANDLE hfile, int* matnoindex, char*
 			GetVCol2( (faceno * 3 + 2), &vc3, &setflag3 );
 	
 			if( setflag1 && setflag2 && setflag3 ){
-				sprintf_s( tempchar, LINECHARLENG, " COL(%u", vc1 );
+				sprintf_s( tempchar, LINECHARLENG, " COL(%llu", vc1 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );
 					_ASSERT( 0 );
 					return 1;
 				}
-				sprintf_s( tempchar, LINECHARLENG, " %u", vc2 );
+				sprintf_s( tempchar, LINECHARLENG, " %llu", vc2 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );
 					_ASSERT( 0 );
 					return 1;
 				}
-				sprintf_s( tempchar, LINECHARLENG, " %u)", vc3 );
+				sprintf_s( tempchar, LINECHARLENG, " %llu)", vc3 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );
@@ -3826,21 +3826,21 @@ int CPolyMesh2::WriteMQOObjectOnFrame( HANDLE hfile, int* matnoindex, char* srct
 			GetVCol2( (faceno * 3 + 2), &vc3, &setflag3 );
 	
 			if( setflag1 && setflag2 && setflag3 ){
-				sprintf_s( tempchar, LINECHARLENG, " COL(%u", vc1 );
+				sprintf_s( tempchar, LINECHARLENG, " COL(%llu", vc1 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );
 					_ASSERT( 0 );
 					return 1;
 				}
-				sprintf_s( tempchar, LINECHARLENG, " %u", vc2 );
+				sprintf_s( tempchar, LINECHARLENG, " %llu", vc2 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );
 					_ASSERT( 0 );
 					return 1;
 				}
-				sprintf_s( tempchar, LINECHARLENG, " %u)", vc3 );
+				sprintf_s( tempchar, LINECHARLENG, " %llu)", vc3 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );
@@ -4097,21 +4097,21 @@ int CPolyMesh2::WriteMQOObject( HANDLE hfile, int* matnoindex, char* srctexname,
 			GetVCol2( (faceno * 3 + 2), &vc3, &setflag3 );
 	
 			if( setflag1 && setflag2 && setflag3 ){
-				sprintf_s( tempchar, LINECHARLENG, " COL(%u", vc1 );
+				sprintf_s( tempchar, LINECHARLENG, " COL(%llu", vc1 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );
 					_ASSERT( 0 );
 					return 1;
 				}
-				sprintf_s( tempchar, LINECHARLENG, " %u", vc2 );
+				sprintf_s( tempchar, LINECHARLENG, " %llu", vc2 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );
 					_ASSERT( 0 );
 					return 1;
 				}
-				sprintf_s( tempchar, LINECHARLENG, " %u)", vc3 );
+				sprintf_s( tempchar, LINECHARLENG, " %llu)", vc3 );
 				ret = WriteChar( hfile, tempchar, 0 );
 				if( ret ){
 					DbgOut( "pm2 : WriteMQOObject : WriteChar error !!!\n" );

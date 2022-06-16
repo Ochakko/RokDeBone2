@@ -27,7 +27,7 @@ extern int g_endapp;
 /////////////////////////////////////////////////////////////////////////////
 // CVIKDlg
 
-#define VIKTIMER 2000
+#define VIFbxTimeR 2000
 
 CVIKDlg::CVIKDlg( CMotParamDlg* motparamdlg )
 {
@@ -111,9 +111,9 @@ int CVIKDlg::DestroyTimer()
 LRESULT CVIKDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandled)
 {
 	if( m_timerid == 0 ){
-		m_timerid = (int)SetTimer( VIKTIMER, 16 );
+		m_timerid = (int)SetTimer( VIFbxTimeR, 16 );
 		//DbgOut( "vikdlg :OnInitDialog : m_timerid %d\n", m_timerid );
-		_ASSERT( m_timerid == VIKTIMER );
+		_ASSERT( m_timerid == VIFbxTimeR );
 	}
 	m_timerworking = 1;
 

@@ -81,8 +81,8 @@ int CFBXFile::LoadFBXFile( char* filename, CTreeHandler2* srclpth, CShdHandler* 
 	m_datamult = datamult;
 //////////
 
-	KFbxSdkManager* lSdkManager = NULL;
-	KFbxScene* lScene = NULL;
+	FbxManager* lSdkManager = NULL;
+	FbxScene* lScene = NULL;
 	bool lResult;
  
 	// Prepare the FBX SDK.
@@ -123,26 +123,26 @@ int CFBXFile::LoadFBXFile( char* filename, CTreeHandler2* srclpth, CShdHandler* 
 	return 0;
 }
 
-void CFBXFile::ConvertNurbsAndPatch(KFbxSdkManager* pSdkManager, KFbxScene* pScene)
+void CFBXFile::ConvertNurbsAndPatch(FbxManager* pSdkManager, FbxScene* pScene)
 {
     ConvertNurbsAndPatchRecursive(pSdkManager, pScene->GetRootNode());
 }
 
 
-void CFBXFile::ConvertNurbsAndPatchRecursive(KFbxSdkManager* pSdkManager, KFbxNode* pNode)
+void CFBXFile::ConvertNurbsAndPatchRecursive(FbxManager* pSdkManager, FbxNode* pNode)
 {
-    KFbxNodeAttribute* lNodeAttribute = pNode->GetNodeAttribute();
+    FbxNodeAttribute* lNodeAttribute = pNode->GetNodeAttribute();
 
     if (lNodeAttribute)
     {
-        if (lNodeAttribute->GetAttributeType() == KFbxNodeAttribute::eNURB ||
-            lNodeAttribute->GetAttributeType() == KFbxNodeAttribute::ePATCH)
+        if (lNodeAttribute->GetAttributeType() == FbxNodeAttribute::eNURB ||
+            lNodeAttribute->GetAttributeType() == FbxNodeAttribute::ePATCH)
         {
-            KFbxGeometryConverter* lConverter = pSdkManager->CreateKFbxGeometryConverter();
+            FbxGeometryConverter* lConverter = pSdkManager->CreateFbxGeometryConverter();
 
             lConverter->TriangulateInPlace(pNode);
 
-            pSdkManager->DestroyKFbxGeometryConverter(lConverter);
+            pSdkManager->DestroyFbxGeometryConverter(lConverter);
         }
     }
 
@@ -154,7 +154,7 @@ void CFBXFile::ConvertNurbsAndPatchRecursive(KFbxSdkManager* pSdkManager, KFbxNo
     }
 }
 
-int CFBXFile::MakeRDB2Obj( KFbxSdkManager* pSdkManager, KFbxScene* pScene )
+int CFBXFile::MakeRDB2Obj( FbxManager* pSdkManager, FbxScene* pScene )
 {
 	int ret;
 
@@ -235,9 +235,9 @@ int CFBXFile::MakeRDB2Obj( KFbxSdkManager* pSdkManager, KFbxScene* pScene )
 }
 
 
-void CFBXFile::MakeRDB2ObjRec( KFbxSdkManager* pSdkManager, KFbxNode* pNode, int* errcnt )
+void CFBXFile::MakeRDB2ObjRec( FbxManager* pSdkManager, FbxNode* pNode, int* errcnt )
 {
-	KString lString;
+	FbxString lString;
 	int ret, i;
 
 	lString = pNode->GetName();
@@ -252,13 +252,13 @@ void CFBXFile::MakeRDB2ObjRec( KFbxSdkManager* pSdkManager, KFbxNode* pNode, int
 	}
 
 
-	KFbxNodeAttribute::EAttributeType lAttributeType;
+	FbxNodeAttribute::EAttributeType lAttributeType;
 	if(pNode->GetNodeAttribute()){
 		lAttributeType = (pNode->GetNodeAttribute()->GetAttributeType());
 
 		switch (lAttributeType)
 		{
-			case KFbxNodeAttribute::eSKELETON:
+			case FbxNodeAttribute::eSKELETON:
 				ret = AddShape2Tree( SHDBALLJOINT, lString.Buffer() );
 				if( ret ){
 					DbgOut( "fbx : MakeRDB2ObjRec : AddShape2Tree joint error !!!\n" );
@@ -276,7 +276,7 @@ void CFBXFile::MakeRDB2ObjRec( KFbxSdkManager* pSdkManager, KFbxNode* pNode, int
 
 				break;
 	
-			case KFbxNodeAttribute::eMESH:
+			case FbxNodeAttribute::eMESH:
 				ret = AddShape2Tree( SHDPOLYMESH, lString.Buffer() );
 				if( ret ){
 					DbgOut( "fbx : MakeRDB2ObjRec : AddShape2Tree pm2 error !!!\n" );
@@ -509,7 +509,7 @@ int CFBXFile::AddShape2Tree( int shdtype, char* srcname )
 
 }
 
-int CFBXFile::MakePart( KFbxNode* pNode )
+int CFBXFile::MakePart( FbxNode* pNode )
 {
 	int ret;
 	ret = lpsh->Init3DObj( curseri, &tempinfo );
@@ -522,10 +522,10 @@ int CFBXFile::MakePart( KFbxNode* pNode )
 	return 0;
 }
 
-int CFBXFile::MakePolyMesh( KFbxNode* pNode )
+int CFBXFile::MakePolyMesh( FbxNode* pNode )
 {
 
-	KFbxMesh* pMesh = (KFbxMesh*) pNode->GetNodeAttribute();
+	FbxMesh* pMesh = (FbxMesh*) pNode->GetNodeAttribute();
 	_ASSERT( pMesh );
 
 	int ret;
@@ -608,7 +608,7 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 
 	//vertex, uv
 	{
-		KFbxVector4* lControlPoints = pMesh->GetControlPoints();
+		FbxVector4* lControlPoints = pMesh->GetControlPoints();
 
 		for (i = 0; i < lControlPointsCount; i++)
 		{
@@ -639,7 +639,7 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 
 	{
 		int l;
-		KFbxVector4* lControlPoints = pMesh->GetControlPoints(); 
+		FbxVector4* lControlPoints = pMesh->GetControlPoints(); 
 
 		int vertexId = 0;
 		for (i = 0; i < lPolygonCount; i++)
@@ -672,20 +672,20 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 				//for (l = 0; l < pMesh->GetLayerCount(); l++)
 				//{
 					/***
-					KFbxLayerElementVertexColor* leVtxc = pMesh->GetLayer(l)->GetVertexColors();
+					FbxLayerElementVertexColor* leVtxc = pMesh->GetLayer(l)->GetVertexColors();
 					if (leVtxc)
 					{
 						sprintf(header, "            Color vertex (on layer %d): ", l); 
 
 						switch (leVtxc->GetMappingMode())
 						{
-						case KFbxLayerElement::eBY_CONTROL_POINT:
+						case FbxLayerElement::eByControlPoint:
 							switch (leVtxc->GetReferenceMode())
 							{
-							case KFbxLayerElement::eDIRECT:
+							case FbxLayerElement::eDirect:
 								DisplayColor(header, leVtxc->GetDirectArray().GetAt(lControlPointIndex));
 								break;
-							case KFbxLayerElement::eINDEX_TO_DIRECT:
+							case FbxLayerElement::eIndexToDirect:
 								{
 									int id = leVtxc->GetIndexArray().GetAt(lControlPointIndex);
 									DisplayColor(header, leVtxc->GetDirectArray().GetAt(id));
@@ -696,14 +696,14 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 							}
 							break;
 
-						case KFbxLayerElement::eBY_POLYGON_VERTEX:
+						case FbxLayerElement::eByPolygonVertex:
 							{
 							switch (leVtxc->GetReferenceMode())
 							{
-							case KFbxLayerElement::eDIRECT:
+							case FbxLayerElement::eDirect:
 								DisplayColor(header, leVtxc->GetDirectArray().GetAt(vertexId));
 								break;
-							case KFbxLayerElement::eINDEX_TO_DIRECT:
+							case FbxLayerElement::eIndexToDirect:
 								{
 									int id = leVtxc->GetIndexArray().GetAt(vertexId);
 									DisplayColor(header, leVtxc->GetDirectArray().GetAt(id));
@@ -715,25 +715,25 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 							}
 							break;
 
-						case KFbxLayerElement::eBY_POLYGON: // doesn't make much sense for UVs
-						case KFbxLayerElement::eALL_SAME:   // doesn't make much sense for UVs
-						case KFbxLayerElement::eNONE:       // doesn't make much sense for UVs
+						case FbxLayerElement::eByPolygon: // doesn't make much sense for UVs
+						case FbxLayerElement::eALL_SAME:   // doesn't make much sense for UVs
+						case FbxLayerElement::eNone:       // doesn't make much sense for UVs
 							break;
 						}
 					}
 					***/
 
-					KFbxLayerElementUV* leUV = pMesh->GetLayer(l)->GetUVs();
+					FbxLayerElementUV* leUV = pMesh->GetLayer(l)->GetUVs();
 					if (leUV)
 					{
 						//sprintf(header, "            Texture UV (on layer %d): ", l); 
 
 						switch (leUV->GetMappingMode())
 						{
-						case KFbxLayerElement::eBY_CONTROL_POINT:
+						case FbxLayerElement::eByControlPoint:
 							switch (leUV->GetReferenceMode())
 							{
-							case KFbxLayerElement::eDIRECT:
+							case FbxLayerElement::eDirect:
 								ret = pm->SetUV( lControlPointIndex, 
 									(float)leUV->GetDirectArray().GetAt(lControlPointIndex)[0], 
 									(float)leUV->GetDirectArray().GetAt(lControlPointIndex)[1], 
@@ -745,7 +745,7 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 								}
 								//Display2DVector(header, leUV->GetDirectArray().GetAt(lControlPointIndex));
 								break;
-							case KFbxLayerElement::eINDEX_TO_DIRECT:
+							case FbxLayerElement::eIndexToDirect:
 								{
 									int id = leUV->GetIndexArray().GetAt(lControlPointIndex);
 									//Display2DVector(header, leUV->GetDirectArray().GetAt(id));
@@ -765,12 +765,12 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 							}
 							break;
 
-						case KFbxLayerElement::eBY_POLYGON_VERTEX:
+						case FbxLayerElement::eByPolygonVertex:
 							{
 							int lTextureUVIndex = pMesh->GetTextureUVIndex(i, j);
 							switch (leUV->GetReferenceMode())
 							{
-							case KFbxLayerElement::eDIRECT:
+							case FbxLayerElement::eDirect:
 								//Display2DVector(header, leUV->GetDirectArray().GetAt(lTextureUVIndex));
 								ret = pm->SetUV( lControlPointIndex,
 									(float)leUV->GetDirectArray().GetAt(lTextureUVIndex)[0], 
@@ -782,7 +782,7 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 									return 1;
 								}
 								break;
-							case KFbxLayerElement::eINDEX_TO_DIRECT:
+							case FbxLayerElement::eIndexToDirect:
 								{
 									int id = leUV->GetIndexArray().GetAt(lTextureUVIndex);
 									//Display2DVector(header, leUV->GetDirectArray().GetAt(id));
@@ -803,9 +803,9 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 							}
 							break;
 
-						case KFbxLayerElement::eBY_POLYGON: // doesn't make much sense for UVs
-						case KFbxLayerElement::eALL_SAME:   // doesn't make much sense for UVs
-						case KFbxLayerElement::eNONE:       // doesn't make much sense for UVs
+						case FbxLayerElement::eByPolygon: // doesn't make much sense for UVs
+						case FbxLayerElement::eALL_SAME:   // doesn't make much sense for UVs
+						case FbxLayerElement::eNone:       // doesn't make much sense for UVs
 							break;
 						}
 					}
@@ -829,7 +829,7 @@ int CFBXFile::MakePolyMesh( KFbxNode* pNode )
 	return 0;
 }
 
-int CFBXFile::MakeJoint( KFbxNode* pNode )
+int CFBXFile::MakeJoint( FbxNode* pNode )
 {
 
 	int ret;
@@ -847,7 +847,7 @@ int CFBXFile::MakeJoint( KFbxNode* pNode )
 	//jointloc.z = (pts + vertno)->z;
 ////////////
 
-    KFbxTakeNode* pTakeNode = pNode->GetDefaultTakeNode();
+    FbxTakeNode* pTakeNode = pNode->GetDefaultTakeNode();
 	//printf("    Default Animation\n");
 	if(pTakeNode)
 	{
@@ -890,7 +890,7 @@ int CFBXFile::MakeJoint( KFbxNode* pNode )
 
 
 
-void CFBXFile::SetJointPos( KFbxScene* pScene )
+void CFBXFile::SetJointPos( FbxScene* pScene )
 {
 
 	int i, lCount = pScene->GetRootNode()->GetChildCount();
@@ -901,13 +901,13 @@ void CFBXFile::SetJointPos( KFbxScene* pScene )
     }
 }
 
-KFbxXMatrix CFBXFile::GetGlobalDefaultPosition(KFbxNode* pNode)
+FbxAMatrix CFBXFile::GetGlobalDefaultPosition(FbxNode* pNode)
 {	
-	KFbxXMatrix lLocalPosition;
-	KFbxXMatrix lGlobalPosition;
-	KFbxXMatrix lParentGlobalPosition;
+	FbxAMatrix lLocalPosition;
+	FbxAMatrix lGlobalPosition;
+	FbxAMatrix lParentGlobalPosition;
 
-	KFbxVector4 lT, lR, lS;
+	FbxVector4 lT, lR, lS;
 	lLocalPosition.SetT(pNode->GetDefaultT(lT));
 	lLocalPosition.SetR(pNode->GetDefaultR(lR));
 	lLocalPosition.SetS(pNode->GetDefaultS(lS));
@@ -926,71 +926,71 @@ KFbxXMatrix CFBXFile::GetGlobalDefaultPosition(KFbxNode* pNode)
 }
 
 
-void CFBXFile::SetJointPosRec( KFbxNode* pNode )
+void CFBXFile::SetJointPosRec( FbxNode* pNode )
 {
 
-    KFbxNodeAttribute* lNodeAttribute = pNode->GetNodeAttribute();
+    FbxNodeAttribute* lNodeAttribute = pNode->GetNodeAttribute();
     if (lNodeAttribute){
 
-		if (lNodeAttribute->GetAttributeType() == KFbxNodeAttribute::eSKELETON){
+		if (lNodeAttribute->GetAttributeType() == FbxNodeAttribute::eSKELETON){
 
 
 			/***
-			KFbxGeometry* pGeometry = (KFbxGeometry*)lNodeAttribute;
-			KFbxXMatrix lGlobalOffPosition;
+			FbxGeometry* pGeometry = (FbxGeometry*)lNodeAttribute;
+			FbxAMatrix lGlobalOffPosition;
 			pGeometry->GetPivot( lGlobalOffPosition );
 			***/
 
 
 		
-			KFbxXMatrix lGlobalOffPosition = GetGlobalDefaultPosition( pNode );
+			FbxAMatrix lGlobalOffPosition = GetGlobalDefaultPosition( pNode );
 		
 
 			/***
 			// Compute the node's global position.
-			KFbxXMatrix lGlobalPosition = pNode->GetGlobalFromDefaultTake();
-//			KFbxXMatrix lGlobalPosition = pNode->GetGlobalFromCurrentTake( 0.0 );
+			FbxAMatrix lGlobalPosition = pNode->GetGlobalFromDefaultTake();
+//			FbxAMatrix lGlobalPosition = pNode->GetGlobalFromCurrentTake( 0.0 );
 
 			// Geometry offset.
 			// it is not inherited by the children.
-			//KFbxXMatrix lGeometryOffset = GetGeometry(pNode);
+			//FbxAMatrix lGeometryOffset = GetGeometry(pNode);
 
-			KFbxVector4 lT, lR, lS;
-			KFbxXMatrix lGeometryOffset;
-			lT = pNode->GetGeometricTranslation(KFbxNode::eSOURCE_SET);
-			lR = pNode->GetGeometricRotation(KFbxNode::eSOURCE_SET);
-			lS = pNode->GetGeometricScaling(KFbxNode::eSOURCE_SET);
+			FbxVector4 lT, lR, lS;
+			FbxAMatrix lGeometryOffset;
+			lT = pNode->GetGeometricTranslation(FbxNode::eSourcePivot);
+			lR = pNode->GetGeometricRotation(FbxNode::eSourcePivot);
+			lS = pNode->GetGeometricScaling(FbxNode::eSourcePivot);
 			lGeometryOffset.SetT(lT);
 			lGeometryOffset.SetR(lR);
 			lGeometryOffset.SetS(lS);
 
-			KFbxXMatrix lGlobalOffPosition = lGlobalPosition * lGeometryOffset;
+			FbxAMatrix lGlobalOffPosition = lGlobalPosition * lGeometryOffset;
 			***/
 
 			/***
-			KFbxVector4 lPos;
-			lPos = pNode->GetGeometricTranslation( KFbxNode::eSOURCE_SET );
-			//pNode->GetGeometricTranslation( KFbxNode::EPivotSet )
+			FbxVector4 lPos;
+			lPos = pNode->GetGeometricTranslation( FbxNode::eSourcePivot );
+			//pNode->GetGeometricTranslation( FbxNode::EPivotSet )
 			***/
 
 			/***
-			KFbxGeometry* pGeo;
+			FbxGeometry* pGeo;
 			pGeo = pNode->GetGeometry();
 			_ASSERT( pGeo );
 
-			KFbxXMatrix lGlobalOffPosition;
+			FbxAMatrix lGlobalOffPosition;
 			pGeo->GetPivot( lGlobalOffPosition );
 			***/
 
 			/***
-			KFbxVector4 lPos;
+			FbxVector4 lPos;
 			pNode->GetDefaultT( lPos );
 			***/
 
 
 			/***
-			KFbxVector4 lT, lR, lS;
-			KFbxXMatrix lGlobalOffPosition;
+			FbxVector4 lT, lR, lS;
+			FbxAMatrix lGlobalOffPosition;
 			pNode->GetDefaultT( lT );
 			pNode->GetDefaultR( lR );
 			pNode->GetDefaultS( lS );
@@ -1000,8 +1000,8 @@ void CFBXFile::SetJointPosRec( KFbxNode* pNode )
 			***/
 
 			/***
-			KFbxVector4 lT, lR, lS;
-			KFbxXMatrix lGlobalOffPosition;
+			FbxVector4 lT, lR, lS;
+			FbxAMatrix lGlobalOffPosition;
 			lT = pNode->GetLocalTFromDefaultTake();
 			lR = pNode->GetLocalRFromDefaultTake();
 			lS = pNode->GetLocalSFromDefaultTake();
@@ -1011,19 +1011,19 @@ void CFBXFile::SetJointPosRec( KFbxNode* pNode )
 			***/
 
 			/***
-			KFbxVector4 lPos;
-			lPos = pNode->GetRotationPivot( KFbxNode::eSOURCE_SET );
+			FbxVector4 lPos;
+			lPos = pNode->GetRotationPivot( FbxNode::eSourcePivot );
 			***/
 
 			/***
-			KFbxVector4 lPos;
-			lPos = pNode->GetRotationOffset( KFbxNode::eSOURCE_SET );
+			FbxVector4 lPos;
+			lPos = pNode->GetRotationOffset( FbxNode::eSourcePivot );
 			***/
 
 
 
 		//////////
-			KString lString;
+			FbxString lString;
 			lString = pNode->GetName();
 			int serino = 0;
 			int ret;
@@ -1067,7 +1067,7 @@ void CFBXFile::SetJointPosRec( KFbxNode* pNode )
     }
 }
 
-int CFBXFile::SetInfElem( KFbxScene* pScene )
+int CFBXFile::SetInfElem( FbxScene* pScene )
 {
 
 	int i, lCount = pScene->GetRootNode()->GetChildCount();
@@ -1086,24 +1086,24 @@ int CFBXFile::SetInfElem( KFbxScene* pScene )
 	return 0;
 }
 
-void CFBXFile::SetInfElemRec( KFbxNode* pNode, int* errcnt )
+void CFBXFile::SetInfElemRec( FbxNode* pNode, int* errcnt )
 {
 	int ret;
     int i, lLinkCount;
-	KFbxLink* lLink;
+	FbxLink* lLink;
 
 
-    KFbxNodeAttribute* lNodeAttribute = pNode->GetNodeAttribute();
+    FbxNodeAttribute* lNodeAttribute = pNode->GetNodeAttribute();
     if (lNodeAttribute){
 
-		if (lNodeAttribute->GetAttributeType() == KFbxNodeAttribute::eMESH){
+		if (lNodeAttribute->GetAttributeType() == FbxNodeAttribute::eMESH){
 
 
-			KFbxMesh* pMesh = (KFbxMesh*) pNode->GetNodeAttribute();
+			FbxMesh* pMesh = (FbxMesh*) pNode->GetNodeAttribute();
 			_ASSERT( pMesh );
 
 
-			KString lDispName;
+			FbxString lDispName;
 			lDispName = pNode->GetName();
 
 			int dispno;
@@ -1135,7 +1135,7 @@ void CFBXFile::SetInfElemRec( KFbxNode* pNode, int* errcnt )
 
 
 
-			KFbxGeometry* pGeometry = (KFbxGeometry*)pNode->GetNodeAttribute();
+			FbxGeometry* pGeometry = (FbxGeometry*)pNode->GetNodeAttribute();
 			lLinkCount = pGeometry->GetLinkCount();
 
 			for (i = 0; i < lLinkCount; i++)
@@ -1147,7 +1147,7 @@ void CFBXFile::SetInfElemRec( KFbxNode* pNode, int* errcnt )
 					continue;//!!!!!!!!!!!!!!!!!!!!!!!
 				}
 					
-				KString lString;
+				FbxString lString;
 				lString = lLink->GetLink()->GetName();
 
 				int boneno;

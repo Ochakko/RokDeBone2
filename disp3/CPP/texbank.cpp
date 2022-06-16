@@ -22,7 +22,7 @@
 static int s_destroycount = 0;
 
 
-CTexBank::CTexBank( UINT miplevels, DWORD mipfilter )
+CTexBank::CTexBank( UINT miplevels, DWORD mipfilter ) : CNameBank()
 {
 	pptexdata = 0;
 	ppsurfdata = 0;

@@ -24,7 +24,7 @@ private:
 public:
 	int type;
 	CShdElem* selem;
-	KFbxNode* skelnode;
+	FbxNode* skelnode;
 	int bunkinum;
 
 	CFBXBone* m_parent;

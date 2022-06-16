@@ -14,7 +14,7 @@
 
 static int s_allocno = 0;
 
-CMotionPoint2::CMotionPoint2()
+CMotionPoint2::CMotionPoint2() : CMotionPoint()
 {
 	s_allocno++;
 	serialno = s_allocno;

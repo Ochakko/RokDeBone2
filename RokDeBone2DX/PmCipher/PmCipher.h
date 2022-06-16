@@ -7,8 +7,40 @@
 #include <string>
 #include <stack>
 #include <fstream>
-#include <hash_map>
+
+//#include <hash_map>
+
+//hash_map
+//#ifdef _MSC_VER
+//#include <hash_map>
+//using stdext::hash_map;
+//#else
+//#include <ext/hash_map>
+//using __gnu_cxx::hash_map;
+//
+//namespace __gnu_cxx {
+//
+//	template<> struct hash<std::string>
+//	{
+//		size_t operator()(const std::string& s) const
+//		{
+//			return hash<char*>()(s.c_str());
+//		}
+//	};
+//
+//} // of namespace __gnu_cxx
+//#endif
+
+#include <unordered_map>
+//#define unordered_map hash_map
+#define hash_map unordered_map
+
+
 #include <algorithm>
+
+
+
+
 
 //STL–¼‘O‹óŠÔ‚ÌéŒ¾
 using namespace std;
