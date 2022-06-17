@@ -18,6 +18,7 @@ static HANDLE s_hfile = INVALID_HANDLE_VALUE;
 
 
 static int Write2File( char* lpFormat, ... );
+static void CloseFile();
 
 //---------------------------------------------------------------------------
 //  DllMain
@@ -187,28 +188,33 @@ RDBPLUGIN_EXPORT int RDBOnSelectPlugin()
 		ret = RDBGetDispObjNum( hsid, &dispobjnum );
 		if( ret ){
 			_ASSERT( 0 );
+			CloseFile();
 			return 1;
 		}
 		if( dispobjnum == 0 ){
 			Write2File( "dispobj not exist return\r\n" );
 			ret = 0;
+			CloseFile();
 			return 0;
 		}
 
 		char* dispobjname = (char*)malloc( sizeof( char ) * 256 * dispobjnum );
 		if( !dispobjname ){
 			_ASSERT( 0 );
+			CloseFile();
 			return 1;
 		}
 		int* dispobjinfo = (int*)malloc( sizeof( int ) * DOI_MAX * dispobjnum );
 		if( !dispobjinfo ){
 			_ASSERT( 0 );
+			CloseFile();
 			return 1;
 		}
 		int dispgetnum;
 		ret = RDBGetDispObjInfo( hsid, dispobjnum, dispobjname, dispobjinfo, &dispgetnum );
 		if( ret ){
 			_ASSERT( 0 );
+			CloseFile();
 			return 1;
 		}
 
@@ -224,6 +230,7 @@ RDBPLUGIN_EXPORT int RDBOnSelectPlugin()
 			ret = RDBGetToon1MaterialNum( hsid, partno, &matnum );
 			if( ret ){
 				_ASSERT( 0 );
+				CloseFile();
 				return 1;
 			}
 
@@ -234,6 +241,7 @@ RDBPLUGIN_EXPORT int RDBOnSelectPlugin()
 				toon1ptr = (E3DTOON1MATERIAL*)malloc( sizeof( E3DTOON1MATERIAL ) * matnum );
 				if( !toon1ptr ){
 					_ASSERT( 0 );
+					CloseFile();
 					return 1;
 				}
 				ZeroMemory( toon1ptr, sizeof( E3DTOON1MATERIAL ) * matnum );
@@ -241,6 +249,7 @@ RDBPLUGIN_EXPORT int RDBOnSelectPlugin()
 				ret = RDBGetToon1Material( hsid, partno, toon1ptr, matnum );
 				if( ret ){
 					_ASSERT( 0 );
+					CloseFile();
 					return 1;
 				}
 
@@ -275,6 +284,8 @@ RDBPLUGIN_EXPORT int RDBOnSelectPlugin()
 	ret = Write2File( "#EndOfFile\r\n" );
 	_ASSERT( !ret );
 
+	CloseFile();
+
 	MessageBox( NULL, "ToonExporterÇÃèàóùÇèIÇÌÇËÇ‹ÇµÇΩÅB", "MorphExporter", MB_OK );
 
 	return 0;
@@ -308,3 +319,12 @@ int Write2File( char* lpFormat, ... )
 	return 0;	
 }
 
+void CloseFile()
+{
+	if (s_hfile != INVALID_HANDLE_VALUE) {
+		FlushFileBuffers(s_hfile);
+		SetEndOfFile(s_hfile);
+		CloseHandle(s_hfile);
+		s_hfile = INVALID_HANDLE_VALUE;
+	}
+}

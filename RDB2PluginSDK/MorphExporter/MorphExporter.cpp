@@ -27,6 +27,7 @@ static int Write2File( char* lpFormat, ... );
 static int DestroyObjs();
 static int WriteMorphDispInfo( int hsid );
 static int WriteMorphMotion( int hsid, int motid );
+static void CloseFile();
 
 //---------------------------------------------------------------------------
 //  DllMain
@@ -160,6 +161,7 @@ RDBPLUGIN_EXPORT int RDBOnSelectPlugin()
 			_ASSERT( 0 );
 			MessageBox( NULL, "MorphExporterがエラー終了しました。", "MorphExporter", MB_OK );
 			DestroyObjs();
+			CloseFile();
 			return 1;
 		}
 
@@ -174,6 +176,7 @@ RDBPLUGIN_EXPORT int RDBOnSelectPlugin()
 					_ASSERT( 0 );
 					MessageBox( NULL, "MorphExporterがエラー終了しました。", "MorphExporter", MB_OK );
 					DestroyObjs();
+					CloseFile();
 					return 1;
 				}
 			}
@@ -186,6 +189,9 @@ RDBPLUGIN_EXPORT int RDBOnSelectPlugin()
 	_ASSERT( !ret );
 
 	DestroyObjs();
+
+	CloseFile();
+
 	MessageBox( NULL, "MorphExporterの処理を終わりました。", "MorphExporter", MB_OK );
 
 	return 0;
@@ -218,6 +224,18 @@ int Write2File( char* lpFormat, ... )
 
 	return 0;	
 }
+
+void CloseFile()
+{
+	if (s_hfile != INVALID_HANDLE_VALUE) {
+		FlushFileBuffers(s_hfile);
+		SetEndOfFile(s_hfile);
+		CloseHandle(s_hfile);
+		s_hfile = INVALID_HANDLE_VALUE;
+	}
+}
+
+
 
 int DestroyObjs()
 {
