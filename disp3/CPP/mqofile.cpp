@@ -896,7 +896,7 @@ int CMQOFile::GetChunkType( MQOSTATE* type, char* chunkname, int nameleng )
 	}
 
 	if( isfind == 0 ){
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		*type = BEGIN_UNKCHUNK;
 	}
 

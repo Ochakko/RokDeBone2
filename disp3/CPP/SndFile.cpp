@@ -732,7 +732,7 @@ int CSndFile::ReadTagList()
 
 	if( !startptr || !endptr ){
 		//タグリストがないからリターン。
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 0;
 	}
 
@@ -1161,9 +1161,9 @@ int CSndFile::LoadSndFile( char* filename, CSndAnimHandler* srcsndah, CSoundBank
 	ret = ReadTagList();
 	if( ret ){
 		DbgOut( "SndFile : LoadSndFile : ReadTagList error !!!\n" );
-		_ASSERT( 0 );
-		DeleteAnim( srcsndah );
-		return 1;
+		//_ASSERT( 0 );
+		//DeleteAnim( srcsndah );
+		//return 1;
 	}
 
 	*ppanim = m_anim;
