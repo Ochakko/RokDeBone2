@@ -64,6 +64,7 @@ private:
 	int StepDummy( NEXTMOTION* pnm );	
 
 public:
+	int m_rotationorderXYZ;
 	char m_animname[256];
 	int m_motkind;
 

@@ -1,7 +1,7 @@
 #ifndef SndFILEH
 #define SndFILEH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #define SNDLINELEN	4096
 

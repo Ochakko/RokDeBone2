@@ -200,9 +200,9 @@ LRESULT CPaintDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 	m_list_wnd = GetDlgItem( IDC_LIST1 );
 //	_ASSERT( m_list_wnd );
 //	LONG listws;
-//	listws = ::GetWindowLong( m_list_wnd, GWL_STYLE );
+//	listws = ::GetWindowLong( m_list_wnd, GWLP_STYLE );
 //	listws |= LVS_EDITLABELS;//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//	::SetWindowLong( m_list_wnd, GWL_STYLE, listws );
+//	::SetWindowLong( m_list_wnd, GWLP_STYLE, listws );
 
 
 	m_nor_wnd = GetDlgItem( IDC_NOR );
@@ -232,7 +232,7 @@ LRESULT CPaintDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 
 	int ret;
 	ret = SetNewWindowProc();
-	_ASSERT( !ret );
+	//_ASSERT( !ret );
 
 
 	ret = InitBrushCombo();
@@ -272,14 +272,14 @@ LRESULT CALLBACK TreeProc(
 
 int CPaintDlg::SetNewWindowProc()
 {
-	s_treefunc = ::GetWindowLong( m_tree_wnd, GWL_WNDPROC );
+	s_treefunc = ::GetWindowLong( m_tree_wnd, GWLP_WNDPROC );
 	if( !s_treefunc ){
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 
 	LONG lret;
-	lret = ::SetWindowLong( m_tree_wnd, GWL_WNDPROC, (LONG)TreeProc );
+	lret = ::SetWindowLong( m_tree_wnd, GWLP_WNDPROC, (LONG)TreeProc );
 	if( lret == 0 ){
 		_ASSERT( 0 );
 		return 1;
@@ -897,7 +897,7 @@ HTREEITEM CPaintDlg::TVAdd( HTREEITEM parentTI, char* srcname, int srcno, int im
 
 void CPaintDlg::CreateImageList()
 {
-	m_tree_wnd.SetWindowLong( GWL_STYLE, 
+	m_tree_wnd.SetWindowLong( GWLP_STYLE, 
 		WS_CHILD | WS_VISIBLE | WS_BORDER | 
 		TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS
 		);

@@ -1,7 +1,7 @@
 #ifndef SHDELEMH
 #define SHDELEMH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <coef.h>
 

@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -9,7 +9,7 @@
 
 #include <windows.h>
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <shdelem.h>
 

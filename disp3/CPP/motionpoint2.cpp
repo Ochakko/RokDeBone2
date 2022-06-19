@@ -1,4 +1,4 @@
-#include <stdafx.h>
+#include "stdafx.h"
 
 #include <windows.h>
 #include <motionpoint2.h>
@@ -495,8 +495,12 @@ int CMotionPoint2::RotBSpline( CQuaternion* axisq, CMotionPoint2* startmp, CMoti
 	qy.SetAxisAndRot( axisY, result[1] * (float)DEG2PAI );
 	qz.SetAxisAndRot( axisZ, result[2] * (float)DEG2PAI );
 
+#ifdef ROKDEBONE2_VER6
+	q = *axisq * qz * qy * qx * invaxisQ;
+#else	
 	q = *axisq * qy * qx * qz * invaxisQ;
-
+#endif
+	
 	m_q = q;
 	m_eul.x = result[0];
 	m_eul.y = result[1];

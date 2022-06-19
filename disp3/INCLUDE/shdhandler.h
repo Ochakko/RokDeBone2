@@ -1,7 +1,7 @@
 #ifndef SHDHANDLERH
 #define SHDHANDLERH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <shdelem.h>
 

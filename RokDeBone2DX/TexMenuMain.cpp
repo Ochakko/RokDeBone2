@@ -32,7 +32,7 @@ int CTexMenuMain::InitParams()
 int CTexMenuMain::Create( HWND srchwnd, CMQOMaterial* srcmat )
 {
 
-	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWL_HINSTANCE ), MAKEINTRESOURCE( IDR_TEXMENU ) );
+	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWLP_HINSTANCE ), MAKEINTRESOURCE( IDR_TEXMENU ) );
 	m_rsubmenu = GetSubMenu( m_rmenu, 0 );
 
 	int menuno, menunum;

@@ -2,7 +2,7 @@
 #define AUDIOCOEFH
 
 #include <X3DAudio.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 #include <xaudio2fx.h>
 
 #define XAUDIOFREQMAX	10.0f

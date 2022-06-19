@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdarg.h>

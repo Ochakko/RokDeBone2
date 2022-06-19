@@ -5,7 +5,7 @@
 #include <windows.h>
 #endif
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 //#include "charpos.h"
 #include <coef.h>

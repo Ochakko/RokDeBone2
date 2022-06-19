@@ -1,7 +1,7 @@
 #ifndef BIMFILEH
 #define BIMFILEH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 class CTreeHandler2;
 class CShdHandler;

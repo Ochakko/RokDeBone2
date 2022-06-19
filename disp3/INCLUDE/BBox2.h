@@ -1,7 +1,7 @@
 #ifndef BBox2H
 #define BBox2H
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 #include <PCoef.h>
 #include <Line.h>
 

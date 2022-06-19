@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,16 +46,46 @@
 #define FLAGS_NAMEFILE	0x02
 
 
+
+
+#define sizeofQUAFILEHDR	268
+#define sizeofQUAFILEHDR2	36
+#define sizeofQUANAMEHDR	348
+
+#define sizeofQUADATA		60
+#define sizeofQUADATA2		112
+#define sizeofQUADATA3		148
+
+#define sizeofQUASPPARAM	724
+
+#define sizeofQUATEXKEY		12
+#define sizeofQUATEXCHANGE	512
+
+#define sizeofQUAALPKEY		12
+#define sizeofQUAALPCHANGE	260
+
+#define sizeofQUADSKEY		12
+#define sizeofQUADSCHANGE	8
+
+#define sizeofMORPHVAL		16
+#define sizeofMORPHINDEX	264
+
+#define sizeofPNDPROP		784
+
+
+
 //extern CIniData* g_inidata;
 
 
 CQuaFile::CQuaFile()
 {
 	hfile = INVALID_HANDLE_VALUE;
+	lpth = 0;
 	lpsh = 0;
 	lpmh = 0;
 	m_motcookie = -1;
 	m_writemode = 0;
+	m_savemode = SAVEQUA_FILE;
 
 	m_frombuf = 0;
 	m_buf.buf = 0;
@@ -327,7 +357,7 @@ int CQuaFile::WriteQuaFile_aft( int namequaflag )
 		}
 		QUASPPARAM qspp;
 		ZeroMemory( &qspp, sizeof( QUASPPARAM ) );
-		ret = WriteUCharaData( hfile, (unsigned char*)(&qspp), sizeof( QUASPPARAM ) );
+		ret = WriteUCharaData( hfile, (unsigned char*)(&qspp), sizeofQUASPPARAM );
 		_ASSERT( !ret );
 
 	///////////
@@ -472,7 +502,7 @@ int CQuaFile::GetTopLevelElem( CMotionCtrl** pptopmc, int* topnum )
 }
 void CQuaFile::WriteNameQuaElemReq( CMotionCtrl* mcptr, int broflag, int* errorcnt )
 {
-	QUADATA3 data3;
+	//QUADATA3 data3;
 	QUANAMEHDR namehdr;
 	CShdElem* selem;
 	CShdElem* parselem;
@@ -653,7 +683,7 @@ void CQuaFile::WriteNameQuaElemReq( CMotionCtrl* mcptr, int broflag, int* errorc
 				qspp.m_rotparam = mpptr->m_spp->m_rotparam;
 				qspp.m_mvparam = mpptr->m_spp->m_mvparam;
 				qspp.m_scparam = mpptr->m_spp->m_scparam;
-				ret = WriteUCharaData( hfile, (unsigned char*)(&qspp), sizeof( QUASPPARAM ) );
+				ret = WriteUCharaData( hfile, (unsigned char*)(&qspp), sizeofQUASPPARAM );
 				if( ret ){
 					DbgOut( "quafile : WriteNameQuaElemReq : WriteUC qspp error !!!\n" );
 					_ASSERT( 0 );
@@ -993,7 +1023,7 @@ int CQuaFile::WriteQuaHeader( QUAFILEHDR hdr )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUAFILEHDR );
+	wleng = sizeofQUAFILEHDR;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1028,7 +1058,7 @@ int CQuaFile::WriteQuaHeader2( QUAFILEHDR2 hdr )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUAFILEHDR2 );
+	wleng = sizeofQUAFILEHDR2;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1065,7 +1095,7 @@ int CQuaFile::WriteQuaData( QUADATA data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUADATA );
+	wleng = sizeofQUADATA;
 	WriteFile( hfile, (void*)(&data), wleng, &writeleng, NULL );
 	if( wleng != writeleng ){
 		DbgOut( "CQuaFile::WriteQuaData : writefile error %d %d\n", wleng, writeleng );
@@ -1080,7 +1110,7 @@ int CQuaFile::WriteQuaData2( QUADATA2 data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUADATA2 );
+	wleng = sizeofQUADATA2;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1115,7 +1145,7 @@ int CQuaFile::WriteQuaTexKey( QUATEXKEY data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUATEXKEY );
+	wleng = sizeofQUATEXKEY;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1150,7 +1180,7 @@ int CQuaFile::WriteQuaAlpKey( QUAALPKEY data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUAALPKEY );
+	wleng = sizeofQUAALPKEY;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1186,7 +1216,7 @@ int CQuaFile::WriteQuaTexChange( QUATEXCHANGE data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUATEXCHANGE );
+	wleng = sizeofQUATEXCHANGE;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1221,7 +1251,7 @@ int CQuaFile::WriteQuaAlpChange( QUAALPCHANGE data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUAALPCHANGE );
+	wleng = sizeofQUAALPCHANGE;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1368,7 +1398,7 @@ int CQuaFile::WriteQuaNameHdr( QUANAMEHDR data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUANAMEHDR );
+	wleng = sizeofQUANAMEHDR;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1404,7 +1434,7 @@ int CQuaFile::WriteQuaData3( QUADATA3 data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUADATA3 );
+	wleng = sizeofQUADATA3;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1441,7 +1471,7 @@ int CQuaFile::WriteQuaDSKey( QUADSKEY data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUADSKEY );
+	wleng = sizeofQUADSKEY;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1476,7 +1506,7 @@ int CQuaFile::WriteQuaDSChange( QUADSCHANGE data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( QUADSCHANGE );
+	wleng = sizeofQUADSCHANGE;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1511,7 +1541,7 @@ int CQuaFile::WriteMorphIndex( HANDLE srchfile, MORPHINDEX* data, int num )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( MORPHINDEX ) * num;
+	wleng = sizeofMORPHINDEX * num;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1546,7 +1576,7 @@ int CQuaFile::WriteMorphVal( MORPHVAL* data )
 {
 	DWORD wleng, writeleng;
 	
-	wleng = sizeof( MORPHVAL );
+	wleng = sizeofMORPHVAL;
 
 	switch( m_savemode ){
 	case SAVEQUA_FILE:
@@ -1701,7 +1731,7 @@ void CQuaFile::WriteQuaDataReq( CMotionCtrl* mcptr )
 					qspp.m_mvparam = curmp->m_spp->m_mvparam;
 					qspp.m_scparam = curmp->m_spp->m_scparam;
 
-					ret = WriteUCharaData( hfile, (unsigned char*)(&qspp), sizeof( QUASPPARAM ) );
+					ret = WriteUCharaData( hfile, (unsigned char*)(&qspp), sizeofQUASPPARAM );
 					if( ret ){
 						DbgOut( "QuaFile : WriteQuaDataReq : WriteUC qspp error !!!\n" );
 						_ASSERT( 0 );
@@ -1772,7 +1802,7 @@ int CQuaFile::LoadQuaFile( CTreeHandler2* srclpth, CShdHandler* srclpsh, CMotHan
 	ret = LoadQuaFile_aft( mcookieptr );
 	if( ret ){
 		DbgOut( "quafile : LoadQuaFile : LoadQuaFile_aft error !!!\n" );
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 	
@@ -1827,7 +1857,7 @@ int CQuaFile::LoadQuaFileFromPnd( CPanda* panda, int pndid, char* fname, CTreeHa
 	ret = LoadQuaFile_aft( mcookieptr );
 	if( ret ){
 		DbgOut( "quafile : LoadQuaFileFromPnd : LoadQuaFile_aft error !!!\n" );
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 
@@ -1872,7 +1902,7 @@ int CQuaFile::LoadQuaFileFromBuf( CTreeHandler2* srclpth, CShdHandler* srclpsh, 
 	ret = LoadQuaFile_aft( mcookieptr );
 	if( ret ){
 		DbgOut( "quafile : LoadQuaFileFromBuf : LoadQuaFile_aft error !!!\n" );
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 
@@ -2151,7 +2181,7 @@ DbgOut( "quafile : checkzatype : motid %d : interpolation %d, zatype %d\r\n", m_
 				QUASPPARAM qspp;
 				ZeroMemory( &qspp, sizeof( QUASPPARAM ) );
 				if( header.magicno >= QUAFILEMAGICNO12 ){
-					ret = ReadUCharaData( (unsigned char*)(&qspp), sizeof( QUASPPARAM ) );
+					ret = ReadUCharaData( (unsigned char*)(&qspp), sizeofQUASPPARAM );
 					if( ret ){
 						DbgOut( "QuaFile : LoadQuaFile : ReadUCharaData qspp error !!!\n" );
 						_ASSERT( 0 );
@@ -2756,14 +2786,14 @@ int CQuaFile::LoadNameQua( int magicno, int motid, int framemax, int interpolati
 		return 1;
 	}
 
-	while( curhdr.seri >= 0 ){
+	while( (curhdr.seri >= 0) && (curhdr.seri < arrayleng) ){
 	
 		int newseri = -1;
 		ret = lpth->GetBoneNoByName( curhdr.name, &newseri, lpsh, 0 );
 		if( ret ){
 			DbgOut( "quafile : LoadNameQua : GetBoneNoByName error !!!\n" );
-			_ASSERT( 0 );
-			return 1;
+			//_ASSERT( 0 );
+			//return 1;
 		}	
 
 		CMotionCtrl* mcptr = 0;
@@ -2771,7 +2801,7 @@ int CQuaFile::LoadNameQua( int magicno, int motid, int framemax, int interpolati
 			mcptr = (*lpmh)( newseri );
 		}
 
-		if( curhdr.seri < arrayleng ){
+		if( curhdr.seri > 0 ){
 			int motkeyno;
 			for( motkeyno = 0; motkeyno < curhdr.framenum; motkeyno++ ){
 				QUADATA3 curdata3;
@@ -2786,7 +2816,7 @@ int CQuaFile::LoadNameQua( int magicno, int motid, int framemax, int interpolati
 				QUASPPARAM qspp;
 				ZeroMemory( &qspp, sizeof( QUASPPARAM ) );
 				if( magicno >= QUAFILEMAGICNO12 ){
-					ret = ReadUCharaData( (unsigned char*)(&qspp), sizeof( QUASPPARAM ) );
+					ret = ReadUCharaData( (unsigned char*)(&qspp), sizeofQUASPPARAM );
 					if( ret ){
 						DbgOut( "quafile : LoadNameQua : ReadUC qspp error !!!\n" );
 						_ASSERT( 0 );
@@ -2879,6 +2909,7 @@ int CQuaFile::LoadNameQua( int magicno, int motid, int framemax, int interpolati
 			}
 
 		}
+
 
 		int texkeyno;
 		for( texkeyno = 0; texkeyno < curhdr.texframenum; texkeyno++ ){
@@ -3340,7 +3371,7 @@ DbgOut( "quafile : ImportQuaFile : framenum %d\n", header.framenum );
 				QUASPPARAM qspp;
 				ZeroMemory( &qspp, sizeof( QUASPPARAM ) );
 				if( header.magicno >= QUAFILEMAGICNO12 ){
-					ret = ReadUCharaData( (unsigned char*)(&qspp), sizeof( QUASPPARAM ) );
+					ret = ReadUCharaData( (unsigned char*)(&qspp), sizeofQUASPPARAM );
 					if( ret ){
 						DbgOut( "quafile : importQuaFile : ReadUC qspp error !!!\n" );
 						_ASSERT( 0 );
@@ -3739,7 +3770,7 @@ int CQuaFile::ReadQuaHeader( QUAFILEHDR* hdrptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUAFILEHDR );
+	rleng = sizeofQUAFILEHDR;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)hdrptr, rleng, &readleng, NULL );
@@ -3763,7 +3794,7 @@ int CQuaFile::ReadQuaHeader2( QUAFILEHDR2* hdrptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUAFILEHDR2 );
+	rleng = sizeofQUAFILEHDR2;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)hdrptr, rleng, &readleng, NULL );
@@ -3788,7 +3819,7 @@ int CQuaFile::ReadQuaNameHdr( QUANAMEHDR* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUANAMEHDR );
+	rleng = sizeofQUANAMEHDR;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -3814,7 +3845,7 @@ int CQuaFile::ReadMorphIndex( MORPHINDEX* dataptr, int num )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( MORPHINDEX ) * num;
+	rleng = sizeofMORPHINDEX * num;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -3839,7 +3870,7 @@ int CQuaFile::ReadMorphVal( MORPHVAL* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( MORPHVAL );
+	rleng = sizeofMORPHVAL;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -3866,7 +3897,7 @@ int CQuaFile::ReadQuaData3( QUADATA3* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUADATA3 );
+	rleng = sizeofQUADATA3;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -3923,7 +3954,7 @@ int CQuaFile::ReadQuaData( QUADATA* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUADATA );
+	rleng = sizeofQUADATA;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -3949,7 +3980,7 @@ int CQuaFile::ReadQuaData2( QUADATA2* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUADATA2 );
+	rleng = sizeofQUADATA2;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -3974,7 +4005,7 @@ int CQuaFile::ReadQuaTexKey( QUATEXKEY* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUATEXKEY );
+	rleng = sizeofQUATEXKEY;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -3998,7 +4029,7 @@ int CQuaFile::ReadQuaTexChange( QUATEXCHANGE* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUATEXCHANGE );
+	rleng = sizeofQUATEXCHANGE;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -4022,7 +4053,7 @@ int CQuaFile::ReadQuaAlpKey( QUAALPKEY* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUAALPKEY );
+	rleng = sizeofQUAALPKEY;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -4046,7 +4077,7 @@ int CQuaFile::ReadQuaAlpChange( QUAALPCHANGE* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUAALPCHANGE );
+	rleng = sizeofQUAALPCHANGE;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -4071,7 +4102,7 @@ int CQuaFile::ReadQuaDSKey( QUADSKEY* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUADSKEY );
+	rleng = sizeofQUADSKEY;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -4095,7 +4126,7 @@ int CQuaFile::ReadQuaDSChange( QUADSCHANGE* dataptr )
 {
 	DWORD rleng, readleng;
 	
-	rleng = sizeof( QUADSCHANGE );
+	rleng = sizeofQUADSCHANGE;
 
 	if( m_frombuf == 0 ){
 		ReadFile( hfile, (void*)dataptr, rleng, &readleng, NULL );
@@ -4189,7 +4220,7 @@ int CQuaFile::ConvSymmXMotion( char* fname )
 		goto convexit;
 	}
 
-	ret = WriteUCharaData( outfile, (unsigned char*)(&header), sizeof( QUAFILEHDR ) );
+	ret = WriteUCharaData( outfile, (unsigned char*)(&header), sizeofQUAFILEHDR );
 	_ASSERT( !ret );
 
 	int interpolation;
@@ -4221,7 +4252,7 @@ int CQuaFile::ConvSymmXMotion( char* fname )
 			namequa = 0;
 		}
 
-		ret = WriteUCharaData( outfile, (unsigned char*)(&header2), sizeof( QUAFILEHDR2 ) );
+		ret = WriteUCharaData( outfile, (unsigned char*)(&header2), sizeofQUAFILEHDR2 );
 		_ASSERT(!ret );
 
 	}else{
@@ -4275,12 +4306,12 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 				int mino;
 				for( mino = 0; mino < minum; mino++ ){
 					MORPHINDEX curmi;
-					ReadUCharaData( (unsigned char*)&curmi, sizeof( MORPHINDEX ) );
+					ReadUCharaData( (unsigned char*)&curmi, sizeofMORPHINDEX );
 					if( ret ){
 						_ASSERT( 0 );
 						goto convexit;
 					}
-					ret = WriteUCharaData( outfile, (unsigned char*)&curmi, sizeof( MORPHINDEX ) );
+					ret = WriteUCharaData( outfile, (unsigned char*)&curmi, sizeofMORPHINDEX );
 					if( ret ){
 						_ASSERT( 0 );
 						goto convexit;
@@ -4322,7 +4353,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 			_ASSERT( 0 );
 			goto convexit;
 		}
-		ret = WriteUCharaData( outfile, (unsigned char*)&curhdr, sizeof( QUANAMEHDR ) );
+		ret = WriteUCharaData( outfile, (unsigned char*)&curhdr, sizeofQUANAMEHDR );
 		if( ret ){
 			DbgOut( "quafile : ConvSymmXMotion : first header write error !!!\n" );
 			_ASSERT( 0 );
@@ -4345,7 +4376,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 				QUASPPARAM qspp;
 				ZeroMemory( &qspp, sizeof( QUASPPARAM ) );
 				if( header.magicno >= QUAFILEMAGICNO12 ){
-					ret = ReadUCharaData( (unsigned char*)(&qspp), sizeof( QUASPPARAM ) );
+					ret = ReadUCharaData( (unsigned char*)(&qspp), sizeofQUASPPARAM );
 					if( ret ){
 						DbgOut( "quafile : ConvSymmXMotion : ReadUC qspp error !!!\n" );
 						_ASSERT( 0 );
@@ -4389,14 +4420,14 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 				outdata3.m_mv.y = outmp.m_mvy;
 				outdata3.m_mv.z = outmp.m_mvz;
 
-				ret = WriteUCharaData( outfile, (unsigned char*)(&outdata3), sizeof( QUADATA3 ) );
+				ret = WriteUCharaData( outfile, (unsigned char*)(&outdata3), sizeofQUADATA3 );
 				if( ret ){
 					DbgOut( "quafile : ConvSymmXMotion : write outdata3 error !!!\n" );
 					_ASSERT( 0 );
 					goto convexit;
 				}
 				if( header.magicno >= QUAFILEMAGICNO12 ){
-					ret = WriteUCharaData( outfile, (unsigned char*)(&qspp), sizeof( QUASPPARAM ) );
+					ret = WriteUCharaData( outfile, (unsigned char*)(&qspp), sizeofQUASPPARAM );
 					if( ret ){
 						DbgOut( "quafile : ConvSymmXMotion : write qspp error !!!\n" );
 						_ASSERT( 0 );
@@ -4416,7 +4447,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 					_ASSERT( 0 );
 					goto convexit;
 				}
-				ret = WriteUCharaData( outfile, (unsigned char*)&qtk, sizeof( QUATEXKEY ) );
+				ret = WriteUCharaData( outfile, (unsigned char*)&qtk, sizeofQUATEXKEY );
 				if( ret ){
 					DbgOut( "QuaFile : ConvSymmXMotion : Write QuaTexKey error !!!\n" );
 					_ASSERT( 0 );
@@ -4433,7 +4464,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 						_ASSERT( 0 );
 						goto convexit;
 					}
-					ret = WriteUCharaData( outfile, (unsigned char*)&qtc, sizeof( QUATEXCHANGE ) );
+					ret = WriteUCharaData( outfile, (unsigned char*)&qtc, sizeofQUATEXCHANGE );
 					if( ret ){
 						DbgOut( "QuaFile : ConvSymmXMotion texanim : Write QuaTexChange error !!!\n" );
 						_ASSERT( 0 );
@@ -4452,7 +4483,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 					_ASSERT( 0 );
 					goto convexit;
 				}
-				ret = WriteUCharaData( outfile, (unsigned char*)&qalpk, sizeof( QUAALPKEY ) );
+				ret = WriteUCharaData( outfile, (unsigned char*)&qalpk, sizeofQUAALPKEY );
 				if( ret ){
 					DbgOut( "QuaFile : ConvSymmXMotion : Write QuaAlpKey error !!!\n" );
 					_ASSERT( 0 );
@@ -4469,7 +4500,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 						_ASSERT( 0 );
 						goto convexit;
 					}
-					ret = WriteUCharaData( outfile, (unsigned char*)&qalpc, sizeof( QUAALPCHANGE ) );
+					ret = WriteUCharaData( outfile, (unsigned char*)&qalpc, sizeofQUAALPCHANGE );
 					if( ret ){
 						DbgOut( "QuaFile : ConvSymmXMotion alpanim : Write QuaAlpChange error !!!\n" );
 						_ASSERT( 0 );
@@ -4488,7 +4519,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 					_ASSERT( 0 );
 					goto convexit;
 				}
-				ret = WriteUCharaData( outfile, (unsigned char*)&qdsk, sizeof( QUADSKEY ) );
+				ret = WriteUCharaData( outfile, (unsigned char*)&qdsk, sizeofQUADSKEY );
 				if( ret ){
 					DbgOut( "QuaFile : ConvSymmXMotion : Write QuaDSKey error !!!\n" );
 					_ASSERT( 0 );
@@ -4504,7 +4535,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 						_ASSERT( 0 );
 						goto convexit;
 					}
-					ret = WriteUCharaData( outfile, (unsigned char*)&qdsc, sizeof( QUADSCHANGE ) );
+					ret = WriteUCharaData( outfile, (unsigned char*)&qdsc, sizeofQUADSCHANGE );
 					if( ret ){
 						DbgOut( "QuaFile : ConvSymmXMotion DS : Write QuaDSChange error !!!\n" );
 						_ASSERT( 0 );
@@ -4522,7 +4553,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 					_ASSERT( 0 );
 					goto convexit;
 				}
-				ret = WriteUCharaData( outfile, (unsigned char*)&curmv, sizeof( MORPHVAL ) );
+				ret = WriteUCharaData( outfile, (unsigned char*)&curmv, sizeofMORPHVAL );
 				if( ret ){
 					_ASSERT( 0 );
 					goto convexit;
@@ -4533,7 +4564,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 						_ASSERT( 0 );
 						goto convexit;
 					}
-					ret = WriteUCharaData( outfile, (unsigned char*)&curmv, sizeof( MORPHVAL ) );
+					ret = WriteUCharaData( outfile, (unsigned char*)&curmv, sizeofMORPHVAL );
 					if( ret ){
 						_ASSERT( 0 );
 						goto convexit;
@@ -4548,7 +4579,7 @@ DbgOut( "quafile : ConvSymmXMotion : framenum %d\n", header.framenum );
 				_ASSERT( 0 );
 				goto convexit;
 			}
-			ret = WriteUCharaData( outfile, (unsigned char*)&curhdr, sizeof( QUANAMEHDR ) );
+			ret = WriteUCharaData( outfile, (unsigned char*)&curhdr, sizeofQUANAMEHDR );
 			if( ret ){
 				DbgOut( "quafile : ConvSymmXMotion : NameQuaHeader write error !!!\n" );
 				_ASSERT( 0 );

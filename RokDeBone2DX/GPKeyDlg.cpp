@@ -4,7 +4,7 @@
 
 #include <math.h>
 #include <stdio.h>
-//#include <D3DX9.h>
+//#include <d3dx9.h>
 
 #include <coef.h>
 #define DBGH
@@ -226,7 +226,7 @@ LRESULT CGPKeyDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& b
 	_ASSERT( !ret );
 
 	ret = SetNewWindowProc();
-	_ASSERT( !ret );
+	//_ASSERT( !ret );
 
 	ret = ParamsToDlg();
 	_ASSERT( !ret );
@@ -272,7 +272,8 @@ int CGPKeyDlg::InitDlg( int atshowflag )
 
 	int animtype = MOTION_CLAMP;
 	CGPAnim* newanim = 0;
-	newanim = m_gpah->AddAnim( animname, animtype, m_sl_mp_rangemax + 1, 0 );
+	int newanimversion = 1002;
+	newanim = m_gpah->AddAnim( newanimversion, animname, animtype, m_sl_mp_rangemax + 1, 0 );
 	if( !newanim ){
 		DbgOut( "GPKeyDlg : InitDlg : cah AddAnim error !!!\n" );
 		_ASSERT( 0 );
@@ -1549,14 +1550,14 @@ LRESULT CALLBACK ListProc(
 ***/
 int CGPKeyDlg::SetNewWindowProc()
 {
-	s_mpfunc = ::GetWindowLong( m_sl_mp_wnd, GWL_WNDPROC );
+	s_mpfunc = ::GetWindowLong( m_sl_mp_wnd, GWLP_WNDPROC );
 	if( !s_mpfunc ){
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 
 	LONG lret;
-	lret = ::SetWindowLong( m_sl_mp_wnd, GWL_WNDPROC, (LONG)MPProcGP );
+	lret = ::SetWindowLong( m_sl_mp_wnd, GWLP_WNDPROC, (LONG)MPProcGP );
 	if( lret == 0 ){
 		_ASSERT( 0 );
 		return 1;

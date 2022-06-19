@@ -32,7 +32,7 @@ int CMCRMenu::InitParams()
 int CMCRMenu::Create( HWND srchwnd )
 {
 
-	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWL_HINSTANCE ), MAKEINTRESOURCE( IDR_MCR_MENU ) );
+	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWLP_HINSTANCE ), MAKEINTRESOURCE( IDR_MCR_MENU ) );
 	m_rsubmenu = GetSubMenu( m_rmenu, 0 );
 
 	return 0;

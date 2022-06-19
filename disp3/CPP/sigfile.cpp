@@ -1,4 +1,4 @@
-#include <stdafx.h>
+#include "stdafx.h"
 
 //02/2/7	serialno はWriteSigFile時に、書き出し順に割り当てる。
 //02/3/11	serialnoの仕様変更。serialnoは、shdelemのものをそのまま使う。
@@ -203,7 +203,11 @@ int CSigFile::WriteSigFile_aft()
 	//	return 1;
 	//}
 
+#ifdef 	ROKDEBONE2_VER6
+	writemagicno = SIGFILEMAGICNO_15;//2022/06/19
+#else
 	writemagicno = SIGFILEMAGICNO_14;//!!!!!!!!!!!!!!!!
+#endif
 
 	SIGHEADER startheader;
 	ZeroMemory( &startheader, sizeof( SIGHEADER ) );
@@ -2713,7 +2717,8 @@ int CSigFile::LoadSigFile_aft( int offset )
 		(sh.serialno != SIGFILEMAGICNO_4) && (sh.serialno != SIGFILEMAGICNO_5) && 
 		(sh.serialno != SIGFILEMAGICNO_6) && (sh.serialno != SIGFILEMAGICNO_7) && (sh.serialno != SIGFILEMAGICNO_8) && 
 		(sh.serialno != SIGFILEMAGICNO_9) && (sh.serialno != SIGFILEMAGICNO_10) && (sh.serialno != SIGFILEMAGICNO_11) && 
-		(sh.serialno != SIGFILEMAGICNO_12) && (sh.serialno != SIGFILEMAGICNO_13) && (sh.serialno != SIGFILEMAGICNO_14) ){
+		(sh.serialno != SIGFILEMAGICNO_12) && (sh.serialno != SIGFILEMAGICNO_13) && (sh.serialno != SIGFILEMAGICNO_14) && 
+		(sh.serialno != SIGFILEMAGICNO_15) ){
 		
 		DbgOut( "sigfile : LoadSigFile_aft : file kind error !!!\n" );
 		return D3DAPPERR_MEDIANOTFOUND;//

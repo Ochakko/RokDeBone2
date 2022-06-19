@@ -408,7 +408,7 @@ LRESULT CInfScopeDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL
 	
 	int ret;
 	ret = SetNewWindowProc();
-	_ASSERT( !ret );
+	//_ASSERT( !ret );
 
 	return 1;  // システムにフォーカスを設定させます
 }
@@ -446,14 +446,14 @@ LRESULT CALLBACK TreeProc(
 
 int CInfScopeDlg::SetNewWindowProc()
 {
-	s_treefunc = ::GetWindowLong( m_tree_wnd, GWL_WNDPROC );
+	s_treefunc = ::GetWindowLong( m_tree_wnd, GWLP_WNDPROC );
 	if( !s_treefunc ){
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 
 	LONG lret;
-	lret = ::SetWindowLong( m_tree_wnd, GWL_WNDPROC, (LONG)TreeProc );
+	lret = ::SetWindowLong( m_tree_wnd, GWLP_WNDPROC, (LONG)TreeProc );
 	if( lret == 0 ){
 		_ASSERT( 0 );
 		return 1;
@@ -662,7 +662,7 @@ HTREEITEM CInfScopeDlg::TVAdd( HTREEITEM parentTI, char* srcname, int srcno, int
 
 void CInfScopeDlg::CreateImageList()
 {
-	m_tree_wnd.SetWindowLong( GWL_STYLE, 
+	m_tree_wnd.SetWindowLong( GWLP_STYLE, 
 		WS_CHILD | WS_VISIBLE | WS_BORDER | 
 		TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS
 		);

@@ -2,7 +2,7 @@
 #define SOUNDPRIMH
 
 #include <windows.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 //class CMusicManager;
 //class CSoundManager;
 

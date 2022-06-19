@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <coef.h>
 

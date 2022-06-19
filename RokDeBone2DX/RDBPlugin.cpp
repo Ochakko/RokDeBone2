@@ -16,7 +16,7 @@
 
 
 #include <math.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 #include "viewer.h"
 #include <coef.h>
 #include <treehandler2.h>
@@ -47,7 +47,7 @@
 
 #include <im2file.h>
 #include <cpuid.h>
-#include <asmfunc.h>
+//#include <asmfunc.h>
 #include "ColDlg.h"
 
 #include <texbank.h>

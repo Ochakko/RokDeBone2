@@ -7,7 +7,7 @@
 #include <atlhost.h>
 
 #include <commctrl.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 class CMotHandler;
 class CTreeHandler2;

@@ -33,7 +33,7 @@ int CKeyMenuMain::InitParams()
 int CKeyMenuMain::Create( HWND srchwnd, CTreeHandler2* lpth, int* findseri, int findnum )
 {
 
-	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWL_HINSTANCE ), MAKEINTRESOURCE( IDR_TEXMENU ) );
+	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWLP_HINSTANCE ), MAKEINTRESOURCE( IDR_TEXMENU ) );
 	m_rsubmenu = GetSubMenu( m_rmenu, 0 );
 
 	int menuno, menunum;

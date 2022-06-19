@@ -11,7 +11,7 @@
 
 #include <math.h>
 #include <stdio.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 #include "D3DFont.h"
 //#include "dxutil.h"
 
@@ -581,7 +581,7 @@ LRESULT CMotParamDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL
 	s_sl_mp_wnd = m_sl_mp_wnd;
 
 	ret = SetNewWindowProc();
-	_ASSERT( !ret );
+	//_ASSERT( !ret );
 
 	//CreateImageList();
 
@@ -7717,20 +7717,20 @@ LRESULT CALLBACK MPProc(
 
 int CMotParamDlg::SetNewWindowProc()
 {
-	//s_treefunc = ::GetWindowLong( m_tree_mot_wnd, GWL_WNDPROC );
-	s_mpfunc = ::GetWindowLong( m_sl_mp_wnd, GWL_WNDPROC );
+	//s_treefunc = ::GetWindowLong( m_tree_mot_wnd, GWLP_WNDPROC );
+	s_mpfunc = ::GetWindowLong( m_sl_mp_wnd, GWLP_WNDPROC );
 	if( !s_mpfunc ){
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 
 	LONG lret;
-//	lret = ::SetWindowLong( m_tree_mot_wnd, GWL_WNDPROC, (LONG)TreeMotProc );
+//	lret = ::SetWindowLong( m_tree_mot_wnd, GWLP_WNDPROC, (LONG)TreeMotProc );
 //	if( lret == 0 ){
 //		_ASSERT( 0 );
 //		return 1;
 //	}
-	lret = ::SetWindowLong( m_sl_mp_wnd, GWL_WNDPROC, (LONG)MPProc );
+	lret = ::SetWindowLong( m_sl_mp_wnd, GWLP_WNDPROC, (LONG)MPProc );
 	if( lret == 0 ){
 		_ASSERT( 0 );
 		return 1;

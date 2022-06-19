@@ -12,7 +12,7 @@
 // under VC 5.0.  If you are using VC6 or later, it is included via Windows.h.
 #include <basetsd.h> 
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <coef.h>
 #include "resource.h"       // ƒƒCƒ“ ƒVƒ“ƒ{ƒ‹

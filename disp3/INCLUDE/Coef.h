@@ -1,7 +1,7 @@
 #ifndef COEFH
 #define		COEFH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 #include <usercoef.h>
 
 class CTreeHandler2;
@@ -1527,6 +1527,8 @@ enum _addt_type {
 #define SIGFILEMAGICNO_13	( SIGFILEMAGICNO_1 + 12 )
 	//rokdebone2 ver5315
 #define SIGFILEMAGICNO_14	( SIGFILEMAGICNO_1 + 13 )
+	//rokdebone2 ver6000 2022/06/19
+#define SIGFILEMAGICNO_15	( SIGFILEMAGICNO_1 + 14 )
 	// ！！！！更新するときは、shandler m_sigmagicno も忘れずに！！！！！
 
 

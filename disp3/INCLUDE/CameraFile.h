@@ -1,7 +1,7 @@
 #ifndef CAMERAFILEH
 #define CAMERAFILEH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #define CAMLINELEN	4096
 

@@ -30,7 +30,7 @@ int CFUMenuMain::InitParams()
 int CFUMenuMain::Create( HWND srchwnd )
 {
 
-	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWL_HINSTANCE ), MAKEINTRESOURCE( IDR_FUMENU ) );
+	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWLP_HINSTANCE ), MAKEINTRESOURCE( IDR_FUMENU ) );
 	m_rsubmenu = GetSubMenu( m_rmenu, 0 );
 
 	return 0;

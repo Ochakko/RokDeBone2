@@ -3,7 +3,7 @@
 
 #include <coef.h>
 #include <Quaternion.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <MotionPoint.h>
 

@@ -1,7 +1,7 @@
 #ifndef D3DDISPH
 #define D3DDISPH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 #include <math.h>
 
 #define DBGH

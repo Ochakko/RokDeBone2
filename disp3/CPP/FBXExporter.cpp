@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -400,7 +400,13 @@ bool CreateScene( FbxManager *pSdkManager, FbxScene* pScene )
     sceneInfo->mTitle = "scene made by RokDeBone2";
     sceneInfo->mSubject = "skinmesh and animation";
 	sceneInfo->mAuthor = "OchakkoLab";
+
+#ifdef ROKDEBONE2_VER6
+	sceneInfo->mRevision = "rev. 3.0";//2022/06/19
+#else
 	sceneInfo->mRevision = "rev. 2.0";
+#endif
+
 	sceneInfo->mKeywords = "skinmesh animation";
 	sceneInfo->mComment = "no particular comments required.";
 
@@ -1604,9 +1610,13 @@ endTime 30;
 
 		AnimateBoneReq( s_fbxbone, lAnimLayer, curmotid, motmax, 0 );
 
-		//pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, FbxNode::eDestinationPivot, s_timescale, true );
-		//pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, FbxNode::eSourcePivot, s_timescale, false );
+		////pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, FbxNode::eDestinationPivot, s_timescale, true );
+		////pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStackName, FbxNode::eSourcePivot, s_timescale, false );
+		
+#ifndef ROKDEBONE2_VER6
 		pScene->GetRootNode()->ConvertPivotAnimationRecursive( lAnimStack, FbxNode::eSourcePivot, s_timescale, true );
+#endif
+
 	}
 }
 
@@ -1626,7 +1636,13 @@ void AnimateBoneReq( CFBXBone* fbxbone, FbxAnimLayer* lAnimLayer, int curmotid, 
 
 //		EFbxRotationOrder lRotationOrder0 = eEulerZXY;
 	EFbxRotationOrder lRotationOrder0 = eEulerXYZ;
+
+#ifdef ROKDEBONE2_VER6
+	EFbxRotationOrder lRotationOrder1 = eEulerXYZ;
+#else
 	EFbxRotationOrder lRotationOrder1 = eEulerZXY;
+#endif
+
 	lSkel->SetRotationOrder(FbxNode::eSourcePivot , lRotationOrder0 );
 	lSkel->SetRotationOrder(FbxNode::eDestinationPivot , lRotationOrder1 );
 

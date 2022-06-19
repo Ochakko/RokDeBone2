@@ -1,7 +1,7 @@
 #ifndef GPFILEH
 #define GPFILEH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #define GPLINELEN	4096
 

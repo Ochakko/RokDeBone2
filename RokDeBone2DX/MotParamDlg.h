@@ -8,7 +8,7 @@
 
 #include <commctrl.h>
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <motionpoint2.h>
 #include <quaternion.h>

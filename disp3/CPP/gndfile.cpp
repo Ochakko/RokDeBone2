@@ -1,4 +1,4 @@
-#include <stdafx.h>
+#include "stdafx.h"
 
 //02/2/7	serialno はWriteSigFile時に、書き出し順に割り当てる。
 //02/3/11	serialnoの仕様変更。serialnoは、shdelemのものをそのまま使う。

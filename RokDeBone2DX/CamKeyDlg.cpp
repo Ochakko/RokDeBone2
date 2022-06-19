@@ -4,7 +4,7 @@
 
 #include <math.h>
 #include <stdio.h>
-//#include <D3DX9.h>
+//#include <d3dx9.h>
 
 #include <coef.h>
 #define DBGH
@@ -293,7 +293,7 @@ LRESULT CCamKeyDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& 
 	_ASSERT( !ret );
 
 	ret = SetNewWindowProc();
-	_ASSERT( !ret );
+	//_ASSERT( !ret );
 
 	ret = ParamsToDlg();
 	_ASSERT( !ret );
@@ -2162,14 +2162,14 @@ LRESULT CALLBACK ListProc(
 ***/
 int CCamKeyDlg::SetNewWindowProc()
 {
-	s_mpfunc = ::GetWindowLong( m_sl_mp_wnd, GWL_WNDPROC );
+	s_mpfunc = ::GetWindowLong( m_sl_mp_wnd, GWLP_WNDPROC );
 	if( !s_mpfunc ){
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 
 	LONG lret;
-	lret = ::SetWindowLong( m_sl_mp_wnd, GWL_WNDPROC, (LONG)MPProcCam );
+	lret = ::SetWindowLong( m_sl_mp_wnd, GWLP_WNDPROC, (LONG)MPProcCam );
 	if( lret == 0 ){
 		_ASSERT( 0 );
 		return 1;

@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 
 #include <windows.h>
@@ -40,7 +40,7 @@
 #include <pickdata.h>
 #include <cpuid.h>
 
-#include <asmfunc.h>
+//#include <asmfunc.h>
 #include <InfScope.h>
 
 #include <Toon1Params.h>
@@ -95,7 +95,7 @@ DWORD g_aop1 = 0xFFFFFFFF;
 // extern
 //////////////////////////////
 extern int g_numrts;
-extern CCpuid g_cpuinfo;
+//extern CCpuid g_cpuinfo;
 extern int g_useGPU;
 extern int g_usePS;
 extern int g_chkVS;

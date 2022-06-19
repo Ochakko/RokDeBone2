@@ -138,7 +138,9 @@ typedef struct tag_quanamehdr
 	int texframenum;
 	int dsframenum;
 
-	QUADATA3* dataptr;
+	//QUADATA3* dataptr;
+	DWORD dataptr32;
+
 	int dirtyflag;
 
 

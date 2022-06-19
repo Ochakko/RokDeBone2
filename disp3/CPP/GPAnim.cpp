@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -46,6 +46,8 @@ CGPAnim::~CGPAnim()
 
 int CGPAnim::InitParams()
 {
+	m_rotationorderXYZ = 1;//!!!!!!
+
 	ZeroMemory( m_animname, sizeof( char ) * 256 );
 	m_frameno = 0;
 	ZeroMemory( &m_curgpe, sizeof( GPELEM ) );
@@ -450,7 +452,14 @@ int CGPAnim::CalcFrameData( CShdHandler* lpsh, CMotHandler* lpmh, D3DXMATRIX* ma
 		qx.SetAxisAndRot( axisX, gpkptr->m_gpe.rot.x * (float)DEG2PAI );
 		qy.SetAxisAndRot( axisY, gpkptr->m_gpe.rot.y * (float)DEG2PAI );
 		qz.SetAxisAndRot( axisZ, gpkptr->m_gpe.rot.z * (float)DEG2PAI );
-		orgq = qy * qx * qz;
+		
+		if (m_rotationorderXYZ == 1) {
+			orgq = qz * qy * qx;
+		}
+		else {
+			orgq = qy * qx * qz;
+		}
+		
 
 		D3DXMATRIX orgmat;
 		orgmat = orgq.MakeRotMatX();

@@ -2,7 +2,7 @@
 #define POLYMESHH
 
 #include <coef.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <matrix2.h> // shade plugin sdk からmat4をもらいマチタ。(CMatrixとは掛ける方向が逆、あとで変える)
 #include <crtdbg.h>

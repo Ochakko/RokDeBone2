@@ -290,7 +290,7 @@ HRESULT CD3DApplication::Create( HINSTANCE hInstance )
 
 
     // Save window properties
-    m_dwWindowStyle = GetWindowLong( m_hWnd, GWL_STYLE );
+    m_dwWindowStyle = GetWindowLong( m_hWnd, GWLP_STYLE );
     GetWindowRect( m_hWnd, &m_rcWindowBounds );
     GetClientRect( m_hWnd, &m_rcWindowClient );
 
@@ -1792,12 +1792,12 @@ HRESULT CD3DApplication::AdjustWindowForChange()
     if( m_bWindowed )
     {
         // Set windowed-mode style
-        SetWindowLong( m_hWnd, GWL_STYLE, m_dwWindowStyle );
+        SetWindowLong( m_hWnd, GWLP_STYLE, m_dwWindowStyle );
     }
     else
     {
         // Set fullscreen-mode style
-        SetWindowLong( m_hWnd, GWL_STYLE, WS_POPUP|WS_SYSMENU|WS_VISIBLE );
+        SetWindowLong( m_hWnd, GWLP_STYLE, WS_POPUP|WS_SYSMENU|WS_VISIBLE );
     }
     return S_OK;
 }
@@ -2738,7 +2738,7 @@ int CD3DApplication::CreateAppToolBar()
 		return 0;
 
 	HINSTANCE hInst;
-    //hInst = (HINSTANCE)GetWindowLong(m_hWnd, GWL_HINSTANCE);
+    //hInst = (HINSTANCE)GetWindowLong(m_hWnd, GWLP_HINSTANCE);
 	hInst = (HINSTANCE)GetModuleHandle(NULL);
 
 	//char mes2[256];

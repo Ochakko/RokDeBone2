@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -31,7 +31,7 @@
 #include <dbg.h>
 
 #include <crtdbg.h>
-#include <asmfunc.h>
+//#include <asmfunc.h>
 #include <cpuid.h>
 
 #include <morph.h>
@@ -51,7 +51,7 @@
 
 //////////////
 // extern
-extern CCpuid g_cpuinfo;
+//extern CCpuid g_cpuinfo;
 
 
 /////////////

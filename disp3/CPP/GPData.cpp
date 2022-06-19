@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -18,9 +18,9 @@
 #include <crtdbg.h>
 
 
-CGPData::CGPData()
+CGPData::CGPData(int srcrotationorderXYZ)
 {
-	InitParams();
+	InitParams(srcrotationorderXYZ);
 }
 CGPData::~CGPData()
 {
@@ -64,8 +64,10 @@ int CGPData::GetMatWorld( D3DXMATRIX* dstmat )
 	return 0;
 }
 
-int CGPData::InitParams()
+int CGPData::InitParams(int srcrotationorderXYZ)
 {
+	m_rotationorderXYZ = srcrotationorderXYZ;
+
 	m_gpe.ongmode = GROUND_NONE;
 	m_gpe.pos = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
 	m_gpe.rot = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
@@ -97,7 +99,12 @@ int CGPData::Deg2Q( D3DXVECTOR3 rot, CQuaternion* dstq )
 	qy.SetAxisAndRot( axisY, rot.y * (float)DEG2PAI );
 	qz.SetAxisAndRot( axisZ, rot.z * (float)DEG2PAI );
 
-	*dstq = qy * qx * qz;
-
+	if (m_rotationorderXYZ == 1) {
+		*dstq = qz * qy * qx;
+	}
+	else {
+		*dstq = qy * qx * qz;
+	}
+	
 	return 0;
 }

@@ -15,7 +15,7 @@
 #include <tchar.h>
 #include <assert.h>
 #include <stdio.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 **/
 
 #include <string.h>

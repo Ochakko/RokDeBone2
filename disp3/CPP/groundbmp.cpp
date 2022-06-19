@@ -4,7 +4,7 @@
 #include <windows.h>
 #include <wingdi.h>
 #include <groundbmp.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <treehandler2.h>
 #include <treeelem2.h>

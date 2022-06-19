@@ -131,7 +131,7 @@ static const char s_appkey[5][37] = {
 #include <stdlib.h>
 #include <math.h>
 #include <stdio.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 
 //#include "D3DApp.h"
@@ -204,7 +204,7 @@ static const char s_appkey[5][37] = {
 
 #include <im2file.h>
 #include <cpuid.h>
-#include <asmfunc.h>
+//#include <asmfunc.h>
 
 #include "ColDlg.h"
 
@@ -372,7 +372,7 @@ DWORD g_mipfilter = D3DX_FILTER_TRIANGLE | D3DX_FILTER_MIRROR;
 DWORD g_minfilter = D3DTEXF_LINEAR;
 DWORD g_magfilter = D3DTEXF_LINEAR;
 
-CCpuid g_cpuinfo;
+//CCpuid g_cpuinfo;
 
 HWND g_hStatus = 0;
 #define ID_STATUSBAR 100
@@ -1238,7 +1238,7 @@ HRESULT CMyD3DApplication::CreateWnd( HINSTANCE hInstance )
 
 
     // Save window properties
-    m_dwWindowStyle = ::GetWindowLong( m_hWnd, GWL_STYLE );
+    m_dwWindowStyle = ::GetWindowLong( m_hWnd, GWLP_STYLE );
     ::GetWindowRect( m_hWnd, &m_rcWindowBounds );
     ::GetClientRect( m_hWnd, &m_rcWindowClient );
 
@@ -2634,12 +2634,12 @@ HRESULT CMyD3DApplication::AdjustWindowForChange()
     if( m_bWindowed )
     {
         // Set windowed-mode style
-        ::SetWindowLong( m_hWnd, GWL_STYLE, m_dwWindowStyle );
+        ::SetWindowLong( m_hWnd, GWLP_STYLE, m_dwWindowStyle );
     }
     else
     {
         // Set fullscreen-mode style
-        ::SetWindowLong( m_hWnd, GWL_STYLE, WS_POPUP|WS_SYSMENU|WS_VISIBLE );
+        ::SetWindowLong( m_hWnd, GWLP_STYLE, WS_POPUP|WS_SYSMENU|WS_VISIBLE );
     }
     return S_OK;
 }
@@ -3647,20 +3647,21 @@ HRESULT CMyD3DApplication::OneTimeSceneInit()
 	int ret;
 	ERRORMES errormes;
 
-	g_cpuinfo.CheckCPU();
-	DbgOut( 
-		"CPU Vender: \"%s\"\n"
-		"Family: %d  Model: %d  Stepping ID: %d\n"
-		"Supported CPUID: %d\n"
-		"Supported MMX: %d\n"
-		"Supported SSE: %d\n"
-		"Supported SSE2: %d\n"
-		"Supported 3DNow!: %d\n"
-		"Supported Enhanced 3DNow!: %d\n"
-		, g_cpuinfo.vd.id
-		, g_cpuinfo.dwFamily, g_cpuinfo.dwModel, g_cpuinfo.dwSteppingId
-		, g_cpuinfo.bCPUID, g_cpuinfo.bMMX, g_cpuinfo.bSSE, g_cpuinfo.bSSE2, g_cpuinfo.b3DNow, g_cpuinfo.bE3DNow
-	);
+
+//	g_cpuinfo.CheckCPU();
+//	DbgOut( 
+//		"CPU Vender: \"%s\"\n"
+//		"Family: %d  Model: %d  Stepping ID: %d\n"
+//		"Supported CPUID: %d\n"
+//		"Supported MMX: %d\n"
+//		"Supported SSE: %d\n"
+//		"Supported SSE2: %d\n"
+//		"Supported 3DNow!: %d\n"
+//		"Supported Enhanced 3DNow!: %d\n"
+//		, g_cpuinfo.vd.id
+//		, g_cpuinfo.dwFamily, g_cpuinfo.dwModel, g_cpuinfo.dwSteppingId
+//		, g_cpuinfo.bCPUID, g_cpuinfo.bMMX, g_cpuinfo.bSSE, g_cpuinfo.bSSE2, g_cpuinfo.b3DNow, g_cpuinfo.bE3DNow
+//	);
 
 
 	ret = g_coldlg.SetCustomColor( g_inidata->cc );
@@ -4968,7 +4969,14 @@ HRESULT CMyD3DApplication::FrameMove( int srcseri, int tra_boneonly )
 		}
 	}else{
 		if( m_shandler ){
-			m_shandler->m_gpdata.InitParams();
+			int rotationorderXYZ = 0;
+#ifdef ROKDEBONE2_VER6
+			rotationorderXYZ = 1;
+#else
+			rotationorderXYZ = 0;
+#endif
+			m_shandler->m_gpdata.InitParams(rotationorderXYZ);
+			//m_shandler->m_gpdata.InitParams();
 		}
 		m_matWorld = m_inimat;
 	}
@@ -27989,7 +27997,7 @@ int CMyD3DApplication::AutoSaveSigFile()
 	CSigFile sigfile;
 	ret = sigfile.WriteSigFile( autosavename, m_thandler, m_shandler, m_mhandler );
 	if( ret ){
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 	

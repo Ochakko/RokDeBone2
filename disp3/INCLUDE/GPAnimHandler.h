@@ -19,7 +19,7 @@ public:
 	CGPAnim* GetGPAnimByIndex( int srcindex );
 	CGPAnim* GetCurGPAnim();
 
-	CGPAnim* AddAnim( char* animname, int animtype, int framenum, int srcmotjump );
+	CGPAnim* AddAnim( int loadversion, char* animname, int animtype, int framenum, int srcmotjump );
 	int DestroyAnim( int delanim );
 
 	int SetTotalFrame( int animno, int newtotal );

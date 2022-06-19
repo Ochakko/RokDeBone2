@@ -1,4 +1,4 @@
-#include <stdafx.h>
+#include "stdafx.h"
 #include <windows.h>
 #include <quaternion.h>
 #include <math.h>
@@ -8,7 +8,7 @@
 #include <matrix2.h>
 #include <crtdbg.h>
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <BoneProp.h>
 
@@ -110,8 +110,12 @@ int CQuaternion::SetRotation( float degx, float degy, float degz )
 	qy.SetParams( cosy, 0.0f, siny, 0.0f );
 	qz.SetParams( cosz, 0.0f, 0.0f, sinz );
 
-	//q = qx * qy * qz;
+#ifdef ROKDEBONE2_VER6
 	q = qz * qy * qx;//!!!!
+#else
+	q = qy * qx * qz;
+#endif
+	
 
 	*this = q;
 
@@ -136,8 +140,12 @@ int CQuaternion::SetRotation( double degx, double degy, double degz )
 	qy.SetParams( cosy, 0.0f, siny, 0.0f );
 	qz.SetParams( cosz, 0.0f, 0.0f, sinz );
 
-	//q = qx * qy * qz;
+	
+#ifdef ROKDEBONE2_VER6
 	q = qz * qy * qx;//!!!!
+#else
+	q = qy * qx * qz;
+#endif
 
 	*this = q;
 
@@ -633,116 +641,202 @@ CQuaternion CQuaternion::CalcFBXEul( CQuaternion befq, D3DXVECTOR3 befeul, D3DXV
 	return rq;
 }
 
-int CQuaternion::Q2Eul2( CQuaternion* axisq, D3DXVECTOR3 befeul, D3DXVECTOR3* reteul )
+//int CQuaternion::Q2Eul2( CQuaternion* axisq, D3DXVECTOR3 befeul, D3DXVECTOR3* reteul )
+//{
+//
+//	CQuaternion axisQ, invaxisQ, EQ;
+//	if( axisq ){
+//		axisQ = *axisq;
+//		axisQ.inv( &invaxisQ );
+//		EQ = invaxisQ * *this * axisQ;
+//	}else{
+//		axisQ.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
+//		invaxisQ.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
+//		EQ = *this;
+//	}
+//
+//	D3DXVECTOR3 Euler = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
+//
+//
+//	D3DXVECTOR3 axisXVec( 1.0f, 0.0f, 0.0f );
+//	D3DXVECTOR3 axisYVec( 0.0f, 1.0f, 0.0f );
+//	D3DXVECTOR3 axisZVec( 0.0f, 0.0f, 1.0f );
+//	D3DXVECTOR3 basevec( 1.0f, 1.0f, 1.0f );
+//
+//	D3DXVECTOR3 targetVec, shadowVec;
+//	D3DXVECTOR3 tmpVec;
+//
+//
+//	EQ.Rotate( &targetVec, axisYVec );
+//	//EQ.Rotate( &targetVec, basevec );
+//	shadowVec.x = vecDotVec( &targetVec, &axisXVec );
+//	shadowVec.y = vecDotVec( &targetVec, &axisYVec );
+//	shadowVec.z = 0.0f;
+//	if( lengthVec( &shadowVec ) == 0.0f ){
+//		Euler.z = 90.0f;
+//	}else{
+//		Euler.z = aCos( vecDotVec( &shadowVec, &axisYVec ) / lengthVec( &shadowVec ) );		
+//	}
+//	if( vecDotVec( &shadowVec, &axisXVec ) > 0.0f ){
+//		Euler.z = -Euler.z;
+//	}
+//
+//
+//	EQ.Rotate( &targetVec, axisZVec );
+//	vec3RotateZ( &tmpVec, -Euler.z, &targetVec );
+//	shadowVec.x = vecDotVec( &tmpVec, &axisXVec );
+//	shadowVec.y = 0.0f;
+//	shadowVec.z = vecDotVec( &tmpVec, &axisZVec );
+//	if( lengthVec( &shadowVec ) == 0.0f ){
+//		Euler.y = 90.0f;
+//	}else{
+//		Euler.y = aCos( vecDotVec( &shadowVec, &axisZVec ) / lengthVec( &shadowVec ) );
+//	}
+//	if( vecDotVec( &shadowVec, &axisXVec ) < 0.0f ){
+//		Euler.y = -Euler.y;
+//	}
+//
+//
+//	EQ.Rotate( &targetVec, axisYVec );
+//	vec3RotateZ( &tmpVec, -Euler.z, &targetVec );
+//	targetVec = tmpVec;
+//	vec3RotateY( &tmpVec, -Euler.y, &targetVec );
+//	shadowVec.x = 0.0f;
+//	shadowVec.y = vecDotVec( &tmpVec, &axisYVec );
+//	shadowVec.z = vecDotVec( &tmpVec, &axisZVec );
+//	if( lengthVec( &shadowVec ) == 0.0f ){
+//		Euler.x = 90.0f;
+//	}else{
+//		Euler.x = aCos( vecDotVec( &shadowVec, &axisYVec ) / lengthVec( &shadowVec ) );
+//	}
+//	if( vecDotVec( &shadowVec, &axisYVec ) < 0.0f ){
+//		Euler.x = -Euler.x;
+//	}
+//
+//	ModifyEuler2( &Euler, &befeul );
+//	*reteul = Euler;
+//
+//	return 0;
+//}
+
+//int CQuaternion::ModifyEuler2( D3DXVECTOR3* eulerA, D3DXVECTOR3* eulerB )
+//{
+//
+//	//オイラー角Aの値をオイラー角Bの値に近い表示に修正
+//	float tmpX1, tmpY1, tmpZ1;
+//	float tmpX2, tmpY2, tmpZ2;
+//	float s1, s2;
+//
+//	//予想される角度1
+//	tmpX1 = eulerA->x + 360.0f * (GetRound( (eulerB->x - eulerA->x) / 360.0f ));
+//	tmpY1 = eulerA->y + 360.0f * (GetRound( (eulerB->y - eulerA->y) / 360.0f ));
+//	tmpZ1 = eulerA->z + 360.0f * (GetRound( (eulerB->z - eulerA->z) / 360.0f ));
+//
+//	//予想される角度2
+//	tmpX2 = 180.0f - eulerA->x + 360.0f * GetRound( (eulerB->x + eulerA->x - 180.0f) / 360.0f );
+//	tmpY2 = eulerA->y + 180.0f + 360.0f * GetRound( (eulerB->y - eulerA->y - 180.0f) / 360.0f );
+//	tmpZ2 = eulerA->z + 180.0f + 360.0f * GetRound( (eulerB->z - eulerA->z - 180.0f) / 360.0f );
+//
+////	tmpX2 = eulerA->x + 360.0f * (GetRound( (-eulerB->x + eulerA->x) / 360.0f ));
+////	tmpY2 = eulerA->y + 360.0f * (GetRound( (-eulerB->y + eulerA->y) / 360.0f ));
+////	tmpZ2 = eulerA->z + 360.0f * (GetRound( (-eulerB->z + eulerA->z) / 360.0f ));
+//
+//	//角度変化の大きさ
+//	s1 = (eulerB->x - tmpX1) * (eulerB->x - tmpX1) + (eulerB->y - tmpY1) * (eulerB->y - tmpY1) + (eulerB->z - tmpZ1) * (eulerB->z - tmpZ1);
+//	s2 = (eulerB->x - tmpX2) * (eulerB->x - tmpX2) + (eulerB->y - tmpY2) * (eulerB->y - tmpY2) + (eulerB->z - tmpZ2) * (eulerB->z - tmpZ2);
+//
+//	//変化の少ない方に修正
+//	if( s1 < s2 ){
+//		eulerA->x = tmpX1; eulerA->y = tmpY1; eulerA->z = tmpZ1;
+//	}else{
+//		eulerA->x = tmpX2; eulerA->y = tmpY2; eulerA->z = tmpZ2;
+//	}
+//
+//	return 0;
+//}
+
+
+
+int CQuaternion::SetRotationXYZ(CQuaternion* axisq, D3DXVECTOR3 srcdeg)
 {
+	// X軸、Y軸、Z軸の順番で、回転する、クォータニオンをセットする。
 
-	CQuaternion axisQ, invaxisQ, EQ;
-	if( axisq ){
+	CQuaternion axisQ, invaxisQ;
+	if (axisq) {
 		axisQ = *axisq;
-		axisQ.inv( &invaxisQ );
-		EQ = invaxisQ * *this * axisQ;
-	}else{
-		axisQ.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
-		invaxisQ.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
-		EQ = *this;
+		axisQ.inv(&invaxisQ);
 	}
-
-	D3DXVECTOR3 Euler = D3DXVECTOR3( 0.0f, 0.0f, 0.0f );
-
-
-	D3DXVECTOR3 axisXVec( 1.0f, 0.0f, 0.0f );
-	D3DXVECTOR3 axisYVec( 0.0f, 1.0f, 0.0f );
-	D3DXVECTOR3 axisZVec( 0.0f, 0.0f, 1.0f );
-	D3DXVECTOR3 basevec( 1.0f, 1.0f, 1.0f );
-
-	D3DXVECTOR3 targetVec, shadowVec;
-	D3DXVECTOR3 tmpVec;
-
-
-	EQ.Rotate( &targetVec, axisYVec );
-	//EQ.Rotate( &targetVec, basevec );
-	shadowVec.x = vecDotVec( &targetVec, &axisXVec );
-	shadowVec.y = vecDotVec( &targetVec, &axisYVec );
-	shadowVec.z = 0.0f;
-	if( lengthVec( &shadowVec ) == 0.0f ){
-		Euler.z = 90.0f;
-	}else{
-		Euler.z = aCos( vecDotVec( &shadowVec, &axisYVec ) / lengthVec( &shadowVec ) );		
-	}
-	if( vecDotVec( &shadowVec, &axisXVec ) > 0.0f ){
-		Euler.z = -Euler.z;
+	else {
+		axisQ.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
+		invaxisQ.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
 	}
 
 
-	EQ.Rotate( &targetVec, axisZVec );
-	vec3RotateZ( &tmpVec, -Euler.z, &targetVec );
-	shadowVec.x = vecDotVec( &tmpVec, &axisXVec );
-	shadowVec.y = 0.0f;
-	shadowVec.z = vecDotVec( &tmpVec, &axisZVec );
-	if( lengthVec( &shadowVec ) == 0.0f ){
-		Euler.y = 90.0f;
-	}else{
-		Euler.y = aCos( vecDotVec( &shadowVec, &axisZVec ) / lengthVec( &shadowVec ) );
-	}
-	if( vecDotVec( &shadowVec, &axisXVec ) < 0.0f ){
-		Euler.y = -Euler.y;
-	}
+	CQuaternion q, qx, qy, qz;
+	float cosx, sinx, cosy, siny, cosz, sinz;
 
 
-	EQ.Rotate( &targetVec, axisYVec );
-	vec3RotateZ( &tmpVec, -Euler.z, &targetVec );
-	targetVec = tmpVec;
-	vec3RotateY( &tmpVec, -Euler.y, &targetVec );
-	shadowVec.x = 0.0f;
-	shadowVec.y = vecDotVec( &tmpVec, &axisYVec );
-	shadowVec.z = vecDotVec( &tmpVec, &axisZVec );
-	if( lengthVec( &shadowVec ) == 0.0f ){
-		Euler.x = 90.0f;
-	}else{
-		Euler.x = aCos( vecDotVec( &shadowVec, &axisYVec ) / lengthVec( &shadowVec ) );
-	}
-	if( vecDotVec( &shadowVec, &axisYVec ) < 0.0f ){
-		Euler.x = -Euler.x;
-	}
+	double phaix, phaiy, phaiz;
+	phaix = QuaternionLimitPhai((double)srcdeg.x * DEG2PAI);
+	phaiy = QuaternionLimitPhai((double)srcdeg.y * DEG2PAI);
+	phaiz = QuaternionLimitPhai((double)srcdeg.z * DEG2PAI);
 
-	ModifyEuler2( &Euler, &befeul );
-	*reteul = Euler;
+	cosx = (float)cos(phaix * 0.5);
+	sinx = (float)sin(phaix * 0.5);
+	cosy = (float)cos(phaiy * 0.5);
+	siny = (float)sin(phaiy * 0.5);
+	cosz = (float)cos(phaiz * 0.5);
+	sinz = (float)sin(phaiz * 0.5);
+
+	qx.SetParams(cosx, sinx, 0.0f, 0.0f);
+	qy.SetParams(cosy, 0.0f, siny, 0.0f);
+	qz.SetParams(cosz, 0.0f, 0.0f, sinz);
+
+	//q = axisQ * qy * qx * qz * invaxisQ;
+	q = axisQ * qz * qy * qx * invaxisQ;
+
+
+	*this = q;
 
 	return 0;
 }
 
-int CQuaternion::ModifyEuler2( D3DXVECTOR3* eulerA, D3DXVECTOR3* eulerB )
+int CQuaternion::SetRotationXYZ(CQuaternion* axisq, double degx, double degy, double degz)
 {
-
-	//オイラー角Aの値をオイラー角Bの値に近い表示に修正
-	float tmpX1, tmpY1, tmpZ1;
-	float tmpX2, tmpY2, tmpZ2;
-	float s1, s2;
-
-	//予想される角度1
-	tmpX1 = eulerA->x + 360.0f * (GetRound( (eulerB->x - eulerA->x) / 360.0f ));
-	tmpY1 = eulerA->y + 360.0f * (GetRound( (eulerB->y - eulerA->y) / 360.0f ));
-	tmpZ1 = eulerA->z + 360.0f * (GetRound( (eulerB->z - eulerA->z) / 360.0f ));
-
-	//予想される角度2
-	tmpX2 = 180.0f - eulerA->x + 360.0f * GetRound( (eulerB->x + eulerA->x - 180.0f) / 360.0f );
-	tmpY2 = eulerA->y + 180.0f + 360.0f * GetRound( (eulerB->y - eulerA->y - 180.0f) / 360.0f );
-	tmpZ2 = eulerA->z + 180.0f + 360.0f * GetRound( (eulerB->z - eulerA->z - 180.0f) / 360.0f );
-
-//	tmpX2 = eulerA->x + 360.0f * (GetRound( (-eulerB->x + eulerA->x) / 360.0f ));
-//	tmpY2 = eulerA->y + 360.0f * (GetRound( (-eulerB->y + eulerA->y) / 360.0f ));
-//	tmpZ2 = eulerA->z + 360.0f * (GetRound( (-eulerB->z + eulerA->z) / 360.0f ));
-
-	//角度変化の大きさ
-	s1 = (eulerB->x - tmpX1) * (eulerB->x - tmpX1) + (eulerB->y - tmpY1) * (eulerB->y - tmpY1) + (eulerB->z - tmpZ1) * (eulerB->z - tmpZ1);
-	s2 = (eulerB->x - tmpX2) * (eulerB->x - tmpX2) + (eulerB->y - tmpY2) * (eulerB->y - tmpY2) + (eulerB->z - tmpZ2) * (eulerB->z - tmpZ2);
-
-	//変化の少ない方に修正
-	if( s1 < s2 ){
-		eulerA->x = tmpX1; eulerA->y = tmpY1; eulerA->z = tmpZ1;
-	}else{
-		eulerA->x = tmpX2; eulerA->y = tmpY2; eulerA->z = tmpZ2;
+	// X軸、Y軸、Z軸の順番で、回転する、クォータニオンをセットする。
+	CQuaternion axisQ, invaxisQ;
+	if (axisq) {
+		axisQ = *axisq;
+		axisQ.inv(&invaxisQ);
 	}
+	else {
+		axisQ.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
+		invaxisQ.SetParams(1.0f, 0.0f, 0.0f, 0.0f);
+	}
+
+	CQuaternion q, qx, qy, qz;
+	float cosx, sinx, cosy, siny, cosz, sinz;
+
+	double phaix, phaiy, phaiz;
+	phaix = QuaternionLimitPhai(degx * DEG2PAI);
+	phaiy = QuaternionLimitPhai(degy * DEG2PAI);
+	phaiz = QuaternionLimitPhai(degz * DEG2PAI);
+
+	cosx = (float)cos(phaix * 0.5);
+	sinx = (float)sin(phaix * 0.5);
+	cosy = (float)cos(phaiy * 0.5);
+	siny = (float)sin(phaiy * 0.5);
+	cosz = (float)cos(phaiz * 0.5);
+	sinz = (float)sin(phaiz * 0.5);
+
+	qx.SetParams(cosx, sinx, 0.0f, 0.0f);
+	qy.SetParams(cosy, 0.0f, siny, 0.0f);
+	qz.SetParams(cosz, 0.0f, 0.0f, sinz);
+
+	//q = axisQ * qy * qx * qz * invaxisQ;
+	q = axisQ * qz * qy * qx * invaxisQ;
+
+	*this = q;
 
 	return 0;
 }

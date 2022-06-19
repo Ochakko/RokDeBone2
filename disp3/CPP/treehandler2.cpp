@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -430,7 +430,7 @@ int CTreeHandler2::GetBoneNoByName( char* bonename, int* bonenoptr, CShdHandler*
 		
 		*bonenoptr = -1;
 
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 

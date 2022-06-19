@@ -9,7 +9,7 @@
 
 #include <basedat.h>
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include "D3DFont.h" // !!!! 注意、disp0\includeにコピーした、d3dfont.hを使用する。
 

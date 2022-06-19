@@ -2,7 +2,7 @@
 #define MULTIWAVEH
 
 #include <windows.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 #include "audiocoef.h"
 #include <mmreg.h> //WAVEFORMATEX
 

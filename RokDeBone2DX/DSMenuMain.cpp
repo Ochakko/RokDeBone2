@@ -30,7 +30,7 @@ int CDSMenuMain::InitParams()
 int CDSMenuMain::Create( HWND srchwnd )
 {
 
-	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWL_HINSTANCE ), MAKEINTRESOURCE( IDR_DSMENU ) );
+	m_rmenu = LoadMenu( (HINSTANCE)GetWindowLong( srchwnd, GWLP_HINSTANCE ), MAKEINTRESOURCE( IDR_DSMENU ) );
 	m_rsubmenu = GetSubMenu( m_rmenu, 0 );
 
 	return 0;

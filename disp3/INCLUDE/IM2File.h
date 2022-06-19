@@ -1,7 +1,7 @@
 #ifndef IM2FILEH
 #define IM2FILEH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 class CTreeHandler2;
 class CShdHandler;

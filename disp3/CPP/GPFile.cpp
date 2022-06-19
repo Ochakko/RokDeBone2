@@ -25,7 +25,8 @@ enum {
 	GPFILE_MAX
 };
 
-static char strheader[256] = "RokDeBone2 GlobalPositionAnim File ver1001 type0\r\n";
+static char strheader[256] = "RokDeBone2 GlobalPositionAnim File ver1002 type0\r\n";//2022/06/19
+static char strheader_old[256] = "RokDeBone2 GlobalPositionAnim File ver1001 type0\r\n";
 
 static char stranimstart[256] = "#AnimInfo Start\r\n";
 static char stranimend[256] = "#AnimInfo End\r\n";
@@ -463,10 +464,14 @@ int CGPFile::SetBuffer()
 int CGPFile::CheckFileVersion( int* verptr )
 {
 
+	char* headerptr_old;
+	headerptr_old = strstr( m_gpbuf.buf, strheader_old );
 	char* headerptr;
-	headerptr = strstr( m_gpbuf.buf, strheader );
-	if( headerptr ){
+	headerptr = strstr(m_gpbuf.buf, strheader);
+	if (headerptr_old) {
 		*verptr = 1001;
+	}else if(headerptr){
+		*verptr = 1002;
 	}else{
 		*verptr = 0;
 	}
@@ -563,7 +568,7 @@ int CGPFile::ReadAnimInfo( CGPAnimHandler* srcgpah )
 	}
 
 
-	m_anim = srcgpah->AddAnim( strname, animtype, frameleng, motjump );
+	m_anim = srcgpah->AddAnim( m_loadversion, strname, animtype, frameleng, motjump );
 	if( !m_anim ){
 		DbgOut( "GPFile : ReadAnimInfo : gpah AddAnim error !!!\n" );
 		_ASSERT( 0 );

@@ -138,14 +138,14 @@ LRESULT CALLBACK TreeProc(
 
 int CInfluenceDlg::SetNewWindowProc()
 {
-	s_treefunc = ::GetWindowLong( m_tree_wnd, GWL_WNDPROC );
+	s_treefunc = ::GetWindowLong( m_tree_wnd, GWLP_WNDPROC );
 	if( !s_treefunc ){
 		_ASSERT( 0 );
 		return 1;
 	}
 
 	LONG lret;
-	lret = ::SetWindowLong( m_tree_wnd, GWL_WNDPROC, (LONG)TreeProc );
+	lret = ::SetWindowLong( m_tree_wnd, GWLP_WNDPROC, (LONG)TreeProc );
 	if( lret == 0 ){
 		_ASSERT( 0 );
 		return 1;
@@ -361,7 +361,7 @@ HTREEITEM CInfluenceDlg::TVAdd( HTREEITEM parentTI, char* srcname, int srcno, in
 
 void CInfluenceDlg::CreateImageList()
 {
-	m_tree_wnd.SetWindowLong( GWL_STYLE, 
+	m_tree_wnd.SetWindowLong( GWLP_STYLE, 
 		WS_CHILD | WS_VISIBLE | WS_BORDER | 
 		TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS
 		);

@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -118,7 +118,7 @@ CGPAnim* CGPAnimHandler::GetCurGPAnim()
 	return retanim;
 }
 
-CGPAnim* CGPAnimHandler::AddAnim( char* animname, int animtype, int framenum, int srcmotjump )
+CGPAnim* CGPAnimHandler::AddAnim( int loadversion, char* animname, int animtype, int framenum, int srcmotjump )
 {
 	CGPAnim* newanim = 0;
 
@@ -140,6 +140,16 @@ CGPAnim* CGPAnimHandler::AddAnim( char* animname, int animtype, int framenum, in
 	}
 
 	int setframenum = max( framenum, 1 );
+
+
+	//Euler Rotation Order 2022/06/19
+	if (loadversion >= 1002) {
+		newanim->m_rotationorderXYZ = 1;
+	}
+	else {
+		newanim->m_rotationorderXYZ = 0;
+	}
+	
 
 	newanim->m_maxframe = setframenum - 1;
 	newanim->m_animtype = animtype;

@@ -367,9 +367,6 @@
     <ClCompile Include="..\disp3\\CPP\AlpKey.cpp">
       <Filter>disp3</Filter>
     </ClCompile>
-    <ClCompile Include="..\disp3\\CPP\asmfunc.cpp">
-      <Filter>disp3</Filter>
-    </ClCompile>
     <ClCompile Include="..\disp3\\CPP\AutoSpline.cpp">
       <Filter>disp3</Filter>
     </ClCompile>
@@ -428,9 +425,6 @@
       <Filter>disp3</Filter>
     </ClCompile>
     <ClCompile Include="..\disp3\\CPP\CameraSWKey.cpp">
-      <Filter>disp3</Filter>
-    </ClCompile>
-    <ClCompile Include="..\disp3\\CPP\Cpuid.cpp">
       <Filter>disp3</Filter>
     </ClCompile>
     <ClCompile Include="..\disp3\\CPP\d3ddisp.cpp">
@@ -1034,9 +1028,6 @@
     <ClInclude Include="..\disp3\INCLUDE\Coef.h">
       <Filter>disp3</Filter>
     </ClInclude>
-    <ClInclude Include="..\disp3\INCLUDE\Cpuid.h">
-      <Filter>disp3</Filter>
-    </ClInclude>
     <ClInclude Include="..\disp3\INCLUDE\d3ddisp.h">
       <Filter>disp3</Filter>
     </ClInclude>
@@ -1290,6 +1281,12 @@
       <Filter>FBX</Filter>
     </ClInclude>
     <ClInclude Include="..\disp3\INCLUDE\quafile.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\disp3\CPP\stdafx.h">
+      <Filter>disp3</Filter>
+    </ClInclude>
+    <ClInclude Include="ver6.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

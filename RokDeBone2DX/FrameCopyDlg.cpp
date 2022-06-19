@@ -339,7 +339,7 @@ HTREEITEM CFrameCopyDlg::TVAdd( HTREEITEM parentTI, char* srcname, int srcno, in
 
 void CFrameCopyDlg::CreateImageList()
 {
-	m_tree_wnd.SetWindowLong( GWL_STYLE, 
+	m_tree_wnd.SetWindowLong( GWLP_STYLE, 
 		WS_CHILD | WS_VISIBLE | WS_BORDER | 
 		TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS
 		);

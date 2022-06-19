@@ -1,4 +1,4 @@
-#include <stdafx.h> //‚¾‚İ[
+#include "stdafx.h" //‚¾‚İ[
 #include <boneinfo.h>
 
 #include <math.h>

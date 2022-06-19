@@ -2,7 +2,7 @@
 
 #define QUATERNIONH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 #include <coef.h>
 
 class CMatrix2;
@@ -26,11 +26,16 @@ public:
 
 	int GetAxisAndRot( D3DXVECTOR3* axisvecptr, float* frad );
 
-	int Q2Eul2( CQuaternion* axisq, D3DXVECTOR3 befeul, D3DXVECTOR3* reteul );
-	int ModifyEuler2( D3DXVECTOR3* eulerA, D3DXVECTOR3* eulerB );
+	//int Q2Eul2( CQuaternion* axisq, D3DXVECTOR3 befeul, D3DXVECTOR3* reteul );
+	//int ModifyEuler2( D3DXVECTOR3* eulerA, D3DXVECTOR3* eulerB );
 
 
 	int QuaternionToAxisAngle( D3DXVECTOR3* dstaxis, float* dstrad );
+
+	int SetRotationXYZ(CQuaternion* axisq, D3DXVECTOR3 srcdeg);
+	int SetRotationXYZ(CQuaternion* axisq, double degx, double degy, double degz);
+
+
 
 	CQuaternion operator* (float srcw) const;
 	CQuaternion &operator*= (float srcw);

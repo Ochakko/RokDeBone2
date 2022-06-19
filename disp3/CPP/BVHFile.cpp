@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -1880,7 +1880,12 @@ void CBVHFile::WriteBVHTreeReq( CShdElem* selem, int* pwriteno, int depth, int b
 				WriteTab( 1 );
 				Write2File( "OFFSET\t0\t0\t0\r\n" );
 				WriteTab( 1 );
-				Write2File( "CHANNELS 6 Xposition Yposition Zposition Zrotation Xrotation Yrotation\r\n" );
+
+#ifdef ROKDEBONE2_VER6
+				Write2File("CHANNELS 6 Xposition Yposition Zposition Zrotation Yrotation Xrotation\r\n");
+#else
+				Write2File("CHANNELS 6 Xposition Yposition Zposition Zrotation Xrotation Yrotation\r\n");
+#endif
 
 				_ASSERT( *pwriteno < m_writenum );
 				*( wno2seri + *pwriteno ) = selem->serialno;
@@ -1905,7 +1910,11 @@ void CBVHFile::WriteBVHTreeReq( CShdElem* selem, int* pwriteno, int depth, int b
 					WriteTab( depth + 1 );
 					Write2File( "OFFSET\t%f\t%f\t%f\r\n", selem->part->jointloc.x, selem->part->jointloc.y, selem->part->jointloc.z );
 					WriteTab( depth + 1 );
-					Write2File( "CHANNELS 3 Zrotation Xrotation Yrotation\r\n" );
+#ifdef ROKDEBONE2_VER6
+					Write2File( "CHANNELS 3 Zrotation Yrotation Xrotation\r\n" );
+#else
+					Write2File("CHANNELS 3 Zrotation Xrotation Yrotation\r\n");
+#endif
 
 					*( wno2seri + *pwriteno ) = pBI->childno;
 				}else if( selem->part->bonenum == 0 ){
@@ -1918,7 +1927,12 @@ void CBVHFile::WriteBVHTreeReq( CShdElem* selem, int* pwriteno, int depth, int b
 					WriteTab( depth + 1 );
 					Write2File( "OFFSET\t%f\t%f\t%f\r\n", selem->part->jointloc.x, selem->part->jointloc.y, selem->part->jointloc.z );					
 					WriteTab( depth + 1 );
-					Write2File( "CHANNELS 3 Zrotation Xrotation Yrotation\r\n" );
+
+#ifdef ROKDEBONE2_VER6
+					Write2File("CHANNELS 3 Zrotation Yrotation Xrotation\r\n");
+#else
+					Write2File("CHANNELS 3 Zrotation Xrotation Yrotation\r\n");
+#endif
 
 					*( wno2seri + *pwriteno ) = -1;
 				}
@@ -1941,8 +1955,12 @@ void CBVHFile::WriteBVHTreeReq( CShdElem* selem, int* pwriteno, int depth, int b
 						WriteTab( depth + 1 );
 						Write2File( "OFFSET\t0\t0\t0\r\n" );
 						WriteTab( depth + 1 );
-						Write2File( "CHANNELS 3 Zrotation Xrotation Yrotation\r\n" );
-						
+#ifdef ROKDEBONE2_VER6
+						Write2File("CHANNELS 3 Zrotation Yrotation Xrotation\r\n");
+#else
+						Write2File("CHANNELS 3 Zrotation Xrotation Yrotation\r\n");
+#endif
+
 						_ASSERT( *pwriteno < m_writenum );
 						*( wno2seri + *pwriteno ) = selem->serialno;
 
@@ -1976,7 +1994,11 @@ void CBVHFile::WriteBVHTreeReq( CShdElem* selem, int* pwriteno, int depth, int b
 				if( selem->part->bonenum == 1 ){
 
 					WriteTab( depth + 1 );
-					Write2File( "CHANNELS 3 Zrotation Xrotation Yrotation\r\n" );
+#ifdef ROKDEBONE2_VER6
+					Write2File("CHANNELS 3 Zrotation Yrotation Xrotation\r\n");
+#else
+					Write2File("CHANNELS 3 Zrotation Xrotation Yrotation\r\n");
+#endif
 
 					_ASSERT( selem->part->ppBI );
 					*( wno2seri + *pwriteno ) = (*(selem->part->ppBI))->childno;
@@ -1984,7 +2006,11 @@ void CBVHFile::WriteBVHTreeReq( CShdElem* selem, int* pwriteno, int depth, int b
 					*( wno2seri + *pwriteno ) = 0;
 				}else{
 					WriteTab( depth + 1 );
-					Write2File( "CHANNELS 3 Zrotation Xrotation Yrotation\r\n" );
+#ifdef ROKDEBONE2_VER6
+					Write2File("CHANNELS 3 Zrotation Yrotation Xrotation\r\n");
+#else
+					Write2File("CHANNELS 3 Zrotation Xrotation Yrotation\r\n");
+#endif
 
 					*( wno2seri + *pwriteno ) = -1;
 				}
@@ -2095,21 +2121,36 @@ int CBVHFile::WriteBVHMotion( int* wno2seri, int motid, float srcmult )
 				}
 								
 				D3DXVECTOR3 neweul;
-				ret = qToEulerYXZ( selem, &mp.m_q, &neweul );
+
+#ifdef ROKDEBONE2_VER6
+				ret = qToEuler(selem, &mp.m_q, &neweul);
+#else
+				ret = qToEulerYXZ(selem, &mp.m_q, &neweul);
+#endif
+
 				_ASSERT( !ret );
 				ret = modifyEuler( &neweul, &(befeul[wno]) );
 				_ASSERT( !ret );
 				
 				befeul[wno] = neweul;
 
-				if( wno == 0 ){
-					Write2File( "%f\t%f\t%f\t", mp.m_mvx, mp.m_mvy, mp.m_mvz );
-					Write2File( "%f\t%f\t%f\t", neweul.z, neweul.x, neweul.y - 180.0f );
-				}else{
-					Write2File( "%f\t%f\t%f\t", neweul.z, neweul.x, neweul.y );
+#ifdef ROKDEBONE2_VER6
+				if (wno == 0) {
+					Write2File("%f\t%f\t%f\t", mp.m_mvx, mp.m_mvy, mp.m_mvz);
+					Write2File("%f\t%f\t%f\t", neweul.z, neweul.y - 180.0f, neweul.x);//########!!!!! root : bvhとしての前向きに修正
 				}
-
-
+				else {
+					Write2File("%f\t%f\t%f\t", neweul.z, neweul.y, neweul.x);
+				}
+#else
+				if (wno == 0) {
+					Write2File("%f\t%f\t%f\t", mp.m_mvx, mp.m_mvy, mp.m_mvz);
+					Write2File("%f\t%f\t%f\t", neweul.z, neweul.x, neweul.y - 180.0f);//########!!!!! root : bvhとしての前向きに修正
+			}
+				else {
+					Write2File("%f\t%f\t%f\t", neweul.z, neweul.x, neweul.y);
+				}
+#endif
 
 			}else if( seri == 0 ){
 				//Write2File( "%d-EmptyData\r\n", wno );

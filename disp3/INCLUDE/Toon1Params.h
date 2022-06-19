@@ -1,7 +1,7 @@
 #ifndef TOON1PARAMSH
 #define TOON1PARAMSH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 class CToon1Params
 {

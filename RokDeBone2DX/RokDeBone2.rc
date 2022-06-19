@@ -1,6 +1,7 @@
 // Microsoft Visual C++ generated resource script.
 //
 #include "resource.h"
+#include "resid.h"
 
 #define APSTUDIO_READONLY_SYMBOLS
 /////////////////////////////////////////////////////////////////////////////
@@ -8,7 +9,6 @@
 // Generated from the TEXTINCLUDE 2 resource.
 //
 #include "winres.h"
-#include "resid.h"
 
 /////////////////////////////////////////////////////////////////////////////
 #undef APSTUDIO_READONLY_SYMBOLS
@@ -52,8 +52,8 @@ END
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 5,5,3,7
- PRODUCTVERSION 5,5,3,7
+ FILEVERSION 6,0,0,0
+ PRODUCTVERSION 6,0,0,0
  FILEFLAGSMASK 0x3fL
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -68,14 +68,14 @@ BEGIN
     BEGIN
         BLOCK "041104b0"
         BEGIN
-            VALUE "CompanyName", "おちゃっこLAB http://ochakkolab.moo.jp/"
+            VALUE "CompanyName", "おちゃっこLAB https://ochakkolab.jp/"
             VALUE "FileDescription", "rok,mqoデータにIKでモーションを付けるツール"
-            VALUE "FileVersion", "5.5.3.7"
+            VALUE "FileVersion", "6.0.0.0"
             VALUE "InternalName", "RokDeBone2DX.EXE"
             VALUE "LegalCopyright", "copyright (C)おちゃっこLAB  All rights reserved."
             VALUE "OriginalFilename", "RokDeBone2DX.EXE"
             VALUE "ProductName", "RokDeBone2DX"
-            VALUE "ProductVersion", "5.5.3.7"
+            VALUE "ProductVersion", "6.0.0.0"
         END
     END
     BLOCK "VarFileInfo"
@@ -91,7 +91,9 @@ END
 //
 
 IDR_ROKDEBONE2          REGISTRY                "RokDeBone2.rgs"
+
 IDR_SIGTREEVIEW2        REGISTRY                "SigTreeView2.rgs"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -99,12 +101,19 @@ IDR_SIGTREEVIEW2        REGISTRY                "SigTreeView2.rgs"
 //
 
 IDB_PART_IMAGE          BITMAP                  "bitmap1.bmp"
+
 IDB_PART_SELECT         BITMAP                  "bmp00001.bmp"
+
 IDB_DISP_IMAGE          BITMAP                  "bmp00002.bmp"
+
 IDB_DISP_SELECT         BITMAP                  "bmp00003.bmp"
+
 IDB_BONE_IMAGE          BITMAP                  "bmp00004.bmp"
+
 IDB_BONE_SELECT         BITMAP                  "bmp00005.bmp"
+
 IDB_SIGTREEVIEW2        BITMAP                  "SigTreeView2.bmp"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -2773,13 +2782,13 @@ BEGIN
     COMBOBOX        IDC_STEP,51,27,48,142,CBS_DROPDOWN | WS_VSCROLL | WS_TABSTOP
 END
 
-IDD_INFODLG DIALOGEX 0, 0, 245, 190
+IDD_INFODLG DIALOGEX 0, 0, 245, 128
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "情報ダイアログ"
 FONT 8, "ＭＳ ゴシック", 400, 0, 0x80
 BEGIN
-    DEFPUSHBUTTON   "OK",IDOK,96,164,50,14
-    LTEXT           "このソフトはカンパウェアです。\nユーザーさんの寄付によって開発が支えられます。\n使ってみて気に入ったらカンパ(寄付)をお願いします。\n\n振込先\n埼玉りそな銀行\n北浦和支店(店番258)\n普通預金口座 3960923\nワダ　シゲル\n\n振込みしたくださった方は\nお礼のメールを送りたいので\n振込人名義と送金金額を記述して\nkakipoo@mug.biglobe.ne.jpまでメールをください。",IDC_STATIC,13,17,210,137
+    DEFPUSHBUTTON   "OK",IDOK,99,98,50,14
+    LTEXT           "RokDeBone2 ver6.0.0.0\n(Unity補助ツール 新モードバージョン)\n\ncopyright(c) OchakkoLAB\n\nオープンソースに関するお問い合わせなどは\ninfo@ochakkolab.jpまでメールにてお願いいたします。",IDC_STATIC,17,21,210,67
 END
 
 IDD_FILTERDLG DIALOGEX 0, 0, 197, 108
@@ -3606,7 +3615,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 238
         TOPMARGIN, 7
-        BOTTOMMARGIN, 183
+        BOTTOMMARGIN, 121
     END
 
     IDD_FILTERDLG, DIALOG
@@ -3720,12 +3729,14 @@ END
 
 SQ100_2                 SIG                     "sig1.bin"
 
+
 /////////////////////////////////////////////////////////////////////////////
 //
 // RCDATA
 //
 
 IDR_RCDATA1             RCDATA                  "..\\disp3\\fx\\sigshaderb4_20.fxo"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -3735,6 +3746,18 @@ IDR_RCDATA1             RCDATA                  "..\\disp3\\fx\\sigshaderb4_20.f
 // Icon with lowest ID value placed first to ensure application icon
 // remains consistent on all systems.
 IDI_ICON1               ICON                    "rokdebone2_2.ico"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_INFODLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //

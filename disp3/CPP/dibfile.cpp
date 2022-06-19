@@ -4,7 +4,7 @@
 #include <windows.h>
 #include <wingdi.h>
 #include <dibfile.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #define	DBGH
 #include <dbg.h>

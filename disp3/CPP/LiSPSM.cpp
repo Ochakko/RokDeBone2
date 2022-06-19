@@ -9,7 +9,7 @@
 // インクルードファイル
 //
 
-#include	<stdafx.h>
+#include	"stdafx.h"
 #include	<LiSPSM.h>
 
 #include <Vec3List.h>

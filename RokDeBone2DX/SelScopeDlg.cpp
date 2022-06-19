@@ -313,7 +313,7 @@ HTREEITEM CSelScopeDlg::TVAdd( HTREEITEM parentTI, char* srcname, int srcno, int
 
 void CSelScopeDlg::CreateImageList()
 {
-	m_tree_wnd.SetWindowLong( GWL_STYLE, 
+	m_tree_wnd.SetWindowLong( GWLP_STYLE, 
 		WS_CHILD | WS_VISIBLE | WS_BORDER | 
 		TVS_HASLINES | TVS_LINESATROOT | TVS_HASBUTTONS
 		);

@@ -3,7 +3,7 @@
 
 #include	"Coef.h"
 //#include	<d3drmwin.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 typedef struct grand_data {
 	unsigned char	height;

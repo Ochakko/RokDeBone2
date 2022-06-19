@@ -1,4 +1,4 @@
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -128,7 +128,7 @@ CTexBank* g_texbnk = 0;
 ***/
 
 
-CShdHandler::CShdHandler( CTreeHandler2* srcthandler )
+CShdHandler::CShdHandler( CTreeHandler2* srcthandler ) : m_gpdata(1)
 {
 	int ret;
 	int	roottype = SHDROOT;
@@ -449,7 +449,13 @@ int CShdHandler::InitParams( CTreeHandler2* srcthandler )
 	m_scene_ambient.g = 0.25f;
 	m_scene_ambient.b = 0.25f;
 
+
+#ifdef ROKDEBONE2_VER6
+	m_sigmagicno = SIGFILEMAGICNO_15;//2022/06/19
+#else
 	m_sigmagicno = SIGFILEMAGICNO_14;
+#endif
+
 
 	m_seri2boneno = 0;
 	m_boneno2seri = 0;
@@ -475,7 +481,13 @@ int CShdHandler::InitParams( CTreeHandler2* srcthandler )
 
 	m_bbtransskip = 0;
 
-	m_gpdata.InitParams();
+	int rotationorderXYZ = 0;
+#ifdef ROKDEBONE2_VER6
+	rotationorderXYZ = 1;
+#else
+	rotationorderXYZ = 0;
+#endif
+	m_gpdata.InitParams(rotationorderXYZ);
 
 	m_ppm = 0;
 	m_mnum = 0;

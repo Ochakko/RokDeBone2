@@ -73,3 +73,41 @@
 #include <windows.h>
 
 using namespace ATL;
+
+
+#ifndef GWLP_WNDPROC
+#define GWLP_WNDPROC        (-4)
+#endif
+#ifndef GWLP_HINSTANCE
+#define GWLP_HINSTANCE      (-6)
+#endif
+#ifndef GWLP_HWNDPARENT
+#define GWLP_HWNDPARENT     (-8)
+#endif
+#ifndef GWLP_USERDATA
+#define GWLP_USERDATA       (-21)
+#endif
+#ifndef GWLP_ID
+#define GWLP_ID             (-12)
+#endif
+#ifndef GWLP_STYLE
+#define GWLP_STYLE           (-16)
+#endif
+#ifndef GWLP_EXSTYLE
+#define GWLP_EXSTYLE         (-20)
+#endif
+//else for _WIN32
+#undef GWL_WNDPROC
+#undef GWL_HINSTANCE
+#undef GWL_HWNDPARENT
+#undef GWL_USERDATA
+#undef GWL_ID
+#undef GWL_STYLE
+#undef GWL_EXSTYLE
+
+//#############################
+// RokDeBone2 version 6 header
+//#############################
+#include "ver6.h"
+
+

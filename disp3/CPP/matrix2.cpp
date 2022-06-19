@@ -1,7 +1,7 @@
 // !!!!!!! shade plugin sdk からmat4をもらいマチタ。 !!!!!!!
 	//(CMatrixとは掛ける方向が逆、あとで変える)
 
-#include <stdafx.h> //ダミー
+#include "stdafx.h" //ダミー
 
 #include <stdio.h>
 #include <stdlib.h>

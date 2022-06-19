@@ -4,7 +4,7 @@
 
 #include <math.h>
 #include <stdio.h>
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #include <coef.h>
 #define DBGH
@@ -133,7 +133,7 @@ LRESULT CAlpKeyDlg::OnInitDialog(UINT uMsg, WPARAM wParam, LPARAM lParam, BOOL& 
 	s_sl_mp_wnd = m_sl_mp_wnd;
 
 	ret = SetNewWindowProc();
-	_ASSERT( !ret );
+	//_ASSERT( !ret );
 
 
 	ret = ParamsToDlg();
@@ -1387,13 +1387,13 @@ LRESULT CALLBACK ListProc(
 ***/
 int CAlpKeyDlg::SetNewWindowProc()
 {
-	s_mpfunc = ::GetWindowLong( m_sl_mp_wnd, GWL_WNDPROC );
+	s_mpfunc = ::GetWindowLong( m_sl_mp_wnd, GWLP_WNDPROC );
 	if( !s_mpfunc ){
-		_ASSERT( 0 );
+		//_ASSERT( 0 );
 		return 1;
 	}
 
-//	s_listfunc = ::GetWindowLong( m_list_wnd, GWL_WNDPROC );
+//	s_listfunc = ::GetWindowLong( m_list_wnd, GWLP_WNDPROC );
 //	if( !s_listfunc ){
 //		_ASSERT( 0 );
 //		return 1;
@@ -1401,13 +1401,13 @@ int CAlpKeyDlg::SetNewWindowProc()
 
 
 	LONG lret;
-	lret = ::SetWindowLong( m_sl_mp_wnd, GWL_WNDPROC, (LONG)MPProcAlp );
+	lret = ::SetWindowLong( m_sl_mp_wnd, GWLP_WNDPROC, (LONG)MPProcAlp );
 	if( lret == 0 ){
 		_ASSERT( 0 );
 		return 1;
 	}
 
-//	lret = ::SetWindowLong( m_list_wnd, GWL_WNDPROC, (LONG)ListProc );
+//	lret = ::SetWindowLong( m_list_wnd, GWLP_WNDPROC, (LONG)ListProc );
 //	if( lret == 0 ){
 //		_ASSERT( 0 );
 //		return 1;

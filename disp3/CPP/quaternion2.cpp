@@ -1,4 +1,4 @@
-#include <stdafx.h>
+#include "stdafx.h"
 #include <windows.h>
 #include <quaternion2.h>
 #include <math.h>
@@ -6,7 +6,7 @@
 #include <matrix2.h>
 #include <crtdbg.h>
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 #define	DBGH
 #include <dbg.h>
@@ -130,8 +130,11 @@ int CQuaternion2::SetRotation( float degx, float degy, float degz )
 	qy.SetParams( cosy, 0.0f, siny, 0.0f, twist );
 	qz.SetParams( cosz, 0.0f, 0.0f, sinz, twist );
 
-	//q = qx * qy * qz;
+#ifdef ROKDEBONE2_VER6
 	q = qz * qy * qx;//!!!!
+#else
+	q = qy * qx * qz;
+#endif
 
 	float savetwist = twist;
 	*this = q;

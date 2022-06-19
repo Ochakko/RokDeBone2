@@ -1,7 +1,7 @@
 #ifndef ESIFILEH
 #define ESIFILEH
 
-#include <D3DX9.h>
+#include <d3dx9.h>
 
 
 #define ESILINELEN	4096
