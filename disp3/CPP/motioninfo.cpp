@@ -54,7 +54,7 @@ static CMotionPoint2* s_tempmp = 0;
 //extern CBonePropDlg* g_bonepropdlg;
 
 
-CMotionInfo::CMotionInfo()
+CMotionInfo::CMotionInfo() : CBaseDat()
 {
 	InitParams();
 

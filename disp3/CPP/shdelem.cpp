@@ -225,7 +225,7 @@ void	CShdElem::operator delete ( void *p )
 ***/
 
 
-CShdElem::CShdElem( int srcserino )
+CShdElem::CShdElem( int srcserino ) : CBaseDat()
 {
 	int ret;
 

@@ -24,7 +24,7 @@
 #include <crtdbg.h>
 
 
-CPart::CPart()
+CPart::CPart() : CBaseDat()
 {
 	int ret;
 	InitParams();

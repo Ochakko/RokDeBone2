@@ -37,7 +37,7 @@ extern int g_index32bit;
 static int compareTex( void *context, const void *elem1, const void *elem2);
 
 
-CPolyMesh2::CPolyMesh2()
+CPolyMesh2::CPolyMesh2() : CBaseDat()
 {
 	InitParams();
 

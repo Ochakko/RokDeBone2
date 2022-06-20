@@ -76,7 +76,7 @@ int SortCB( const VOID* arg1, const VOID* arg2 )
 
 
 
-CBillboard::CBillboard()
+CBillboard::CBillboard() : CBaseDat()
 {
 	InitParams();
 

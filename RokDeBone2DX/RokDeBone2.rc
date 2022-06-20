@@ -773,13 +773,13 @@ BEGIN
     CONTROL         "逆光",IDC_INVERSE,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,159,115,30,10
 END
 
-IDD_VERSIONDLG DIALOGEX 0, 0, 126, 63
+IDD_VERSIONDLG DIALOGEX 0, 0, 203, 109
 STYLE DS_SETFONT | DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "バージョン情報ダイアログ　（モーダル）"
 FONT 9, "ＭＳ Ｐゴシック", 0, 0, 0x0
 BEGIN
-    DEFPUSHBUTTON   "OK",1,38,43,50,14
-    LTEXT           "RokDeBone2DX  Ver5.5.3.7\nCopyright (c) 2004-2012 おちゃっこ\nhttp://ochakkolab.moo.jp/",IDC_STATIC,6,10,112,27
+    DEFPUSHBUTTON   "OK",1,76,85,50,14
+    LTEXT           "RokDeBone2 Ver6.0.0.0\nCopyright (c) 2002-2022 おちゃっこLAB\nhttps://ochakkolab.jp/\n\n\nオープンソースなどのお問い合わせは\ninfo@ochakkolab.jpまでよろしくお願いいたします。",IDC_STATIC,6,10,187,70
 END
 
 IDD_MQODLG DIALOGEX 0, 0, 215, 162
@@ -2961,8 +2961,8 @@ BEGIN
 
     IDD_VERSIONDLG, DIALOG
     BEGIN
-        RIGHTMARGIN, 124
-        BOTTOMMARGIN, 60
+        RIGHTMARGIN, 201
+        BOTTOMMARGIN, 106
     END
 
     IDD_MQODLG, DIALOG
@@ -3754,6 +3754,11 @@ IDI_ICON1               ICON                    "rokdebone2_2.ico"
 //
 
 IDD_INFODLG AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
+
+IDD_VERSIONDLG AFX_DIALOG_LAYOUT
 BEGIN
     0
 END

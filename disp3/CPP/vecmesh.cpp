@@ -23,7 +23,7 @@
 // CVecMesh
 //////////////////////////
 
-CVecMesh::CVecMesh()
+CVecMesh::CVecMesh() : CBaseDat()
 {
 	int ret;
 	InitParams();

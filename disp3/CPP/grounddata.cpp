@@ -17,7 +17,7 @@
 #include <grounddata.h>
 
 
-CGroundData::CGroundData()
+CGroundData::CGroundData() : CBaseDat()
 {
 	InitParams();
 

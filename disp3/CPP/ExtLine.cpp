@@ -19,7 +19,7 @@
 static int s_allocno = 0;
 
 
-CExtLine::CExtLine()
+CExtLine::CExtLine() : CBaseDat()
 {
 	CBaseDat::InitParams();
 

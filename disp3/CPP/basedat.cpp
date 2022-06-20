@@ -211,7 +211,7 @@ int CBaseDat::IsSetMem( __int64 flag )
 // class CVec3f
 //////////////////////
 
-CVec3f::CVec3f()
+CVec3f::CVec3f() : CBaseDat()
 {
 	InitParams();
 	isinit = 1;
@@ -473,7 +473,7 @@ int CVec3f::DumpMem( HANDLE hfile, int tabnum, int dumpflag )
 // CMeshInfo
 ////////////////////////
 
-CMeshInfo::CMeshInfo()
+CMeshInfo::CMeshInfo() : CBaseDat()
 {
 	int	ret;
 	InitParams();
@@ -1020,7 +1020,7 @@ int CMeshInfo::SetMem( float* srcfloat, __int64 setflag )
 ///////////////////
 // CVecLine
 ///////////////////
-CVecLine::CVecLine()
+CVecLine::CVecLine() : CBaseDat()
 {
 	int ret;
 	InitParams();

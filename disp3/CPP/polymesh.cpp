@@ -69,7 +69,7 @@ static int compareTex( void *context, const void *elem1, const void *elem2);
 
 
 ////////////
-CPolyMesh::CPolyMesh()
+CPolyMesh::CPolyMesh() : CBaseDat()
 {
 	InitParams();
 

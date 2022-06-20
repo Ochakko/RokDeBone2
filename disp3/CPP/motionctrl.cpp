@@ -185,7 +185,7 @@ void	CMotionCtrl::operator delete ( void *p )
 }
 ***/
 
-CMotionCtrl::CMotionCtrl( CTreeHandler2* lphandler, int srcserino )
+CMotionCtrl::CMotionCtrl( CTreeHandler2* lphandler, int srcserino ) : CBaseDat()
 {
 	int ret;
 

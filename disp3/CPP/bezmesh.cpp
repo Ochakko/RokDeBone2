@@ -24,7 +24,7 @@
 // CBezMesh
 ///////////////////
 
-CBezMesh::CBezMesh()
+CBezMesh::CBezMesh() : CBaseDat()
 {
 	int ret;
 	InitParams();
