@@ -635,7 +635,14 @@ CQuaternion CQuaternion::CalcFBXEul( CQuaternion befq, D3DXVECTOR3 befeul, D3DXV
 	CQuaternion axisq;
 	axisq.SetParams( 1.0f, 0.0f, 0.0f, 0.0f );
 	qToEulerAxis( axisq, &rq, reteul );
-	modifyEuler( reteul, &befeul );
+
+
+	//2022/06/19 fbx書き出し時には無い方が良いみたい。buchoデータのtalkモーションなどで腕の１８０度問題が起きた。
+	//書き出し時と読み込み時の２回１８０度補正が働くと問題が起こる。読み込み時だけmodifyEulerする。
+	//よって下記のmodifyEulerはコメントアウト。
+	//modifyEuler( reteul, &befeul );
+
+
 //	rq.Q2Eul2( 0, befeul, reteul );
 
 	return rq;
