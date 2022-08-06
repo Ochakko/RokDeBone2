@@ -1533,7 +1533,7 @@ void LinkMeshToSkeletonPMReq(CFBXBone* fbxbone, FbxSkin* lSkin, FbxScene* pScene
 void AnimateSkeleton(FbxScene* pScene)
 {
 
-	FbxString lAnimStackName;
+	//FbxString lAnimStackName;
 
 	int motnum = s_lpmh->m_kindnum;
 	if( motnum < 2 ){
@@ -1600,9 +1600,9 @@ endTime 30;
 		//sprintf_s( layername, 256, "Layer_%d", curmotid );
 		sprintf_s(layername, 256, "Base Layer");
 
-		lAnimStackName = engname;
-	    FbxAnimStack* lAnimStack = FbxAnimStack::Create(pScene, lAnimStackName);
-        FbxAnimLayer* lAnimLayer = FbxAnimLayer::Create(pScene, layername);
+		FbxString lAnimStackName = engname;
+	    FbxAnimStack* lAnimStack = (FbxAnimStack*)FbxAnimStack::Create(pScene, lAnimStackName);
+        FbxAnimLayer* lAnimLayer = (FbxAnimLayer*)FbxAnimLayer::Create(pScene, layername);
 		//FbxAnimLayer* lAnimLayer = FbxAnimLayer::Create(lAnimStack, layername);
 		(s_ai + ano)->animlayer = lAnimLayer;
 		strcpy_s( (s_ai + ano)->engmotname, 256, engname );
